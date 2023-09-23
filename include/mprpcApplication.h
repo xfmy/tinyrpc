@@ -8,14 +8,14 @@ class MprpcApplication : public boost::noncopyable{
 public:
 
     //单例模式
-    static const MprpcApplication &GetInstance(void)
+    static MprpcApplication &GetInstance(void)
     {
         static MprpcApplication obj;
         return obj;
     }
 
     //初始化配置项
-    void init() const;
+    void init();
 
     //获取相应的配置值
     std::optional<std::string> atConfigItem(std::string field) const;

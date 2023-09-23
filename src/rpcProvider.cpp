@@ -42,7 +42,7 @@ void RpcProvider::run()
         int port = std::atoi(servicePort.value().c_str());
         rpcNetwork networkLayer(port);
         //设置rpc分发回调函数
-        networkLayer.setBusinessMessageCallback(std::bind(RpcProvider::serviceDistribute,this, _1, _2, _3));
+        networkLayer.setBusinessMessageCallback(std::bind(&RpcProvider::serviceDistribute,this, _1, _2, _3));
         networkLayer.start();
     }
     else
@@ -57,7 +57,7 @@ void RpcProvider::writeComplete(const muduo::net::TcpConnectionPtr& connectPtr)
     connectPtr->shutdown();
 }
 
-void RpcProvider::serviceDistribute(const TcpConnectionPtr& connectPtr, const std::string &data, Timestamp)
+void RpcProvider::serviceDistribute(const muduo::net::TcpConnectionPtr &connectPtr, const std::string & data, muduo::Timestamp)
 {
     try{
         //解析rpcHeadler头部并获取相应的字段
@@ -65,9 +65,9 @@ void RpcProvider::serviceDistribute(const TcpConnectionPtr& connectPtr, const st
         std::string serviceName = headler.servicename();
         std::string methodName = headler.methodname();
         uint32_t argsSize = headler.argssize();
-
-        //获取service信息
-        const ServiceInfo& serviceINfo = GetServiceInfo(serviceName);
+        
+        // 获取service信息
+        const ServiceInfo &serviceINfo = GetServiceInfo(serviceName);
         const PROTO::Service* service = serviceINfo.GetService();
         const PROTO::MethodDescriptor *methodDes = serviceINfo.GetMethodDescriptor(methodName);
 
@@ -80,8 +80,11 @@ void RpcProvider::serviceDistribute(const TcpConnectionPtr& connectPtr, const st
         PROTO::Message *resp = service->GetResponsePrototype(methodDes).New();
 
         //将responseToClient转换为client响应消息类型
-        std::function<void()> methodCallback(std::bind(RpcProvider::responseToClient, this, connectPtr, req));
-        PROTO::Closure *closure = PROTO::NewCallback(methodCallback.target<void()>());
+        //std::function<void()> methodCallback(std::bind(RpcProvider::responseToClient, this, connectPtr, req));
+        //PROTO::Closure *closure = PROTO::NewCallback(methodCallback.target<void()>());
+        PROTO::Closure *closure = 
+            PROTO::NewCallback<RpcProvider, const TcpConnectionPtr &, PROTO::Message *>
+                (this, &RpcProvider::responseToClient, connectPtr, resp);
         
         // 调用protobuf抽象后的rpc方法
         const_cast<PROTO::Service*>(service)->CallMethod(methodDes, nullptr, req, resp, closure);
@@ -110,10 +113,12 @@ mprpcHeader::rpcHeader RpcProvider::parseHeadler(const std::string &data)
 void RpcProvider::responseToClient(const TcpConnectionPtr& respondPtr, PROTO::Message *response)
 {
     std::string output;
+    
     if(!response->SerializeToString(&output)){
         throw except("protobuf序列化协议解析失败");
     }
     respondPtr->send(output);
+    respondPtr->shutdown();
 }
 
 void RpcProvider::parseRequast(PROTO::Message * req,const std::string &data, uint32_t argsSize)

@@ -29,6 +29,7 @@ rpcNetwork::rpcNetwork(uint16_t port)
     // 设置tcpserver的网络层相关回调
     server.setMessageCallback(std::bind(&rpcNetwork::onMessageCallback, this, _1, _2, _3));
     server.setThreadInitCallback(std::bind(&rpcNetwork::onThreadInitCallback, this, _1));
+    server.setConnectionCallback(std::bind(&rpcNetwork::onConnectCallback,this,_1));
     setThreadNum(std::thread::hardware_concurrency());
     setPackageFullCallback(package::parse);
 }
@@ -62,16 +63,16 @@ void rpcNetwork::onMessageCallback(const TcpConnectionPtr &ptr, Buffer *buf, Tim
     }
 }
 
-// void chatNetworkLayer::onConnectCallback(const TcpConnectionPtr &ptr)
-// {
-//     if (ptr->connected()){
-//         LOG_INFO << ptr->peerAddress().toIpPort() + "客户发起来了连接";
-//     }
-//     else{
-//         LOG_INFO << ptr->peerAddress().toIpPort() + "客户断开了连接";
-//     }
-
-// }
+void rpcNetwork::onConnectCallback(const TcpConnectionPtr &ptr)
+{
+    if (ptr->connected()){
+        LOG_INFO << ptr->peerAddress().toIpPort() + "客户发起来了连接";
+    }
+    else if(ptr->disconnected()){
+        LOG_INFO << ptr->peerAddress().toIpPort() + "客户断开了连接";
+        ptr->shutdown();
+    }
+}
 
 void rpcNetwork::onThreadInitCallback(EventLoop *)
 {

@@ -2,3 +2,6 @@ bin/*
 build/*
 .vscode/*
 .gitignore
+*/CMakeFiles/*
+Makefile
+cmake_install.cmake

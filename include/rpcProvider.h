@@ -3,6 +3,7 @@
 #include <google/protobuf/service.h>
 #include <unordered_map>
 #include <muduo/net/TcpConnection.h>
+#include <muduo/base/Timestamp.h>
 
 namespace PROTO = google::protobuf;
 
@@ -32,13 +33,13 @@ private:
     void writeComplete(const muduo::net::TcpConnectionPtr &);
     
     //rpc解析分发回调方法
-    void serviceDistribute(const TcpConnectionPtr &, const std::string &, Timestamp);
+    void serviceDistribute(const muduo::net::TcpConnectionPtr &, const std::string &, muduo::Timestamp);
     
     //解析rpcHeadler信息
     mprpcHeader::rpcHeader parseHeadler(const std::string &data);
     
     //客户端响应回调函数
-    void responseToClient(const TcpConnectionPtr& , PROTO::Message* response);
+    void responseToClient(const muduo::net::TcpConnectionPtr &, PROTO::Message *response);
 
     // 解析request请求信息,并将protobuf解析数据写入PROTO::Message * req
     void parseRequast(PROTO::Message* req, const std::string &data, uint32_t argsSize);

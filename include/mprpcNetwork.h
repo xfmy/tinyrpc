@@ -35,9 +35,12 @@ public:
     void setPackageFullCallback(const packageFullCallback cb) { packageFull = cb; };
 
 private:
-    // 设置workLoop数量
-    void setThreadNum(int count) { server.setThreadNum(count); }
+    //
+    void onConnectCallback(const TcpConnectionPtr &ptr);
     
+    // 设置workLoop数量
+    void setThreadNum(int count){server.setThreadNum(count);}
+
     //设置线程初始化完毕的回调函数
     void setThreadInitCallback(const ThreadInitCallback cb) { server.setThreadInitCallback(cb); }
 

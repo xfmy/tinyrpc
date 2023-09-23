@@ -1,2 +1,3 @@
-add_executable(userService ./userService.cpp)
-target_link_libraries(userService libmproc)
+aux_source_directory(. SRC_LIST)
+add_executable(userService ${SRC_LIST})
+target_link_libraries(userService mprpc)

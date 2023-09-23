@@ -1,5 +1,4 @@
-mkdir build
-mkdir bin
+#! /bin/bash
+chmod +x autoBuild.sh
 cmake . build
 cmake --build build
-rm -rf build
