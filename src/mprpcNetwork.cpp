@@ -31,7 +31,7 @@ rpcNetwork::rpcNetwork(uint16_t port)
     server.setThreadInitCallback(std::bind(&rpcNetwork::onThreadInitCallback, this, _1));
     server.setConnectionCallback(std::bind(&rpcNetwork::onConnectCallback,this,_1));
     setThreadNum(std::thread::hardware_concurrency());
-    setPackageFullCallback(package::parse);
+    setPackageFullCallback(&package::parse);
 }
 
 rpcNetwork::~rpcNetwork()
@@ -54,12 +54,14 @@ void rpcNetwork::onMessageCallback(const TcpConnectionPtr &ptr, Buffer *buf, Tim
     // 首先解析一个完整的包,然后调用onMessageCompleteCallback处理
     std::string view(buf->peek(), buf->readableBytes());
     std::string userData;
+    LOG_INFO << "接收到一个的包 data size:" << view.size();
     int index = packageFull(view, userData);
     if(index == -1)
         return;
     else{
+        LOG_INFO <<"接收到一个完整的包";
         buf->retrieve(index);
-        businessMsgCallback(ptr, view, time);
+        businessMsgCallback(ptr, userData, time);
     }
 }
 

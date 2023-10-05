@@ -23,7 +23,8 @@ public:
     static int parse(std::string_view view, std::string& target);
 private :
     // 0XFEFF 头部	2字节
-    static const unsigned short head = 0xFEFF;
+    //static const unsigned short head = 0xFEFF;
+    static constexpr unsigned char head[2]{(unsigned char)0xFE, (unsigned char)0xFF};
 
     // 长度			4字节
     //int len;
@@ -34,6 +35,6 @@ private :
 
     // 校验和			4字节
     // int checksum;
-    using checksum = int;
+    using checksum = size_t;
 };
 #pragma pack(pop)

@@ -12,7 +12,7 @@ configInfo RpcInitConfig::execute()
     */
     try
     {
-        config.readFile("../conf/initConfFile.conf");
+        config.readFile("../conf/initConfigFile.conf");
     }
     catch (const libconfig::FileIOException &fioex)
     {
@@ -28,7 +28,7 @@ configInfo RpcInitConfig::execute()
     /* 从配置文件中，得到日志相关配置值 */
     try
     {
-        std::string serverPort = config.lookup(" baseConf.serverPort ");
+        std::string serverPort = config.lookup("baseConf.serverPort");
         info.emplace("serverPort", serverPort);
 
         std::string zookeeperIp = config.lookup("baseConf.zookeeperIp");
@@ -39,7 +39,7 @@ configInfo RpcInitConfig::execute()
     }
     catch (const libconfig::SettingNotFoundException &nfex)
     {
-        LOG_FATAL << "log setting mistake in configuration file.";
+        LOG_FATAL << "log setting mistake in configuration file." << nfex.what();
     }
     return info;
 }

@@ -5,7 +5,8 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "/home/xf/install/vcpkg/installed/x64-linux/include/",
-                "${workspaceFolder}/include"
+                "${workspaceFolder}/include",
+                "/home/xf/install/vcpkg/installed/x64-linux/include"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang",

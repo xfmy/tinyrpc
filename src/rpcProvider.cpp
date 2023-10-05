@@ -59,7 +59,9 @@ void RpcProvider::writeComplete(const muduo::net::TcpConnectionPtr& connectPtr)
 
 void RpcProvider::serviceDistribute(const muduo::net::TcpConnectionPtr &connectPtr, const std::string & data, muduo::Timestamp)
 {
-    try{
+    LOG_INFO << "serviceDistribute";
+    try
+    {
         //解析rpcHeadler头部并获取相应的字段
         mprpcHeader::rpcHeader headler = parseHeadler(data);
         std::string serviceName = headler.servicename();
@@ -87,7 +89,7 @@ void RpcProvider::serviceDistribute(const muduo::net::TcpConnectionPtr &connectP
                 (this, &RpcProvider::responseToClient, connectPtr, resp);
         
         // 调用protobuf抽象后的rpc方法
-        const_cast<PROTO::Service*>(service)->CallMethod(methodDes, nullptr, req, resp, closure);
+        const_cast<PROTO::Service *>(service)->CallMethod(methodDes, nullptr, req, resp, closure);
     }
     catch (except err)
     {
@@ -98,10 +100,11 @@ void RpcProvider::serviceDistribute(const muduo::net::TcpConnectionPtr &connectP
 mprpcHeader::rpcHeader RpcProvider::parseHeadler(const std::string &data)
 {
     //判断是否满足最小包条件大小
-    if (data.size() <= sizeof(mprpcHeader::rpcHeader) + 4)
-        throw except("数据包不满足最低大小");
+    // if (data.size() <= sizeof(mprpcHeader::rpcHeader) + 4)
+    //     throw except("数据包不满足最低大小");
     //获取rpcHeadler长度
-    int headlerSize = std::atoi(data.substr(0, 4).c_str());
+    
+    int headlerSize = *(int*)data.c_str();
     mprpcHeader::rpcHeader headler;
     //解析handler的protobuf数据
     if (!headler.ParseFromString(data.substr(4, headlerSize))){
@@ -124,7 +127,7 @@ void RpcProvider::responseToClient(const TcpConnectionPtr& respondPtr, PROTO::Me
 void RpcProvider::parseRequast(PROTO::Message * req,const std::string &data, uint32_t argsSize)
 {
 
-    int headlerSize = std::atoi(data.substr(0, 4).c_str());
+    int headlerSize = *(int *)data.c_str();
     if(data.size() != 4 + headlerSize + argsSize)
         throw except("数据包实际大小与理论大小不符合");
     // auto it = m_serviceMap.find(serviceName);
