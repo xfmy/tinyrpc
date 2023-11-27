@@ -1,0 +1,20 @@
+\doxysection{rpc\+Channel.\+h}
+\hypertarget{rpc_channel_8h_source}{}\label{rpc_channel_8h_source}\index{include/rpcChannel.h@{include/rpcChannel.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <google/protobuf/service.h>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <google/protobuf/descriptor.h>}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }PROTO\ =\ google::protobuf;}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_rpc_channel}{RpcChannel}}\ :\ \textcolor{keyword}{public}\ PROTO::RpcChannel}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_rpc_channel_a0123a011c98b7282ddfc9ab105443741}{CallMethod}}(\textcolor{keyword}{const}\ PROTO::MethodDescriptor\ *method,}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PROTO::RpcController\ *controller,}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ PROTO::Message\ *request,}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PROTO::Message\ *response,\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PROTO::Closure\ *done)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00021\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,46 @@
+\doxysection{include/mprpc\+Network.h File Reference}
+\hypertarget{mprpc_network_8h}{}\label{mprpc_network_8h}\index{include/mprpcNetwork.h@{include/mprpcNetwork.h}}
+
+
+整个项目的网络模块,封装muduo网络库\+Tcp\+Server  
+
+
+{\ttfamily \#include $<$muduo/net/\+Tcp\+Server.\+h$>$}\newline
+{\ttfamily \#include $<$muduo/net/\+Event\+Loop.\+h$>$}\newline
+{\ttfamily \#include $<$muduo/net/\+Inet\+Address.\+h$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$string\+\_\+view$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classrpc_network}{rpc\+Network}}
+\begin{DoxyCompactList}\small\item\em mprpc的网络模块 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{mprpc_network_8h_ab51c52cfd4d857c44cc4d6fd2007f18e}\label{mprpc_network_8h_ab51c52cfd4d857c44cc4d6fd2007f18e} 
+typedef std\+::function$<$ void(Event\+Loop \texorpdfstring{$\ast$}{*})$>$ {\bfseries Thread\+Init\+Callback}
+\item 
+\Hypertarget{mprpc_network_8h_abd52fc2c7b8a525858de5d18fc8e5ced}\label{mprpc_network_8h_abd52fc2c7b8a525858de5d18fc8e5ced} 
+using {\bfseries business\+Callback} = std\+::function$<$ void(const Tcp\+Connection\+Ptr \&, const std\+::string \&, Timestamp)$>$
+\item 
+\Hypertarget{mprpc_network_8h_a1bd79b4823099c64ed37189d2a008721}\label{mprpc_network_8h_a1bd79b4823099c64ed37189d2a008721} 
+using {\bfseries package\+Full\+Callback} = std\+::function$<$ int(std\+::string\+\_\+view view, std\+::string \&target)$>$
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+整个项目的网络模块,封装muduo网络库\+Tcp\+Server 
+
+\begin{DoxyAuthor}{Author}
+xf 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyCopyright}{Copyright}
+BSD 
+\end{DoxyCopyright}
+\begin{DoxyDate}{Date}
+2023-\/11-\/27 
+\end{DoxyDate}

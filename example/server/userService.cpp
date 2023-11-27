@@ -6,7 +6,7 @@
 
 class UserService : public fixbug::user
 {
-    public:
+public:
     bool Login(std::string name, std::string password){
         LOG_INFO << "user name is " + name;
         LOG_INFO << "user password is " + password;

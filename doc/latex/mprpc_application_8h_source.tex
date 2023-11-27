@@ -1,0 +1,25 @@
+\doxysection{mprpc\+Application.\+h}
+\hypertarget{mprpc_application_8h_source}{}\label{mprpc_application_8h_source}\index{include/mprpcApplication.h@{include/mprpcApplication.h}}
+\mbox{\hyperlink{mprpc_application_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <boost/noncopyable.hpp>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}rpcInitConfig.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_mprpc_application}{MprpcApplication}}\ :\ \textcolor{keyword}{public}\ boost::noncopyable\{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_mprpc_application}{MprpcApplication}}\ \&\mbox{\hyperlink{class_mprpc_application_aa4b4176803ee90eaa4398990012438c0}{GetInstance}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00018\ \ \ \ \ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_mprpc_application}{MprpcApplication}}\ obj;}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ obj;}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mprpc_application_a84ab9c2e3ee75d7eadd7f5d6d9947126}{init}}();}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00029\ \ \ \ \ std::optional<std::string>\ \mbox{\hyperlink{class_mprpc_application_a4007a7b2b7555204bdd7e6a91c0f245f}{atConfigItem}}(std::string\ field)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00032\ \ \ \ \ configInfo\ infoMap;}
+\DoxyCodeLine{00033\ \};}
+
+\end{DoxyCode}

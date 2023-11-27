@@ -1,0 +1,385 @@
+\doxysection{mprpc\+Header.\+pb.\+h}
+\hypertarget{mprpc_header_8pb_8h_source}{}\label{mprpc_header_8pb_8h_source}\index{include/mprpcHeader.pb.h@{include/mprpcHeader.pb.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Generated\ by\ the\ protocol\ buffer\ compiler.\ \ DO\ NOT\ EDIT!}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ source:\ mprpcHeader.proto}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#ifndef\ GOOGLE\_PROTOBUF\_INCLUDED\_mprpcHeader\_2eproto}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ GOOGLE\_PROTOBUF\_INCLUDED\_mprpcHeader\_2eproto}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <google/protobuf/port\_def.inc>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#if\ PROTOBUF\_VERSION\ <\ 3021000}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#error\ This\ file\ was\ generated\ by\ a\ newer\ version\ of\ protoc\ which\ is}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#error\ incompatible\ with\ your\ Protocol\ Buffer\ headers.\ Please\ update}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#error\ your\ headers.}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#if\ 3021012\ <\ PROTOBUF\_MIN\_PROTOC\_VERSION}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#error\ This\ file\ was\ generated\ by\ an\ older\ version\ of\ protoc\ which\ is}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#error\ incompatible\ with\ your\ Protocol\ Buffer\ headers.\ Please}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#error\ regenerate\ this\ file\ with\ a\ newer\ version\ of\ protoc.}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <google/protobuf/port\_undef.inc>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <google/protobuf/io/coded\_stream.h>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <google/protobuf/arena.h>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <google/protobuf/arenastring.h>}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <google/protobuf/generated\_message\_util.h>}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <google/protobuf/metadata\_lite.h>}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ <google/protobuf/generated\_message\_reflection.h>}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ <google/protobuf/message.h>}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <google/protobuf/repeated\_field.h>}\ \ \textcolor{comment}{//\ IWYU\ pragma:\ export}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <google/protobuf/extension\_set.h>}\ \ \textcolor{comment}{//\ IWYU\ pragma:\ export}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <google/protobuf/unknown\_field\_set.h>}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ @@protoc\_insertion\_point(includes)}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <google/protobuf/port\_def.inc>}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ PROTOBUF\_INTERNAL\_EXPORT\_mprpcHeader\_2eproto}}
+\DoxyCodeLine{00036\ PROTOBUF\_NAMESPACE\_OPEN}
+\DoxyCodeLine{00037\ \textcolor{keyword}{namespace\ }internal\ \{}
+\DoxyCodeLine{00038\ \textcolor{keyword}{class\ }AnyMetadata;}
+\DoxyCodeLine{00039\ \}\ \ \textcolor{comment}{//\ namespace\ internal}}
+\DoxyCodeLine{00040\ PROTOBUF\_NAMESPACE\_CLOSE}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{comment}{//\ Internal\ implementation\ detail\ -\/-\/\ do\ not\ use\ these\ members.}}
+\DoxyCodeLine{00043\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_table_struct__mprpc_header__2eproto}{TableStruct\_mprpcHeader\_2eproto}}\ \{}
+\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ offsets[];}
+\DoxyCodeLine{00045\ \};}
+\DoxyCodeLine{00046\ \textcolor{keyword}{extern}\ const\ ::PROTOBUF\_NAMESPACE\_ID::internal::DescriptorTable\ descriptor\_table\_mprpcHeader\_2eproto;}
+\DoxyCodeLine{00047\ \textcolor{keyword}{namespace\ }mprpcHeader\ \{}
+\DoxyCodeLine{00048\ \textcolor{keyword}{class\ }rpcHeader;}
+\DoxyCodeLine{00049\ \textcolor{keyword}{struct\ }rpcHeaderDefaultTypeInternal;}
+\DoxyCodeLine{00050\ \textcolor{keyword}{extern}\ rpcHeaderDefaultTypeInternal\ \_rpcHeader\_default\_instance\_;}
+\DoxyCodeLine{00051\ \}\ \ \textcolor{comment}{//\ namespace\ mprpcHeader}}
+\DoxyCodeLine{00052\ PROTOBUF\_NAMESPACE\_OPEN}
+\DoxyCodeLine{00053\ \textcolor{keyword}{template}<>\ \mbox{\hyperlink{classmprpc_header_1_1rpc_header}{::mprpcHeader::rpcHeader}}*\ Arena::CreateMaybeMessage<::mprpcHeader::rpcHeader>(Arena*);}
+\DoxyCodeLine{00054\ PROTOBUF\_NAMESPACE\_CLOSE}
+\DoxyCodeLine{00055\ \textcolor{keyword}{namespace\ }mprpcHeader\ \{}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{comment}{//\ ===================================================================}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmprpc_header_1_1rpc_header}{rpcHeader}}\ final\ :}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{public}\ ::PROTOBUF\_NAMESPACE\_ID::Message\ \textcolor{comment}{/*\ @@protoc\_insertion\_point(class\_definition:mprpcHeader.rpcHeader)\ */}\ \{}
+\DoxyCodeLine{00061\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00062\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmprpc_header_1_1rpc_header}{rpcHeader}}()\ :\ \mbox{\hyperlink{classmprpc_header_1_1rpc_header}{rpcHeader}}(\textcolor{keyword}{nullptr})\ \{\}}
+\DoxyCodeLine{00063\ \ \ \mbox{\hyperlink{classmprpc_header_1_1rpc_header}{\string~rpcHeader}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00064\ \ \ \textcolor{keyword}{explicit}\ PROTOBUF\_CONSTEXPR\ \mbox{\hyperlink{classmprpc_header_1_1rpc_header}{rpcHeader}}(::PROTOBUF\_NAMESPACE\_ID::internal::ConstantInitialized);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \mbox{\hyperlink{classmprpc_header_1_1rpc_header}{rpcHeader}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmprpc_header_1_1rpc_header}{rpcHeader}}\&\ from);}
+\DoxyCodeLine{00067\ \ \ \mbox{\hyperlink{classmprpc_header_1_1rpc_header}{rpcHeader}}(\mbox{\hyperlink{classmprpc_header_1_1rpc_header}{rpcHeader}}\&\&\ from)\ noexcept}
+\DoxyCodeLine{00068\ \ \ \ \ :\ \mbox{\hyperlink{classmprpc_header_1_1rpc_header}{rpcHeader}}()\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ *\textcolor{keyword}{this}\ =\ ::std::move(from);}
+\DoxyCodeLine{00070\ \ \ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmprpc_header_1_1rpc_header}{rpcHeader}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmprpc_header_1_1rpc_header}{rpcHeader}}\&\ from)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ CopyFrom(from);}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00075\ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmprpc_header_1_1rpc_header}{rpcHeader}}\&\ operator=(\mbox{\hyperlink{classmprpc_header_1_1rpc_header}{rpcHeader}}\&\&\ from)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&from)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{if}\ (GetOwningArena()\ ==\ from.GetOwningArena()}
+\DoxyCodeLine{00079\ \ \ \#ifdef\ PROTOBUF\_FORCE\_COPY\_IN\_MOVE}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \&\&\ GetOwningArena()\ !=\ \textcolor{keyword}{nullptr}}
+\DoxyCodeLine{00081\ \ \ \#endif\ \ \textcolor{comment}{//\ !PROTOBUF\_FORCE\_COPY\_IN\_MOVE}}
+\DoxyCodeLine{00082\ \ \ \ \ )\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ InternalSwap(\&from);}
+\DoxyCodeLine{00084\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ CopyFrom(from);}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00088\ \ \ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \textcolor{keyword}{static}\ const\ ::PROTOBUF\_NAMESPACE\_ID::Descriptor*\ descriptor()\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{return}\ GetDescriptor();}
+\DoxyCodeLine{00092\ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \textcolor{keyword}{static}\ const\ ::PROTOBUF\_NAMESPACE\_ID::Descriptor*\ GetDescriptor()\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{return}\ default\_instance().GetMetadata().descriptor;}
+\DoxyCodeLine{00095\ \ \ \}}
+\DoxyCodeLine{00096\ \ \ \textcolor{keyword}{static}\ const\ ::PROTOBUF\_NAMESPACE\_ID::Reflection*\ GetReflection()\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordflow}{return}\ default\_instance().GetMetadata().reflection;}
+\DoxyCodeLine{00098\ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmprpc_header_1_1rpc_header}{rpcHeader}}\&\ default\_instance()\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{return}\ *internal\_default\_instance();}
+\DoxyCodeLine{00101\ \ \ \}}
+\DoxyCodeLine{00102\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmprpc_header_1_1rpc_header}{rpcHeader}}*\ internal\_default\_instance()\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classmprpc_header_1_1rpc_header}{rpcHeader}}*\textcolor{keyword}{>}(}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\_rpcHeader\_default\_instance\_);}
+\DoxyCodeLine{00105\ \ \ \}}
+\DoxyCodeLine{00106\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ kIndexInFileMessages\ =}
+\DoxyCodeLine{00107\ \ \ \ \ 0;}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{void}\ swap(\mbox{\hyperlink{classmprpc_header_1_1rpc_header}{rpcHeader}}\&\ a,\ \mbox{\hyperlink{classmprpc_header_1_1rpc_header}{rpcHeader}}\&\ b)\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ a.Swap(\&b);}
+\DoxyCodeLine{00111\ \ \ \}}
+\DoxyCodeLine{00112\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ Swap(\mbox{\hyperlink{classmprpc_header_1_1rpc_header}{rpcHeader}}*\ other)\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{if}\ (other\ ==\ \textcolor{keyword}{this})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\ \ \#ifdef\ PROTOBUF\_FORCE\_COPY\_IN\_SWAP}}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordflow}{if}\ (GetOwningArena()\ !=\ \textcolor{keyword}{nullptr}\ \&\&}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ GetOwningArena()\ ==\ other-\/>GetOwningArena())\ \{}
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\ \ \ \#else\ \ }\textcolor{comment}{//\ PROTOBUF\_FORCE\_COPY\_IN\_SWAP}}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordflow}{if}\ (GetOwningArena()\ ==\ other-\/>GetOwningArena())\ \{}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\ \ \#endif\ \ }\textcolor{comment}{//\ !PROTOBUF\_FORCE\_COPY\_IN\_SWAP}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ InternalSwap(other);}
+\DoxyCodeLine{00121\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ ::PROTOBUF\_NAMESPACE\_ID::internal::GenericSwap(\textcolor{keyword}{this},\ other);}
+\DoxyCodeLine{00123\ \ \ \ \ \}}
+\DoxyCodeLine{00124\ \ \ \}}
+\DoxyCodeLine{00125\ \ \ \textcolor{keywordtype}{void}\ UnsafeArenaSwap(\mbox{\hyperlink{classmprpc_header_1_1rpc_header}{rpcHeader}}*\ other)\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordflow}{if}\ (other\ ==\ \textcolor{keyword}{this})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00127\ \ \ \ \ GOOGLE\_DCHECK(GetOwningArena()\ ==\ other-\/>GetOwningArena());}
+\DoxyCodeLine{00128\ \ \ \ \ InternalSwap(other);}
+\DoxyCodeLine{00129\ \ \ \}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \textcolor{comment}{//\ implements\ Message\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \mbox{\hyperlink{classmprpc_header_1_1rpc_header}{rpcHeader}}*\ New(::PROTOBUF\_NAMESPACE\_ID::Arena*\ arena\ =\ \textcolor{keyword}{nullptr})\ \textcolor{keyword}{const}\ \textcolor{keyword}{final}\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordflow}{return}\ CreateMaybeMessage<rpcHeader>(arena);}
+\DoxyCodeLine{00135\ \ \ \}}
+\DoxyCodeLine{00136\ \ \ using\ ::PROTOBUF\_NAMESPACE\_ID::Message::CopyFrom;}
+\DoxyCodeLine{00137\ \ \ \textcolor{keywordtype}{void}\ CopyFrom(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmprpc_header_1_1rpc_header}{rpcHeader}}\&\ from);}
+\DoxyCodeLine{00138\ \ \ using\ ::PROTOBUF\_NAMESPACE\_ID::Message::MergeFrom;}
+\DoxyCodeLine{00139\ \ \ \textcolor{keywordtype}{void}\ MergeFrom(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmprpc_header_1_1rpc_header}{rpcHeader}}\&\ from)\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ rpcHeader::MergeImpl(*\textcolor{keyword}{this},\ from);}
+\DoxyCodeLine{00141\ \ \ \}}
+\DoxyCodeLine{00142\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00143\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ MergeImpl(::PROTOBUF\_NAMESPACE\_ID::Message\&\ to\_msg,\ const\ ::PROTOBUF\_NAMESPACE\_ID::Message\&\ from\_msg);}
+\DoxyCodeLine{00144\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00145\ \ \ PROTOBUF\_ATTRIBUTE\_REINITIALIZES\ \textcolor{keywordtype}{void}\ Clear()\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00146\ \ \ \textcolor{keywordtype}{bool}\ IsInitialized()\ \textcolor{keyword}{const}\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \textcolor{keywordtype}{size\_t}\ ByteSizeLong()\ \textcolor{keyword}{const}\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00149\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \_InternalParse(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ ptr,\ ::PROTOBUF\_NAMESPACE\_ID::internal::ParseContext*\ ctx)\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00150\ \ \ uint8\_t*\ \_InternalSerialize(}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ uint8\_t*\ target,\ ::PROTOBUF\_NAMESPACE\_ID::io::EpsCopyOutputStream*\ stream)\ \textcolor{keyword}{const}\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00152\ \ \ \textcolor{keywordtype}{int}\ GetCachedSize()\ \textcolor{keyword}{const}\ \textcolor{keyword}{final}\ \{\ \textcolor{keywordflow}{return}\ \_impl\_.\_cached\_size\_.Get();\ \}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00155\ \ \ \textcolor{keywordtype}{void}\ SharedCtor(::PROTOBUF\_NAMESPACE\_ID::Arena*\ arena,\ \textcolor{keywordtype}{bool}\ is\_message\_owned);}
+\DoxyCodeLine{00156\ \ \ \textcolor{keywordtype}{void}\ SharedDtor();}
+\DoxyCodeLine{00157\ \ \ \textcolor{keywordtype}{void}\ SetCachedSize(\textcolor{keywordtype}{int}\ size)\ \textcolor{keyword}{const}\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00158\ \ \ \textcolor{keywordtype}{void}\ InternalSwap(\mbox{\hyperlink{classmprpc_header_1_1rpc_header}{rpcHeader}}*\ other);}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00161\ \ \ \textcolor{keyword}{friend}\ class\ ::PROTOBUF\_NAMESPACE\_ID::internal::AnyMetadata;}
+\DoxyCodeLine{00162\ \ \ static\ ::PROTOBUF\_NAMESPACE\_ID::StringPiece\ FullMessageName()\ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}mprpcHeader.rpcHeader"{}};}
+\DoxyCodeLine{00164\ \ \ \}}
+\DoxyCodeLine{00165\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00166\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classmprpc_header_1_1rpc_header}{rpcHeader}}(::PROTOBUF\_NAMESPACE\_ID::Arena*\ arena,}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_message\_owned\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00168\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ ClassData\ \_class\_data\_;}
+\DoxyCodeLine{00171\ \ \ const\ ::PROTOBUF\_NAMESPACE\_ID::Message::ClassData*GetClassData()\ \textcolor{keyword}{const}\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ ::PROTOBUF\_NAMESPACE\_ID::Metadata\ GetMetadata()\ \textcolor{keyword}{const}\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \textcolor{comment}{//\ nested\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \textcolor{comment}{//\ accessors\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ enum\ :\ \textcolor{keywordtype}{int}\ \{}
+\DoxyCodeLine{00180\ \ \ \ \ kServiceNameFieldNumber\ =\ 1,}
+\DoxyCodeLine{00181\ \ \ \ \ kMethodNameFieldNumber\ =\ 2,}
+\DoxyCodeLine{00182\ \ \ \ \ kArgsSizeFieldNumber\ =\ 3,}
+\DoxyCodeLine{00183\ \ \ \};}
+\DoxyCodeLine{00184\ \ \ \textcolor{comment}{//\ string\ serviceName\ =\ 1;}}
+\DoxyCodeLine{00185\ \ \ \textcolor{keywordtype}{void}\ clear\_servicename();}
+\DoxyCodeLine{00186\ \ \ \textcolor{keyword}{const}\ std::string\&\ servicename()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00187\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ArgT0\ =\ \textcolor{keyword}{const}\ std::string\&,\ \textcolor{keyword}{typename}...\ ArgT>}
+\DoxyCodeLine{00188\ \ \ \textcolor{keywordtype}{void}\ set\_servicename(ArgT0\&\&\ arg0,\ ArgT...\ args);}
+\DoxyCodeLine{00189\ \ \ std::string*\ mutable\_servicename();}
+\DoxyCodeLine{00190\ \ \ PROTOBUF\_NODISCARD\ std::string*\ release\_servicename();}
+\DoxyCodeLine{00191\ \ \ \textcolor{keywordtype}{void}\ set\_allocated\_servicename(std::string*\ servicename);}
+\DoxyCodeLine{00192\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00193\ \ \ \textcolor{keyword}{const}\ std::string\&\ \_internal\_servicename()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00194\ \ \ \textcolor{keyword}{inline}\ PROTOBUF\_ALWAYS\_INLINE\ \textcolor{keywordtype}{void}\ \_internal\_set\_servicename(\textcolor{keyword}{const}\ std::string\&\ value);}
+\DoxyCodeLine{00195\ \ \ std::string*\ \_internal\_mutable\_servicename();}
+\DoxyCodeLine{00196\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \ \ \textcolor{comment}{//\ string\ methodName\ =\ 2;}}
+\DoxyCodeLine{00199\ \ \ \textcolor{keywordtype}{void}\ clear\_methodname();}
+\DoxyCodeLine{00200\ \ \ \textcolor{keyword}{const}\ std::string\&\ methodname()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00201\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ArgT0\ =\ \textcolor{keyword}{const}\ std::string\&,\ \textcolor{keyword}{typename}...\ ArgT>}
+\DoxyCodeLine{00202\ \ \ \textcolor{keywordtype}{void}\ set\_methodname(ArgT0\&\&\ arg0,\ ArgT...\ args);}
+\DoxyCodeLine{00203\ \ \ std::string*\ mutable\_methodname();}
+\DoxyCodeLine{00204\ \ \ PROTOBUF\_NODISCARD\ std::string*\ release\_methodname();}
+\DoxyCodeLine{00205\ \ \ \textcolor{keywordtype}{void}\ set\_allocated\_methodname(std::string*\ methodname);}
+\DoxyCodeLine{00206\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00207\ \ \ \textcolor{keyword}{const}\ std::string\&\ \_internal\_methodname()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00208\ \ \ \textcolor{keyword}{inline}\ PROTOBUF\_ALWAYS\_INLINE\ \textcolor{keywordtype}{void}\ \_internal\_set\_methodname(\textcolor{keyword}{const}\ std::string\&\ value);}
+\DoxyCodeLine{00209\ \ \ std::string*\ \_internal\_mutable\_methodname();}
+\DoxyCodeLine{00210\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \ \ \textcolor{comment}{//\ uint32\ argsSize\ =\ 3;}}
+\DoxyCodeLine{00213\ \ \ \textcolor{keywordtype}{void}\ clear\_argssize();}
+\DoxyCodeLine{00214\ \ \ uint32\_t\ argssize()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00215\ \ \ \textcolor{keywordtype}{void}\ set\_argssize(uint32\_t\ value);}
+\DoxyCodeLine{00216\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00217\ \ \ uint32\_t\ \_internal\_argssize()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00218\ \ \ \textcolor{keywordtype}{void}\ \_internal\_set\_argssize(uint32\_t\ value);}
+\DoxyCodeLine{00219\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(class\_scope:mprpcHeader.rpcHeader)}}
+\DoxyCodeLine{00222\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00223\ \ \ \textcolor{keyword}{class\ }\_Internal;}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{friend}\ class\ ::PROTOBUF\_NAMESPACE\_ID::Arena::InternalHelper;}
+\DoxyCodeLine{00226\ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ InternalArenaConstructable\_;}
+\DoxyCodeLine{00227\ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ DestructorSkippable\_;}
+\DoxyCodeLine{00228\ \ \ \textcolor{keyword}{struct\ }Impl\_\ \{}
+\DoxyCodeLine{00229\ \ \ \ \ ::PROTOBUF\_NAMESPACE\_ID::internal::ArenaStringPtr\ servicename\_;}
+\DoxyCodeLine{00230\ \ \ \ \ ::PROTOBUF\_NAMESPACE\_ID::internal::ArenaStringPtr\ methodname\_;}
+\DoxyCodeLine{00231\ \ \ \ \ uint32\_t\ argssize\_;}
+\DoxyCodeLine{00232\ \ \ \ \ mutable\ ::PROTOBUF\_NAMESPACE\_ID::internal::CachedSize\ \_cached\_size\_;}
+\DoxyCodeLine{00233\ \ \ \};}
+\DoxyCodeLine{00234\ \ \ \textcolor{keyword}{union\ }\{\ Impl\_\ \_impl\_;\ \};}
+\DoxyCodeLine{00235\ \ \ \textcolor{keyword}{friend}\ struct\ ::TableStruct\_mprpcHeader\_2eproto;}
+\DoxyCodeLine{00236\ \};}
+\DoxyCodeLine{00237\ \textcolor{comment}{//\ ===================================================================}}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \textcolor{comment}{//\ ===================================================================}}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \textcolor{preprocessor}{\#ifdef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00243\ \textcolor{preprocessor}{\ \ \#pragma\ GCC\ diagnostic\ push}}
+\DoxyCodeLine{00244\ \textcolor{preprocessor}{\ \ \#pragma\ GCC\ diagnostic\ ignored\ "{}-\/Wstrict-\/aliasing"{}}}
+\DoxyCodeLine{00245\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00246\ \textcolor{comment}{//\ rpcHeader}}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \textcolor{comment}{//\ string\ serviceName\ =\ 1;}}
+\DoxyCodeLine{00249\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ rpcHeader::clear\_servicename()\ \{}
+\DoxyCodeLine{00250\ \ \ \_impl\_.servicename\_.ClearToEmpty();}
+\DoxyCodeLine{00251\ \}}
+\DoxyCodeLine{00252\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ std::string\&\ rpcHeader::servicename()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00253\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_get:mprpcHeader.rpcHeader.serviceName)}}
+\DoxyCodeLine{00254\ \ \ \textcolor{keywordflow}{return}\ \_internal\_servicename();}
+\DoxyCodeLine{00255\ \}}
+\DoxyCodeLine{00256\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ArgT0,\ \textcolor{keyword}{typename}...\ ArgT>}
+\DoxyCodeLine{00257\ \textcolor{keyword}{inline}\ PROTOBUF\_ALWAYS\_INLINE}
+\DoxyCodeLine{00258\ \textcolor{keywordtype}{void}\ rpcHeader::set\_servicename(ArgT0\&\&\ arg0,\ ArgT...\ args)\ \{}
+\DoxyCodeLine{00259\ \ }
+\DoxyCodeLine{00260\ \ \_impl\_.servicename\_.Set(\textcolor{keyword}{static\_cast<}ArgT0\ \&\&\textcolor{keyword}{>}(arg0),\ args...,\ GetArenaForAllocation());}
+\DoxyCodeLine{00261\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_set:mprpcHeader.rpcHeader.serviceName)}}
+\DoxyCodeLine{00262\ \}}
+\DoxyCodeLine{00263\ \textcolor{keyword}{inline}\ std::string*\ rpcHeader::mutable\_servicename()\ \{}
+\DoxyCodeLine{00264\ \ \ std::string*\ \_s\ =\ \_internal\_mutable\_servicename();}
+\DoxyCodeLine{00265\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_mutable:mprpcHeader.rpcHeader.serviceName)}}
+\DoxyCodeLine{00266\ \ \ \textcolor{keywordflow}{return}\ \_s;}
+\DoxyCodeLine{00267\ \}}
+\DoxyCodeLine{00268\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ std::string\&\ rpcHeader::\_internal\_servicename()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00269\ \ \ \textcolor{keywordflow}{return}\ \_impl\_.servicename\_.Get();}
+\DoxyCodeLine{00270\ \}}
+\DoxyCodeLine{00271\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ rpcHeader::\_internal\_set\_servicename(\textcolor{keyword}{const}\ std::string\&\ value)\ \{}
+\DoxyCodeLine{00272\ \ \ }
+\DoxyCodeLine{00273\ \ \ \_impl\_.servicename\_.Set(value,\ GetArenaForAllocation());}
+\DoxyCodeLine{00274\ \}}
+\DoxyCodeLine{00275\ \textcolor{keyword}{inline}\ std::string*\ rpcHeader::\_internal\_mutable\_servicename()\ \{}
+\DoxyCodeLine{00276\ \ \ }
+\DoxyCodeLine{00277\ \ \ \textcolor{keywordflow}{return}\ \_impl\_.servicename\_.Mutable(GetArenaForAllocation());}
+\DoxyCodeLine{00278\ \}}
+\DoxyCodeLine{00279\ \textcolor{keyword}{inline}\ std::string*\ rpcHeader::release\_servicename()\ \{}
+\DoxyCodeLine{00280\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_release:mprpcHeader.rpcHeader.serviceName)}}
+\DoxyCodeLine{00281\ \ \ \textcolor{keywordflow}{return}\ \_impl\_.servicename\_.Release();}
+\DoxyCodeLine{00282\ \}}
+\DoxyCodeLine{00283\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ rpcHeader::set\_allocated\_servicename(std::string*\ servicename)\ \{}
+\DoxyCodeLine{00284\ \ \ \textcolor{keywordflow}{if}\ (servicename\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00285\ \ \ \ \ }
+\DoxyCodeLine{00286\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00287\ \ \ \ \ }
+\DoxyCodeLine{00288\ \ \ \}}
+\DoxyCodeLine{00289\ \ \ \_impl\_.servicename\_.SetAllocated(servicename,\ GetArenaForAllocation());}
+\DoxyCodeLine{00290\ \textcolor{preprocessor}{\#ifdef\ PROTOBUF\_FORCE\_COPY\_DEFAULT\_STRING}}
+\DoxyCodeLine{00291\ \ \ \textcolor{keywordflow}{if}\ (\_impl\_.servicename\_.IsDefault())\ \{}
+\DoxyCodeLine{00292\ \ \ \ \ \_impl\_.servicename\_.Set(\textcolor{stringliteral}{"{}"{}},\ GetArenaForAllocation());}
+\DoxyCodeLine{00293\ \ \ \}}
+\DoxyCodeLine{00294\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PROTOBUF\_FORCE\_COPY\_DEFAULT\_STRING}}
+\DoxyCodeLine{00295\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_set\_allocated:mprpcHeader.rpcHeader.serviceName)}}
+\DoxyCodeLine{00296\ \}}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00298\ \textcolor{comment}{//\ string\ methodName\ =\ 2;}}
+\DoxyCodeLine{00299\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ rpcHeader::clear\_methodname()\ \{}
+\DoxyCodeLine{00300\ \ \ \_impl\_.methodname\_.ClearToEmpty();}
+\DoxyCodeLine{00301\ \}}
+\DoxyCodeLine{00302\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ std::string\&\ rpcHeader::methodname()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00303\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_get:mprpcHeader.rpcHeader.methodName)}}
+\DoxyCodeLine{00304\ \ \ \textcolor{keywordflow}{return}\ \_internal\_methodname();}
+\DoxyCodeLine{00305\ \}}
+\DoxyCodeLine{00306\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ArgT0,\ \textcolor{keyword}{typename}...\ ArgT>}
+\DoxyCodeLine{00307\ \textcolor{keyword}{inline}\ PROTOBUF\_ALWAYS\_INLINE}
+\DoxyCodeLine{00308\ \textcolor{keywordtype}{void}\ rpcHeader::set\_methodname(ArgT0\&\&\ arg0,\ ArgT...\ args)\ \{}
+\DoxyCodeLine{00309\ \ }
+\DoxyCodeLine{00310\ \ \_impl\_.methodname\_.Set(\textcolor{keyword}{static\_cast<}ArgT0\ \&\&\textcolor{keyword}{>}(arg0),\ args...,\ GetArenaForAllocation());}
+\DoxyCodeLine{00311\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_set:mprpcHeader.rpcHeader.methodName)}}
+\DoxyCodeLine{00312\ \}}
+\DoxyCodeLine{00313\ \textcolor{keyword}{inline}\ std::string*\ rpcHeader::mutable\_methodname()\ \{}
+\DoxyCodeLine{00314\ \ \ std::string*\ \_s\ =\ \_internal\_mutable\_methodname();}
+\DoxyCodeLine{00315\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_mutable:mprpcHeader.rpcHeader.methodName)}}
+\DoxyCodeLine{00316\ \ \ \textcolor{keywordflow}{return}\ \_s;}
+\DoxyCodeLine{00317\ \}}
+\DoxyCodeLine{00318\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ std::string\&\ rpcHeader::\_internal\_methodname()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00319\ \ \ \textcolor{keywordflow}{return}\ \_impl\_.methodname\_.Get();}
+\DoxyCodeLine{00320\ \}}
+\DoxyCodeLine{00321\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ rpcHeader::\_internal\_set\_methodname(\textcolor{keyword}{const}\ std::string\&\ value)\ \{}
+\DoxyCodeLine{00322\ \ \ }
+\DoxyCodeLine{00323\ \ \ \_impl\_.methodname\_.Set(value,\ GetArenaForAllocation());}
+\DoxyCodeLine{00324\ \}}
+\DoxyCodeLine{00325\ \textcolor{keyword}{inline}\ std::string*\ rpcHeader::\_internal\_mutable\_methodname()\ \{}
+\DoxyCodeLine{00326\ \ \ }
+\DoxyCodeLine{00327\ \ \ \textcolor{keywordflow}{return}\ \_impl\_.methodname\_.Mutable(GetArenaForAllocation());}
+\DoxyCodeLine{00328\ \}}
+\DoxyCodeLine{00329\ \textcolor{keyword}{inline}\ std::string*\ rpcHeader::release\_methodname()\ \{}
+\DoxyCodeLine{00330\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_release:mprpcHeader.rpcHeader.methodName)}}
+\DoxyCodeLine{00331\ \ \ \textcolor{keywordflow}{return}\ \_impl\_.methodname\_.Release();}
+\DoxyCodeLine{00332\ \}}
+\DoxyCodeLine{00333\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ rpcHeader::set\_allocated\_methodname(std::string*\ methodname)\ \{}
+\DoxyCodeLine{00334\ \ \ \textcolor{keywordflow}{if}\ (methodname\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00335\ \ \ \ \ }
+\DoxyCodeLine{00336\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00337\ \ \ \ \ }
+\DoxyCodeLine{00338\ \ \ \}}
+\DoxyCodeLine{00339\ \ \ \_impl\_.methodname\_.SetAllocated(methodname,\ GetArenaForAllocation());}
+\DoxyCodeLine{00340\ \textcolor{preprocessor}{\#ifdef\ PROTOBUF\_FORCE\_COPY\_DEFAULT\_STRING}}
+\DoxyCodeLine{00341\ \ \ \textcolor{keywordflow}{if}\ (\_impl\_.methodname\_.IsDefault())\ \{}
+\DoxyCodeLine{00342\ \ \ \ \ \_impl\_.methodname\_.Set(\textcolor{stringliteral}{"{}"{}},\ GetArenaForAllocation());}
+\DoxyCodeLine{00343\ \ \ \}}
+\DoxyCodeLine{00344\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PROTOBUF\_FORCE\_COPY\_DEFAULT\_STRING}}
+\DoxyCodeLine{00345\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_set\_allocated:mprpcHeader.rpcHeader.methodName)}}
+\DoxyCodeLine{00346\ \}}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \textcolor{comment}{//\ uint32\ argsSize\ =\ 3;}}
+\DoxyCodeLine{00349\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ rpcHeader::clear\_argssize()\ \{}
+\DoxyCodeLine{00350\ \ \ \_impl\_.argssize\_\ =\ 0u;}
+\DoxyCodeLine{00351\ \}}
+\DoxyCodeLine{00352\ \textcolor{keyword}{inline}\ uint32\_t\ rpcHeader::\_internal\_argssize()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00353\ \ \ \textcolor{keywordflow}{return}\ \_impl\_.argssize\_;}
+\DoxyCodeLine{00354\ \}}
+\DoxyCodeLine{00355\ \textcolor{keyword}{inline}\ uint32\_t\ rpcHeader::argssize()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00356\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_get:mprpcHeader.rpcHeader.argsSize)}}
+\DoxyCodeLine{00357\ \ \ \textcolor{keywordflow}{return}\ \_internal\_argssize();}
+\DoxyCodeLine{00358\ \}}
+\DoxyCodeLine{00359\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ rpcHeader::\_internal\_set\_argssize(uint32\_t\ value)\ \{}
+\DoxyCodeLine{00360\ \ \ }
+\DoxyCodeLine{00361\ \ \ \_impl\_.argssize\_\ =\ value;}
+\DoxyCodeLine{00362\ \}}
+\DoxyCodeLine{00363\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ rpcHeader::set\_argssize(uint32\_t\ value)\ \{}
+\DoxyCodeLine{00364\ \ \ \_internal\_set\_argssize(value);}
+\DoxyCodeLine{00365\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_set:mprpcHeader.rpcHeader.argsSize)}}
+\DoxyCodeLine{00366\ \}}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00368\ \textcolor{preprocessor}{\#ifdef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00369\ \textcolor{preprocessor}{\ \ \#pragma\ GCC\ diagnostic\ pop}}
+\DoxyCodeLine{00370\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00372\ \textcolor{comment}{//\ @@protoc\_insertion\_point(namespace\_scope)}}
+\DoxyCodeLine{00373\ }
+\DoxyCodeLine{00374\ \}\ \ \textcolor{comment}{//\ namespace\ mprpcHeader}}
+\DoxyCodeLine{00375\ }
+\DoxyCodeLine{00376\ \textcolor{comment}{//\ @@protoc\_insertion\_point(global\_scope)}}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00378\ \textcolor{preprocessor}{\#include\ <google/protobuf/port\_undef.inc>}}
+\DoxyCodeLine{00379\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ GOOGLE\_PROTOBUF\_INCLUDED\_GOOGLE\_PROTOBUF\_INCLUDED\_mprpcHeader\_2eproto}}
+
+\end{DoxyCode}

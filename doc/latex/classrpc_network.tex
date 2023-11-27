@@ -1,0 +1,43 @@
+\doxysection{rpc\+Network Class Reference}
+\hypertarget{classrpc_network}{}\label{classrpc_network}\index{rpcNetwork@{rpcNetwork}}
+
+
+mprpc的网络模块  
+
+
+
+
+{\ttfamily \#include $<$mprpc\+Network.\+h$>$}
+
+Inheritance diagram for rpc\+Network\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classrpc_network}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classrpc_network_ac7712f25d9fe281dd311633fd515bf22}\label{classrpc_network_ac7712f25d9fe281dd311633fd515bf22} 
+{\bfseries rpc\+Network} (uint16\+\_\+t port)
+\item 
+\Hypertarget{classrpc_network_a08268967961805817d5e344f7f944a9c}\label{classrpc_network_a08268967961805817d5e344f7f944a9c} 
+void {\bfseries start} ()
+\begin{DoxyCompactList}\small\item\em 启动 \end{DoxyCompactList}\item 
+\Hypertarget{classrpc_network_aacc6cb9ab518fc1c51e6042b96271ea4}\label{classrpc_network_aacc6cb9ab518fc1c51e6042b96271ea4} 
+void {\bfseries set\+Write\+Complete\+Callback} (const Write\+Complete\+Callback cb)
+\begin{DoxyCompactList}\small\item\em 设置包发送完毕的回调函数 \end{DoxyCompactList}\item 
+\Hypertarget{classrpc_network_a871c221fb2493fce2e5b69855a03661f}\label{classrpc_network_a871c221fb2493fce2e5b69855a03661f} 
+void {\bfseries set\+Connect\+Callback} (const Connection\+Callback cb)
+\begin{DoxyCompactList}\small\item\em 设置客户端连接完毕后的回调函数 \end{DoxyCompactList}\item 
+\Hypertarget{classrpc_network_a3a20e4312136d631231a673d3c19e1fe}\label{classrpc_network_a3a20e4312136d631231a673d3c19e1fe} 
+void {\bfseries set\+Business\+Message\+Callback} (const business\+Callback cb)
+\begin{DoxyCompactList}\small\item\em 设置接收到一个完整的包之后调用的业务处理函数 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+mprpc的网络模块 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{mprpc_network_8h}{mprpc\+Network.\+h}}\end{DoxyCompactItemize}

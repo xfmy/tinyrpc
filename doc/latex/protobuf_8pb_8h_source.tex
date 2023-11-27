@@ -1,0 +1,946 @@
+\doxysection{protobuf.\+pb.\+h}
+\hypertarget{protobuf_8pb_8h_source}{}\label{protobuf_8pb_8h_source}\index{include/protobuf.pb.h@{include/protobuf.pb.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Generated\ by\ the\ protocol\ buffer\ compiler.\ \ DO\ NOT\ EDIT!}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ source:\ protobuf.proto}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#ifndef\ GOOGLE\_PROTOBUF\_INCLUDED\_protobuf\_2eproto}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ GOOGLE\_PROTOBUF\_INCLUDED\_protobuf\_2eproto}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <google/protobuf/port\_def.inc>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#if\ PROTOBUF\_VERSION\ <\ 3021000}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#error\ This\ file\ was\ generated\ by\ a\ newer\ version\ of\ protoc\ which\ is}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#error\ incompatible\ with\ your\ Protocol\ Buffer\ headers.\ Please\ update}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#error\ your\ headers.}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#if\ 3021012\ <\ PROTOBUF\_MIN\_PROTOC\_VERSION}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#error\ This\ file\ was\ generated\ by\ an\ older\ version\ of\ protoc\ which\ is}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#error\ incompatible\ with\ your\ Protocol\ Buffer\ headers.\ Please}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#error\ regenerate\ this\ file\ with\ a\ newer\ version\ of\ protoc.}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <google/protobuf/port\_undef.inc>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <google/protobuf/io/coded\_stream.h>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <google/protobuf/arena.h>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <google/protobuf/arenastring.h>}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <google/protobuf/generated\_message\_util.h>}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <google/protobuf/metadata\_lite.h>}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ <google/protobuf/generated\_message\_reflection.h>}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ <google/protobuf/message.h>}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <google/protobuf/repeated\_field.h>}\ \ \textcolor{comment}{//\ IWYU\ pragma:\ export}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <google/protobuf/extension\_set.h>}\ \ \textcolor{comment}{//\ IWYU\ pragma:\ export}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <google/protobuf/service.h>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <google/protobuf/unknown\_field\_set.h>}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ @@protoc\_insertion\_point(includes)}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <google/protobuf/port\_def.inc>}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ PROTOBUF\_INTERNAL\_EXPORT\_protobuf\_2eproto}}
+\DoxyCodeLine{00037\ PROTOBUF\_NAMESPACE\_OPEN}
+\DoxyCodeLine{00038\ \textcolor{keyword}{namespace\ }internal\ \{}
+\DoxyCodeLine{00039\ \textcolor{keyword}{class\ }AnyMetadata;}
+\DoxyCodeLine{00040\ \}\ \ \textcolor{comment}{//\ namespace\ internal}}
+\DoxyCodeLine{00041\ PROTOBUF\_NAMESPACE\_CLOSE}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{comment}{//\ Internal\ implementation\ detail\ -\/-\/\ do\ not\ use\ these\ members.}}
+\DoxyCodeLine{00044\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_table_struct__protobuf__2eproto}{TableStruct\_protobuf\_2eproto}}\ \{}
+\DoxyCodeLine{00045\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ offsets[];}
+\DoxyCodeLine{00046\ \};}
+\DoxyCodeLine{00047\ \textcolor{keyword}{extern}\ const\ ::PROTOBUF\_NAMESPACE\_ID::internal::DescriptorTable\ descriptor\_table\_protobuf\_2eproto;}
+\DoxyCodeLine{00048\ \textcolor{keyword}{namespace\ }fixbug\ \{}
+\DoxyCodeLine{00049\ \textcolor{keyword}{class\ }LoginRequest;}
+\DoxyCodeLine{00050\ \textcolor{keyword}{struct\ }LoginRequestDefaultTypeInternal;}
+\DoxyCodeLine{00051\ \textcolor{keyword}{extern}\ LoginRequestDefaultTypeInternal\ \_LoginRequest\_default\_instance\_;}
+\DoxyCodeLine{00052\ \textcolor{keyword}{class\ }LoginResponse;}
+\DoxyCodeLine{00053\ \textcolor{keyword}{struct\ }LoginResponseDefaultTypeInternal;}
+\DoxyCodeLine{00054\ \textcolor{keyword}{extern}\ LoginResponseDefaultTypeInternal\ \_LoginResponse\_default\_instance\_;}
+\DoxyCodeLine{00055\ \textcolor{keyword}{class\ }ResultCode;}
+\DoxyCodeLine{00056\ \textcolor{keyword}{struct\ }ResultCodeDefaultTypeInternal;}
+\DoxyCodeLine{00057\ \textcolor{keyword}{extern}\ ResultCodeDefaultTypeInternal\ \_ResultCode\_default\_instance\_;}
+\DoxyCodeLine{00058\ \}\ \ \textcolor{comment}{//\ namespace\ fixbug}}
+\DoxyCodeLine{00059\ PROTOBUF\_NAMESPACE\_OPEN}
+\DoxyCodeLine{00060\ \textcolor{keyword}{template}<>\ \mbox{\hyperlink{classfixbug_1_1_login_request}{::fixbug::LoginRequest}}*\ Arena::CreateMaybeMessage<::fixbug::LoginRequest>(Arena*);}
+\DoxyCodeLine{00061\ \textcolor{keyword}{template}<>\ \mbox{\hyperlink{classfixbug_1_1_login_response}{::fixbug::LoginResponse}}*\ Arena::CreateMaybeMessage<::fixbug::LoginResponse>(Arena*);}
+\DoxyCodeLine{00062\ \textcolor{keyword}{template}<>\ \mbox{\hyperlink{classfixbug_1_1_result_code}{::fixbug::ResultCode}}*\ Arena::CreateMaybeMessage<::fixbug::ResultCode>(Arena*);}
+\DoxyCodeLine{00063\ PROTOBUF\_NAMESPACE\_CLOSE}
+\DoxyCodeLine{00064\ \textcolor{keyword}{namespace\ }fixbug\ \{}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{comment}{//\ ===================================================================}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classfixbug_1_1_login_request}{LoginRequest}}\ final\ :}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{public}\ ::PROTOBUF\_NAMESPACE\_ID::Message\ \textcolor{comment}{/*\ @@protoc\_insertion\_point(class\_definition:fixbug.LoginRequest)\ */}\ \{}
+\DoxyCodeLine{00070\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00071\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classfixbug_1_1_login_request}{LoginRequest}}()\ :\ \mbox{\hyperlink{classfixbug_1_1_login_request}{LoginRequest}}(\textcolor{keyword}{nullptr})\ \{\}}
+\DoxyCodeLine{00072\ \ \ \mbox{\hyperlink{classfixbug_1_1_login_request}{\string~LoginRequest}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00073\ \ \ \textcolor{keyword}{explicit}\ PROTOBUF\_CONSTEXPR\ \mbox{\hyperlink{classfixbug_1_1_login_request}{LoginRequest}}(::PROTOBUF\_NAMESPACE\_ID::internal::ConstantInitialized);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \mbox{\hyperlink{classfixbug_1_1_login_request}{LoginRequest}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classfixbug_1_1_login_request}{LoginRequest}}\&\ from);}
+\DoxyCodeLine{00076\ \ \ \mbox{\hyperlink{classfixbug_1_1_login_request}{LoginRequest}}(\mbox{\hyperlink{classfixbug_1_1_login_request}{LoginRequest}}\&\&\ from)\ noexcept}
+\DoxyCodeLine{00077\ \ \ \ \ :\ \mbox{\hyperlink{classfixbug_1_1_login_request}{LoginRequest}}()\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ *\textcolor{keyword}{this}\ =\ ::std::move(from);}
+\DoxyCodeLine{00079\ \ \ \}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classfixbug_1_1_login_request}{LoginRequest}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classfixbug_1_1_login_request}{LoginRequest}}\&\ from)\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ CopyFrom(from);}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00084\ \ \ \}}
+\DoxyCodeLine{00085\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classfixbug_1_1_login_request}{LoginRequest}}\&\ operator=(\mbox{\hyperlink{classfixbug_1_1_login_request}{LoginRequest}}\&\&\ from)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&from)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{if}\ (GetOwningArena()\ ==\ from.GetOwningArena()}
+\DoxyCodeLine{00088\ \ \ \#ifdef\ PROTOBUF\_FORCE\_COPY\_IN\_MOVE}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \&\&\ GetOwningArena()\ !=\ \textcolor{keyword}{nullptr}}
+\DoxyCodeLine{00090\ \ \ \#endif\ \ \textcolor{comment}{//\ !PROTOBUF\_FORCE\_COPY\_IN\_MOVE}}
+\DoxyCodeLine{00091\ \ \ \ \ )\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ InternalSwap(\&from);}
+\DoxyCodeLine{00093\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ CopyFrom(from);}
+\DoxyCodeLine{00095\ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00097\ \ \ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \textcolor{keyword}{static}\ const\ ::PROTOBUF\_NAMESPACE\_ID::Descriptor*\ descriptor()\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{return}\ GetDescriptor();}
+\DoxyCodeLine{00101\ \ \ \}}
+\DoxyCodeLine{00102\ \ \ \textcolor{keyword}{static}\ const\ ::PROTOBUF\_NAMESPACE\_ID::Descriptor*\ GetDescriptor()\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordflow}{return}\ default\_instance().GetMetadata().descriptor;}
+\DoxyCodeLine{00104\ \ \ \}}
+\DoxyCodeLine{00105\ \ \ \textcolor{keyword}{static}\ const\ ::PROTOBUF\_NAMESPACE\_ID::Reflection*\ GetReflection()\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{return}\ default\_instance().GetMetadata().reflection;}
+\DoxyCodeLine{00107\ \ \ \}}
+\DoxyCodeLine{00108\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classfixbug_1_1_login_request}{LoginRequest}}\&\ default\_instance()\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{return}\ *internal\_default\_instance();}
+\DoxyCodeLine{00110\ \ \ \}}
+\DoxyCodeLine{00111\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classfixbug_1_1_login_request}{LoginRequest}}*\ internal\_default\_instance()\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classfixbug_1_1_login_request}{LoginRequest}}*\textcolor{keyword}{>}(}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\_LoginRequest\_default\_instance\_);}
+\DoxyCodeLine{00114\ \ \ \}}
+\DoxyCodeLine{00115\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ kIndexInFileMessages\ =}
+\DoxyCodeLine{00116\ \ \ \ \ 0;}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{void}\ swap(\mbox{\hyperlink{classfixbug_1_1_login_request}{LoginRequest}}\&\ a,\ \mbox{\hyperlink{classfixbug_1_1_login_request}{LoginRequest}}\&\ b)\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ a.Swap(\&b);}
+\DoxyCodeLine{00120\ \ \ \}}
+\DoxyCodeLine{00121\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ Swap(\mbox{\hyperlink{classfixbug_1_1_login_request}{LoginRequest}}*\ other)\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordflow}{if}\ (other\ ==\ \textcolor{keyword}{this})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\ \ \#ifdef\ PROTOBUF\_FORCE\_COPY\_IN\_SWAP}}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordflow}{if}\ (GetOwningArena()\ !=\ \textcolor{keyword}{nullptr}\ \&\&}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ GetOwningArena()\ ==\ other-\/>GetOwningArena())\ \{}
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\ \ \ \#else\ \ }\textcolor{comment}{//\ PROTOBUF\_FORCE\_COPY\_IN\_SWAP}}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordflow}{if}\ (GetOwningArena()\ ==\ other-\/>GetOwningArena())\ \{}
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\ \ \#endif\ \ }\textcolor{comment}{//\ !PROTOBUF\_FORCE\_COPY\_IN\_SWAP}}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ InternalSwap(other);}
+\DoxyCodeLine{00130\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ ::PROTOBUF\_NAMESPACE\_ID::internal::GenericSwap(\textcolor{keyword}{this},\ other);}
+\DoxyCodeLine{00132\ \ \ \ \ \}}
+\DoxyCodeLine{00133\ \ \ \}}
+\DoxyCodeLine{00134\ \ \ \textcolor{keywordtype}{void}\ UnsafeArenaSwap(\mbox{\hyperlink{classfixbug_1_1_login_request}{LoginRequest}}*\ other)\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{if}\ (other\ ==\ \textcolor{keyword}{this})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00136\ \ \ \ \ GOOGLE\_DCHECK(GetOwningArena()\ ==\ other-\/>GetOwningArena());}
+\DoxyCodeLine{00137\ \ \ \ \ InternalSwap(other);}
+\DoxyCodeLine{00138\ \ \ \}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \textcolor{comment}{//\ implements\ Message\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \mbox{\hyperlink{classfixbug_1_1_login_request}{LoginRequest}}*\ New(::PROTOBUF\_NAMESPACE\_ID::Arena*\ arena\ =\ \textcolor{keyword}{nullptr})\ \textcolor{keyword}{const}\ \textcolor{keyword}{final}\ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordflow}{return}\ CreateMaybeMessage<LoginRequest>(arena);}
+\DoxyCodeLine{00144\ \ \ \}}
+\DoxyCodeLine{00145\ \ \ using\ ::PROTOBUF\_NAMESPACE\_ID::Message::CopyFrom;}
+\DoxyCodeLine{00146\ \ \ \textcolor{keywordtype}{void}\ CopyFrom(\textcolor{keyword}{const}\ \mbox{\hyperlink{classfixbug_1_1_login_request}{LoginRequest}}\&\ from);}
+\DoxyCodeLine{00147\ \ \ using\ ::PROTOBUF\_NAMESPACE\_ID::Message::MergeFrom;}
+\DoxyCodeLine{00148\ \ \ \textcolor{keywordtype}{void}\ MergeFrom(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classfixbug_1_1_login_request}{LoginRequest}}\&\ from)\ \{}
+\DoxyCodeLine{00149\ \ \ \ \ LoginRequest::MergeImpl(*\textcolor{keyword}{this},\ from);}
+\DoxyCodeLine{00150\ \ \ \}}
+\DoxyCodeLine{00151\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00152\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ MergeImpl(::PROTOBUF\_NAMESPACE\_ID::Message\&\ to\_msg,\ const\ ::PROTOBUF\_NAMESPACE\_ID::Message\&\ from\_msg);}
+\DoxyCodeLine{00153\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00154\ \ \ PROTOBUF\_ATTRIBUTE\_REINITIALIZES\ \textcolor{keywordtype}{void}\ Clear()\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00155\ \ \ \textcolor{keywordtype}{bool}\ IsInitialized()\ \textcolor{keyword}{const}\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \textcolor{keywordtype}{size\_t}\ ByteSizeLong()\ \textcolor{keyword}{const}\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00158\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \_InternalParse(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ ptr,\ ::PROTOBUF\_NAMESPACE\_ID::internal::ParseContext*\ ctx)\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00159\ \ \ uint8\_t*\ \_InternalSerialize(}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ uint8\_t*\ target,\ ::PROTOBUF\_NAMESPACE\_ID::io::EpsCopyOutputStream*\ stream)\ \textcolor{keyword}{const}\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00161\ \ \ \textcolor{keywordtype}{int}\ GetCachedSize()\ \textcolor{keyword}{const}\ \textcolor{keyword}{final}\ \{\ \textcolor{keywordflow}{return}\ \_impl\_.\_cached\_size\_.Get();\ \}}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00164\ \ \ \textcolor{keywordtype}{void}\ SharedCtor(::PROTOBUF\_NAMESPACE\_ID::Arena*\ arena,\ \textcolor{keywordtype}{bool}\ is\_message\_owned);}
+\DoxyCodeLine{00165\ \ \ \textcolor{keywordtype}{void}\ SharedDtor();}
+\DoxyCodeLine{00166\ \ \ \textcolor{keywordtype}{void}\ SetCachedSize(\textcolor{keywordtype}{int}\ size)\ \textcolor{keyword}{const}\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00167\ \ \ \textcolor{keywordtype}{void}\ InternalSwap(\mbox{\hyperlink{classfixbug_1_1_login_request}{LoginRequest}}*\ other);}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00170\ \ \ \textcolor{keyword}{friend}\ class\ ::PROTOBUF\_NAMESPACE\_ID::internal::AnyMetadata;}
+\DoxyCodeLine{00171\ \ \ static\ ::PROTOBUF\_NAMESPACE\_ID::StringPiece\ FullMessageName()\ \{}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}fixbug.LoginRequest"{}};}
+\DoxyCodeLine{00173\ \ \ \}}
+\DoxyCodeLine{00174\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00175\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classfixbug_1_1_login_request}{LoginRequest}}(::PROTOBUF\_NAMESPACE\_ID::Arena*\ arena,}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_message\_owned\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00177\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ ClassData\ \_class\_data\_;}
+\DoxyCodeLine{00180\ \ \ const\ ::PROTOBUF\_NAMESPACE\_ID::Message::ClassData*GetClassData()\ \textcolor{keyword}{const}\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ ::PROTOBUF\_NAMESPACE\_ID::Metadata\ GetMetadata()\ \textcolor{keyword}{const}\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \textcolor{comment}{//\ nested\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \ \ \textcolor{comment}{//\ accessors\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \ \ enum\ :\ \textcolor{keywordtype}{int}\ \{}
+\DoxyCodeLine{00189\ \ \ \ \ kNameFieldNumber\ =\ 1,}
+\DoxyCodeLine{00190\ \ \ \ \ kPwdFieldNumber\ =\ 2,}
+\DoxyCodeLine{00191\ \ \ \};}
+\DoxyCodeLine{00192\ \ \ \textcolor{comment}{//\ string\ name\ =\ 1;}}
+\DoxyCodeLine{00193\ \ \ \textcolor{keywordtype}{void}\ clear\_name();}
+\DoxyCodeLine{00194\ \ \ \textcolor{keyword}{const}\ std::string\&\ name()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00195\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ArgT0\ =\ \textcolor{keyword}{const}\ std::string\&,\ \textcolor{keyword}{typename}...\ ArgT>}
+\DoxyCodeLine{00196\ \ \ \textcolor{keywordtype}{void}\ set\_name(ArgT0\&\&\ arg0,\ ArgT...\ args);}
+\DoxyCodeLine{00197\ \ \ std::string*\ mutable\_name();}
+\DoxyCodeLine{00198\ \ \ PROTOBUF\_NODISCARD\ std::string*\ release\_name();}
+\DoxyCodeLine{00199\ \ \ \textcolor{keywordtype}{void}\ set\_allocated\_name(std::string*\ name);}
+\DoxyCodeLine{00200\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00201\ \ \ \textcolor{keyword}{const}\ std::string\&\ \_internal\_name()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00202\ \ \ \textcolor{keyword}{inline}\ PROTOBUF\_ALWAYS\_INLINE\ \textcolor{keywordtype}{void}\ \_internal\_set\_name(\textcolor{keyword}{const}\ std::string\&\ value);}
+\DoxyCodeLine{00203\ \ \ std::string*\ \_internal\_mutable\_name();}
+\DoxyCodeLine{00204\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \textcolor{comment}{//\ string\ pwd\ =\ 2;}}
+\DoxyCodeLine{00207\ \ \ \textcolor{keywordtype}{void}\ clear\_pwd();}
+\DoxyCodeLine{00208\ \ \ \textcolor{keyword}{const}\ std::string\&\ pwd()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00209\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ArgT0\ =\ \textcolor{keyword}{const}\ std::string\&,\ \textcolor{keyword}{typename}...\ ArgT>}
+\DoxyCodeLine{00210\ \ \ \textcolor{keywordtype}{void}\ set\_pwd(ArgT0\&\&\ arg0,\ ArgT...\ args);}
+\DoxyCodeLine{00211\ \ \ std::string*\ mutable\_pwd();}
+\DoxyCodeLine{00212\ \ \ PROTOBUF\_NODISCARD\ std::string*\ release\_pwd();}
+\DoxyCodeLine{00213\ \ \ \textcolor{keywordtype}{void}\ set\_allocated\_pwd(std::string*\ pwd);}
+\DoxyCodeLine{00214\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00215\ \ \ \textcolor{keyword}{const}\ std::string\&\ \_internal\_pwd()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00216\ \ \ \textcolor{keyword}{inline}\ PROTOBUF\_ALWAYS\_INLINE\ \textcolor{keywordtype}{void}\ \_internal\_set\_pwd(\textcolor{keyword}{const}\ std::string\&\ value);}
+\DoxyCodeLine{00217\ \ \ std::string*\ \_internal\_mutable\_pwd();}
+\DoxyCodeLine{00218\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(class\_scope:fixbug.LoginRequest)}}
+\DoxyCodeLine{00221\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00222\ \ \ \textcolor{keyword}{class\ }\_Internal;}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{friend}\ class\ ::PROTOBUF\_NAMESPACE\_ID::Arena::InternalHelper;}
+\DoxyCodeLine{00225\ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ InternalArenaConstructable\_;}
+\DoxyCodeLine{00226\ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ DestructorSkippable\_;}
+\DoxyCodeLine{00227\ \ \ \textcolor{keyword}{struct\ }Impl\_\ \{}
+\DoxyCodeLine{00228\ \ \ \ \ ::PROTOBUF\_NAMESPACE\_ID::internal::ArenaStringPtr\ name\_;}
+\DoxyCodeLine{00229\ \ \ \ \ ::PROTOBUF\_NAMESPACE\_ID::internal::ArenaStringPtr\ pwd\_;}
+\DoxyCodeLine{00230\ \ \ \ \ mutable\ ::PROTOBUF\_NAMESPACE\_ID::internal::CachedSize\ \_cached\_size\_;}
+\DoxyCodeLine{00231\ \ \ \};}
+\DoxyCodeLine{00232\ \ \ \textcolor{keyword}{union\ }\{\ Impl\_\ \_impl\_;\ \};}
+\DoxyCodeLine{00233\ \ \ \textcolor{keyword}{friend}\ struct\ ::TableStruct\_protobuf\_2eproto;}
+\DoxyCodeLine{00234\ \};}
+\DoxyCodeLine{00235\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classfixbug_1_1_result_code}{ResultCode}}\ final\ :}
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keyword}{public}\ ::PROTOBUF\_NAMESPACE\_ID::Message\ \textcolor{comment}{/*\ @@protoc\_insertion\_point(class\_definition:fixbug.ResultCode)\ */}\ \{}
+\DoxyCodeLine{00239\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00240\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classfixbug_1_1_result_code}{ResultCode}}()\ :\ \mbox{\hyperlink{classfixbug_1_1_result_code}{ResultCode}}(\textcolor{keyword}{nullptr})\ \{\}}
+\DoxyCodeLine{00241\ \ \ \mbox{\hyperlink{classfixbug_1_1_result_code}{\string~ResultCode}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00242\ \ \ \textcolor{keyword}{explicit}\ PROTOBUF\_CONSTEXPR\ \mbox{\hyperlink{classfixbug_1_1_result_code}{ResultCode}}(::PROTOBUF\_NAMESPACE\_ID::internal::ConstantInitialized);}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \mbox{\hyperlink{classfixbug_1_1_result_code}{ResultCode}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classfixbug_1_1_result_code}{ResultCode}}\&\ from);}
+\DoxyCodeLine{00245\ \ \ \mbox{\hyperlink{classfixbug_1_1_result_code}{ResultCode}}(\mbox{\hyperlink{classfixbug_1_1_result_code}{ResultCode}}\&\&\ from)\ noexcept}
+\DoxyCodeLine{00246\ \ \ \ \ :\ \mbox{\hyperlink{classfixbug_1_1_result_code}{ResultCode}}()\ \{}
+\DoxyCodeLine{00247\ \ \ \ \ *\textcolor{keyword}{this}\ =\ ::std::move(from);}
+\DoxyCodeLine{00248\ \ \ \}}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classfixbug_1_1_result_code}{ResultCode}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classfixbug_1_1_result_code}{ResultCode}}\&\ from)\ \{}
+\DoxyCodeLine{00251\ \ \ \ \ CopyFrom(from);}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00253\ \ \ \}}
+\DoxyCodeLine{00254\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classfixbug_1_1_result_code}{ResultCode}}\&\ operator=(\mbox{\hyperlink{classfixbug_1_1_result_code}{ResultCode}}\&\&\ from)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&from)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keywordflow}{if}\ (GetOwningArena()\ ==\ from.GetOwningArena()}
+\DoxyCodeLine{00257\ \ \ \#ifdef\ PROTOBUF\_FORCE\_COPY\_IN\_MOVE}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \&\&\ GetOwningArena()\ !=\ \textcolor{keyword}{nullptr}}
+\DoxyCodeLine{00259\ \ \ \#endif\ \ \textcolor{comment}{//\ !PROTOBUF\_FORCE\_COPY\_IN\_MOVE}}
+\DoxyCodeLine{00260\ \ \ \ \ )\ \{}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ InternalSwap(\&from);}
+\DoxyCodeLine{00262\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ CopyFrom(from);}
+\DoxyCodeLine{00264\ \ \ \ \ \}}
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00266\ \ \ \}}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \ \ \textcolor{keyword}{static}\ const\ ::PROTOBUF\_NAMESPACE\_ID::Descriptor*\ descriptor()\ \{}
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{keywordflow}{return}\ GetDescriptor();}
+\DoxyCodeLine{00270\ \ \ \}}
+\DoxyCodeLine{00271\ \ \ \textcolor{keyword}{static}\ const\ ::PROTOBUF\_NAMESPACE\_ID::Descriptor*\ GetDescriptor()\ \{}
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keywordflow}{return}\ default\_instance().GetMetadata().descriptor;}
+\DoxyCodeLine{00273\ \ \ \}}
+\DoxyCodeLine{00274\ \ \ \textcolor{keyword}{static}\ const\ ::PROTOBUF\_NAMESPACE\_ID::Reflection*\ GetReflection()\ \{}
+\DoxyCodeLine{00275\ \ \ \ \ \textcolor{keywordflow}{return}\ default\_instance().GetMetadata().reflection;}
+\DoxyCodeLine{00276\ \ \ \}}
+\DoxyCodeLine{00277\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classfixbug_1_1_result_code}{ResultCode}}\&\ default\_instance()\ \{}
+\DoxyCodeLine{00278\ \ \ \ \ \textcolor{keywordflow}{return}\ *internal\_default\_instance();}
+\DoxyCodeLine{00279\ \ \ \}}
+\DoxyCodeLine{00280\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classfixbug_1_1_result_code}{ResultCode}}*\ internal\_default\_instance()\ \{}
+\DoxyCodeLine{00281\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classfixbug_1_1_result_code}{ResultCode}}*\textcolor{keyword}{>}(}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\_ResultCode\_default\_instance\_);}
+\DoxyCodeLine{00283\ \ \ \}}
+\DoxyCodeLine{00284\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ kIndexInFileMessages\ =}
+\DoxyCodeLine{00285\ \ \ \ \ 1;}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00287\ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{void}\ swap(\mbox{\hyperlink{classfixbug_1_1_result_code}{ResultCode}}\&\ a,\ \mbox{\hyperlink{classfixbug_1_1_result_code}{ResultCode}}\&\ b)\ \{}
+\DoxyCodeLine{00288\ \ \ \ \ a.Swap(\&b);}
+\DoxyCodeLine{00289\ \ \ \}}
+\DoxyCodeLine{00290\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ Swap(\mbox{\hyperlink{classfixbug_1_1_result_code}{ResultCode}}*\ other)\ \{}
+\DoxyCodeLine{00291\ \ \ \ \ \textcolor{keywordflow}{if}\ (other\ ==\ \textcolor{keyword}{this})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00292\ \textcolor{preprocessor}{\ \ \#ifdef\ PROTOBUF\_FORCE\_COPY\_IN\_SWAP}}
+\DoxyCodeLine{00293\ \ \ \ \ \textcolor{keywordflow}{if}\ (GetOwningArena()\ !=\ \textcolor{keyword}{nullptr}\ \&\&}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ GetOwningArena()\ ==\ other-\/>GetOwningArena())\ \{}
+\DoxyCodeLine{00295\ \textcolor{preprocessor}{\ \ \ \#else\ \ }\textcolor{comment}{//\ PROTOBUF\_FORCE\_COPY\_IN\_SWAP}}
+\DoxyCodeLine{00296\ \ \ \ \ \textcolor{keywordflow}{if}\ (GetOwningArena()\ ==\ other-\/>GetOwningArena())\ \{}
+\DoxyCodeLine{00297\ \textcolor{preprocessor}{\ \ \#endif\ \ }\textcolor{comment}{//\ !PROTOBUF\_FORCE\_COPY\_IN\_SWAP}}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ InternalSwap(other);}
+\DoxyCodeLine{00299\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ ::PROTOBUF\_NAMESPACE\_ID::internal::GenericSwap(\textcolor{keyword}{this},\ other);}
+\DoxyCodeLine{00301\ \ \ \ \ \}}
+\DoxyCodeLine{00302\ \ \ \}}
+\DoxyCodeLine{00303\ \ \ \textcolor{keywordtype}{void}\ UnsafeArenaSwap(\mbox{\hyperlink{classfixbug_1_1_result_code}{ResultCode}}*\ other)\ \{}
+\DoxyCodeLine{00304\ \ \ \ \ \textcolor{keywordflow}{if}\ (other\ ==\ \textcolor{keyword}{this})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00305\ \ \ \ \ GOOGLE\_DCHECK(GetOwningArena()\ ==\ other-\/>GetOwningArena());}
+\DoxyCodeLine{00306\ \ \ \ \ InternalSwap(other);}
+\DoxyCodeLine{00307\ \ \ \}}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00309\ \ \ \textcolor{comment}{//\ implements\ Message\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ \ \ \mbox{\hyperlink{classfixbug_1_1_result_code}{ResultCode}}*\ New(::PROTOBUF\_NAMESPACE\_ID::Arena*\ arena\ =\ \textcolor{keyword}{nullptr})\ \textcolor{keyword}{const}\ \textcolor{keyword}{final}\ \{}
+\DoxyCodeLine{00312\ \ \ \ \ \textcolor{keywordflow}{return}\ CreateMaybeMessage<ResultCode>(arena);}
+\DoxyCodeLine{00313\ \ \ \}}
+\DoxyCodeLine{00314\ \ \ using\ ::PROTOBUF\_NAMESPACE\_ID::Message::CopyFrom;}
+\DoxyCodeLine{00315\ \ \ \textcolor{keywordtype}{void}\ CopyFrom(\textcolor{keyword}{const}\ \mbox{\hyperlink{classfixbug_1_1_result_code}{ResultCode}}\&\ from);}
+\DoxyCodeLine{00316\ \ \ using\ ::PROTOBUF\_NAMESPACE\_ID::Message::MergeFrom;}
+\DoxyCodeLine{00317\ \ \ \textcolor{keywordtype}{void}\ MergeFrom(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classfixbug_1_1_result_code}{ResultCode}}\&\ from)\ \{}
+\DoxyCodeLine{00318\ \ \ \ \ ResultCode::MergeImpl(*\textcolor{keyword}{this},\ from);}
+\DoxyCodeLine{00319\ \ \ \}}
+\DoxyCodeLine{00320\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00321\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ MergeImpl(::PROTOBUF\_NAMESPACE\_ID::Message\&\ to\_msg,\ const\ ::PROTOBUF\_NAMESPACE\_ID::Message\&\ from\_msg);}
+\DoxyCodeLine{00322\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00323\ \ \ PROTOBUF\_ATTRIBUTE\_REINITIALIZES\ \textcolor{keywordtype}{void}\ Clear()\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00324\ \ \ \textcolor{keywordtype}{bool}\ IsInitialized()\ \textcolor{keyword}{const}\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00326\ \ \ \textcolor{keywordtype}{size\_t}\ ByteSizeLong()\ \textcolor{keyword}{const}\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00327\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \_InternalParse(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ ptr,\ ::PROTOBUF\_NAMESPACE\_ID::internal::ParseContext*\ ctx)\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00328\ \ \ uint8\_t*\ \_InternalSerialize(}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ uint8\_t*\ target,\ ::PROTOBUF\_NAMESPACE\_ID::io::EpsCopyOutputStream*\ stream)\ \textcolor{keyword}{const}\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00330\ \ \ \textcolor{keywordtype}{int}\ GetCachedSize()\ \textcolor{keyword}{const}\ \textcolor{keyword}{final}\ \{\ \textcolor{keywordflow}{return}\ \_impl\_.\_cached\_size\_.Get();\ \}}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00332\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00333\ \ \ \textcolor{keywordtype}{void}\ SharedCtor(::PROTOBUF\_NAMESPACE\_ID::Arena*\ arena,\ \textcolor{keywordtype}{bool}\ is\_message\_owned);}
+\DoxyCodeLine{00334\ \ \ \textcolor{keywordtype}{void}\ SharedDtor();}
+\DoxyCodeLine{00335\ \ \ \textcolor{keywordtype}{void}\ SetCachedSize(\textcolor{keywordtype}{int}\ size)\ \textcolor{keyword}{const}\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00336\ \ \ \textcolor{keywordtype}{void}\ InternalSwap(\mbox{\hyperlink{classfixbug_1_1_result_code}{ResultCode}}*\ other);}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00338\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00339\ \ \ \textcolor{keyword}{friend}\ class\ ::PROTOBUF\_NAMESPACE\_ID::internal::AnyMetadata;}
+\DoxyCodeLine{00340\ \ \ static\ ::PROTOBUF\_NAMESPACE\_ID::StringPiece\ FullMessageName()\ \{}
+\DoxyCodeLine{00341\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}fixbug.ResultCode"{}};}
+\DoxyCodeLine{00342\ \ \ \}}
+\DoxyCodeLine{00343\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00344\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classfixbug_1_1_result_code}{ResultCode}}(::PROTOBUF\_NAMESPACE\_ID::Arena*\ arena,}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_message\_owned\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00346\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ ClassData\ \_class\_data\_;}
+\DoxyCodeLine{00349\ \ \ const\ ::PROTOBUF\_NAMESPACE\_ID::Message::ClassData*GetClassData()\ \textcolor{keyword}{const}\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00351\ \ \ ::PROTOBUF\_NAMESPACE\_ID::Metadata\ GetMetadata()\ \textcolor{keyword}{const}\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00353\ \ \ \textcolor{comment}{//\ nested\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00354\ }
+\DoxyCodeLine{00355\ \ \ \textcolor{comment}{//\ accessors\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00357\ \ \ enum\ :\ \textcolor{keywordtype}{int}\ \{}
+\DoxyCodeLine{00358\ \ \ \ \ kErrMsgFieldNumber\ =\ 2,}
+\DoxyCodeLine{00359\ \ \ \ \ kErrCodeFieldNumber\ =\ 1,}
+\DoxyCodeLine{00360\ \ \ \};}
+\DoxyCodeLine{00361\ \ \ \textcolor{comment}{//\ string\ errMsg\ =\ 2;}}
+\DoxyCodeLine{00362\ \ \ \textcolor{keywordtype}{void}\ clear\_errmsg();}
+\DoxyCodeLine{00363\ \ \ \textcolor{keyword}{const}\ std::string\&\ errmsg()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00364\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ArgT0\ =\ \textcolor{keyword}{const}\ std::string\&,\ \textcolor{keyword}{typename}...\ ArgT>}
+\DoxyCodeLine{00365\ \ \ \textcolor{keywordtype}{void}\ set\_errmsg(ArgT0\&\&\ arg0,\ ArgT...\ args);}
+\DoxyCodeLine{00366\ \ \ std::string*\ mutable\_errmsg();}
+\DoxyCodeLine{00367\ \ \ PROTOBUF\_NODISCARD\ std::string*\ release\_errmsg();}
+\DoxyCodeLine{00368\ \ \ \textcolor{keywordtype}{void}\ set\_allocated\_errmsg(std::string*\ errmsg);}
+\DoxyCodeLine{00369\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00370\ \ \ \textcolor{keyword}{const}\ std::string\&\ \_internal\_errmsg()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00371\ \ \ \textcolor{keyword}{inline}\ PROTOBUF\_ALWAYS\_INLINE\ \textcolor{keywordtype}{void}\ \_internal\_set\_errmsg(\textcolor{keyword}{const}\ std::string\&\ value);}
+\DoxyCodeLine{00372\ \ \ std::string*\ \_internal\_mutable\_errmsg();}
+\DoxyCodeLine{00373\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00374\ }
+\DoxyCodeLine{00375\ \ \ \textcolor{comment}{//\ int32\ errCode\ =\ 1;}}
+\DoxyCodeLine{00376\ \ \ \textcolor{keywordtype}{void}\ clear\_errcode();}
+\DoxyCodeLine{00377\ \ \ int32\_t\ errcode()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00378\ \ \ \textcolor{keywordtype}{void}\ set\_errcode(int32\_t\ value);}
+\DoxyCodeLine{00379\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00380\ \ \ int32\_t\ \_internal\_errcode()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00381\ \ \ \textcolor{keywordtype}{void}\ \_internal\_set\_errcode(int32\_t\ value);}
+\DoxyCodeLine{00382\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00384\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(class\_scope:fixbug.ResultCode)}}
+\DoxyCodeLine{00385\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00386\ \ \ \textcolor{keyword}{class\ }\_Internal;}
+\DoxyCodeLine{00387\ }
+\DoxyCodeLine{00388\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{friend}\ class\ ::PROTOBUF\_NAMESPACE\_ID::Arena::InternalHelper;}
+\DoxyCodeLine{00389\ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ InternalArenaConstructable\_;}
+\DoxyCodeLine{00390\ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ DestructorSkippable\_;}
+\DoxyCodeLine{00391\ \ \ \textcolor{keyword}{struct\ }Impl\_\ \{}
+\DoxyCodeLine{00392\ \ \ \ \ ::PROTOBUF\_NAMESPACE\_ID::internal::ArenaStringPtr\ errmsg\_;}
+\DoxyCodeLine{00393\ \ \ \ \ int32\_t\ errcode\_;}
+\DoxyCodeLine{00394\ \ \ \ \ mutable\ ::PROTOBUF\_NAMESPACE\_ID::internal::CachedSize\ \_cached\_size\_;}
+\DoxyCodeLine{00395\ \ \ \};}
+\DoxyCodeLine{00396\ \ \ \textcolor{keyword}{union\ }\{\ Impl\_\ \_impl\_;\ \};}
+\DoxyCodeLine{00397\ \ \ \textcolor{keyword}{friend}\ struct\ ::TableStruct\_protobuf\_2eproto;}
+\DoxyCodeLine{00398\ \};}
+\DoxyCodeLine{00399\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00400\ }
+\DoxyCodeLine{00401\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classfixbug_1_1_login_response}{LoginResponse}}\ final\ :}
+\DoxyCodeLine{00402\ \ \ \ \ \textcolor{keyword}{public}\ ::PROTOBUF\_NAMESPACE\_ID::Message\ \textcolor{comment}{/*\ @@protoc\_insertion\_point(class\_definition:fixbug.LoginResponse)\ */}\ \{}
+\DoxyCodeLine{00403\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00404\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classfixbug_1_1_login_response}{LoginResponse}}()\ :\ \mbox{\hyperlink{classfixbug_1_1_login_response}{LoginResponse}}(\textcolor{keyword}{nullptr})\ \{\}}
+\DoxyCodeLine{00405\ \ \ \mbox{\hyperlink{classfixbug_1_1_login_response}{\string~LoginResponse}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00406\ \ \ \textcolor{keyword}{explicit}\ PROTOBUF\_CONSTEXPR\ \mbox{\hyperlink{classfixbug_1_1_login_response}{LoginResponse}}(::PROTOBUF\_NAMESPACE\_ID::internal::ConstantInitialized);}
+\DoxyCodeLine{00407\ }
+\DoxyCodeLine{00408\ \ \ \mbox{\hyperlink{classfixbug_1_1_login_response}{LoginResponse}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classfixbug_1_1_login_response}{LoginResponse}}\&\ from);}
+\DoxyCodeLine{00409\ \ \ \mbox{\hyperlink{classfixbug_1_1_login_response}{LoginResponse}}(\mbox{\hyperlink{classfixbug_1_1_login_response}{LoginResponse}}\&\&\ from)\ noexcept}
+\DoxyCodeLine{00410\ \ \ \ \ :\ \mbox{\hyperlink{classfixbug_1_1_login_response}{LoginResponse}}()\ \{}
+\DoxyCodeLine{00411\ \ \ \ \ *\textcolor{keyword}{this}\ =\ ::std::move(from);}
+\DoxyCodeLine{00412\ \ \ \}}
+\DoxyCodeLine{00413\ }
+\DoxyCodeLine{00414\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classfixbug_1_1_login_response}{LoginResponse}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classfixbug_1_1_login_response}{LoginResponse}}\&\ from)\ \{}
+\DoxyCodeLine{00415\ \ \ \ \ CopyFrom(from);}
+\DoxyCodeLine{00416\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00417\ \ \ \}}
+\DoxyCodeLine{00418\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classfixbug_1_1_login_response}{LoginResponse}}\&\ operator=(\mbox{\hyperlink{classfixbug_1_1_login_response}{LoginResponse}}\&\&\ from)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00419\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&from)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00420\ \ \ \ \ \textcolor{keywordflow}{if}\ (GetOwningArena()\ ==\ from.GetOwningArena()}
+\DoxyCodeLine{00421\ \ \ \#ifdef\ PROTOBUF\_FORCE\_COPY\_IN\_MOVE}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ \&\&\ GetOwningArena()\ !=\ \textcolor{keyword}{nullptr}}
+\DoxyCodeLine{00423\ \ \ \#endif\ \ \textcolor{comment}{//\ !PROTOBUF\_FORCE\_COPY\_IN\_MOVE}}
+\DoxyCodeLine{00424\ \ \ \ \ )\ \{}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ InternalSwap(\&from);}
+\DoxyCodeLine{00426\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ CopyFrom(from);}
+\DoxyCodeLine{00428\ \ \ \ \ \}}
+\DoxyCodeLine{00429\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00430\ \ \ \}}
+\DoxyCodeLine{00431\ }
+\DoxyCodeLine{00432\ \ \ \textcolor{keyword}{static}\ const\ ::PROTOBUF\_NAMESPACE\_ID::Descriptor*\ descriptor()\ \{}
+\DoxyCodeLine{00433\ \ \ \ \ \textcolor{keywordflow}{return}\ GetDescriptor();}
+\DoxyCodeLine{00434\ \ \ \}}
+\DoxyCodeLine{00435\ \ \ \textcolor{keyword}{static}\ const\ ::PROTOBUF\_NAMESPACE\_ID::Descriptor*\ GetDescriptor()\ \{}
+\DoxyCodeLine{00436\ \ \ \ \ \textcolor{keywordflow}{return}\ default\_instance().GetMetadata().descriptor;}
+\DoxyCodeLine{00437\ \ \ \}}
+\DoxyCodeLine{00438\ \ \ \textcolor{keyword}{static}\ const\ ::PROTOBUF\_NAMESPACE\_ID::Reflection*\ GetReflection()\ \{}
+\DoxyCodeLine{00439\ \ \ \ \ \textcolor{keywordflow}{return}\ default\_instance().GetMetadata().reflection;}
+\DoxyCodeLine{00440\ \ \ \}}
+\DoxyCodeLine{00441\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classfixbug_1_1_login_response}{LoginResponse}}\&\ default\_instance()\ \{}
+\DoxyCodeLine{00442\ \ \ \ \ \textcolor{keywordflow}{return}\ *internal\_default\_instance();}
+\DoxyCodeLine{00443\ \ \ \}}
+\DoxyCodeLine{00444\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classfixbug_1_1_login_response}{LoginResponse}}*\ internal\_default\_instance()\ \{}
+\DoxyCodeLine{00445\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classfixbug_1_1_login_response}{LoginResponse}}*\textcolor{keyword}{>}(}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\_LoginResponse\_default\_instance\_);}
+\DoxyCodeLine{00447\ \ \ \}}
+\DoxyCodeLine{00448\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ kIndexInFileMessages\ =}
+\DoxyCodeLine{00449\ \ \ \ \ 2;}
+\DoxyCodeLine{00450\ }
+\DoxyCodeLine{00451\ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{void}\ swap(\mbox{\hyperlink{classfixbug_1_1_login_response}{LoginResponse}}\&\ a,\ \mbox{\hyperlink{classfixbug_1_1_login_response}{LoginResponse}}\&\ b)\ \{}
+\DoxyCodeLine{00452\ \ \ \ \ a.Swap(\&b);}
+\DoxyCodeLine{00453\ \ \ \}}
+\DoxyCodeLine{00454\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ Swap(\mbox{\hyperlink{classfixbug_1_1_login_response}{LoginResponse}}*\ other)\ \{}
+\DoxyCodeLine{00455\ \ \ \ \ \textcolor{keywordflow}{if}\ (other\ ==\ \textcolor{keyword}{this})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00456\ \textcolor{preprocessor}{\ \ \#ifdef\ PROTOBUF\_FORCE\_COPY\_IN\_SWAP}}
+\DoxyCodeLine{00457\ \ \ \ \ \textcolor{keywordflow}{if}\ (GetOwningArena()\ !=\ \textcolor{keyword}{nullptr}\ \&\&}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ GetOwningArena()\ ==\ other-\/>GetOwningArena())\ \{}
+\DoxyCodeLine{00459\ \textcolor{preprocessor}{\ \ \ \#else\ \ }\textcolor{comment}{//\ PROTOBUF\_FORCE\_COPY\_IN\_SWAP}}
+\DoxyCodeLine{00460\ \ \ \ \ \textcolor{keywordflow}{if}\ (GetOwningArena()\ ==\ other-\/>GetOwningArena())\ \{}
+\DoxyCodeLine{00461\ \textcolor{preprocessor}{\ \ \#endif\ \ }\textcolor{comment}{//\ !PROTOBUF\_FORCE\_COPY\_IN\_SWAP}}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ InternalSwap(other);}
+\DoxyCodeLine{00463\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ ::PROTOBUF\_NAMESPACE\_ID::internal::GenericSwap(\textcolor{keyword}{this},\ other);}
+\DoxyCodeLine{00465\ \ \ \ \ \}}
+\DoxyCodeLine{00466\ \ \ \}}
+\DoxyCodeLine{00467\ \ \ \textcolor{keywordtype}{void}\ UnsafeArenaSwap(\mbox{\hyperlink{classfixbug_1_1_login_response}{LoginResponse}}*\ other)\ \{}
+\DoxyCodeLine{00468\ \ \ \ \ \textcolor{keywordflow}{if}\ (other\ ==\ \textcolor{keyword}{this})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00469\ \ \ \ \ GOOGLE\_DCHECK(GetOwningArena()\ ==\ other-\/>GetOwningArena());}
+\DoxyCodeLine{00470\ \ \ \ \ InternalSwap(other);}
+\DoxyCodeLine{00471\ \ \ \}}
+\DoxyCodeLine{00472\ }
+\DoxyCodeLine{00473\ \ \ \textcolor{comment}{//\ implements\ Message\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00474\ }
+\DoxyCodeLine{00475\ \ \ \mbox{\hyperlink{classfixbug_1_1_login_response}{LoginResponse}}*\ New(::PROTOBUF\_NAMESPACE\_ID::Arena*\ arena\ =\ \textcolor{keyword}{nullptr})\ \textcolor{keyword}{const}\ \textcolor{keyword}{final}\ \{}
+\DoxyCodeLine{00476\ \ \ \ \ \textcolor{keywordflow}{return}\ CreateMaybeMessage<LoginResponse>(arena);}
+\DoxyCodeLine{00477\ \ \ \}}
+\DoxyCodeLine{00478\ \ \ using\ ::PROTOBUF\_NAMESPACE\_ID::Message::CopyFrom;}
+\DoxyCodeLine{00479\ \ \ \textcolor{keywordtype}{void}\ CopyFrom(\textcolor{keyword}{const}\ \mbox{\hyperlink{classfixbug_1_1_login_response}{LoginResponse}}\&\ from);}
+\DoxyCodeLine{00480\ \ \ using\ ::PROTOBUF\_NAMESPACE\_ID::Message::MergeFrom;}
+\DoxyCodeLine{00481\ \ \ \textcolor{keywordtype}{void}\ MergeFrom(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classfixbug_1_1_login_response}{LoginResponse}}\&\ from)\ \{}
+\DoxyCodeLine{00482\ \ \ \ \ LoginResponse::MergeImpl(*\textcolor{keyword}{this},\ from);}
+\DoxyCodeLine{00483\ \ \ \}}
+\DoxyCodeLine{00484\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00485\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ MergeImpl(::PROTOBUF\_NAMESPACE\_ID::Message\&\ to\_msg,\ const\ ::PROTOBUF\_NAMESPACE\_ID::Message\&\ from\_msg);}
+\DoxyCodeLine{00486\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00487\ \ \ PROTOBUF\_ATTRIBUTE\_REINITIALIZES\ \textcolor{keywordtype}{void}\ Clear()\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00488\ \ \ \textcolor{keywordtype}{bool}\ IsInitialized()\ \textcolor{keyword}{const}\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00489\ }
+\DoxyCodeLine{00490\ \ \ \textcolor{keywordtype}{size\_t}\ ByteSizeLong()\ \textcolor{keyword}{const}\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00491\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \_InternalParse(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ ptr,\ ::PROTOBUF\_NAMESPACE\_ID::internal::ParseContext*\ ctx)\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00492\ \ \ uint8\_t*\ \_InternalSerialize(}
+\DoxyCodeLine{00493\ \ \ \ \ \ \ uint8\_t*\ target,\ ::PROTOBUF\_NAMESPACE\_ID::io::EpsCopyOutputStream*\ stream)\ \textcolor{keyword}{const}\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00494\ \ \ \textcolor{keywordtype}{int}\ GetCachedSize()\ \textcolor{keyword}{const}\ \textcolor{keyword}{final}\ \{\ \textcolor{keywordflow}{return}\ \_impl\_.\_cached\_size\_.Get();\ \}}
+\DoxyCodeLine{00495\ }
+\DoxyCodeLine{00496\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00497\ \ \ \textcolor{keywordtype}{void}\ SharedCtor(::PROTOBUF\_NAMESPACE\_ID::Arena*\ arena,\ \textcolor{keywordtype}{bool}\ is\_message\_owned);}
+\DoxyCodeLine{00498\ \ \ \textcolor{keywordtype}{void}\ SharedDtor();}
+\DoxyCodeLine{00499\ \ \ \textcolor{keywordtype}{void}\ SetCachedSize(\textcolor{keywordtype}{int}\ size)\ \textcolor{keyword}{const}\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00500\ \ \ \textcolor{keywordtype}{void}\ InternalSwap(\mbox{\hyperlink{classfixbug_1_1_login_response}{LoginResponse}}*\ other);}
+\DoxyCodeLine{00501\ }
+\DoxyCodeLine{00502\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00503\ \ \ \textcolor{keyword}{friend}\ class\ ::PROTOBUF\_NAMESPACE\_ID::internal::AnyMetadata;}
+\DoxyCodeLine{00504\ \ \ static\ ::PROTOBUF\_NAMESPACE\_ID::StringPiece\ FullMessageName()\ \{}
+\DoxyCodeLine{00505\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}fixbug.LoginResponse"{}};}
+\DoxyCodeLine{00506\ \ \ \}}
+\DoxyCodeLine{00507\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00508\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classfixbug_1_1_login_response}{LoginResponse}}(::PROTOBUF\_NAMESPACE\_ID::Arena*\ arena,}
+\DoxyCodeLine{00509\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_message\_owned\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00510\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00511\ }
+\DoxyCodeLine{00512\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ ClassData\ \_class\_data\_;}
+\DoxyCodeLine{00513\ \ \ const\ ::PROTOBUF\_NAMESPACE\_ID::Message::ClassData*GetClassData()\ \textcolor{keyword}{const}\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00514\ }
+\DoxyCodeLine{00515\ \ \ ::PROTOBUF\_NAMESPACE\_ID::Metadata\ GetMetadata()\ \textcolor{keyword}{const}\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00516\ }
+\DoxyCodeLine{00517\ \ \ \textcolor{comment}{//\ nested\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00518\ }
+\DoxyCodeLine{00519\ \ \ \textcolor{comment}{//\ accessors\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00520\ }
+\DoxyCodeLine{00521\ \ \ enum\ :\ \textcolor{keywordtype}{int}\ \{}
+\DoxyCodeLine{00522\ \ \ \ \ kResultFieldNumber\ =\ 1,}
+\DoxyCodeLine{00523\ \ \ \ \ kSucessFieldNumber\ =\ 2,}
+\DoxyCodeLine{00524\ \ \ \};}
+\DoxyCodeLine{00525\ \ \ \textcolor{comment}{//\ .fixbug.ResultCode\ result\ =\ 1;}}
+\DoxyCodeLine{00526\ \ \ \textcolor{keywordtype}{bool}\ has\_result()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00527\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00528\ \ \ \textcolor{keywordtype}{bool}\ \_internal\_has\_result()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00529\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00530\ \ \ \textcolor{keywordtype}{void}\ clear\_result();}
+\DoxyCodeLine{00531\ \ \ const\ ::fixbug::ResultCode\&\ result()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00532\ \ \ PROTOBUF\_NODISCARD\ ::fixbug::ResultCode*\ release\_result();}
+\DoxyCodeLine{00533\ \ \ \mbox{\hyperlink{classfixbug_1_1_result_code}{::fixbug::ResultCode}}*\ mutable\_result();}
+\DoxyCodeLine{00534\ \ \ \textcolor{keywordtype}{void}\ set\_allocated\_result(\mbox{\hyperlink{classfixbug_1_1_result_code}{::fixbug::ResultCode}}*\ result);}
+\DoxyCodeLine{00535\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00536\ \ \ const\ ::fixbug::ResultCode\&\ \_internal\_result()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00537\ \ \ \mbox{\hyperlink{classfixbug_1_1_result_code}{::fixbug::ResultCode}}*\ \_internal\_mutable\_result();}
+\DoxyCodeLine{00538\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00539\ \ \ \textcolor{keywordtype}{void}\ unsafe\_arena\_set\_allocated\_result(}
+\DoxyCodeLine{00540\ \ \ \ \ \ \ \mbox{\hyperlink{classfixbug_1_1_result_code}{::fixbug::ResultCode}}*\ result);}
+\DoxyCodeLine{00541\ \ \ \mbox{\hyperlink{classfixbug_1_1_result_code}{::fixbug::ResultCode}}*\ unsafe\_arena\_release\_result();}
+\DoxyCodeLine{00542\ }
+\DoxyCodeLine{00543\ \ \ \textcolor{comment}{//\ bool\ sucess\ =\ 2;}}
+\DoxyCodeLine{00544\ \ \ \textcolor{keywordtype}{void}\ clear\_sucess();}
+\DoxyCodeLine{00545\ \ \ \textcolor{keywordtype}{bool}\ sucess()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00546\ \ \ \textcolor{keywordtype}{void}\ set\_sucess(\textcolor{keywordtype}{bool}\ value);}
+\DoxyCodeLine{00547\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00548\ \ \ \textcolor{keywordtype}{bool}\ \_internal\_sucess()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00549\ \ \ \textcolor{keywordtype}{void}\ \_internal\_set\_sucess(\textcolor{keywordtype}{bool}\ value);}
+\DoxyCodeLine{00550\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00551\ }
+\DoxyCodeLine{00552\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(class\_scope:fixbug.LoginResponse)}}
+\DoxyCodeLine{00553\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00554\ \ \ \textcolor{keyword}{class\ }\_Internal;}
+\DoxyCodeLine{00555\ }
+\DoxyCodeLine{00556\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{friend}\ class\ ::PROTOBUF\_NAMESPACE\_ID::Arena::InternalHelper;}
+\DoxyCodeLine{00557\ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ InternalArenaConstructable\_;}
+\DoxyCodeLine{00558\ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ DestructorSkippable\_;}
+\DoxyCodeLine{00559\ \ \ \textcolor{keyword}{struct\ }Impl\_\ \{}
+\DoxyCodeLine{00560\ \ \ \ \ \mbox{\hyperlink{classfixbug_1_1_result_code}{::fixbug::ResultCode}}*\ result\_;}
+\DoxyCodeLine{00561\ \ \ \ \ \textcolor{keywordtype}{bool}\ sucess\_;}
+\DoxyCodeLine{00562\ \ \ \ \ mutable\ ::PROTOBUF\_NAMESPACE\_ID::internal::CachedSize\ \_cached\_size\_;}
+\DoxyCodeLine{00563\ \ \ \};}
+\DoxyCodeLine{00564\ \ \ \textcolor{keyword}{union\ }\{\ Impl\_\ \_impl\_;\ \};}
+\DoxyCodeLine{00565\ \ \ \textcolor{keyword}{friend}\ struct\ ::TableStruct\_protobuf\_2eproto;}
+\DoxyCodeLine{00566\ \};}
+\DoxyCodeLine{00567\ \textcolor{comment}{//\ ===================================================================}}
+\DoxyCodeLine{00568\ }
+\DoxyCodeLine{00569\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classfixbug_1_1user___stub}{user\_Stub}};}
+\DoxyCodeLine{00570\ }
+\DoxyCodeLine{00571\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classfixbug_1_1user}{user}}\ :\ \textcolor{keyword}{public}\ ::PROTOBUF\_NAMESPACE\_ID::Service\ \{}
+\DoxyCodeLine{00572\ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00573\ \ \ \textcolor{comment}{//\ This\ class\ should\ be\ treated\ as\ an\ abstract\ interface.}}
+\DoxyCodeLine{00574\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classfixbug_1_1user}{user}}()\ \{\};}
+\DoxyCodeLine{00575\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00576\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classfixbug_1_1user}{\string~user}}();}
+\DoxyCodeLine{00577\ }
+\DoxyCodeLine{00578\ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classfixbug_1_1user___stub}{user\_Stub}}\ \mbox{\hyperlink{classfixbug_1_1user___stub}{Stub}};}
+\DoxyCodeLine{00579\ }
+\DoxyCodeLine{00580\ \ \ \textcolor{keyword}{static}\ const\ ::PROTOBUF\_NAMESPACE\_ID::ServiceDescriptor*\ descriptor();}
+\DoxyCodeLine{00581\ }
+\DoxyCodeLine{00582\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Login(::PROTOBUF\_NAMESPACE\_ID::RpcController*\ controller,}
+\DoxyCodeLine{00583\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ const\ ::fixbug::LoginRequest*\ request,}
+\DoxyCodeLine{00584\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classfixbug_1_1_login_response}{::fixbug::LoginResponse}}*\ response,}
+\DoxyCodeLine{00585\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ::google::protobuf::Closure*\ done);}
+\DoxyCodeLine{00586\ }
+\DoxyCodeLine{00587\ \ \ \textcolor{comment}{//\ implements\ Service\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00588\ }
+\DoxyCodeLine{00589\ \ \ const\ ::PROTOBUF\_NAMESPACE\_ID::ServiceDescriptor*\ GetDescriptor();}
+\DoxyCodeLine{00590\ \ \ \textcolor{keywordtype}{void}\ CallMethod(const\ ::PROTOBUF\_NAMESPACE\_ID::MethodDescriptor*\ method,}
+\DoxyCodeLine{00591\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ::PROTOBUF\_NAMESPACE\_ID::RpcController*\ controller,}
+\DoxyCodeLine{00592\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ const\ ::PROTOBUF\_NAMESPACE\_ID::Message*\ request,}
+\DoxyCodeLine{00593\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ::PROTOBUF\_NAMESPACE\_ID::Message*\ response,}
+\DoxyCodeLine{00594\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ::google::protobuf::Closure*\ done);}
+\DoxyCodeLine{00595\ \ \ const\ ::PROTOBUF\_NAMESPACE\_ID::Message\&\ GetRequestPrototype(}
+\DoxyCodeLine{00596\ \ \ \ \ const\ ::PROTOBUF\_NAMESPACE\_ID::MethodDescriptor*\ method)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00597\ \ \ const\ ::PROTOBUF\_NAMESPACE\_ID::Message\&\ GetResponsePrototype(}
+\DoxyCodeLine{00598\ \ \ \ \ const\ ::PROTOBUF\_NAMESPACE\_ID::MethodDescriptor*\ method)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00599\ }
+\DoxyCodeLine{00600\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00601\ \ \ GOOGLE\_DISALLOW\_EVIL\_CONSTRUCTORS(\mbox{\hyperlink{classfixbug_1_1user}{user}});}
+\DoxyCodeLine{00602\ \};}
+\DoxyCodeLine{00603\ }
+\DoxyCodeLine{00604\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classfixbug_1_1user___stub}{user\_Stub}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classfixbug_1_1user}{user}}\ \{}
+\DoxyCodeLine{00605\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00606\ \ \ \mbox{\hyperlink{classfixbug_1_1user___stub}{user\_Stub}}(::PROTOBUF\_NAMESPACE\_ID::RpcChannel*\ channel);}
+\DoxyCodeLine{00607\ \ \ \mbox{\hyperlink{classfixbug_1_1user___stub}{user\_Stub}}(::PROTOBUF\_NAMESPACE\_ID::RpcChannel*\ channel,}
+\DoxyCodeLine{00608\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ::PROTOBUF\_NAMESPACE\_ID::Service::ChannelOwnership\ ownership);}
+\DoxyCodeLine{00609\ \ \ \mbox{\hyperlink{classfixbug_1_1user___stub}{\string~user\_Stub}}();}
+\DoxyCodeLine{00610\ }
+\DoxyCodeLine{00611\ \ \ inline\ ::PROTOBUF\_NAMESPACE\_ID::RpcChannel*\ channel()\ \{\ \textcolor{keywordflow}{return}\ channel\_;\ \}}
+\DoxyCodeLine{00612\ }
+\DoxyCodeLine{00613\ \ \ \textcolor{comment}{//\ implements\ user\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00614\ }
+\DoxyCodeLine{00615\ \ \ \textcolor{keywordtype}{void}\ Login(::PROTOBUF\_NAMESPACE\_ID::RpcController*\ controller,}
+\DoxyCodeLine{00616\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ const\ ::fixbug::LoginRequest*\ request,}
+\DoxyCodeLine{00617\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classfixbug_1_1_login_response}{::fixbug::LoginResponse}}*\ response,}
+\DoxyCodeLine{00618\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ::google::protobuf::Closure*\ done);}
+\DoxyCodeLine{00619\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00620\ \ \ ::PROTOBUF\_NAMESPACE\_ID::RpcChannel*\ channel\_;}
+\DoxyCodeLine{00621\ \ \ \textcolor{keywordtype}{bool}\ owns\_channel\_;}
+\DoxyCodeLine{00622\ \ \ GOOGLE\_DISALLOW\_EVIL\_CONSTRUCTORS(\mbox{\hyperlink{classfixbug_1_1user___stub}{user\_Stub}});}
+\DoxyCodeLine{00623\ \};}
+\DoxyCodeLine{00624\ }
+\DoxyCodeLine{00625\ }
+\DoxyCodeLine{00626\ \textcolor{comment}{//\ ===================================================================}}
+\DoxyCodeLine{00627\ }
+\DoxyCodeLine{00628\ }
+\DoxyCodeLine{00629\ \textcolor{comment}{//\ ===================================================================}}
+\DoxyCodeLine{00630\ }
+\DoxyCodeLine{00631\ \textcolor{preprocessor}{\#ifdef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00632\ \textcolor{preprocessor}{\ \ \#pragma\ GCC\ diagnostic\ push}}
+\DoxyCodeLine{00633\ \textcolor{preprocessor}{\ \ \#pragma\ GCC\ diagnostic\ ignored\ "{}-\/Wstrict-\/aliasing"{}}}
+\DoxyCodeLine{00634\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00635\ \textcolor{comment}{//\ LoginRequest}}
+\DoxyCodeLine{00636\ }
+\DoxyCodeLine{00637\ \textcolor{comment}{//\ string\ name\ =\ 1;}}
+\DoxyCodeLine{00638\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ LoginRequest::clear\_name()\ \{}
+\DoxyCodeLine{00639\ \ \ \_impl\_.name\_.ClearToEmpty();}
+\DoxyCodeLine{00640\ \}}
+\DoxyCodeLine{00641\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ std::string\&\ LoginRequest::name()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00642\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_get:fixbug.LoginRequest.name)}}
+\DoxyCodeLine{00643\ \ \ \textcolor{keywordflow}{return}\ \_internal\_name();}
+\DoxyCodeLine{00644\ \}}
+\DoxyCodeLine{00645\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ArgT0,\ \textcolor{keyword}{typename}...\ ArgT>}
+\DoxyCodeLine{00646\ \textcolor{keyword}{inline}\ PROTOBUF\_ALWAYS\_INLINE}
+\DoxyCodeLine{00647\ \textcolor{keywordtype}{void}\ LoginRequest::set\_name(ArgT0\&\&\ arg0,\ ArgT...\ args)\ \{}
+\DoxyCodeLine{00648\ \ }
+\DoxyCodeLine{00649\ \ \_impl\_.name\_.Set(\textcolor{keyword}{static\_cast<}ArgT0\ \&\&\textcolor{keyword}{>}(arg0),\ args...,\ GetArenaForAllocation());}
+\DoxyCodeLine{00650\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_set:fixbug.LoginRequest.name)}}
+\DoxyCodeLine{00651\ \}}
+\DoxyCodeLine{00652\ \textcolor{keyword}{inline}\ std::string*\ LoginRequest::mutable\_name()\ \{}
+\DoxyCodeLine{00653\ \ \ std::string*\ \_s\ =\ \_internal\_mutable\_name();}
+\DoxyCodeLine{00654\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_mutable:fixbug.LoginRequest.name)}}
+\DoxyCodeLine{00655\ \ \ \textcolor{keywordflow}{return}\ \_s;}
+\DoxyCodeLine{00656\ \}}
+\DoxyCodeLine{00657\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ std::string\&\ LoginRequest::\_internal\_name()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00658\ \ \ \textcolor{keywordflow}{return}\ \_impl\_.name\_.Get();}
+\DoxyCodeLine{00659\ \}}
+\DoxyCodeLine{00660\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ LoginRequest::\_internal\_set\_name(\textcolor{keyword}{const}\ std::string\&\ value)\ \{}
+\DoxyCodeLine{00661\ \ \ }
+\DoxyCodeLine{00662\ \ \ \_impl\_.name\_.Set(value,\ GetArenaForAllocation());}
+\DoxyCodeLine{00663\ \}}
+\DoxyCodeLine{00664\ \textcolor{keyword}{inline}\ std::string*\ LoginRequest::\_internal\_mutable\_name()\ \{}
+\DoxyCodeLine{00665\ \ \ }
+\DoxyCodeLine{00666\ \ \ \textcolor{keywordflow}{return}\ \_impl\_.name\_.Mutable(GetArenaForAllocation());}
+\DoxyCodeLine{00667\ \}}
+\DoxyCodeLine{00668\ \textcolor{keyword}{inline}\ std::string*\ LoginRequest::release\_name()\ \{}
+\DoxyCodeLine{00669\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_release:fixbug.LoginRequest.name)}}
+\DoxyCodeLine{00670\ \ \ \textcolor{keywordflow}{return}\ \_impl\_.name\_.Release();}
+\DoxyCodeLine{00671\ \}}
+\DoxyCodeLine{00672\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ LoginRequest::set\_allocated\_name(std::string*\ name)\ \{}
+\DoxyCodeLine{00673\ \ \ \textcolor{keywordflow}{if}\ (name\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00674\ \ \ \ \ }
+\DoxyCodeLine{00675\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00676\ \ \ \ \ }
+\DoxyCodeLine{00677\ \ \ \}}
+\DoxyCodeLine{00678\ \ \ \_impl\_.name\_.SetAllocated(name,\ GetArenaForAllocation());}
+\DoxyCodeLine{00679\ \textcolor{preprocessor}{\#ifdef\ PROTOBUF\_FORCE\_COPY\_DEFAULT\_STRING}}
+\DoxyCodeLine{00680\ \ \ \textcolor{keywordflow}{if}\ (\_impl\_.name\_.IsDefault())\ \{}
+\DoxyCodeLine{00681\ \ \ \ \ \_impl\_.name\_.Set(\textcolor{stringliteral}{"{}"{}},\ GetArenaForAllocation());}
+\DoxyCodeLine{00682\ \ \ \}}
+\DoxyCodeLine{00683\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PROTOBUF\_FORCE\_COPY\_DEFAULT\_STRING}}
+\DoxyCodeLine{00684\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_set\_allocated:fixbug.LoginRequest.name)}}
+\DoxyCodeLine{00685\ \}}
+\DoxyCodeLine{00686\ }
+\DoxyCodeLine{00687\ \textcolor{comment}{//\ string\ pwd\ =\ 2;}}
+\DoxyCodeLine{00688\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ LoginRequest::clear\_pwd()\ \{}
+\DoxyCodeLine{00689\ \ \ \_impl\_.pwd\_.ClearToEmpty();}
+\DoxyCodeLine{00690\ \}}
+\DoxyCodeLine{00691\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ std::string\&\ LoginRequest::pwd()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00692\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_get:fixbug.LoginRequest.pwd)}}
+\DoxyCodeLine{00693\ \ \ \textcolor{keywordflow}{return}\ \_internal\_pwd();}
+\DoxyCodeLine{00694\ \}}
+\DoxyCodeLine{00695\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ArgT0,\ \textcolor{keyword}{typename}...\ ArgT>}
+\DoxyCodeLine{00696\ \textcolor{keyword}{inline}\ PROTOBUF\_ALWAYS\_INLINE}
+\DoxyCodeLine{00697\ \textcolor{keywordtype}{void}\ LoginRequest::set\_pwd(ArgT0\&\&\ arg0,\ ArgT...\ args)\ \{}
+\DoxyCodeLine{00698\ \ }
+\DoxyCodeLine{00699\ \ \_impl\_.pwd\_.Set(\textcolor{keyword}{static\_cast<}ArgT0\ \&\&\textcolor{keyword}{>}(arg0),\ args...,\ GetArenaForAllocation());}
+\DoxyCodeLine{00700\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_set:fixbug.LoginRequest.pwd)}}
+\DoxyCodeLine{00701\ \}}
+\DoxyCodeLine{00702\ \textcolor{keyword}{inline}\ std::string*\ LoginRequest::mutable\_pwd()\ \{}
+\DoxyCodeLine{00703\ \ \ std::string*\ \_s\ =\ \_internal\_mutable\_pwd();}
+\DoxyCodeLine{00704\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_mutable:fixbug.LoginRequest.pwd)}}
+\DoxyCodeLine{00705\ \ \ \textcolor{keywordflow}{return}\ \_s;}
+\DoxyCodeLine{00706\ \}}
+\DoxyCodeLine{00707\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ std::string\&\ LoginRequest::\_internal\_pwd()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00708\ \ \ \textcolor{keywordflow}{return}\ \_impl\_.pwd\_.Get();}
+\DoxyCodeLine{00709\ \}}
+\DoxyCodeLine{00710\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ LoginRequest::\_internal\_set\_pwd(\textcolor{keyword}{const}\ std::string\&\ value)\ \{}
+\DoxyCodeLine{00711\ \ \ }
+\DoxyCodeLine{00712\ \ \ \_impl\_.pwd\_.Set(value,\ GetArenaForAllocation());}
+\DoxyCodeLine{00713\ \}}
+\DoxyCodeLine{00714\ \textcolor{keyword}{inline}\ std::string*\ LoginRequest::\_internal\_mutable\_pwd()\ \{}
+\DoxyCodeLine{00715\ \ \ }
+\DoxyCodeLine{00716\ \ \ \textcolor{keywordflow}{return}\ \_impl\_.pwd\_.Mutable(GetArenaForAllocation());}
+\DoxyCodeLine{00717\ \}}
+\DoxyCodeLine{00718\ \textcolor{keyword}{inline}\ std::string*\ LoginRequest::release\_pwd()\ \{}
+\DoxyCodeLine{00719\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_release:fixbug.LoginRequest.pwd)}}
+\DoxyCodeLine{00720\ \ \ \textcolor{keywordflow}{return}\ \_impl\_.pwd\_.Release();}
+\DoxyCodeLine{00721\ \}}
+\DoxyCodeLine{00722\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ LoginRequest::set\_allocated\_pwd(std::string*\ pwd)\ \{}
+\DoxyCodeLine{00723\ \ \ \textcolor{keywordflow}{if}\ (pwd\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00724\ \ \ \ \ }
+\DoxyCodeLine{00725\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00726\ \ \ \ \ }
+\DoxyCodeLine{00727\ \ \ \}}
+\DoxyCodeLine{00728\ \ \ \_impl\_.pwd\_.SetAllocated(pwd,\ GetArenaForAllocation());}
+\DoxyCodeLine{00729\ \textcolor{preprocessor}{\#ifdef\ PROTOBUF\_FORCE\_COPY\_DEFAULT\_STRING}}
+\DoxyCodeLine{00730\ \ \ \textcolor{keywordflow}{if}\ (\_impl\_.pwd\_.IsDefault())\ \{}
+\DoxyCodeLine{00731\ \ \ \ \ \_impl\_.pwd\_.Set(\textcolor{stringliteral}{"{}"{}},\ GetArenaForAllocation());}
+\DoxyCodeLine{00732\ \ \ \}}
+\DoxyCodeLine{00733\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PROTOBUF\_FORCE\_COPY\_DEFAULT\_STRING}}
+\DoxyCodeLine{00734\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_set\_allocated:fixbug.LoginRequest.pwd)}}
+\DoxyCodeLine{00735\ \}}
+\DoxyCodeLine{00736\ }
+\DoxyCodeLine{00737\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00738\ }
+\DoxyCodeLine{00739\ \textcolor{comment}{//\ ResultCode}}
+\DoxyCodeLine{00740\ }
+\DoxyCodeLine{00741\ \textcolor{comment}{//\ int32\ errCode\ =\ 1;}}
+\DoxyCodeLine{00742\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ ResultCode::clear\_errcode()\ \{}
+\DoxyCodeLine{00743\ \ \ \_impl\_.errcode\_\ =\ 0;}
+\DoxyCodeLine{00744\ \}}
+\DoxyCodeLine{00745\ \textcolor{keyword}{inline}\ int32\_t\ ResultCode::\_internal\_errcode()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00746\ \ \ \textcolor{keywordflow}{return}\ \_impl\_.errcode\_;}
+\DoxyCodeLine{00747\ \}}
+\DoxyCodeLine{00748\ \textcolor{keyword}{inline}\ int32\_t\ ResultCode::errcode()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00749\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_get:fixbug.ResultCode.errCode)}}
+\DoxyCodeLine{00750\ \ \ \textcolor{keywordflow}{return}\ \_internal\_errcode();}
+\DoxyCodeLine{00751\ \}}
+\DoxyCodeLine{00752\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ ResultCode::\_internal\_set\_errcode(int32\_t\ value)\ \{}
+\DoxyCodeLine{00753\ \ \ }
+\DoxyCodeLine{00754\ \ \ \_impl\_.errcode\_\ =\ value;}
+\DoxyCodeLine{00755\ \}}
+\DoxyCodeLine{00756\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ ResultCode::set\_errcode(int32\_t\ value)\ \{}
+\DoxyCodeLine{00757\ \ \ \_internal\_set\_errcode(value);}
+\DoxyCodeLine{00758\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_set:fixbug.ResultCode.errCode)}}
+\DoxyCodeLine{00759\ \}}
+\DoxyCodeLine{00760\ }
+\DoxyCodeLine{00761\ \textcolor{comment}{//\ string\ errMsg\ =\ 2;}}
+\DoxyCodeLine{00762\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ ResultCode::clear\_errmsg()\ \{}
+\DoxyCodeLine{00763\ \ \ \_impl\_.errmsg\_.ClearToEmpty();}
+\DoxyCodeLine{00764\ \}}
+\DoxyCodeLine{00765\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ std::string\&\ ResultCode::errmsg()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00766\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_get:fixbug.ResultCode.errMsg)}}
+\DoxyCodeLine{00767\ \ \ \textcolor{keywordflow}{return}\ \_internal\_errmsg();}
+\DoxyCodeLine{00768\ \}}
+\DoxyCodeLine{00769\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ArgT0,\ \textcolor{keyword}{typename}...\ ArgT>}
+\DoxyCodeLine{00770\ \textcolor{keyword}{inline}\ PROTOBUF\_ALWAYS\_INLINE}
+\DoxyCodeLine{00771\ \textcolor{keywordtype}{void}\ ResultCode::set\_errmsg(ArgT0\&\&\ arg0,\ ArgT...\ args)\ \{}
+\DoxyCodeLine{00772\ \ }
+\DoxyCodeLine{00773\ \ \_impl\_.errmsg\_.Set(\textcolor{keyword}{static\_cast<}ArgT0\ \&\&\textcolor{keyword}{>}(arg0),\ args...,\ GetArenaForAllocation());}
+\DoxyCodeLine{00774\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_set:fixbug.ResultCode.errMsg)}}
+\DoxyCodeLine{00775\ \}}
+\DoxyCodeLine{00776\ \textcolor{keyword}{inline}\ std::string*\ ResultCode::mutable\_errmsg()\ \{}
+\DoxyCodeLine{00777\ \ \ std::string*\ \_s\ =\ \_internal\_mutable\_errmsg();}
+\DoxyCodeLine{00778\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_mutable:fixbug.ResultCode.errMsg)}}
+\DoxyCodeLine{00779\ \ \ \textcolor{keywordflow}{return}\ \_s;}
+\DoxyCodeLine{00780\ \}}
+\DoxyCodeLine{00781\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ std::string\&\ ResultCode::\_internal\_errmsg()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00782\ \ \ \textcolor{keywordflow}{return}\ \_impl\_.errmsg\_.Get();}
+\DoxyCodeLine{00783\ \}}
+\DoxyCodeLine{00784\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ ResultCode::\_internal\_set\_errmsg(\textcolor{keyword}{const}\ std::string\&\ value)\ \{}
+\DoxyCodeLine{00785\ \ \ }
+\DoxyCodeLine{00786\ \ \ \_impl\_.errmsg\_.Set(value,\ GetArenaForAllocation());}
+\DoxyCodeLine{00787\ \}}
+\DoxyCodeLine{00788\ \textcolor{keyword}{inline}\ std::string*\ ResultCode::\_internal\_mutable\_errmsg()\ \{}
+\DoxyCodeLine{00789\ \ \ }
+\DoxyCodeLine{00790\ \ \ \textcolor{keywordflow}{return}\ \_impl\_.errmsg\_.Mutable(GetArenaForAllocation());}
+\DoxyCodeLine{00791\ \}}
+\DoxyCodeLine{00792\ \textcolor{keyword}{inline}\ std::string*\ ResultCode::release\_errmsg()\ \{}
+\DoxyCodeLine{00793\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_release:fixbug.ResultCode.errMsg)}}
+\DoxyCodeLine{00794\ \ \ \textcolor{keywordflow}{return}\ \_impl\_.errmsg\_.Release();}
+\DoxyCodeLine{00795\ \}}
+\DoxyCodeLine{00796\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ ResultCode::set\_allocated\_errmsg(std::string*\ errmsg)\ \{}
+\DoxyCodeLine{00797\ \ \ \textcolor{keywordflow}{if}\ (errmsg\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00798\ \ \ \ \ }
+\DoxyCodeLine{00799\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00800\ \ \ \ \ }
+\DoxyCodeLine{00801\ \ \ \}}
+\DoxyCodeLine{00802\ \ \ \_impl\_.errmsg\_.SetAllocated(errmsg,\ GetArenaForAllocation());}
+\DoxyCodeLine{00803\ \textcolor{preprocessor}{\#ifdef\ PROTOBUF\_FORCE\_COPY\_DEFAULT\_STRING}}
+\DoxyCodeLine{00804\ \ \ \textcolor{keywordflow}{if}\ (\_impl\_.errmsg\_.IsDefault())\ \{}
+\DoxyCodeLine{00805\ \ \ \ \ \_impl\_.errmsg\_.Set(\textcolor{stringliteral}{"{}"{}},\ GetArenaForAllocation());}
+\DoxyCodeLine{00806\ \ \ \}}
+\DoxyCodeLine{00807\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PROTOBUF\_FORCE\_COPY\_DEFAULT\_STRING}}
+\DoxyCodeLine{00808\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_set\_allocated:fixbug.ResultCode.errMsg)}}
+\DoxyCodeLine{00809\ \}}
+\DoxyCodeLine{00810\ }
+\DoxyCodeLine{00811\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00812\ }
+\DoxyCodeLine{00813\ \textcolor{comment}{//\ LoginResponse}}
+\DoxyCodeLine{00814\ }
+\DoxyCodeLine{00815\ \textcolor{comment}{//\ .fixbug.ResultCode\ result\ =\ 1;}}
+\DoxyCodeLine{00816\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ LoginResponse::\_internal\_has\_result()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00817\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this}\ !=\ internal\_default\_instance()\ \&\&\ \_impl\_.result\_\ !=\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00818\ \}}
+\DoxyCodeLine{00819\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ LoginResponse::has\_result()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00820\ \ \ \textcolor{keywordflow}{return}\ \_internal\_has\_result();}
+\DoxyCodeLine{00821\ \}}
+\DoxyCodeLine{00822\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ LoginResponse::clear\_result()\ \{}
+\DoxyCodeLine{00823\ \ \ \textcolor{keywordflow}{if}\ (GetArenaForAllocation()\ ==\ \textcolor{keyword}{nullptr}\ \&\&\ \_impl\_.result\_\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00824\ \ \ \ \ \textcolor{keyword}{delete}\ \_impl\_.result\_;}
+\DoxyCodeLine{00825\ \ \ \}}
+\DoxyCodeLine{00826\ \ \ \_impl\_.result\_\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00827\ \}}
+\DoxyCodeLine{00828\ \textcolor{keyword}{inline}\ const\ ::fixbug::ResultCode\&\ LoginResponse::\_internal\_result()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00829\ \ \ const\ ::fixbug::ResultCode*\ p\ =\ \_impl\_.result\_;}
+\DoxyCodeLine{00830\ \ \ \textcolor{keywordflow}{return}\ p\ !=\ \textcolor{keyword}{nullptr}\ ?\ *p\ :\ \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }::\mbox{\hyperlink{classfixbug_1_1_result_code}{fixbug::ResultCode}}\&\textcolor{keyword}{>}(}
+\DoxyCodeLine{00831\ \ \ \ \ \ \ ::fixbug::\_ResultCode\_default\_instance\_);}
+\DoxyCodeLine{00832\ \}}
+\DoxyCodeLine{00833\ \textcolor{keyword}{inline}\ const\ ::fixbug::ResultCode\&\ LoginResponse::result()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00834\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_get:fixbug.LoginResponse.result)}}
+\DoxyCodeLine{00835\ \ \ \textcolor{keywordflow}{return}\ \_internal\_result();}
+\DoxyCodeLine{00836\ \}}
+\DoxyCodeLine{00837\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ LoginResponse::unsafe\_arena\_set\_allocated\_result(}
+\DoxyCodeLine{00838\ \ \ \ \ \mbox{\hyperlink{classfixbug_1_1_result_code}{::fixbug::ResultCode}}*\ result)\ \{}
+\DoxyCodeLine{00839\ \ \ \textcolor{keywordflow}{if}\ (GetArenaForAllocation()\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00840\ \ \ \ \ \textcolor{keyword}{delete}\ \textcolor{keyword}{reinterpret\_cast<}::PROTOBUF\_NAMESPACE\_ID::MessageLite*\textcolor{keyword}{>}(\_impl\_.result\_);}
+\DoxyCodeLine{00841\ \ \ \}}
+\DoxyCodeLine{00842\ \ \ \_impl\_.result\_\ =\ result;}
+\DoxyCodeLine{00843\ \ \ \textcolor{keywordflow}{if}\ (result)\ \{}
+\DoxyCodeLine{00844\ \ \ \ \ }
+\DoxyCodeLine{00845\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00846\ \ \ \ \ }
+\DoxyCodeLine{00847\ \ \ \}}
+\DoxyCodeLine{00848\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_unsafe\_arena\_set\_allocated:fixbug.LoginResponse.result)}}
+\DoxyCodeLine{00849\ \}}
+\DoxyCodeLine{00850\ inline\ ::fixbug::ResultCode*\ LoginResponse::release\_result()\ \{}
+\DoxyCodeLine{00851\ \ \ }
+\DoxyCodeLine{00852\ \ \ \mbox{\hyperlink{classfixbug_1_1_result_code}{::fixbug::ResultCode}}*\ temp\ =\ \_impl\_.result\_;}
+\DoxyCodeLine{00853\ \ \ \_impl\_.result\_\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00854\ \textcolor{preprocessor}{\#ifdef\ PROTOBUF\_FORCE\_COPY\_IN\_RELEASE}}
+\DoxyCodeLine{00855\ \ \ \textcolor{keyword}{auto}*\ old\ =\ \ \textcolor{keyword}{reinterpret\_cast<}::PROTOBUF\_NAMESPACE\_ID::MessageLite*\textcolor{keyword}{>}(temp);}
+\DoxyCodeLine{00856\ \ \ temp\ =\ ::PROTOBUF\_NAMESPACE\_ID::internal::DuplicateIfNonNull(temp);}
+\DoxyCodeLine{00857\ \ \ \textcolor{keywordflow}{if}\ (GetArenaForAllocation()\ ==\ \textcolor{keyword}{nullptr})\ \{\ \textcolor{keyword}{delete}\ old;\ \}}
+\DoxyCodeLine{00858\ \textcolor{preprocessor}{\#else\ \ }\textcolor{comment}{//\ PROTOBUF\_FORCE\_COPY\_IN\_RELEASE}}
+\DoxyCodeLine{00859\ \ \ \textcolor{keywordflow}{if}\ (GetArenaForAllocation()\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00860\ \ \ \ \ temp\ =\ ::PROTOBUF\_NAMESPACE\_ID::internal::DuplicateIfNonNull(temp);}
+\DoxyCodeLine{00861\ \ \ \}}
+\DoxyCodeLine{00862\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ !PROTOBUF\_FORCE\_COPY\_IN\_RELEASE}}
+\DoxyCodeLine{00863\ \ \ \textcolor{keywordflow}{return}\ temp;}
+\DoxyCodeLine{00864\ \}}
+\DoxyCodeLine{00865\ inline\ ::fixbug::ResultCode*\ LoginResponse::unsafe\_arena\_release\_result()\ \{}
+\DoxyCodeLine{00866\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_release:fixbug.LoginResponse.result)}}
+\DoxyCodeLine{00867\ \ \ }
+\DoxyCodeLine{00868\ \ \ \mbox{\hyperlink{classfixbug_1_1_result_code}{::fixbug::ResultCode}}*\ temp\ =\ \_impl\_.result\_;}
+\DoxyCodeLine{00869\ \ \ \_impl\_.result\_\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00870\ \ \ \textcolor{keywordflow}{return}\ temp;}
+\DoxyCodeLine{00871\ \}}
+\DoxyCodeLine{00872\ inline\ ::fixbug::ResultCode*\ LoginResponse::\_internal\_mutable\_result()\ \{}
+\DoxyCodeLine{00873\ \ \ }
+\DoxyCodeLine{00874\ \ \ \textcolor{keywordflow}{if}\ (\_impl\_.result\_\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00875\ \ \ \ \ \textcolor{keyword}{auto}*\ p\ =\ CreateMaybeMessage<::fixbug::ResultCode>(GetArenaForAllocation());}
+\DoxyCodeLine{00876\ \ \ \ \ \_impl\_.result\_\ =\ p;}
+\DoxyCodeLine{00877\ \ \ \}}
+\DoxyCodeLine{00878\ \ \ \textcolor{keywordflow}{return}\ \_impl\_.result\_;}
+\DoxyCodeLine{00879\ \}}
+\DoxyCodeLine{00880\ inline\ ::fixbug::ResultCode*\ LoginResponse::mutable\_result()\ \{}
+\DoxyCodeLine{00881\ \ \ \mbox{\hyperlink{classfixbug_1_1_result_code}{::fixbug::ResultCode}}*\ \_msg\ =\ \_internal\_mutable\_result();}
+\DoxyCodeLine{00882\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_mutable:fixbug.LoginResponse.result)}}
+\DoxyCodeLine{00883\ \ \ \textcolor{keywordflow}{return}\ \_msg;}
+\DoxyCodeLine{00884\ \}}
+\DoxyCodeLine{00885\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ LoginResponse::set\_allocated\_result(\mbox{\hyperlink{classfixbug_1_1_result_code}{::fixbug::ResultCode}}*\ result)\ \{}
+\DoxyCodeLine{00886\ \ \ ::PROTOBUF\_NAMESPACE\_ID::Arena*\ message\_arena\ =\ GetArenaForAllocation();}
+\DoxyCodeLine{00887\ \ \ \textcolor{keywordflow}{if}\ (message\_arena\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00888\ \ \ \ \ \textcolor{keyword}{delete}\ \_impl\_.result\_;}
+\DoxyCodeLine{00889\ \ \ \}}
+\DoxyCodeLine{00890\ \ \ \textcolor{keywordflow}{if}\ (result)\ \{}
+\DoxyCodeLine{00891\ \ \ \ \ ::PROTOBUF\_NAMESPACE\_ID::Arena*\ submessage\_arena\ =}
+\DoxyCodeLine{00892\ \ \ \ \ \ \ \ \ ::PROTOBUF\_NAMESPACE\_ID::Arena::InternalGetOwningArena(result);}
+\DoxyCodeLine{00893\ \ \ \ \ \textcolor{keywordflow}{if}\ (message\_arena\ !=\ submessage\_arena)\ \{}
+\DoxyCodeLine{00894\ \ \ \ \ \ \ result\ =\ ::PROTOBUF\_NAMESPACE\_ID::internal::GetOwnedMessage(}
+\DoxyCodeLine{00895\ \ \ \ \ \ \ \ \ \ \ message\_arena,\ result,\ submessage\_arena);}
+\DoxyCodeLine{00896\ \ \ \ \ \}}
+\DoxyCodeLine{00897\ \ \ \ \ }
+\DoxyCodeLine{00898\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00899\ \ \ \ \ }
+\DoxyCodeLine{00900\ \ \ \}}
+\DoxyCodeLine{00901\ \ \ \_impl\_.result\_\ =\ result;}
+\DoxyCodeLine{00902\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_set\_allocated:fixbug.LoginResponse.result)}}
+\DoxyCodeLine{00903\ \}}
+\DoxyCodeLine{00904\ }
+\DoxyCodeLine{00905\ \textcolor{comment}{//\ bool\ sucess\ =\ 2;}}
+\DoxyCodeLine{00906\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ LoginResponse::clear\_sucess()\ \{}
+\DoxyCodeLine{00907\ \ \ \_impl\_.sucess\_\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00908\ \}}
+\DoxyCodeLine{00909\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ LoginResponse::\_internal\_sucess()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00910\ \ \ \textcolor{keywordflow}{return}\ \_impl\_.sucess\_;}
+\DoxyCodeLine{00911\ \}}
+\DoxyCodeLine{00912\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ LoginResponse::sucess()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00913\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_get:fixbug.LoginResponse.sucess)}}
+\DoxyCodeLine{00914\ \ \ \textcolor{keywordflow}{return}\ \_internal\_sucess();}
+\DoxyCodeLine{00915\ \}}
+\DoxyCodeLine{00916\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ LoginResponse::\_internal\_set\_sucess(\textcolor{keywordtype}{bool}\ value)\ \{}
+\DoxyCodeLine{00917\ \ \ }
+\DoxyCodeLine{00918\ \ \ \_impl\_.sucess\_\ =\ value;}
+\DoxyCodeLine{00919\ \}}
+\DoxyCodeLine{00920\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ LoginResponse::set\_sucess(\textcolor{keywordtype}{bool}\ value)\ \{}
+\DoxyCodeLine{00921\ \ \ \_internal\_set\_sucess(value);}
+\DoxyCodeLine{00922\ \ \ \textcolor{comment}{//\ @@protoc\_insertion\_point(field\_set:fixbug.LoginResponse.sucess)}}
+\DoxyCodeLine{00923\ \}}
+\DoxyCodeLine{00924\ }
+\DoxyCodeLine{00925\ \textcolor{preprocessor}{\#ifdef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00926\ \textcolor{preprocessor}{\ \ \#pragma\ GCC\ diagnostic\ pop}}
+\DoxyCodeLine{00927\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00928\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00929\ }
+\DoxyCodeLine{00930\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00931\ }
+\DoxyCodeLine{00932\ }
+\DoxyCodeLine{00933\ \textcolor{comment}{//\ @@protoc\_insertion\_point(namespace\_scope)}}
+\DoxyCodeLine{00934\ }
+\DoxyCodeLine{00935\ \}\ \ \textcolor{comment}{//\ namespace\ fixbug}}
+\DoxyCodeLine{00936\ }
+\DoxyCodeLine{00937\ \textcolor{comment}{//\ @@protoc\_insertion\_point(global\_scope)}}
+\DoxyCodeLine{00938\ }
+\DoxyCodeLine{00939\ \textcolor{preprocessor}{\#include\ <google/protobuf/port\_undef.inc>}}
+\DoxyCodeLine{00940\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ GOOGLE\_PROTOBUF\_INCLUDED\_GOOGLE\_PROTOBUF\_INCLUDED\_protobuf\_2eproto}}
+
+\end{DoxyCode}

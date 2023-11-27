@@ -1,0 +1,31 @@
+\doxysection{include/package.h File Reference}
+\hypertarget{package_8h}{}\label{package_8h}\index{include/package.h@{include/package.h}}
+
+
+包的解析与封装  
+
+
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$optional$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classpackage}{package}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+包的解析与封装 
+
+包的结构设计 \textbackslash{} 包头(2bytes)\+:固定头部0x\+FEFF \textbackslash{} 传输数据长度(4bytes) \textbackslash{} 实际传输数据(string) \textbackslash{} 校验和(8bytes) \begin{DoxyAuthor}{Author}
+xf 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyCopyright}{Copyright}
+BSD 
+\end{DoxyCopyright}
+\begin{DoxyDate}{Date}
+2023-\/11-\/27 
+\end{DoxyDate}
