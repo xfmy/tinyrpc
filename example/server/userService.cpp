@@ -1,9 +1,9 @@
-#include "rpcProvider.h"
-#include "mprpcApplication.h"
+#include "rpc_dispatcher.h"
+#include "rpc_application.h"
 #include "protobuf.pb.h"
 #include "muduo/base/Logging.h"
 #include "string"
-
+using namespace mprpc;
 class UserService : public fixbug::user
 {
 public:
@@ -31,9 +31,10 @@ public:
 
 int main()
 {
-    MprpcApplication::GetInstance().init();
-    RpcProvider provider;
-    provider.NotifyService(new UserService());
+    RpcApplication::GetInstance().init();
+    RpcDispatcher provider;
+    auto aa = std::make_shared<UserService>();
+     provider.registerService(aa);
     provider.run();
     return 0;
 }
