@@ -81,7 +81,8 @@
         "timer": "cpp",
         "future": "cpp",
         "source_location": "cpp",
-        "*.inc": "cpp"
+        "*.inc": "cpp",
+        "charconv": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }

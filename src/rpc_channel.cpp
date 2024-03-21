@@ -1,11 +1,9 @@
 // #include <sys/types.h> /* See NOTES */
 // #include <sys/socket.h>
 // #include <sys/socket.h>
-// #include <netinet/in.h>
-// #include <arpa/inet.h>
+
 #include "rpc_channel.h"
 #include "rpc_closure.h"
-//#include "rpc_connection.h"
 #include "rpc_controller.h"
 #include "tinyPB_protocol.h"
 #include "tinyPB_coder.h"
@@ -20,6 +18,7 @@
 #include "random_number.h"
 #include "tcp_client.h"
 
+#include "consul.h"
 // #include "rocket/net/rpc/rpc_channel.h"
 // #include "rocket/net/rpc/rpc_controller.h"
 // #include "rocket/net/coder/tinypb_protocol.h"
@@ -32,34 +31,13 @@
 
 namespace mprpc {
 
-RpcChannel::RpcChannel(muduo::net::InetAddress peer_addr)
+RpcChannel::RpcChannel(/*muduo::net::InetAddress peer_addr*/)
 {
-    // TODO muduo tcp client eventloop ?
     LOG_INFO << "RpcChannel";
-    client_ = std::make_shared<mprpc::TcpClient>(peer_addr);
+    //client_ = std::make_shared<mprpc::TcpClient>(peer_addr);
 }
 
 RpcChannel::~RpcChannel() { LOG_INFO << "~RpcChannel"; }
-
-// void RpcChannel::callBack()
-// {
-//     RpcController* controller =
-//     dynamic_cast<RpcController*>(getController()); if
-//     (controller->Finished())
-//     {
-//         return;
-//     }
-
-//     if (closure_)
-//     {
-//         closure_->Run();
-//         if (controller)
-//         {
-//             controller->SetFinished(true);
-//         }
-//     }
-
-// }
 
 void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
                             google::protobuf::RpcController* controller,
@@ -67,6 +45,10 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
                             google::protobuf::Message* response,
                             google::protobuf::Closure* done)
 {
+    
+
+    
+
     std::shared_ptr<mprpc::TinyPBProtocol> req_protocol =
         std::make_shared<mprpc::TinyPBProtocol>();
 
@@ -81,18 +63,27 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
         return;
     }
 
-    // if (peerAddr_ == nullptr)
-    // {
-    //     LOG_ERROR << "failed get peer addr";
-    //     my_controller->SetError(ERROR_RPC_PEER_ADDR, "peer addr nullptr");
-    //     callBack();
-    //     return;
-    // }
+    if (!init_)
+    {
+        ConsulClient consul;
+        std::unique_ptr<muduo::net::InetAddress> serviceAddrPtr =
+            consul.DiscoverService(method->service()->name());
+        if (!serviceAddrPtr)
+        {
+            LOG_ERROR << "No service found available in consul";
+            my_controller->SetError(ERROR_RPC_CHANNEL_INIT,
+                                    "No service found available in consul");
+            my_rpcClosure->Run();
+            return;
+        }
+        client_ = std::make_shared<mprpc::TcpClient>(*serviceAddrPtr);
+        init_ = true;
+    }
 
     //设置msgId
     if (my_controller->GetMsgId().empty())
     {
-        req_protocol->msgId_ = GetRandomNumber();
+        req_protocol->msgId_ = mprpc::GetRandomNumberString();
         my_controller->SetMsgId(req_protocol->msgId_);
     }
     else
@@ -105,14 +96,6 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
 
     LOG_INFO << req_protocol->msgId_ + "| call method name->" +
                     req_protocol->methodName_;
-
-    // if (!isInit_)
-    // {
-    //     std::string err_info = "RpcChannel not call init()";
-    //     my_controller->SetError(ERROR_RPC_CHANNEL_INIT, err_info);
-    //     LOG_ERROR << req_protocol->msgId_ + err_info + ", RpcChannel not
-    //     init"; callBack(); return;
-    // }
 
     // requeset 的序列化
     if (!request->SerializeToString(&req_protocol->pbData_))
@@ -151,28 +134,6 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
         "peer addr[{}]",
         req_protocol->msgId_, req_protocol->methodName_,
         client_->GetPeerAddrString());
-
-    // RpcChannelPtr channel = shared_from_this();
-
-    // client_->AddTimerEvent(my_controller->GetTimeout(), [my_controller,
-    //                                                      channel]() mutable {
-    //     LOG_INFO << fmt::format("{}| call rpc timeout arrive",
-    //                             my_controller->GetMsgId());
-    //     if (my_controller->Finished())
-    //     {
-    //         channel.reset();
-    //         return;
-    //     }
-
-    //     my_controller->StartCancel();
-    //     my_controller->SetError(
-    //         ERROR_RPC_CALL_TIMEOUT,
-    //         "rpc call timeout " +
-    //         std::to_string(my_controller->GetTimeout()));
-
-    //     channel->callBack();
-    //     channel.reset();
-    // });
 
     std::shared_ptr<mprpc::TinyPBProtocol> resp_protocol =
         std::make_shared<mprpc::TinyPBProtocol>();
@@ -334,4 +295,24 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
 
 //     close(clientFd);
 // }
+// }
+
+// void RpcChannel::callBack()
+// {
+//     RpcController* controller =
+//     dynamic_cast<RpcController*>(getController()); if
+//     (controller->Finished())
+//     {
+//         return;
+//     }
+
+//     if (closure_)
+//     {
+//         closure_->Run();
+//         if (controller)
+//         {
+//             controller->SetFinished(true);
+//         }
+//     }
+
 // }

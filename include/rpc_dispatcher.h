@@ -12,6 +12,7 @@
 #include <muduo/net/TcpConnection.h>
 #include <muduo/base/Timestamp.h>
 #include <google/protobuf/service.h>
+//#include "consul.h"
 
 namespace PROTO = google::protobuf;
 class google::protobuf::Message;
@@ -20,9 +21,9 @@ using messagePtr = std::shared_ptr<google::protobuf::Message>;
 
 namespace mprpc {
 class TinyPBProtocol;
-
-/// @brief 框架提供的专门发布rpc服务的网络对象类
-class RpcDispatcher
+class ConsulClient;
+    /// @brief 框架提供的专门发布rpc服务的网络对象类
+    class RpcDispatcher
 {
 public:
     RpcDispatcher();
@@ -89,5 +90,7 @@ private:
     //服务名与服务信息映射表
     // std::unordered_map<std::string, ServiceInfo> m_serviceMap;
     std::unordered_map<std::string, servicePtr> serviceMap_;
+    std::shared_ptr<ConsulClient> consulPtr_;
+    std::vector<std::string> services_;
 };
 } // namespace mprpc

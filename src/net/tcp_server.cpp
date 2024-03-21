@@ -16,21 +16,21 @@
 
 namespace mprpc {
 TcpServer::TcpServer(uint16_t port)
-    : addr(port),
-      loop(),
-      server(&loop, addr, serverName)
+    : addr_(port),
+      loop_(),
+      server_(&loop_, addr_, serverName_)
 {
     // 设置东八区
     TimeZone time(8 * 1000 * 60 * 60, "loaclTime");
     Logger::setTimeZone(time);
 
     // 设置tcpserver的网络层相关回调
-    server.setMessageCallback(
+    server_.setMessageCallback(
         std::bind(&TcpServer::onMessageCallback, this, _1, _2, _3));
-    server.setThreadInitCallback(
+    server_.setThreadInitCallback(
         std::bind(&TcpServer::onThreadInitCallback, this, _1));
-    server.setConnectionCallback(
-        
+    server_.setConnectionCallback(
+
         std::bind(&TcpServer::onConnectCallback, this, _1));
     setThreadNum(std::thread::hardware_concurrency());
 }
@@ -40,8 +40,8 @@ TcpServer::~TcpServer() {}
 
 void TcpServer::start()
 {
-    server.start();
-    loop.loop();
+    server_.start();
+    loop_.loop();
 }
 
 // void chatNetworkLayer::onWriteCompleteCallback(const TcpConnectionPtr &ptr)
@@ -71,6 +71,11 @@ void TcpServer::onMessageCallback(const TcpConnectionPtr &ptr, Buffer *buf,
         //businessMsgCallback(ptr, message, time);
         dispatchCallback_(request, response, ptr);
     }
+}
+
+void TcpServer::AddTimerEvent(double delay, TimerCallback cb) 
+{
+    loop_.runEvery(delay,cb);
 }
 
 void TcpServer::onConnectCallback(const TcpConnectionPtr &ptr)

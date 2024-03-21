@@ -49,13 +49,13 @@ public:
     /// @brief 设置包发送完毕的回调函数
     void setWriteCompleteCallback(const WriteCompleteCallback cb)
     {
-        server.setWriteCompleteCallback(cb);
+        server_.setWriteCompleteCallback(cb);
     }
 
     /// @brief 设置客户端连接完毕后的回调函数
     void setConnectCallback(const ConnectionCallback cb)
     {
-        server.setConnectionCallback(cb);
+        server_.setConnectionCallback(cb);
     }
 
     /// @brief 设置接收到一个完整的包之后调用的业务处理函数
@@ -64,6 +64,7 @@ public:
     //     this->businessMsgCallback = cb;
     // }
     void setDispatchCallback(const DispatchCallback& cb) { dispatchCallback_ = cb;}
+    void AddTimerEvent(double delay, TimerCallback cb);
 
 private:
     // 设置验证包完整性的回调函数
@@ -74,12 +75,12 @@ private:
     void onConnectCallback(const TcpConnectionPtr &ptr);
 
     // 设置workLoop数量
-    void setThreadNum(int count) { server.setThreadNum(count); }
+    void setThreadNum(int count) { server_.setThreadNum(count); }
 
     //设置线程初始化完毕的回调函数
     void setThreadInitCallback(const ThreadInitCallback cb)
     {
-        server.setThreadInitCallback(cb);
+        server_.setThreadInitCallback(cb);
     }
 
     // muduo消息回调
@@ -95,9 +96,9 @@ private:
     //设置包的完整性验证回调
     // packageFullCallback packageFull;
 
-    const std::string serverName = "networkServer";
-    InetAddress addr;
-    EventLoop loop;
-    muduo::net::TcpServer server;
+    const std::string serverName_ = "networkServer";
+    InetAddress addr_;
+    EventLoop loop_;
+    muduo::net::TcpServer server_;
 };
 } // namespace mprpc

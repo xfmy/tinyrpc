@@ -31,14 +31,17 @@ configInfo RpcInitConfig::execute()
     /* 从配置文件中，得到日志相关配置值 */
     try
     {
-        std::string serverPort = config.lookup("baseConf.serverPort");
-        info.emplace("serverPort", serverPort);
+        std::string servicePort = config.lookup("config.servicePort");
+        info.emplace("servicePort", servicePort);
 
-        std::string zookeeperIp = config.lookup("baseConf.zookeeperIp");
-        info.emplace("zookeeperIp", zookeeperIp);
+        std::string servicePublicIp = config.lookup("config.servicePublicIp");
+        info.emplace("servicePublicIp", servicePublicIp);
 
-        std::string zookeeperPort = config.lookup("baseConf.zookeeperPort");
-        info.emplace("zookeeperPort", zookeeperPort);
+        std::string consulIp = config.lookup("config.consulIp");
+        info.emplace("consulIp", consulIp);
+
+        std::string consulPort = config.lookup("config.consulPort");
+        info.emplace("consulPort", consulPort);
     }
     catch (const libconfig::SettingNotFoundException &nfex)
     {

@@ -31,7 +31,7 @@ public:
     // static NetAddr::s_ptr FindAddr(const std::string& str);
 
 public:
-    RpcChannel(muduo::net::InetAddress peer_addr);
+    RpcChannel(/*muduo::net::InetAddress peer_addr*/);
 
     ~RpcChannel();
 
@@ -76,6 +76,7 @@ private:
     // bool isInit_{false};
 
     TcpClientPtr client_{nullptr};
+    bool init_ = false;
 };
 
 } // namespace mprpc

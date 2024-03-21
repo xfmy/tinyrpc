@@ -34,7 +34,7 @@ int main()
     RpcApplication::GetInstance().init();
     RpcDispatcher provider;
     auto aa = std::make_shared<UserService>();
-     provider.registerService(aa);
+    provider.registerService(aa);
     provider.run();
     return 0;
 }

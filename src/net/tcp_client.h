@@ -13,7 +13,7 @@ using namespace muduo;
 using namespace muduo::net;
 
 // using TcpClientPtr = std::shared_ptr<muduo::net::TcpClient>;
-//using InetAddrPtr = std::shared_ptr<muduo::net::InetAddress>;
+// using InetAddrPtr = std::shared_ptr<muduo::net::InetAddress>;
 
 namespace mprpc {
 class TinyPBProtocol;
@@ -36,11 +36,12 @@ private:
     void MessageCallback(const muduo::net::TcpConnectionPtr&, Buffer*,
                          Timestamp);
     void connectCallbcak(const TcpConnectionPtr&);
-        // void SetTinyPBProtocol(std::shared_ptr<mprpc::TinyPBProtocol>);
+    // void SetTinyPBProtocol(std::shared_ptr<mprpc::TinyPBProtocol>);
 
-        private : muduo::net::InetAddress LocalAddr_;
+private:
+    muduo::net::InetAddress LocalAddr_;
     muduo::net::InetAddress peerAddr_;
-    //muduo::net::EventLoop loop_;
+    // muduo::net::EventLoop loop_;
     muduo::net::EventLoopThread loop_;
     muduo::net::TcpClient tcpClient_;
     TcpConnectionPtr connectionPtr;

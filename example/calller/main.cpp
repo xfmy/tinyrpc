@@ -13,7 +13,7 @@ int main()
     //演示调用远程发布的rpc方法Login
     //muduo::net::InetAddress()
     fixbug::user_Stub stub(
-        new RpcChannel(muduo::net::InetAddress("127.0.0.1", 9001)));
+        new RpcChannel(/*muduo::net::InetAddress("127.0.0.1", 9001)*/));
 
     //rpc参数
     fixbug::LoginRequest request;

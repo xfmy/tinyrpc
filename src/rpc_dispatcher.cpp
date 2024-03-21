@@ -12,14 +12,31 @@
 #include "tinyPB_coder.h"
 #include "except.hpp"
 #include "error_code.h"
+#include "consul.h"
+#include "random_number.h"
 
 namespace mprpc {
-RpcDispatcher::RpcDispatcher() {}
+RpcDispatcher::RpcDispatcher() 
+{
+    consulPtr_ = std::make_shared<ConsulClient>();
+}
 
 void RpcDispatcher::registerService(servicePtr service)
 {
-    std::string serviceName = service->GetDescriptor()->full_name();
-    serviceMap_[serviceName] = service;
+    std::string serviceFullName = service->GetDescriptor()->full_name();
+    serviceMap_[serviceFullName] = service;
+    // TODO consul服务注册与健康检查
+
+    std::string serviceIp =
+        RpcApplication::GetInstance().atConfigItem("servicePublicIp").value();
+    std::string servicePort =
+        RpcApplication::GetInstance().atConfigItem("servicePort").value();
+    std::string serviceName = service->GetDescriptor()->name();
+    std::string ID = serviceName + '-' + mprpc::GetRandomNumberString();
+
+    consulPtr_->RegisterService(serviceName, ID, serviceIp,
+                               std::atoi(servicePort.c_str()));
+    services_.push_back(ID);
     // ServiceInfo serviceINfo;
 
     // //获取服务对象的描述信息
@@ -45,7 +62,7 @@ void RpcDispatcher::registerService(servicePtr service)
 void RpcDispatcher::run()
 {
     std::optional<std::string> servicePort =
-        RpcApplication::GetInstance().atConfigItem("serverPort");
+        RpcApplication::GetInstance().atConfigItem("servicePort");
     if (servicePort.has_value())
     {
         int port = std::atoi(servicePort.value().c_str());
@@ -53,6 +70,12 @@ void RpcDispatcher::run()
         //设置rpc分发回调函数
         sessionLayer.setDispatchCallback(
             std::bind(&RpcDispatcher::dispatch, this, _1, _2, _3));
+        sessionLayer.AddTimerEvent(30, [this]() -> void {
+            for(std::string serviceId : services_){
+                consulPtr_->ServicePass(serviceId);
+            }
+            
+        });
         sessionLayer.start();
     }
     else
@@ -133,36 +156,35 @@ void RpcDispatcher::dispatch(std::shared_ptr<TinyPBProtocol> request,
         rpcController->SetPeerAddr(ptr->peerAddress());
         rpcController->SetMsgId(request->msgId_);
 
-        RpcClosure *closure =
-            new RpcClosure([req_msg, resp_msg, request, response, ptr,
-                                     rpcController, this]() mutable {
-                if (!resp_msg->SerializeToString(&(response->pbData_)))
-                {
-                    LOG_ERROR << std::string() + request->msgId_ +
-                                     "| serilize error, origin message ->" +
-                                     resp_msg->ShortDebugString();
-                    setTinyPBError(response, ERROR_FAILED_SERIALIZE,
-                                   "serilize error");
-                }
-                else
-                {
-                    response->errorCode_ = 0;
-                    response->errorInfo_ = "";
-                    LOG_INFO << std::string() + request->msgId_ +
-                                    "| dispatch success, requesut->" +
-                                    req_msg->ShortDebugString() +
-                                    ", response->" +
-                                    resp_msg->ShortDebugString();
-                }
+        RpcClosure *closure = new RpcClosure([req_msg, resp_msg, request,
+                                              response, ptr, rpcController,
+                                              this]() mutable {
+            if (!resp_msg->SerializeToString(&(response->pbData_)))
+            {
+                LOG_ERROR << std::string() + request->msgId_ +
+                                 "| serilize error, origin message ->" +
+                                 resp_msg->ShortDebugString();
+                setTinyPBError(response, ERROR_FAILED_SERIALIZE,
+                               "serilize error");
+            }
+            else
+            {
+                response->errorCode_ = 0;
+                response->errorInfo_ = "";
+                LOG_INFO << std::string() + request->msgId_ +
+                                "| dispatch success, requesut->" +
+                                req_msg->ShortDebugString() + ", response->" +
+                                resp_msg->ShortDebugString();
+            }
 
-                //std::vector<AbstractProtocol::s_ptr> replay_messages;
-                //replay_messages.emplace_back(rsp_protocol);
-                //将rsp_protocol发送client
-                //ptr->reply(replay_messages);
-                
-                //resp_msg->SerializeToString(&response->pbData_);
-                responseToClient(ptr, response);
-            });
+            // std::vector<AbstractProtocol::s_ptr> replay_messages;
+            // replay_messages.emplace_back(rsp_protocol);
+            //将rsp_protocol发送client
+            // ptr->reply(replay_messages);
+
+            // resp_msg->SerializeToString(&response->pbData_);
+            responseToClient(ptr, response);
+        });
 
         service->CallMethod(method, rpcController, req_msg, resp_msg, closure);
     }
@@ -177,18 +199,15 @@ void RpcDispatcher::dispatch(std::shared_ptr<TinyPBProtocol> request,
 void RpcDispatcher::responseToClient(const TcpConnectionPtr &ptr,
                                      std::shared_ptr<TinyPBProtocol> response)
 {
-
-
-
     std::string output;
-    mprpc::TinyPBCoder::encode(response,output);
+    mprpc::TinyPBCoder::encode(response, output);
 
     //     if (!response->SerializeToString(&output))
     // {
     //     throw MPRpcExcept("protobuf序列化协议解析失败");
     // }
     ptr->send(output);
-    //respondPtr->shutdown();
+    // respondPtr->shutdown();
 }
 
 bool RpcDispatcher::parseServiceFullName(const std::string &full_name,
