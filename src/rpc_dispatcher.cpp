@@ -16,47 +16,32 @@
 #include "random_number.h"
 
 namespace mprpc {
-RpcDispatcher::RpcDispatcher() 
+RpcDispatcher::RpcDispatcher()
 {
     consulPtr_ = std::make_shared<ConsulClient>();
 }
 
+RpcDispatcher::~RpcDispatcher()
+{
+    for (int i = 0; i < services_.size(); i++)
+        consulPtr_->DeregisterService(services_[i]);
+}
+
 void RpcDispatcher::registerService(servicePtr service)
 {
-    std::string serviceFullName = service->GetDescriptor()->full_name();
-    serviceMap_[serviceFullName] = service;
-    // TODO consul服务注册与健康检查
+    std::string serviceName = service->GetDescriptor()->name();
+    serviceMap_[serviceName] = service;
 
     std::string serviceIp =
         RpcApplication::GetInstance().atConfigItem("servicePublicIp").value();
     std::string servicePort =
         RpcApplication::GetInstance().atConfigItem("servicePort").value();
-    std::string serviceName = service->GetDescriptor()->name();
+    //std::string serviceName = service->GetDescriptor()->name();
     std::string ID = serviceName + '-' + mprpc::GetRandomNumberString();
 
     consulPtr_->RegisterService(serviceName, ID, serviceIp,
-                               std::atoi(servicePort.c_str()));
+                                std::atoi(servicePort.c_str()));
     services_.push_back(ID);
-    // ServiceInfo serviceINfo;
-
-    // //获取服务对象的描述信息
-    // const PROTO::ServiceDescriptor *pserviceDesc = service->GetDescriptor();
-    // //获取服务的名字
-    // std::string serviceName = pserviceDesc->name();
-    // //获取服务对象的service方法数量
-    // int methodCount = pserviceDesc->method_count();
-    // for (size_t i = 0; i < methodCount; i++)
-    // {
-    //     //获取下标相应的方法描述
-    //     const PROTO::MethodDescriptor *pmethodDesc = pserviceDesc->method(i);
-    //     // h获取函数名
-    //     std::string functionName = pmethodDesc->name();
-    //     //将函数名与方法描述加入函数表中
-    //     serviceINfo.AddMethodDescripto(functionName, pmethodDesc);
-    // }
-    // //添加服务表
-    // serviceINfo.SetService(service);
-    // m_serviceMap.emplace(serviceName, serviceINfo);
 }
 
 void RpcDispatcher::run()
@@ -71,10 +56,10 @@ void RpcDispatcher::run()
         sessionLayer.setDispatchCallback(
             std::bind(&RpcDispatcher::dispatch, this, _1, _2, _3));
         sessionLayer.AddTimerEvent(30, [this]() -> void {
-            for(std::string serviceId : services_){
+            for (std::string serviceId : services_)
+            {
                 consulPtr_->ServicePass(serviceId);
             }
-            
         });
         sessionLayer.start();
     }
@@ -190,9 +175,11 @@ void RpcDispatcher::dispatch(std::shared_ptr<TinyPBProtocol> request,
     }
     catch (MPRpcExcept err)
     {
+        LOG_ERROR << err.what();
     }
     catch (std::exception err)
     {
+        LOG_ERROR << err.what();
     }
 }
 
@@ -214,19 +201,32 @@ bool RpcDispatcher::parseServiceFullName(const std::string &full_name,
                                          std::string &service_name,
                                          std::string &method_name)
 {
+    //"fixbug.user.Login"
+    //"user.Login"
     if (full_name.empty())
     {
         LOG_ERROR << "full name empty";
         return false;
     }
-    size_t i = full_name.find_first_of(".");
+    // size_t i = full_name.find_first_of(".");
+
+    size_t i = full_name.find_last_of(".");
+
     if (i == full_name.npos)
     {
         LOG_ERROR << "not find . in full name " + full_name;
         return false;
     }
-    service_name = full_name.substr(0, i);
+    // service_name = full_name.substr(0, i);
+    // method_name = full_name.substr(i + 1, full_name.length() - i - 1);
+
     method_name = full_name.substr(i + 1, full_name.length() - i - 1);
+    service_name = full_name.substr(0, i);
+    if (size_t temp = service_name.find("."); temp != full_name.npos)
+    {
+        service_name =
+            service_name.substr(temp + 1, service_name.size() - temp);
+    }
 
     LOG_ERROR << "parse sericve_name[" + service_name + "] and method_name[" +
                      method_name + "] from full name [" + full_name + "]";

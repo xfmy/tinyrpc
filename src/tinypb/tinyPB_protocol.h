@@ -34,7 +34,7 @@ public:
     /// @brief 错误信息长度
     int32_t         errorInfoLen_{0};
     /// @brief 错误信息
-    std::string     errorInfo_{0};
+    std::string     errorInfo_;
 
     /// @brief 实际rpc请求数据
     std::string     pbData_;

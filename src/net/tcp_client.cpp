@@ -63,19 +63,20 @@ void TcpClient::AddTimerEvent(double delay, TimerCallback cb)
 bool TcpClient::connected() { return connectionPtr->connected(); }
 std::string TcpClient::GetPeerAddrString() { return peerAddr_.toIpPort(); }
 bool TcpClient::GetTinyPBProtocol(RpcController* controller,
-                                  std::shared_ptr<mprpc::TinyPBProtocol> ptr)
+                                  std::shared_ptr<mprpc::TinyPBProtocol>& ptr)
 {
     // msgid+timeout
     std::string msgId = controller->GetMsgId();
     std::unique_lock<std::mutex> lock(mtx_);
     bool timeout =
         cv_.wait_for(lock, std::chrono::milliseconds(controller->GetTimeout()),
-                    [this, msgId, ptr] mutable -> bool {
+                    [this, msgId, &ptr] mutable -> bool {
                         auto it = tingPBMap_.find(msgId);
                         if (it != tingPBMap_.end())
                         {
                             ptr = tingPBMap_[msgId];
-                            return true;
+                            tingPBMap_.erase(it);
+                             return true;
                         }
                         else
                         {

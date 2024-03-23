@@ -27,7 +27,7 @@ class ConsulClient;
 {
 public:
     RpcDispatcher();
-
+    ~RpcDispatcher();
     /// @brief 这是框架提供个给外部使用的,可以发布rpc方法的函数接口
     /// @param service 需要发布的服务类
     void registerService(servicePtr service);

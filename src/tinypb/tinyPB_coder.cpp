@@ -2,6 +2,7 @@
 #include <muduo/net/Endian.h>
 #include "tinyPB_coder.h"
 #include "tinyPB_protocol.h"
+#include "cstring"
 
 using namespace muduo::net::sockets;
 #define htonl(xx) hostToNetwork32(xx);
@@ -50,32 +51,33 @@ int TinyPBCoder::decode(std::shared_ptr<TinyPBProtocol> message,
     int index = 0;
     int viewSize = view.size();
     while (index < viewSize && view[index++] != TinyPBProtocol::PB_START)
-        if (index + 26 >= viewSize) return -1;
+        ;
+    if (index + 26 >= viewSize) return -1;
     uint32_t tmp = index;
-    uint32_t packageLen =
-        ntohl(*reinterpret_cast<int*>(const_cast<char*>(view.begin()) + index));
-    if (index + packageLen > viewSize) return -1;
+    uint32_t packageLen = ntohl(
+        *reinterpret_cast<uint32_t*>(const_cast<char*>(view.begin()) + index));
+    if (packageLen > viewSize) return -1;
     index += sizeof(message->packageLen_);
 
-    uint32_t msgIdLen =
-        ntohl(*reinterpret_cast<int*>(const_cast<char*>(view.begin()) + index));
+    uint32_t msgIdLen = ntohl(
+        *reinterpret_cast<uint32_t*>(const_cast<char*>(view.begin()) + index));
     index += sizeof(message->msgIdLen_);
 
     message->msgId_.assign(view.begin() + index, msgIdLen);
     index += msgIdLen;
 
-    uint32_t methodNameLen =
-        ntohl(*reinterpret_cast<int*>(const_cast<char*>(view.begin()) + index));
+    uint32_t methodNameLen = ntohl(
+        *reinterpret_cast<uint32_t*>(const_cast<char*>(view.begin()) + index));
     index += sizeof(message->methodNameLen_);
     message->methodName_.assign(view.begin() + index, methodNameLen);
     index += methodNameLen;
 
-    uint32_t errorCode =
-        ntohl(*reinterpret_cast<int*>(const_cast<char*>(view.begin()) + index));
+    uint32_t errorCode = ntohl(
+        *reinterpret_cast<uint32_t*>(const_cast<char*>(view.begin()) + index));
     index += sizeof(message->errorCode_);
 
-    uint32_t errorInfoLen =
-        ntohl(*reinterpret_cast<int*>(const_cast<char*>(view.begin()) + index));
+    uint32_t errorInfoLen = ntohl(
+        *reinterpret_cast<uint32_t*>(const_cast<char*>(view.begin()) + index));
     index += sizeof(message->errorInfoLen_);
     message->errorInfo_.assign(view.begin() + index, errorInfoLen);
     index += errorInfoLen;
@@ -85,14 +87,17 @@ int TinyPBCoder::decode(std::shared_ptr<TinyPBProtocol> message,
     message->pbData_.assign(view.begin() + index, protocDataLen);
     index += protocDataLen;
 
-    uint32_t checksum =
-        ntohl(*reinterpret_cast<int*>(const_cast<char*>(view.begin()) + index));
+    uint32_t checksum;
+    memcpy(&checksum, view.begin() + index, 4);
+    checksum = ntohl(checksum);
+
     index += sizeof(message->checksum_);
 
-    if (checksum != std::hash<std::string>{}(message->pbData_) ||
-        view[0] != TinyPBProtocol::PB_END)
+    if (checksum != static_cast<uint32_t>(std::hash<std::string>{}(message->pbData_)) ||
+        view[index] != TinyPBProtocol::PB_END)
     {
-        return decode(message,std::string_view(view.begin() + tmp,viewSize - tmp));
+        return decode(message,
+                      std::string_view(view.begin() + tmp, viewSize - tmp));
     }
 
     message->packageLen_ = packageLen;

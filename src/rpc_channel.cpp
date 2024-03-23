@@ -138,7 +138,7 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
     std::shared_ptr<mprpc::TinyPBProtocol> resp_protocol =
         std::make_shared<mprpc::TinyPBProtocol>();
     bool timeout = client_->GetTinyPBProtocol(my_controller, resp_protocol);
-    if (timeout)
+    if (!timeout)
     {
         LOG_INFO << fmt::format("{}| call rpc timeout arrive",
                                 my_controller->GetMsgId());
@@ -179,7 +179,7 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
         return;
     }
 
-    LOG_ERROR << fmt::format(
+    LOG_INFO << fmt::format(
         "{} | call rpc success, call method name[{}], peer addr[{}]",
         resp_protocol->msgId_, resp_protocol->methodName_,
         client_->GetPeerAddrString());

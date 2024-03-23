@@ -30,7 +30,7 @@ public:
     std::string GetPeerAddrString();
 
     bool GetTinyPBProtocol(RpcController*,
-                           std::shared_ptr<mprpc::TinyPBProtocol>);
+                           std::shared_ptr<mprpc::TinyPBProtocol>&);
 
 private:
     void MessageCallback(const muduo::net::TcpConnectionPtr&, Buffer*,
