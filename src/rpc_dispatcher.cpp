@@ -55,12 +55,16 @@ void RpcDispatcher::run()
         //设置rpc分发回调函数
         sessionLayer.setDispatchCallback(
             std::bind(&RpcDispatcher::dispatch, this, _1, _2, _3));
-        sessionLayer.AddTimerEvent(30, [this]() -> void {
+
+        //向consul注册服务回调
+        std::function<void()> cb = [this]() -> void {
             for (std::string serviceId : services_)
             {
                 consulPtr_->ServicePass(serviceId);
             }
-        });
+        };
+        cb();
+        sessionLayer.AddTimerEvent(30, cb);
         sessionLayer.start();
     }
     else

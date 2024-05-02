@@ -41,8 +41,8 @@ private:
 private:
     muduo::net::InetAddress LocalAddr_;
     muduo::net::InetAddress peerAddr_;
-    // muduo::net::EventLoop loop_;
-    muduo::net::EventLoopThread loop_;
+    muduo::net::EventLoopThread loopThread_;
+    muduo::net::EventLoop* loop_;
     muduo::net::TcpClient tcpClient_;
     TcpConnectionPtr connectionPtr;
     std::map<std::string, std::shared_ptr<mprpc::TinyPBProtocol>> tingPBMap_;

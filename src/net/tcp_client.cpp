@@ -7,7 +7,8 @@
 namespace mprpc {
 TcpClient::TcpClient(muduo::net::InetAddress peer_addr)
     : peerAddr_(peer_addr),
-      tcpClient_(loop_.startLoop(), peerAddr_, "tcp_client")
+      loop_(loopThread_.startLoop()),
+      tcpClient_(loop_, peerAddr_, "tcp_client")
 {
     tcpClient_.setMessageCallback(
         std::bind(&TcpClient::MessageCallback, this, _1, _2, _3));
@@ -58,7 +59,7 @@ void TcpClient::request(std::shared_ptr<mprpc::TinyPBProtocol> req_protocol)
 }
 void TcpClient::AddTimerEvent(double delay, TimerCallback cb)
 {
-    //loop_.runAfter(delay, cb);
+    loop_->runAfter(delay, cb);
 }
 bool TcpClient::connected() { return connectionPtr->connected(); }
 std::string TcpClient::GetPeerAddrString() { return peerAddr_.toIpPort(); }

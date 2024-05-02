@@ -134,6 +134,18 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
         "peer addr[{}]",
         req_protocol->msgId_, req_protocol->methodName_,
         client_->GetPeerAddrString());
+    /*
+        支持同步与异步
+        google::protobuf::Closure* done
+        if(done == nullptr){
+            sync
+            continue
+        }else{
+            async
+            注册
+        }
+    */
+
 
     std::shared_ptr<mprpc::TinyPBProtocol> resp_protocol =
         std::make_shared<mprpc::TinyPBProtocol>();

@@ -23,6 +23,6 @@ set(CMAKE_BUILD_TYPE Debug)
 #生成库文件
 add_subdirectory(src)  
 #进行单元测试
-#add_subdirectory(test) 
+add_subdirectory(test) 
 #编译示例
 add_subdirectory(example)   

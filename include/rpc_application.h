@@ -20,7 +20,7 @@ public:
     }
 
     /// @brief 初始化配置项
-    void init();
+    void init(std::string path);
 
     /// @brief 获取相应的配置值
     /// @param field key

@@ -5,10 +5,15 @@
 #include "protobuf.pb.h"
 #include "muduo/net/InetAddress.h"
 using namespace mprpc;
-int main()
+int main(int argc, char** argv)
 {
+    if (argc != 2)
+    {
+        std::cout << "启动项参数异常,请检查" << std::endl;
+        return 1;
+    }
     //初始化框架
-    RpcApplication::GetInstance().init();
+    RpcApplication::GetInstance().init(argv[1]);
 
     //演示调用远程发布的rpc方法Login
     // muduo::net::InetAddress()
@@ -34,6 +39,7 @@ int main()
         }
         else
         {
+            
         }
     });
 

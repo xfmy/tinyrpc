@@ -2,8 +2,9 @@
 
 namespace mprpc
 {
-void RpcApplication::init() {
-    infoMap = RpcInitConfig::execute();
+void RpcApplication::init(std::string path)
+{
+    infoMap = RpcInitConfig::execute(path);
 }
 
 std::optional<std::string> RpcApplication::atConfigItem(std::string field) const {

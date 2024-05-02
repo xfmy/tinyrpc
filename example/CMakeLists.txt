@@ -5,5 +5,5 @@
 add_executable(client ./client.cpp ./protobuf.pb.cc)
 add_executable(service ./service.cpp ./protobuf.pb.cc)
 
-target_link_libraries(client mprpc)
-target_link_libraries(service mprpc)
+target_link_libraries(client tinyrpc)
+target_link_libraries(service tinyrpc)

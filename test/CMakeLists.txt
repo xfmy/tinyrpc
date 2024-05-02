@@ -1,6 +1,6 @@
-project(mprpc_test)
-aux_source_directory(. SRC_LIST)
+project(tinyrpc_test)
+#aux_source_directory(. SRC_LIST)
 
-add_executable(mprpc_test ${SRC_LIST})
+add_executable(tinyrpc_test tinypb_test.cpp)
 
-target_link_libraries(mprpc_test libgtest.a libprotobuf.a)
+target_link_libraries(tinyrpc_test tinyrpc)

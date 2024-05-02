@@ -12,6 +12,6 @@ class RpcInitConfig
 public:
     /// @brief 读取并解析配置文件
     /// @return 返回解析后的key-value
-    static configInfo execute();
+    static configInfo execute(std::string path);
 };
 }

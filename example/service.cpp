@@ -7,16 +7,17 @@ using namespace mprpc;
 class UserService : public fixbug::user
 {
 public:
-    bool Login(std::string name, std::string password){
+    bool Login(std::string name, std::string password)
+    {
         LOG_INFO << "user name is " + name;
         LOG_INFO << "user password is " + password;
         return true;
     }
 
     virtual void Login(google::protobuf::RpcController* controller,
-    const fixbug::LoginRequest* requst,
-    fixbug::LoginResponse* response,
-    google::protobuf::Closure* done) override
+                       const fixbug::LoginRequest* requst,
+                       fixbug::LoginResponse* response,
+                       google::protobuf::Closure* done) override
     {
         std::string name = requst->name();
         std::string password = requst->pwd();
@@ -29,9 +30,14 @@ public:
     }
 };
 
-int main()
+int main(int argc, char** argv)
 {
-    RpcApplication::GetInstance().init();
+    if (argc != 2)
+    {
+        std::cout << "启动项参数异常,请检查" << std::endl;
+        return 1;
+    }
+    RpcApplication::GetInstance().init(argv[1]);
     RpcDispatcher provider;
     auto aa = std::make_shared<UserService>();
     provider.registerService(aa);
