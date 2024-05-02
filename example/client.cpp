@@ -16,9 +16,7 @@ int main(int argc, char** argv)
     RpcApplication::GetInstance().init(argv[1]);
 
     //演示调用远程发布的rpc方法Login
-    // muduo::net::InetAddress()
-    fixbug::user_Stub stub(
-        new RpcChannel(/*muduo::net::InetAddress("127.0.0.1", 9001)*/));
+    fixbug::user_Stub stub( new RpcChannel());
 
     // rpc参数
     fixbug::LoginRequest request;
@@ -31,30 +29,27 @@ int main(int argc, char** argv)
     //发起rpc方法的调用
     RpcController control;
 
-    RpcClosure close([request, response, &control]() mutable {
-        if (control.GetErrorCode() == 0)
-        {
-            // 执行业务逻辑
-            std::cout << "RpcClosure callback" << std::endl;
-        }
-        else
-        {
-            
-        }
-    });
+    stub.Login(&control, &request, &response, nullptr);
 
-    stub.Login(&control, &request, &response, &close);
-
-    if (0 == response.result().errcode())
+    //一次rpc调用完成，读调用的结果
+    //不要直接访问response
+    if (control.Failed())
     {
-        std::cout << "rpc call success:" << response.sucess()
-                  << response.result().errcode() << response.result().errmsg()
-                  << std::endl;
+        std::cout << control.ErrorText() << std::endl;
     }
     else
     {
-        std::cout << "rpc call error:" << response.result().errmsg()
-                  << std::endl;
+        if (0 == response.result().errcode())
+        {
+            std::cout << "rpc call success:" << response.sucess()
+                      << response.result().errcode()
+                      << response.result().errmsg() << std::endl;
+        }
+        else
+        {
+            std::cout << "rpc call error:" << response.result().errmsg()
+                      << std::endl;
+        }
     }
 
     return 0;

@@ -59,7 +59,7 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
         LOG_ERROR << "failed callmethod, RpcController convert error";
         my_controller->SetError(ERROR_RPC_CHANNEL_INIT,
                                 "controller or request or response NULL");
-        my_rpcClosure->Run();
+        if (my_rpcClosure) my_rpcClosure->Run();
         return;
     }
 
@@ -73,7 +73,7 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
             LOG_ERROR << "No service found available in consul";
             my_controller->SetError(ERROR_RPC_CHANNEL_INIT,
                                     "No service found available in consul");
-            my_rpcClosure->Run();
+            if (my_rpcClosure) my_rpcClosure->Run();
             return;
         }
         client_ = std::make_shared<mprpc::TcpClient>(*serviceAddrPtr);
@@ -105,7 +105,7 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
 
         LOG_ERROR << req_protocol->msgId_ + err_info + "origin requeset->" +
                          request->ShortDebugString();
-        my_rpcClosure->Run();
+        if (my_rpcClosure) my_rpcClosure->Run();
         return;
     }
 
@@ -119,7 +119,7 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
             req_protocol->msgId_, my_controller->GetErrorCode(),
             my_controller->GetErrorInfo(), client_->GetPeerAddrString());
 
-        my_rpcClosure->Run();
+        if (my_rpcClosure) my_rpcClosure->Run();
 
         return;
     }
@@ -160,7 +160,7 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
             ERROR_RPC_CALL_TIMEOUT,
             "rpc call timeout " + std::to_string(my_controller->GetTimeout()));
 
-        my_rpcClosure->Run();
+        if (my_rpcClosure) my_rpcClosure->Run();
     }
 
     LOG_INFO << fmt::format(
@@ -173,7 +173,7 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
     {
         LOG_ERROR << resp_protocol->msgId_ + "| serialize error";
         my_controller->SetError(ERROR_FAILED_SERIALIZE, "serialize error");
-        my_rpcClosure->Run();
+        if (my_rpcClosure) my_rpcClosure->Run();
         return;
     }
 
@@ -187,7 +187,7 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
 
         my_controller->SetError(resp_protocol->errorCode_,
                                 resp_protocol->errorInfo_);
-        my_rpcClosure->Run();
+        if (my_rpcClosure) my_rpcClosure->Run();
         return;
     }
 
@@ -195,7 +195,7 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
         "{} | call rpc success, call method name[{}], peer addr[{}]",
         resp_protocol->msgId_, resp_protocol->methodName_,
         client_->GetPeerAddrString());
-    my_rpcClosure->Run();
+    if (my_rpcClosure) my_rpcClosure->Run();
 }
 
 // void RpcChannel::Init(ControllerPtr controller, MessagePtr reqest,

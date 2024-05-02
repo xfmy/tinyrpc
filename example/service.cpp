@@ -26,6 +26,7 @@ public:
         resCode->set_errcode(0);
         resCode->set_errmsg("一切正常 very good");
         response->set_sucess(res);
+        // Closure是一个抽象类，
         done->Run();
     }
 };
@@ -39,8 +40,8 @@ int main(int argc, char** argv)
     }
     RpcApplication::GetInstance().init(argv[1]);
     RpcDispatcher provider;
-    auto aa = std::make_shared<UserService>();
-    provider.registerService(aa);
+    std::shared_ptr<UserService> userService = std::make_shared<UserService>();
+    provider.registerService(userService);
     provider.run();
     return 0;
 }
