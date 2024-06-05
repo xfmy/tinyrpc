@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['mprpcapplication_0',['MprpcApplication',['../class_mprpc_application.html',1,'']]],
-  ['mprpcapplication_2eh_1',['mprpcApplication.h',['../mprpc_application_8h.html',1,'']]],
-  ['mprpcnetwork_2eh_2',['mprpcNetwork.h',['../mprpc_network_8h.html',1,'']]]
+  ['tinyrpcapplication_0',['tinyrpcApplication',['../class_tinyrpc_application.html',1,'']]],
+  ['tinyrpcapplication_2eh_1',['tinyrpcApplication.h',['../tinyrpc_application_8h.html',1,'']]],
+  ['tinyrpcnetwork_2eh_2',['tinyrpcNetwork.h',['../tinyrpc_network_8h.html',1,'']]]
 ];

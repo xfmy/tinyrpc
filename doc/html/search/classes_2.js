@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mprpcapplication_0',['MprpcApplication',['../class_mprpc_application.html',1,'']]]
+  ['tinyrpcapplication_0',['tinyrpcApplication',['../class_tinyrpc_application.html',1,'']]]
 ];

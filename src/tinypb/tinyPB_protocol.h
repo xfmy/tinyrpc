@@ -1,8 +1,14 @@
+/**
+ * @file tinyPB_protocol.h
+ * @author xf
+ * @brief tinyPB协议类,定义了TinyRpc网络传输数据的报文协议结构
+ * 
+ */
 #pragma once
 #include <cstdint>
 #include <string>
 
-namespace mprpc {
+namespace tinyrpc {
 class TinyPBProtocol
 {
 public:
@@ -44,4 +50,4 @@ public:
     /// @brief 判断是否已经被解析成功
     bool            parseSuccess_{false};
 };
-} // namespace mprpc
+} // namespace tinyrpc

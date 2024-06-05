@@ -15,7 +15,7 @@
 #include "consul.h"
 #include "random_number.h"
 
-namespace mprpc {
+namespace tinyrpc {
 RpcDispatcher::RpcDispatcher()
 {
     consulPtr_ = std::make_shared<ConsulClient>();
@@ -37,7 +37,7 @@ void RpcDispatcher::registerService(servicePtr service)
     std::string servicePort =
         RpcApplication::GetInstance().atConfigItem("servicePort").value();
     //std::string serviceName = service->GetDescriptor()->name();
-    std::string ID = serviceName + '-' + mprpc::GetRandomNumberString();
+    std::string ID = serviceName + '-' + tinyrpc::GetRandomNumberString();
 
     consulPtr_->RegisterService(serviceName, ID, serviceIp,
                                 std::atoi(servicePort.c_str()));
@@ -177,7 +177,7 @@ void RpcDispatcher::dispatch(std::shared_ptr<TinyPBProtocol> request,
 
         service->CallMethod(method, rpcController, req_msg, resp_msg, closure);
     }
-    catch (MPRpcExcept err)
+    catch (tinyrpcExcept err)
     {
         LOG_ERROR << err.what();
     }
@@ -191,11 +191,11 @@ void RpcDispatcher::responseToClient(const TcpConnectionPtr &ptr,
                                      std::shared_ptr<TinyPBProtocol> response)
 {
     std::string output;
-    mprpc::TinyPBCoder::encode(response, output);
+    tinyrpc::TinyPBCoder::encode(response, output);
 
     //     if (!response->SerializeToString(&output))
     // {
-    //     throw MPRpcExcept("protobuf序列化协议解析失败");
+    //     throw tinyrpcExcept("protobuf序列化协议解析失败");
     // }
     ptr->send(output);
     // respondPtr->shutdown();
@@ -244,17 +244,17 @@ void RpcDispatcher::setTinyPBError(std::shared_ptr<TinyPBProtocol> msg,
     msg->errorInfo_ = err_info;
     msg->errorInfoLen_ = err_info.size();
 }
-} // namespace mprpc
+} // namespace tinyrpc
 
-// mprpcHeader::rpcHeader RpcDispatcher::parseHeadler(const std::string &data)
+// tinyrpcHeader::rpcHeader RpcDispatcher::parseHeadler(const std::string &data)
 // {
 //     //判断是否满足最小包条件大小
-//     // if (data.size() <= sizeof(mprpcHeader::rpcHeader) + 4)
+//     // if (data.size() <= sizeof(tinyrpcHeader::rpcHeader) + 4)
 //     //     throw except("数据包不满足最低大小");
 //     //获取rpcHeadler长度
 
 //     int headlerSize = *(int *)data.c_str();
-//     mprpcHeader::rpcHeader headler;
+//     tinyrpcHeader::rpcHeader headler;
 //     //解析handler的protobuf数据
 //     if (!headler.ParseFromString(data.substr(4, headlerSize)))
 //     {
@@ -270,7 +270,7 @@ void RpcDispatcher::setTinyPBError(std::shared_ptr<TinyPBProtocol> msg,
 //     try
 //     {
 //         //解析rpcHeadler头部并获取相应的字段
-//         mprpcHeader::rpcHeader headler = parseHeadler(data);
+//         tinyrpcHeader::rpcHeader headler = parseHeadler(data);
 //         std::string serviceName = headler.servicename();
 //         std::string methodName = headler.methodname();
 //         uint32_t argsSize = headler.argssize();
@@ -305,7 +305,7 @@ void RpcDispatcher::setTinyPBError(std::shared_ptr<TinyPBProtocol> msg,
 //                                                           req, resp,
 //                                                           closure);
 //     }
-//     catch (MPRpcExcept err)
+//     catch (tinyrpcExcept err)
 //     {
 //         LOG_ERROR << err.what();
 //     }

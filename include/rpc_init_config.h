@@ -4,7 +4,7 @@
 
 using configInfo = std::map<std::string, std::string>;
 
-namespace mprpc
+namespace tinyrpc
 {
 /// @brief 配置文件解析类
 class RpcInitConfig

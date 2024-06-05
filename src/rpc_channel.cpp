@@ -29,12 +29,12 @@
 // #include "rocket/common/run_time.h"
 // #include "rocket/net/timer_event.h"
 
-namespace mprpc {
+namespace tinyrpc {
 
 RpcChannel::RpcChannel(/*muduo::net::InetAddress peer_addr*/)
 {
     LOG_INFO << "RpcChannel";
-    //client_ = std::make_shared<mprpc::TcpClient>(peer_addr);
+    //client_ = std::make_shared<tinyrpc::TcpClient>(peer_addr);
 }
 
 RpcChannel::~RpcChannel() { LOG_INFO << "~RpcChannel"; }
@@ -49,8 +49,8 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
 
     
 
-    std::shared_ptr<mprpc::TinyPBProtocol> req_protocol =
-        std::make_shared<mprpc::TinyPBProtocol>();
+    std::shared_ptr<tinyrpc::TinyPBProtocol> req_protocol =
+        std::make_shared<tinyrpc::TinyPBProtocol>();
 
     RpcClosure* my_rpcClosure = dynamic_cast<RpcClosure*>(done);
     RpcController* my_controller = dynamic_cast<RpcController*>(controller);
@@ -76,14 +76,14 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
             if (my_rpcClosure) my_rpcClosure->Run();
             return;
         }
-        client_ = std::make_shared<mprpc::TcpClient>(*serviceAddrPtr);
+        client_ = std::make_shared<tinyrpc::TcpClient>(*serviceAddrPtr);
         init_ = true;
     }
 
     //设置msgId
     if (my_controller->GetMsgId().empty())
     {
-        req_protocol->msgId_ = mprpc::GetRandomNumberString();
+        req_protocol->msgId_ = tinyrpc::GetRandomNumberString();
         my_controller->SetMsgId(req_protocol->msgId_);
     }
     else
@@ -147,8 +147,8 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
     */
 
 
-    std::shared_ptr<mprpc::TinyPBProtocol> resp_protocol =
-        std::make_shared<mprpc::TinyPBProtocol>();
+    std::shared_ptr<tinyrpc::TinyPBProtocol> resp_protocol =
+        std::make_shared<tinyrpc::TinyPBProtocol>();
     bool timeout = client_->GetTinyPBProtocol(my_controller, resp_protocol);
     if (!timeout)
     {
@@ -226,7 +226,7 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
 // google::protobuf::Closure* RpcChannel::getClosure() { return closure_.get();
 // }
 
-// mprpc::TcpClient* RpcChannel::getTcpClient() { return client_.get(); }
+// tinyrpc::TcpClient* RpcChannel::getTcpClient() { return client_.get(); }
 
 // muduo::net::InetAddress RpcChannel::FindAddr(const std::string& str)
 // {
@@ -252,9 +252,9 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
 //     }
 // }
 
-} // namespace mprpc
+} // namespace tinyrpc
 
-// namespace mprpc {
+// namespace tinyrpc {
 // void RpcChannel::CallMethod(
 //     const PROTO::MethodDescriptor *method,
 //     PROTO::RpcController *controller,
@@ -267,7 +267,7 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
 //     request->SerializeToString(&requestData);
 //     const PROTO::ServiceDescriptor *service = method->service();
 
-//     mprpcHeader::rpcHeader header;
+//     tinyrpcHeader::rpcHeader header;
 //     header.set_servicename(service->name());
 //     header.set_methodname(method->name());
 //     header.set_argssize(requestData.size());

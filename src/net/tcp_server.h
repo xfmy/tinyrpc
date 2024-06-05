@@ -1,6 +1,6 @@
 /**
  * @mainpage 网络层
- * @file mprpcNetwork.h
+ * @file tinyrpcNetwork.h
  * @brief 整个项目的网络模块,封装muduo网络库TcpServer
  * @author xf
  * @version 1.0
@@ -14,6 +14,7 @@
 #include <muduo/net/InetAddress.h>
 #include <memory>
 #include <string_view>
+#include "thread_pool.h"
 using namespace muduo;
 using namespace muduo::net;
 
@@ -27,7 +28,7 @@ typedef std::function<void(EventLoop *)> ThreadInitCallback;
 // using packageFullCallback =
 //    std::function<int(std::string_view view, std::string &target)>;
 
-namespace mprpc {
+namespace tinyrpc {
 
 class TinyPBProtocol;
 
@@ -36,7 +37,7 @@ using DispatchCallback =
                        std::shared_ptr<TinyPBProtocol> response,
                        const muduo::net::TcpConnectionPtr &ptr)>;
 
-/// @brief mprpc的网络模块
+/// @brief tinyrpc的网络模块
 class TcpServer : public muduo::noncopyable
 {
 public:
@@ -100,5 +101,7 @@ private:
     InetAddress addr_;
     EventLoop loop_;
     muduo::net::TcpServer server_;
+
+    std::unique_ptr<CThreadPool> pool;
 };
-} // namespace mprpc
+} // namespace tinyrpc

@@ -4,7 +4,7 @@
 #include "tinyPB_coder.h"
 #include "tinyPB_protocol.h"
 
-namespace mprpc {
+namespace tinyrpc {
 TcpClient::TcpClient(muduo::net::InetAddress peer_addr)
     : peerAddr_(peer_addr),
       loop_(loopThread_.startLoop()),
@@ -12,7 +12,7 @@ TcpClient::TcpClient(muduo::net::InetAddress peer_addr)
 {
     tcpClient_.setMessageCallback(
         std::bind(&TcpClient::MessageCallback, this, _1, _2, _3));
-    tcpClient_.setConnectionCallback(std::bind(&mprpc::TcpClient::connectCallbcak, this, _1));
+    tcpClient_.setConnectionCallback(std::bind(&tinyrpc::TcpClient::connectCallbcak, this, _1));
     tcpClient_.enableRetry();
     mtx_.lock();
     tcpClient_.connect();
@@ -32,10 +32,10 @@ void TcpClient::MessageCallback(const muduo::net::TcpConnectionPtr& ptr,
     std::string_view view(buf->peek(), buf->readableBytes());
     LOG_INFO << "接收到一个的包 data size:" << view.size();
 
-    std::shared_ptr<mprpc::TinyPBProtocol> response =
-        std::make_shared<mprpc::TinyPBProtocol>();
+    std::shared_ptr<tinyrpc::TinyPBProtocol> response =
+        std::make_shared<tinyrpc::TinyPBProtocol>();
 
-    int index = mprpc::TinyPBCoder::decode(response, view);
+    int index = tinyrpc::TinyPBCoder::decode(response, view);
     if (index == -1)
         return;
     else
@@ -51,7 +51,7 @@ void TcpClient::connectCallbcak(const TcpConnectionPtr& ptr)
     if (connectionPtr->connected()) peerAddr_ = connectionPtr->peerAddress();
     mtx_.unlock();
 }
-void TcpClient::request(std::shared_ptr<mprpc::TinyPBProtocol> req_protocol)
+void TcpClient::request(std::shared_ptr<tinyrpc::TinyPBProtocol> req_protocol)
 {
     std::string sendMsg;
     TinyPBCoder::encode(req_protocol, sendMsg);
@@ -64,7 +64,7 @@ void TcpClient::AddTimerEvent(double delay, TimerCallback cb)
 bool TcpClient::connected() { return connectionPtr->connected(); }
 std::string TcpClient::GetPeerAddrString() { return peerAddr_.toIpPort(); }
 bool TcpClient::GetTinyPBProtocol(RpcController* controller,
-                                  std::shared_ptr<mprpc::TinyPBProtocol>& ptr)
+                                  std::shared_ptr<tinyrpc::TinyPBProtocol>& ptr)
 {
     // msgid+timeout
     std::string msgId = controller->GetMsgId();
@@ -86,4 +86,4 @@ bool TcpClient::GetTinyPBProtocol(RpcController* controller,
                     });
     return timeout;
 }
-} // namespace mprpc
+} // namespace tinyrpc

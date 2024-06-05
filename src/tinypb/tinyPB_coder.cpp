@@ -8,7 +8,7 @@ using namespace muduo::net::sockets;
 #define htonl(xx) hostToNetwork32(xx);
 #define ntohl(xx) networkToHost32(xx);
 
-namespace mprpc {
+namespace tinyrpc {
 void TinyPBCoder::encode(std::shared_ptr<TinyPBProtocol> message,
                          std::string& target)
 {
@@ -109,4 +109,4 @@ int TinyPBCoder::decode(std::shared_ptr<TinyPBProtocol> message,
     index++;
     return index;
 }
-} // namespace mprpc
+} // namespace tinyrpc

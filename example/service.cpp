@@ -3,7 +3,7 @@
 #include "protobuf.pb.h"
 #include "muduo/base/Logging.h"
 #include "string"
-using namespace mprpc;
+using namespace tinyrpc;
 class UserService : public fixbug::user
 {
 public:

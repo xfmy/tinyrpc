@@ -239,7 +239,7 @@ int main(int argc, char** argv)
 
 ```
 #service
-root@VM-16-3-ubuntu:~/projects/mprpc/bin# ./service ../conf/initConfigFile.conf
+root@VM-16-3-ubuntu:~/projects/tinyrpc/bin# ./service ../conf/initConfigFile.conf
 20250331 14:44:06.634708 388175 INFO  work loop thread start - tcp_server.cpp:97
 20250331 14:44:10.840627 388170 INFO  TcpServer::newConnection [networkServer] - new connection [networkServer-0.0.0.0:9001#1] from 127.0.0.1:58676 - TcpServer.cc:80
 20250331 14:44:10.840823 388175 INFO  127.0.0.1:58676客户发起来了连接 - tcp_server.cpp:85
@@ -258,7 +258,7 @@ root@VM-16-3-ubuntu:~/projects/mprpc/bin# ./service ../conf/initConfigFile.conf
 
 
 #client
-root@VM-16-3-ubuntu:~/projects/mprpc/bin# ./client ../conf/initConfigFile.conf
+root@VM-16-3-ubuntu:~/projects/tinyrpc/bin# ./client ../conf/initConfigFile.conf
 20240502 06:44:10.830904Z 388210 INFO  RpcChannel - rpc_channel.cpp:36
 20240502 06:44:10.840230Z 388210 INFO  TcpClient::TcpClient[tcp_client] - connector 0x5606CDC8D750 - TcpClient.cc:69
 20240502 06:44:10.840472Z 388210 INFO  TcpClient::connect[tcp_client] - connecting to 127.0.0.1:9001 - TcpClient.cc:107

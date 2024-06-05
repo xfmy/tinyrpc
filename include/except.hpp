@@ -9,18 +9,15 @@
 #include <exception>
 #include <string>
 
-namespace mprpc
+namespace tinyrpc
 {
-class MPRpcExcept final : std::exception
+class tinyrpcExcept final : std::exception
 {
-private:
-    std::string errorInfo_;
-    int errorCode_{0};
 public:
     /// @brief 通过std::source_location::current()可以获取异常抛出点的位置信息
     /// @param errorMsg 用户自定义错误消息
     /// @param sourceInfo 记录抛出点的地址信息
-    MPRpcExcept(const std::string errorMsg, int32_t errorCode = 0,std::source_location sourceInfo =
+    tinyrpcExcept(const std::string errorMsg, int32_t errorCode = 0,std::source_location sourceInfo =
                                                 std::source_location::current())
     {
         errorInfo_ = errorInfo_ + sourceInfo.file_name() + ' ' + sourceInfo.function_name() + ' ' + std::to_string(sourceInfo.line()) + ' ' + errorMsg;
@@ -33,9 +30,15 @@ public:
         return errorInfo_;
     }
 
+    /// @brief 获取错误码
+    /// @return 返回错误码
     int GetErrorCode()
     {
         return errorCode_;
     }
+
+private:
+    std::string errorInfo_; ///< 错误信息
+    int errorCode_{0};      ///< 错误码
 };
 }

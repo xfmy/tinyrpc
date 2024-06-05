@@ -1,6 +1,6 @@
 #include "rpc_application.h"
 
-namespace mprpc
+namespace tinyrpc
 {
 void RpcApplication::init(std::string path)
 {

@@ -1,6 +1,6 @@
 #include "rpc_controller.h"
 
-namespace mprpc {
+namespace tinyrpc {
 
 void RpcController::Reset()
 {
@@ -73,4 +73,4 @@ bool RpcController::Finished() { return isFinished_; }
 
 void RpcController::SetFinished(bool value) { isFinished_ = value; }
 
-} // namespace mprpc
+} // namespace tinyrpc

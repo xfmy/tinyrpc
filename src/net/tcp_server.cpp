@@ -12,9 +12,10 @@
 #include "tinyPB_coder.h"
 #include "tinyPB_protocol.h"
 
+#include "iostream"
+#include "cstdio"
 
-
-namespace mprpc {
+namespace tinyrpc {
 TcpServer::TcpServer(uint16_t port)
     : addr_(port),
       loop_(),
@@ -32,7 +33,11 @@ TcpServer::TcpServer(uint16_t port)
     server_.setConnectionCallback(
 
         std::bind(&TcpServer::onConnectCallback, this, _1));
-    setThreadNum(std::thread::hardware_concurrency());
+    setThreadNum(std::thread::hardware_concurrency()*2);
+
+    pool = std::make_unique<CThreadPool>();
+    pool->SetMode(CPoolMode::MODE_FIXED);
+    pool->Start();
 }
 
 
@@ -55,12 +60,11 @@ void TcpServer::onMessageCallback(const TcpConnectionPtr &ptr, Buffer *buf,
     // 首先解析一个完整的包,然后调用onMessageCompleteCallback处理
     std::string_view view(buf->peek(), buf->readableBytes());
     LOG_INFO << "接收到一个的包 data size:" << view.size();
-
-    std::shared_ptr<mprpc::TinyPBProtocol> request =
-        std::make_shared<mprpc::TinyPBProtocol>();
-    std::shared_ptr<mprpc::TinyPBProtocol> response =
-        std::make_shared<mprpc::TinyPBProtocol>();
-    int index = mprpc::TinyPBCoder::decode(request,view);
+    std::shared_ptr<tinyrpc::TinyPBProtocol> request =
+        std::make_shared<tinyrpc::TinyPBProtocol>();
+    std::shared_ptr<tinyrpc::TinyPBProtocol> response =
+        std::make_shared<tinyrpc::TinyPBProtocol>();
+    int index = tinyrpc::TinyPBCoder::decode(request,view);
     //int index = packageFull(view, userData);
     if (index == -1)
         return;
@@ -69,7 +73,8 @@ void TcpServer::onMessageCallback(const TcpConnectionPtr &ptr, Buffer *buf,
         //LOG_INFO << "接收到一个完整的包";
         buf->retrieve(index);
         //businessMsgCallback(ptr, message, time);
-        dispatchCallback_(request, response, ptr);
+        //dispatchCallback_(request, response, ptr);
+        pool->AddTask(dispatchCallback_, request, response, ptr);
     }
 }
 

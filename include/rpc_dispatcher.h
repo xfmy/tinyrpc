@@ -19,7 +19,7 @@ class google::protobuf::Message;
 using servicePtr = std::shared_ptr<google::protobuf::Service>;
 using messagePtr = std::shared_ptr<google::protobuf::Message>;
 
-namespace mprpc {
+namespace tinyrpc {
 class TinyPBProtocol;
 class ConsulClient;
     /// @brief 框架提供的专门发布rpc服务的网络对象类
@@ -34,6 +34,7 @@ public:
 
     /// @brief 启动rpc服务
     void run();
+    
 
 private:
     // class ServiceInfo
@@ -57,12 +58,10 @@ private:
     // rpc解析分发回调方法
     // void serviceDistribute(const muduo::net::TcpConnectionPtr &,
     //                       const std::string &, muduo::Timestamp);
-    void dispatch(std::shared_ptr<TinyPBProtocol> reqest,
-                  std::shared_ptr<TinyPBProtocol> response,
-                  const muduo::net::TcpConnectionPtr &ptr);
+
 
     //解析rpcHeadler信息
-    // mprpcHeader::rpcHeader parseHeadler(const std::string &data);
+    // tinyrpcHeader::rpcHeader parseHeadler(const std::string &data);
 
     //客户端响应回调函数
     void responseToClient(const muduo::net::TcpConnectionPtr &,
@@ -71,7 +70,9 @@ private:
     // 解析request请求信息,并将protobuf解析数据写入PROTO::Message * req
     // void parseRequast(PROTO::Message *req, const std::string &data,
     //                   uint32_t argsSize);
-
+    void dispatch(std::shared_ptr<TinyPBProtocol> reqest,
+                  std::shared_ptr<TinyPBProtocol> response,
+                  const muduo::net::TcpConnectionPtr &ptr);
     //获取service信息
     //const ServiceInfo &GetServiceInfo(std::string serviceName) const;
 
@@ -93,4 +94,4 @@ private:
     std::shared_ptr<ConsulClient> consulPtr_;
     std::vector<std::string> services_;
 };
-} // namespace mprpc
+} // namespace tinyrpc

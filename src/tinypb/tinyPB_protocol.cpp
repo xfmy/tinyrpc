@@ -1,8 +1,8 @@
 #include "tinyPB_protocol.h"
 
-namespace mprpc {
+namespace tinyrpc {
 
 char TinyPBProtocol::PB_START = 0xFE;
 char TinyPBProtocol::PB_END = 0xFF;
 
-} // namespace mprpc
+} // namespace tinyrpc

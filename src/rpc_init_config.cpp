@@ -5,7 +5,7 @@
 
 using namespace std::string_literals;
 
-namespace mprpc {
+namespace tinyrpc {
 configInfo RpcInitConfig::execute(std::string path)
 {
     libconfig::Config cfg;
@@ -79,4 +79,4 @@ configInfo RpcInitConfig::execute(std::string path)
     // }
     return info;
 }
-} // namespace mprpc
+} // namespace tinyrpc

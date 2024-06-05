@@ -4,7 +4,7 @@
 #include "rpc_application.h"
 #include "protobuf.pb.h"
 #include "muduo/net/InetAddress.h"
-using namespace mprpc;
+using namespace tinyrpc;
 int main(int argc, char** argv)
 {
     if (argc != 2)

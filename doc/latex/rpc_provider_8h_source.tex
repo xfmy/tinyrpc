@@ -4,7 +4,7 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
 \DoxyCodeLine{00010\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}mprpcHeader.pb.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}tinyrpcHeader.pb.h"{}}}
 \DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <google/protobuf/service.h>}}
 \DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
 \DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <muduo/net/TcpConnection.h>}}
@@ -39,7 +39,7 @@
 \DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ serviceDistribute(\textcolor{keyword}{const}\ muduo::net::TcpConnectionPtr\ \&,\ \textcolor{keyword}{const}\ std::string\ \&,\ muduo::Timestamp);}
 \DoxyCodeLine{00048\ \ \ \ \ }
 \DoxyCodeLine{00049\ \ \ \ \ \textcolor{comment}{//解析rpcHeadler信息}}
-\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classmprpc_header_1_1rpc_header}{mprpcHeader::rpcHeader}}\ parseHeadler(\textcolor{keyword}{const}\ std::string\ \&data);}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classtinyrpc_header_1_1rpc_header}{tinyrpcHeader::rpcHeader}}\ parseHeadler(\textcolor{keyword}{const}\ std::string\ \&data);}
 \DoxyCodeLine{00051\ \ \ \ \ }
 \DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{//客户端响应回调函数}}
 \DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ responseToClient(\textcolor{keyword}{const}\ muduo::net::TcpConnectionPtr\ \&,\ PROTO::Message\ *response);}

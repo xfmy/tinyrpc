@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>mprpc: include/rpcProvider.h Source File</title>
+<title>tinyrpc: include/rpcProvider.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">mprpc
+   <div id="projectname">tinyrpc
    </div>
   </td>
  </tr>
@@ -83,7 +83,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="contents">
 <a href="rpc_provider_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;mprpcHeader.pb.h&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;tinyrpcHeader.pb.h&quot;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;google/protobuf/service.h&gt;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;muduo/net/TcpConnection.h&gt;</span></div>
@@ -119,7 +119,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> serviceDistribute(<span class="keyword">const</span> muduo::net::TcpConnectionPtr &amp;, <span class="keyword">const</span> std::string &amp;, muduo::Timestamp);</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="comment">//解析rpcHeadler信息</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_class" href="classmprpc_header_1_1rpc_header.html">mprpcHeader::rpcHeader</a> parseHeadler(<span class="keyword">const</span> std::string &amp;data);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_class" href="classtinyrpc_header_1_1rpc_header.html">tinyrpcHeader::rpcHeader</a> parseHeadler(<span class="keyword">const</span> std::string &amp;data);</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    </div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="comment">//客户端响应回调函数</span></div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">void</span> responseToClient(<span class="keyword">const</span> muduo::net::TcpConnectionPtr &amp;, PROTO::Message *response);</div>
@@ -137,7 +137,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="aclass_rpc_provider_html"><div class="ttname"><a href="class_rpc_provider.html">RpcProvider</a></div><div class="ttdoc">框架提供的专门发布rpc服务的网络对象类</div><div class="ttdef"><b>Definition</b> rpcProvider.h:21</div></div>
 <div class="ttc" id="aclass_rpc_provider_html_a415ab71eb2272660d2534a4115a3dacb"><div class="ttname"><a href="class_rpc_provider.html#a415ab71eb2272660d2534a4115a3dacb">RpcProvider::run</a></div><div class="ttdeci">void run()</div><div class="ttdoc">启动rpc服务</div></div>
 <div class="ttc" id="aclass_rpc_provider_html_afd8bfea1ca06f4910152c50866d83871"><div class="ttname"><a href="class_rpc_provider.html#afd8bfea1ca06f4910152c50866d83871">RpcProvider::NotifyService</a></div><div class="ttdeci">void NotifyService(google::protobuf::Service *service)</div><div class="ttdoc">这是框架提供个给外部使用的,可以发布rpc方法的函数接口</div></div>
-<div class="ttc" id="aclassmprpc_header_1_1rpc_header_html"><div class="ttname"><a href="classmprpc_header_1_1rpc_header.html">mprpcHeader::rpcHeader</a></div><div class="ttdef"><b>Definition</b> mprpcHeader.pb.h:60</div></div>
+<div class="ttc" id="aclasstinyrpc_header_1_1rpc_header_html"><div class="ttname"><a href="classtinyrpc_header_1_1rpc_header.html">tinyrpcHeader::rpcHeader</a></div><div class="ttdef"><b>Definition</b> tinyrpcHeader.pb.h:60</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

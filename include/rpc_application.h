@@ -1,14 +1,15 @@
+/**
+ * @file rpc_init_config.h
+ * @mainpage tinyrpc框架的基础类,负责框架的初始化操作
+ * @brief 初始化配置全局信息
+ */
+
 #pragma once
 #include <boost/noncopyable.hpp>
 #include "rpc_init_config.h"
 #include <optional>
-/**
- * @file rpc_init_config.h
- * @mainpage mprpc框架的基础类,负责框架的初始化操作
- * @brief 初始化配置全局信息
- */
-namespace mprpc {
-/// @brief mprpc框架的基础类,负责框架的初始化操作
+namespace tinyrpc {
+/// @brief tinyrpc框架的基础类,负责框架的初始化操作
 class RpcApplication : public boost::noncopyable{
 public:
     /// @brief 单例模式,获取单例对象
@@ -28,6 +29,7 @@ public:
     std::optional<std::string> atConfigItem(std::string field) const;
 
 private:
+    /// @brief 配置信息键值对
     configInfo infoMap;
 };
 }

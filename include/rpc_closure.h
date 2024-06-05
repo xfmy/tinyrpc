@@ -8,9 +8,9 @@
 //#include "except.hpp"
 //#include "rpc_interface.h"
 //#include <muduo/base/Logging.h>
-//using namespace muduo::Logger;
+// using namespace muduo::Logger;
 
-namespace mprpc {
+namespace tinyrpc {
 
 class RpcClosure : public google::protobuf::Closure
 {
@@ -20,6 +20,7 @@ public:
 
     ~RpcClosure() = default;
 
+    /// @brief 关闭回调函数
     void Run()
     {
         if (cb_)
@@ -32,10 +33,10 @@ private:
     std::function<void()> cb_{nullptr};
 };
 
-} // namespace mprpc
+} // namespace tinyrpc
 
 /*
-namespace mprpc
+namespace tinyrpc
 {
     class RpcClosure : public google::protobuf::Closure
     {
@@ -59,7 +60,8 @@ namespace mprpc
             if (!m_rpc_interface)
             {
                 //TODO 处理
-                //RunTime::GetRunTime()->m_rpc_interface = m_rpc_interface.get();
+                //RunTime::GetRunTime()->m_rpc_interface =
+m_rpc_interface.get();
             }
 
             try
@@ -73,9 +75,10 @@ namespace mprpc
                     m_rpc_interface.reset();
                 }
             }
-            catch (MPRpcExcept& e)
+            catch (tinyrpcExcept& e)
             {
-                LOG_ERROR << "MPRpcExcept exception[" + e.what() + "], deal handle";
+                LOG_ERROR << "tinyrpcExcept exception[" + e.what() + "], deal
+handle";
                 //e.handle();
                 if (m_rpc_interface)
                 {

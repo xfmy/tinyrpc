@@ -1,3 +1,15 @@
+/**
+ * @file rpc_channel.h
+ * @author xf
+ * @brief channel类继承Google::protobuf::RpcChannel.
+ *          通过重写基类的CallMethod方法实现客户端的序列化以及网络发送
+ */
+
+
+
+
+
+
 #pragma once
 #include <google/protobuf/service.h>
 #include <google/protobuf/descriptor.h>
@@ -9,7 +21,7 @@ namespace PROTO = google::protobuf;
 using namespace muduo;
 using namespace muduo::net;
 
-namespace mprpc {
+namespace tinyrpc {
 class TcpClient;
 class TinyPBProtocol;
 /// @brief 由rpc调用端使用的通道类
@@ -21,7 +33,7 @@ public:
     using ControllerPtr = std::shared_ptr<google::protobuf::RpcController>;
     using MessagePtr = std::shared_ptr<google::protobuf::Message>;
     using ClosurePtr = std::shared_ptr<google::protobuf::Closure>;
-    using TcpClientPtr = std::shared_ptr<mprpc::TcpClient>;
+    using TcpClientPtr = std::shared_ptr<tinyrpc::TcpClient>;
 
 public:
     // 获取 addr
@@ -59,7 +71,7 @@ public:
 
     // google::protobuf::Closure* getClosure();
 
-    // mprpc::TcpClient* getTcpClient();
+    // tinyrpc::TcpClient* getTcpClient();
 
 private:
     // void callBack();
@@ -79,4 +91,4 @@ private:
     bool init_ = false;
 };
 
-} // namespace mprpc
+} // namespace tinyrpc

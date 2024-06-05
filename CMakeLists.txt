@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.0)
 
 #定义项目名称
-project(mprpc)
+project(tinyrpc)
 
 #设置c++标准
 set(CMAKE_CXX_STANDARD 20) 
@@ -20,9 +20,13 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 #默认设置Debug版本
 set(CMAKE_BUILD_TYPE Debug)
 
+#指定clang编译器
+set(CMAKE_C_COMPILER clang)
+set(CMAKE_CXX_COMPILER clang++)
+
 #生成库文件
 add_subdirectory(src)  
 #进行单元测试
 add_subdirectory(test) 
 #编译示例
-add_subdirectory(example)   
+add_subdirectory(example) 

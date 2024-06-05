@@ -1,7 +1,7 @@
 #include "consul.h"
 #include "muduo/base/Logging.h"
 #include "random_number.h"
-namespace mprpc {
+namespace tinyrpc {
 ConsulClient::ConsulClient()
 {
     std::optional<std::string> consulIp =
@@ -55,7 +55,7 @@ std::unique_ptr<muduo::net::InetAddress> ConsulClient::DiscoverService(
                                       std::get<1>(service).port);
     }
     if (serviceAddresses.size() == 0) return addressPtr;
-    int hashIndex = std::atoi(mprpc::GetRandomNumberString().c_str()) %
+    int hashIndex = std::atoi(tinyrpc::GetRandomNumberString().c_str()) %
                     serviceAddresses.size();
     addressPtr =
         std::make_unique<muduo::net::InetAddress>(serviceAddresses[hashIndex]);
@@ -77,4 +77,4 @@ bool ConsulClient::CheckHealth(ppconsul::health::NodeServiceChecks service)
     }
     return true;
 }
-} // namespace mprpc
+} // namespace tinyrpc
