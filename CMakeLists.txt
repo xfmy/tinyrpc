@@ -21,8 +21,8 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 set(CMAKE_BUILD_TYPE Debug)
 
 #指定clang编译器
-set(CMAKE_C_COMPILER clang)
-set(CMAKE_CXX_COMPILER clang++)
+#set(CMAKE_C_COMPILER /usr/bin/clang)
+#set(CMAKE_CXX_COMPILER /usr/bin/clang++)
 
 #生成库文件
 add_subdirectory(src)  

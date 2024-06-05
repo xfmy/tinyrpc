@@ -4,6 +4,7 @@
 namespace tinyrpc {
 ConsulClient::ConsulClient()
 {
+    // 根据配置文件信息初始化consul
     std::optional<std::string> consulIp =
         RpcApplication::GetInstance().atConfigItem("consulIp");
     std::optional<std::string> consulPort =
@@ -41,6 +42,7 @@ void ConsulClient::DeregisterService(const std::string& id)
 std::unique_ptr<muduo::net::InetAddress> ConsulClient::DiscoverService(
     const std::string& name)
 {
+    //根据服务名进行服务发现,并全部进行服务健康检测,随机将一个健康服务节点地址返回
     std::unique_ptr<muduo::net::InetAddress> addressPtr;
     ppconsul::health::Health health(
         *consulPtr_);

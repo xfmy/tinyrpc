@@ -17,4 +17,4 @@ include_directories(${PROJECT_SOURCE_DIR}/src/base)
 add_library(tinyrpc STATIC ${SRC_LIST} ${TINYPB_LIST} ${NET_LIST} ${CONSUL_LIST} ${TOOLS_LIST} ${BASE_LIST})
 
 #链接依赖库
-target_link_libraries(tinyrpc protobuf muduo_net muduo_base pthread liblibconfig++.a liblibconfig.a libfmt.a ppconsul curl json11)  
+target_link_libraries(tinyrpc protobuf muduo_net muduo_base pthread config++ config fmt ppconsul curl json11)  

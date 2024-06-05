@@ -45,10 +45,6 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
                             google::protobuf::Message* response,
                             google::protobuf::Closure* done)
 {
-    
-
-    
-
     std::shared_ptr<tinyrpc::TinyPBProtocol> req_protocol =
         std::make_shared<tinyrpc::TinyPBProtocol>();
 
@@ -63,7 +59,7 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
         return;
     }
 
-    if (!init_)
+    if (!init_)//初始化
     {
         ConsulClient consul;
         std::unique_ptr<muduo::net::InetAddress> serviceAddrPtr =
@@ -109,6 +105,7 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
         return;
     }
 
+    //判断网络连接是否
     if (!client_->connected())
     {
         my_controller->SetError(ERROR_FAILED_CONNECT, "network connect error");
@@ -127,6 +124,7 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
     LOG_INFO << fmt::format("{} | connect success, peer addr[{}]",
                             req_protocol->msgId_, client_->GetPeerAddrString());
 
+    //
     client_->request(req_protocol);
 
     LOG_INFO << fmt::format(

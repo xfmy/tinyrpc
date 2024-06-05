@@ -35,9 +35,10 @@ TcpServer::TcpServer(uint16_t port)
         std::bind(&TcpServer::onConnectCallback, this, _1));
     setThreadNum(std::thread::hardware_concurrency()*2);
 
-    pool = std::make_unique<CThreadPool>();
-    pool->SetMode(CPoolMode::MODE_FIXED);
-    pool->Start();
+    //创建并初始化线程池
+    pool_ = std::make_unique<CThreadPool>();
+    pool_->SetMode(CPoolMode::MODE_FIXED);
+    pool_->Start();
 }
 
 
@@ -74,7 +75,7 @@ void TcpServer::onMessageCallback(const TcpConnectionPtr &ptr, Buffer *buf,
         buf->retrieve(index);
         //businessMsgCallback(ptr, message, time);
         //dispatchCallback_(request, response, ptr);
-        pool->AddTask(dispatchCallback_, request, response, ptr);
+        pool_->AddTask(dispatchCallback_, request, response, ptr);
     }
 }
 
@@ -98,7 +99,6 @@ void TcpServer::onConnectCallback(const TcpConnectionPtr &ptr)
 
 void TcpServer::onThreadInitCallback(EventLoop *)
 {
-    // TODO:都需要处理
     LOG_INFO << "work loop thread start";
 }
 }

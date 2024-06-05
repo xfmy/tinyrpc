@@ -72,6 +72,7 @@ bool TcpClient::GetTinyPBProtocol(RpcController* controller,
     bool timeout =
         cv_.wait_for(lock, std::chrono::milliseconds(controller->GetTimeout()),
                     [this, msgId, &ptr] mutable -> bool {
+                        // 通过msgId寻到数据包
                         auto it = tingPBMap_.find(msgId);
                         if (it != tingPBMap_.end())
                         {

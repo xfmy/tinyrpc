@@ -3,9 +3,6 @@
  * @file tinyrpcNetwork.h
  * @brief 整个项目的网络模块,封装muduo网络库TcpServer
  * @author xf
- * @version 1.0
- * @copyright BSD
- * @date 2023-11-27
  */
 
 #pragma once
@@ -102,6 +99,7 @@ private:
     EventLoop loop_;
     muduo::net::TcpServer server_;
 
-    std::unique_ptr<CThreadPool> pool;
+    // 业务线程池
+    std::unique_ptr<CThreadPool> pool_;
 };
 } // namespace tinyrpc
