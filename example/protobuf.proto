@@ -25,5 +25,6 @@ message LoginResponse
 
 service user
 {
+	// 生成Login rpc方法,请求参数为LoginRequest,rpc返回LoginResponse
     rpc Login(LoginRequest) returns(LoginResponse);
 }

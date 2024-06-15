@@ -1,8 +1,6 @@
 /**
- * @mainpage 网络层
  * @file tinyrpcNetwork.h
- * @brief 整个项目的网络模块,封装muduo网络库TcpServer
- * @author xf
+ * @brief rpc server网络模块,封装muduo网络库TcpServer
  */
 
 #pragma once
@@ -16,14 +14,6 @@ using namespace muduo;
 using namespace muduo::net;
 
 typedef std::function<void(EventLoop *)> ThreadInitCallback;
-
-// using businessCallback = std::function<void(const TcpConnectionPtr &,
-//                                             const std::string &,
-//                                             Timestamp)>;
-// typedef std::function<void(const TcpConnectionPtr &, const std::string &,
-// Timestamp)> businessCallback;
-// using packageFullCallback =
-//    std::function<int(std::string_view view, std::string &target)>;
 
 namespace tinyrpc {
 
@@ -41,65 +31,60 @@ public:
     TcpServer(uint16_t port);
     ~TcpServer();
 
-    /// @brief 启动
+    /// @brief 启动网络模块
     void start();
 
-    /// @brief 设置包发送完毕的回调函数
+    /// @brief 设置数据包包发送完毕的回调函数
     void setWriteCompleteCallback(const WriteCompleteCallback cb)
     {
         server_.setWriteCompleteCallback(cb);
     }
 
-    /// @brief 设置客户端连接完毕后的回调函数
+    /// @brief 设置客户端连接回调
     void setConnectCallback(const ConnectionCallback cb)
     {
         server_.setConnectionCallback(cb);
     }
 
     /// @brief 设置接收到一个完整的包之后调用的业务处理函数
-    // void setBusinessMessageCallback(const businessCallback cb)
-    // {
-    //     this->businessMsgCallback = cb;
-    // }
-    void setDispatchCallback(const DispatchCallback& cb) { dispatchCallback_ = cb;}
+    void setDispatchCallback(const DispatchCallback &cb)
+    {
+        dispatchCallback_ = cb;
+    }
+
+    /// @brief 添加定时器
+    /// @param delay 时间
+    /// @param cb 事件回调
     void AddTimerEvent(double delay, TimerCallback cb);
 
 private:
-    // 设置验证包完整性的回调函数
-    // void setPackageFullCallback(const packageFullCallback cb) { packageFull =
-    // cb; };
-
-    //设置连接回调函数
+    /// @brief 连接回调函数
     void onConnectCallback(const TcpConnectionPtr &ptr);
 
-    // 设置workLoop数量
+    /// @brief 设置workLoop数量
     void setThreadNum(int count) { server_.setThreadNum(count); }
 
-    //设置线程初始化完毕的回调函数
+    /// @brief 设置线程初始化完毕的回调函数
     void setThreadInitCallback(const ThreadInitCallback cb)
     {
         server_.setThreadInitCallback(cb);
     }
 
-    // muduo消息回调
+    /// @brief 消息回调
     void onMessageCallback(const TcpConnectionPtr &ptr, Buffer *buf, Timestamp);
 
-    // workLoop初始化回调函数
+    /// @brief workLoop初始化回调函数
     void onThreadInitCallback(EventLoop *);
 
-    // 设置业务层的消息处理回调函数
-    // businessCallback businessMsgCallback;
+    /// @brief 设置业务层的消息处理回调函数
     DispatchCallback dispatchCallback_;
-
-    //设置包的完整性验证回调
-    // packageFullCallback packageFull;
 
     const std::string serverName_ = "networkServer";
     InetAddress addr_;
     EventLoop loop_;
     muduo::net::TcpServer server_;
 
-    // 业务线程池
+    /// @brief 业务线程池
     std::unique_ptr<CThreadPool> pool_;
 };
 } // namespace tinyrpc

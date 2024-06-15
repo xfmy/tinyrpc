@@ -7,8 +7,8 @@
 namespace tinyrpc
 {
 /**
- * @brief 控制类 
- * 
+ * @brief protobuf rpc控制类
+ *
  */
 class RpcController : public google::protobuf::RpcController
 {
@@ -61,7 +61,7 @@ private:
     int32_t errorCode_{0};
     /// @brief 错误信息
     std::string errorInfo_;
-    //消息类型
+    /// @brief 消息类型
     std::string msgId_;
 
     /// @brief rpc调用是否出现错误

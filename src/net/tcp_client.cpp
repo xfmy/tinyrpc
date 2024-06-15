@@ -12,16 +12,14 @@ TcpClient::TcpClient(muduo::net::InetAddress peer_addr)
 {
     tcpClient_.setMessageCallback(
         std::bind(&TcpClient::MessageCallback, this, _1, _2, _3));
-    tcpClient_.setConnectionCallback(std::bind(&tinyrpc::TcpClient::connectCallbcak, this, _1));
+    tcpClient_.setConnectionCallback(
+        std::bind(&tinyrpc::TcpClient::connectCallbcak, this, _1));
     tcpClient_.enableRetry();
     mtx_.lock();
     tcpClient_.connect();
+
+    //保证网络已经连接完毕
     std::lock_guard<std::mutex> lock(mtx_);
-
-    //connectionPtr = tcpClient_.connection();
-
-    // if (connectionPtr->connected()) LocalAddr_ =
-    // connectionPtr->localAddress();
 }
 
 TcpClient::~TcpClient() {}
@@ -40,7 +38,10 @@ void TcpClient::MessageCallback(const muduo::net::TcpConnectionPtr& ptr,
         return;
     else
     {
+        // 释放已经解析的接收缓冲区数据
         buf->retrieve(index);
+
+        // 将已经响应的rpc调用结果加入集合中,并唤醒消费者
         tingPBMap_.emplace(response->msgId_, response);
         cv_.notify_all();
     }
@@ -71,20 +72,20 @@ bool TcpClient::GetTinyPBProtocol(RpcController* controller,
     std::unique_lock<std::mutex> lock(mtx_);
     bool timeout =
         cv_.wait_for(lock, std::chrono::milliseconds(controller->GetTimeout()),
-                    [this, msgId, &ptr] mutable -> bool {
-                        // 通过msgId寻到数据包
-                        auto it = tingPBMap_.find(msgId);
-                        if (it != tingPBMap_.end())
-                        {
-                            ptr = tingPBMap_[msgId];
-                            tingPBMap_.erase(it);
+                     [this, msgId, &ptr] mutable -> bool {
+                         // 通过msgId寻到数据包
+                         auto it = tingPBMap_.find(msgId);
+                         if (it != tingPBMap_.end())
+                         {
+                             ptr = tingPBMap_[msgId];
+                             tingPBMap_.erase(it);
                              return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    });
+                         }
+                         else
+                         {
+                             return false;
+                         }
+                     });
     return timeout;
 }
 } // namespace tinyrpc

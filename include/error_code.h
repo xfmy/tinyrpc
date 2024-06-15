@@ -1,12 +1,10 @@
 #pragma once
-
 /**
  * @file        : error_code.h
  * @brief       : 对rpc相关错误码的定义
 */      
 
 
-//TODO 重构
 #ifndef SYS_ERROR_PREFIX
 #define SYS_ERROR_PREFIX(xx) 1000##xx
 #endif

@@ -93,7 +93,8 @@ int TinyPBCoder::decode(std::shared_ptr<TinyPBProtocol> message,
 
     index += sizeof(message->checksum_);
 
-    if (checksum != static_cast<uint32_t>(std::hash<std::string>{}(message->pbData_)) ||
+    if (checksum !=
+            static_cast<uint32_t>(std::hash<std::string>{}(message->pbData_)) ||
         view[index] != TinyPBProtocol::PB_END)
     {
         return decode(message,

@@ -8,9 +8,11 @@
 #include <boost/noncopyable.hpp>
 #include "rpc_init_config.h"
 #include <optional>
+
 namespace tinyrpc {
 /// @brief tinyrpc框架的基础类,负责框架的初始化操作
-class RpcApplication : public boost::noncopyable{
+class RpcApplication : public boost::noncopyable
+{
 public:
     /// @brief 单例模式,获取单例对象
     /// @return 返回单例对象
@@ -32,4 +34,4 @@ private:
     /// @brief 配置信息键值对
     configInfo infoMap;
 };
-}
+} // namespace tinyrpc

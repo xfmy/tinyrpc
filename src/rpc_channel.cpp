@@ -1,43 +1,30 @@
-// #include <sys/types.h> /* See NOTES */
-// #include <sys/socket.h>
-// #include <sys/socket.h>
+#include <google/protobuf/service.h>
+#include <google/protobuf/descriptor.h>
+#include <google/protobuf/message.h>
+#include <fmt/core.h>
 
 #include "rpc_channel.h"
 #include "rpc_closure.h"
 #include "rpc_controller.h"
 #include "tinyPB_protocol.h"
 #include "tinyPB_coder.h"
-
-#include <google/protobuf/service.h>
-#include <google/protobuf/descriptor.h>
-#include <google/protobuf/message.h>
-#include <fmt/core.h>
-
 #include "muduo/base/Logging.h"
 #include "error_code.h"
 #include "random_number.h"
 #include "tcp_client.h"
-
 #include "consul.h"
-// #include "rocket/net/rpc/rpc_channel.h"
-// #include "rocket/net/rpc/rpc_controller.h"
-// #include "rocket/net/coder/tinypb_protocol.h"
-// #include "rocket/net/tcp/tcp_client.h"
-// #include "rocket/common/log.h"
-// #include "rocket/common/msg_id_util.h"
-// #include "rocket/common/error_code.h"
-// #include "rocket/common/run_time.h"
-// #include "rocket/net/timer_event.h"
 
 namespace tinyrpc {
 
-RpcChannel::RpcChannel(/*muduo::net::InetAddress peer_addr*/)
+RpcChannel::RpcChannel()
 {
-    LOG_INFO << "RpcChannel";
-    //client_ = std::make_shared<tinyrpc::TcpClient>(peer_addr);
+    // LOG_INFO << "RpcChannel";
+    // client_ = std::make_shared<tinyrpc::TcpClient>(peer_addr);
 }
 
-RpcChannel::~RpcChannel() { LOG_INFO << "~RpcChannel"; }
+RpcChannel::~RpcChannel()
+{ // LOG_INFO << "~RpcChannel";
+}
 
 void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
                             google::protobuf::RpcController* controller,
@@ -50,6 +37,8 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
 
     RpcClosure* my_rpcClosure = dynamic_cast<RpcClosure*>(done);
     RpcController* my_controller = dynamic_cast<RpcController*>(controller);
+
+    // 入参参数完整性判断
     if (my_controller == NULL || request == NULL || response == NULL)
     {
         LOG_ERROR << "failed callmethod, RpcController convert error";
@@ -59,8 +48,9 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
         return;
     }
 
-    if (!init_)//初始化
-    {
+    // 初始化网络
+    if (!init_) 
+    { 
         ConsulClient consul;
         std::unique_ptr<muduo::net::InetAddress> serviceAddrPtr =
             consul.DiscoverService(method->service()->name());
@@ -124,7 +114,7 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
     LOG_INFO << fmt::format("{} | connect success, peer addr[{}]",
                             req_protocol->msgId_, client_->GetPeerAddrString());
 
-    //
+    // 发起rpc调用网络请求
     client_->request(req_protocol);
 
     LOG_INFO << fmt::format(
@@ -132,22 +122,14 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
         "peer addr[{}]",
         req_protocol->msgId_, req_protocol->methodName_,
         client_->GetPeerAddrString());
-    /*
-        支持同步与异步
-        google::protobuf::Closure* done
-        if(done == nullptr){
-            sync
-            continue
-        }else{
-            async
-            注册
-        }
-    */
-
 
     std::shared_ptr<tinyrpc::TinyPBProtocol> resp_protocol =
         std::make_shared<tinyrpc::TinyPBProtocol>();
+
+    // 客户端同步等待rpc响应,并通过control类控制
     bool timeout = client_->GetTinyPBProtocol(my_controller, resp_protocol);
+
+    // 超时处理
     if (!timeout)
     {
         LOG_INFO << fmt::format("{}| call rpc timeout arrive",
@@ -167,6 +149,7 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
         resp_protocol->msgId_, resp_protocol->methodName_,
         client_->GetPeerAddrString());
 
+    // 解析响应数据
     if (!response->ParseFromString(resp_protocol->pbData_))
     {
         LOG_ERROR << resp_protocol->msgId_ + "| serialize error";
@@ -175,6 +158,7 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
         return;
     }
 
+    // 判断错误码
     if (resp_protocol->errorCode_ != 0)
     {
         LOG_ERROR << fmt::format(
@@ -195,6 +179,9 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
         client_->GetPeerAddrString());
     if (my_rpcClosure) my_rpcClosure->Run();
 }
+
+
+} // namespace tinyrpc
 
 // void RpcChannel::Init(ControllerPtr controller, MessagePtr reqest,
 //                       MessagePtr response, ClosurePtr done)
@@ -249,8 +236,6 @@ void RpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
 //         }
 //     }
 // }
-
-} // namespace tinyrpc
 
 // namespace tinyrpc {
 // void RpcChannel::CallMethod(

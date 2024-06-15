@@ -25,7 +25,7 @@
 
 const size_t INIT_THREAD_COUNT =
     std::thread::hardware_concurrency() * 2; ///< 默认初始化线程池线程数量
-constexpr size_t THRESHOLD = 1024;       ///< 默认任务最大阈值
+constexpr size_t THRESHOLD = 1024*1024;       ///< 默认任务最大阈值
 constexpr size_t THREAD_SIZE_THRESH_HOLD = 100; ///< 默认线程池线程最大阈值
 constexpr size_t THREAD_MAX_IDLE_TIME = 60; ///< 默认线程最大空闲时间s
 

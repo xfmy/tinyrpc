@@ -1,5 +1,4 @@
 #include <google/protobuf/descriptor.h>
-
 #include <google/protobuf/message.h>
 #include <muduo/base/Logging.h>
 
@@ -23,15 +22,18 @@ RpcDispatcher::RpcDispatcher()
 
 RpcDispatcher::~RpcDispatcher()
 {
+    // 将所有注册过的consul服务取消
     for (int i = 0; i < services_.size(); i++)
         consulPtr_->DeregisterService(services_[i]);
 }
 
 void RpcDispatcher::registerService(servicePtr service)
 {
+    // 加入rpc服务映射表
     std::string serviceName = service->GetDescriptor()->name();
     serviceMap_[serviceName] = service;
 
+    // 注册consul服务
     std::string serviceIp =
         RpcApplication::GetInstance().atConfigItem("servicePublicIp").value();
     std::string servicePort =
@@ -41,6 +43,7 @@ void RpcDispatcher::registerService(servicePtr service)
 
     consulPtr_->RegisterService(serviceName, ID, serviceIp,
                                 std::atoi(servicePort.c_str()));
+
     services_.push_back(ID);
 }
 
@@ -65,6 +68,7 @@ void RpcDispatcher::run()
         };
         cb();
         sessionLayer.AddTimerEvent(30, cb);
+        // 启动网络模块
         sessionLayer.start();
     }
     else
@@ -91,6 +95,7 @@ void RpcDispatcher::dispatch(std::shared_ptr<TinyPBProtocol> request,
         std::string serviceName;
         std::string methodName;
 
+        // 在full name中解析出服务名和方法名
         if (!parseServiceFullName(methonFullName, serviceName, methodName))
         {
             setTinyPBError(response, ERROR_PARSE_SERVICE_NAME,
@@ -101,6 +106,7 @@ void RpcDispatcher::dispatch(std::shared_ptr<TinyPBProtocol> request,
         response->msgId_ = request->msgId_;
         response->methodName_ = request->methodName_;
 
+        // 在服务映射表中寻找相应的rpc服务
         auto it = serviceMap_.find(serviceName);
         if (it == serviceMap_.end())
         {
@@ -113,6 +119,7 @@ void RpcDispatcher::dispatch(std::shared_ptr<TinyPBProtocol> request,
 
         servicePtr service = (*it).second;
 
+        // 在protobuf服务描述中寻找相应的rpc方法
         const PROTO::MethodDescriptor *method =
             service->GetDescriptor()->FindMethodByName(methodName);
         if (method == NULL)
@@ -145,9 +152,11 @@ void RpcDispatcher::dispatch(std::shared_ptr<TinyPBProtocol> request,
         rpcController->SetPeerAddr(ptr->peerAddress());
         rpcController->SetMsgId(request->msgId_);
 
+        // 设置响应回调函数
         RpcClosure *closure = new RpcClosure([req_msg, resp_msg, request,
                                               response, ptr, rpcController,
                                               this]() mutable {
+            // 序列化tinypb数据
             if (!resp_msg->SerializeToString(&(response->pbData_)))
             {
                 LOG_ERROR << std::string() + request->msgId_ +
@@ -165,16 +174,11 @@ void RpcDispatcher::dispatch(std::shared_ptr<TinyPBProtocol> request,
                                 req_msg->ShortDebugString() + ", response->" +
                                 resp_msg->ShortDebugString();
             }
-
-            // std::vector<AbstractProtocol::s_ptr> replay_messages;
-            // replay_messages.emplace_back(rsp_protocol);
-            //将rsp_protocol发送client
-            // ptr->reply(replay_messages);
-
-            // resp_msg->SerializeToString(&response->pbData_);
+            // 将响应数据发送给客户端
             responseToClient(ptr, response);
         });
 
+        // 调用具体的rpc方法
         service->CallMethod(method, rpcController, req_msg, resp_msg, closure);
     }
     catch (tinyrpcExcept err)
@@ -192,13 +196,7 @@ void RpcDispatcher::responseToClient(const TcpConnectionPtr &ptr,
 {
     std::string output;
     tinyrpc::TinyPBCoder::encode(response, output);
-
-    //     if (!response->SerializeToString(&output))
-    // {
-    //     throw tinyrpcExcept("protobuf序列化协议解析失败");
-    // }
     ptr->send(output);
-    // respondPtr->shutdown();
 }
 
 bool RpcDispatcher::parseServiceFullName(const std::string &full_name,
@@ -212,18 +210,12 @@ bool RpcDispatcher::parseServiceFullName(const std::string &full_name,
         LOG_ERROR << "full name empty";
         return false;
     }
-    // size_t i = full_name.find_first_of(".");
-
     size_t i = full_name.find_last_of(".");
-
     if (i == full_name.npos)
     {
         LOG_ERROR << "not find . in full name " + full_name;
         return false;
     }
-    // service_name = full_name.substr(0, i);
-    // method_name = full_name.substr(i + 1, full_name.length() - i - 1);
-
     method_name = full_name.substr(i + 1, full_name.length() - i - 1);
     service_name = full_name.substr(0, i);
     if (size_t temp = service_name.find("."); temp != full_name.npos)

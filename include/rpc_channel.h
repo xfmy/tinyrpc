@@ -5,17 +5,11 @@
  *          通过重写基类的CallMethod方法实现客户端的序列化以及网络发送
  */
 
-
-
-
-
-
 #pragma once
 #include <google/protobuf/service.h>
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/service.h>
-#include "muduo/net/InetAddress.h"
-//#include "tcp_client.h"
+#include <muduo/net/InetAddress.h>
 
 namespace PROTO = google::protobuf;
 using namespace muduo;
@@ -36,20 +30,9 @@ public:
     using TcpClientPtr = std::shared_ptr<tinyrpc::TcpClient>;
 
 public:
-    // 获取 addr
-    // 若 str 是 ip:port, 直接返回
-    // 否则认为是 rpc 服务名，尝试从配置文件里面获取对应的
-    // ip:port（后期会加上服务发现）
-    // static NetAddr::s_ptr FindAddr(const std::string& str);
-
-public:
-    RpcChannel(/*muduo::net::InetAddress peer_addr*/);
+    RpcChannel();
 
     ~RpcChannel();
-
-    // void Init(ControllerPtr controller, MessagePtr reqest, MessagePtr
-    // response,
-    //           ClosurePtr done);
 
     /// @brief 虚函数,编写rpc远程调用时具体逻辑处理
     /// @param method rpc请求的方法描述
@@ -63,31 +46,10 @@ public:
                     google::protobuf::Message* response,
                     google::protobuf::Closure* done);
 
-    // google::protobuf::RpcController* getController();
-
-    // google::protobuf::Message* getRequest();
-
-    // google::protobuf::Message* getResponse();
-
-    // google::protobuf::Closure* getClosure();
-
-    // tinyrpc::TcpClient* getTcpClient();
-
 private:
-    // void callBack();
-
-private:
-    // InetAddrPtr peerAddr_;
-    // muduo::net::InetAddress LocalAddr_;
-
-    // ControllerPtr controller_{nullptr};
-    // MessagePtr request_{nullptr};
-    // MessagePtr response_{nullptr};
-    // ClosurePtr closure_{nullptr};
-
-    // bool isInit_{false};
-
+    /// @brief tcp client网络模块
     TcpClientPtr client_{nullptr};
+    /// @brief 初始化标记
     bool init_ = false;
 };
 

@@ -3,7 +3,6 @@
 #include <optional>
 #include <thread>
 #include <functional>
-
 #include <nlohmann/json.hpp>
 #include <muduo/base/TimeZone.h>
 #include <muduo/base/Logging.h>
@@ -11,9 +10,6 @@
 #include "tcp_server.h"
 #include "tinyPB_coder.h"
 #include "tinyPB_protocol.h"
-
-#include "iostream"
-#include "cstdio"
 
 namespace tinyrpc {
 TcpServer::TcpServer(uint16_t port)
@@ -50,11 +46,6 @@ void TcpServer::start()
     loop_.loop();
 }
 
-// void chatNetworkLayer::onWriteCompleteCallback(const TcpConnectionPtr &ptr)
-// {
-//     LOG_INFO <<ptr->peerAddress().toIpPort() + "消息发送完毕";
-// }
-
 void TcpServer::onMessageCallback(const TcpConnectionPtr &ptr, Buffer *buf,
                                       Timestamp time)
 {
@@ -65,16 +56,15 @@ void TcpServer::onMessageCallback(const TcpConnectionPtr &ptr, Buffer *buf,
         std::make_shared<tinyrpc::TinyPBProtocol>();
     std::shared_ptr<tinyrpc::TinyPBProtocol> response =
         std::make_shared<tinyrpc::TinyPBProtocol>();
+    // 解析包数据
     int index = tinyrpc::TinyPBCoder::decode(request,view);
-    //int index = packageFull(view, userData);
     if (index == -1)
         return;
     else
     {
-        //LOG_INFO << "接收到一个完整的包";
+        // 将已经解析使用的数据接收缓冲区释放
         buf->retrieve(index);
-        //businessMsgCallback(ptr, message, time);
-        //dispatchCallback_(request, response, ptr);
+        // 将业务处理添加至线程池执行
         pool_->AddTask(dispatchCallback_, request, response, ptr);
     }
 }

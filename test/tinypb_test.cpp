@@ -1,3 +1,9 @@
+/**
+ * @file tinypb_test.cpp
+ * @author xf
+ * @brief TinyPB协议序列化及反序列化测试
+ *
+ */
 #include <cstring>
 #include <memory>
 #include <iostream>
@@ -6,15 +12,17 @@
 
 int main()
 {
-    std::shared_ptr<tinyrpc::TinyPBProtocol> tinyPtr(std::make_shared<tinyrpc::TinyPBProtocol>());
+    std::shared_ptr<tinyrpc::TinyPBProtocol> tinyPtr(
+        std::make_shared<tinyrpc::TinyPBProtocol>());
     tinyPtr->msgId_ = "666";
     tinyPtr->methodName_ = "func";
     tinyPtr->pbData_ = "hello world";
 
     std::string msg;
-    tinyrpc::TinyPBCoder::encode(tinyPtr,msg);
-    std::shared_ptr<tinyrpc::TinyPBProtocol> targetPtr(std::make_shared<tinyrpc::TinyPBProtocol>());
-    tinyrpc::TinyPBCoder::decode(targetPtr,msg);
+    tinyrpc::TinyPBCoder::encode(tinyPtr, msg);
+    std::shared_ptr<tinyrpc::TinyPBProtocol> targetPtr(
+        std::make_shared<tinyrpc::TinyPBProtocol>());
+    tinyrpc::TinyPBCoder::decode(targetPtr, msg);
     if (tinyPtr->msgId_ == targetPtr->msgId_ &&
         tinyPtr->methodName_ == targetPtr->methodName_ &&
         tinyPtr->pbData_ == targetPtr->pbData_)

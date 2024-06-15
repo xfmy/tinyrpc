@@ -15,6 +15,7 @@ configInfo RpcInitConfig::execute(std::string path)
     */
     try
     {
+        // 加载配置文件
         cfg.readFile(path);
     }
     catch (const libconfig::FileIOException &fioex)
@@ -31,18 +32,9 @@ configInfo RpcInitConfig::execute(std::string path)
 
     try
     {
+        // 获取根目录下所有配置字段集合
         const libconfig::Setting &config = cfg.getRoot()["config"];
-
-        // 遍历所有配置项
-        // for (int i = 0; i < config.getLength(); ++i)
-        // {
-        //     const libconfig::Setting &setting = config[i];
-        //     const std::string name = setting.getName();
-        //     std::string value;
-        //     setting.lookupValue(name, value); // 获取配置项的值
-        //     info.emplace(name, value);
-        // }
-        // 使用迭代器遍历所有字段
+        // 使用迭代器遍历所有字段并加入集合
         for (auto it = config.begin(); it != config.end(); ++it)
         {
             const libconfig::Setting &field = *it;
@@ -56,27 +48,6 @@ configInfo RpcInitConfig::execute(std::string path)
         LOG_FATAL << err.what();
         exit(EXIT_FAILURE);
     }
-    /* 从配置文件中，得到日志相关配置值 */
-    // try
-    // {
-    //     std::string servicePort = config.lookup("config.servicePort");
-    //     info.emplace("servicePort", servicePort);
-
-    //     std::string servicePublicIp =
-    //     config.lookup("config.servicePublicIp");
-    //     info.emplace("servicePublicIp", servicePublicIp);
-
-    //     std::string consulIp = config.lookup("config.consulIp");
-    //     info.emplace("consulIp", consulIp);
-
-    //     std::string consulPort = config.lookup("config.consulPort");
-    //     info.emplace("consulPort", consulPort);
-    // }
-    // catch (const libconfig::SettingNotFoundException &nfex)
-    // {
-    //     LOG_FATAL << "log setting mistake in configuration file." <<
-    //     nfex.what();
-    // }
     return info;
 }
 } // namespace tinyrpc

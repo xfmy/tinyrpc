@@ -1,18 +1,19 @@
 # Tinyrpc
 
-### 项目说明
+## 项目说明
 
-该项目是在 Linux 环境下基于 muduo、Protobuf 和 Consul 实现的一个轻量级 RPC 框架。可以把单体架构系统的本地方法调用，重构成基于 TCP 网络通信的 RPC 远程方法调用，实现统一台机器不同进程或者不同机器之间的服务调用。
+该项目是在 Linux 环境下基于 muduo、Protobuf 和 Consul 实现的一个轻量级 分布式网络通信RPC 框架。可以把单体架构系统的本地方法调用，重构成基于 TCP 网络通信的 RPC 远程方法调用，实现统一台机器不同进程或者不同机器之间的服务调用。
 
-### 项目特点
+## 项目特点
 
 1. 基于 muduo 网络库实现高并发网络通信模块，作为 RPC 同步调用的基础。
 2. 在通讯协议上，采用protobuf实现数据的序列化和反序列化。
 3. 设计基于Tcp传输的二进制协议`tinypb`,解决粘包问题,且能够高效传输服务名、方法名以及参数。并且通过设置消息包id字段防止串包并方便日志追踪,并在不侵入业务代码的情况下可以设置错误码以及错误消息
 4. 基于 Consul 分布式协调服务中间件提供服务注册和服务发现功能。
 5. 通过`RpcController`实现客户端的超时机制。
+6. 使用线程池做业务处理
 
-### 项目环境配置
+## 项目环境配置
 
 1.  安装`muduo`网络库
 2.  安装序列化`protobuf`
@@ -22,7 +23,15 @@
 6.  安装`cmake`以及`gcc`
 7.  安装服务注册与发现中间件`consul`
 
-### 项目代码工程目录
+## 开发环境
+
++ ubuntu 22.04
++ vscode远程
++ CMake构建项目集成编译环境
++ Gdb调试
++ Git版本管理
+
+## 项目代码工程目录
 
 - bin：可执行文件
 - build：项目编译文件
@@ -38,7 +47,7 @@
 - .clang-format: clang格式化文件
 - .gitignore: git过滤文件
 
-### 构建项目
+## 构建项目
 
 运行脚本，其会自动编译项目
 
@@ -48,7 +57,7 @@ sh autobuild.sh
 
 最后会在`lib`目录下生成`libtinyrpc.a`rpc静态库文件,以及在`bin`目录下生成client,service示例程序
 
-### 使用示例
+## 使用示例
 
 #### 1.启动consul
 
@@ -239,7 +248,7 @@ int main(int argc, char** argv)
 
 ```
 #service
-root@VM-16-3-ubuntu:~/projects/tinyrpc/bin# ./service ../conf/initConfigFile.conf
+root@VM-16-3-ubuntu:~/projects/mprpc/bin# ./service ../conf/initConfigFile.conf
 20250331 14:44:06.634708 388175 INFO  work loop thread start - tcp_server.cpp:97
 20250331 14:44:10.840627 388170 INFO  TcpServer::newConnection [networkServer] - new connection [networkServer-0.0.0.0:9001#1] from 127.0.0.1:58676 - TcpServer.cc:80
 20250331 14:44:10.840823 388175 INFO  127.0.0.1:58676客户发起来了连接 - tcp_server.cpp:85
@@ -258,7 +267,7 @@ root@VM-16-3-ubuntu:~/projects/tinyrpc/bin# ./service ../conf/initConfigFile.con
 
 
 #client
-root@VM-16-3-ubuntu:~/projects/tinyrpc/bin# ./client ../conf/initConfigFile.conf
+root@VM-16-3-ubuntu:~/projects/mprpc/bin# ./client ../conf/initConfigFile.conf
 20240502 06:44:10.830904Z 388210 INFO  RpcChannel - rpc_channel.cpp:36
 20240502 06:44:10.840230Z 388210 INFO  TcpClient::TcpClient[tcp_client] - connector 0x5606CDC8D750 - TcpClient.cc:69
 20240502 06:44:10.840472Z 388210 INFO  TcpClient::connect[tcp_client] - connecting to 127.0.0.1:9001 - TcpClient.cc:107
@@ -271,9 +280,78 @@ root@VM-16-3-ubuntu:~/projects/tinyrpc/bin# ./client ../conf/initConfigFile.conf
 rpc call success:10一切正常 very good
 ```
 
-### 项目解析
+## 项目解析
+
+### TinyPB协议
+
+TinyPB 是 TinyRPC 框架自定义的一种轻量化协议类型，它是基于 google 的 protobuf 而定制的，读者可以按需自行对协议格式进行扩充。
 
 ![image-20240501174650346](https://s2.loli.net/2024/05/01/e8n1PcKgwGXWbOy.png)
 
+#### TinyPB 协议报文格式分解
 
+> **TinyPb** 协议里面所有的 int 类型的字段在编码时都会先转为**网络字节序**！
 
+```cpp
+class TinyPBProtocol
+{
+public:
+    /// @brief 包头标识,固定为0xFE
+    static char     PB_START;
+    /// @brief 包尾标识,固定为0xFF
+    static char     PB_END;
+
+public:
+    /// @brief 整包长度
+    int32_t         packageLen_{0};
+    
+    /// @brief rpc消息唯一标识id长度
+    int32_t         msgIdLen_{0};
+    /// @brief rpc消息唯一标识
+    std::string     msgId_;
+
+    /// @brief rpc方法名长度
+    int32_t         methodNameLen_{0};
+    /// @brief rpc方法名
+    std::string     methodName_;
+
+    /// @brief 错误码
+    int32_t         errorCode_{0};
+    /// @brief 错误信息长度
+    int32_t         errorInfoLen_{0};
+    /// @brief 错误信息
+    std::string     errorInfo_;
+
+    /// @brief 实际rpc请求数据
+    std::string     pbData_;
+    /// @brief 校验码
+    int32_t         checksum_{0};
+
+    /// @brief 判断是否已经被解析成功
+    bool            parseSuccess_{false};
+};
+```
+
+### 时序图
+
+![solo-fetchupload-6893165705734529521-7932f433](https://s2.loli.net/2024/06/06/5YZd8x4gyL3K7tC.jpg)
+
+### 错误码释义文档
+
+err_code 详细说明如下表：
+
+| **错误码**               | **错误代码** | **错误码描述**                                            |
+| ------------------------ | ------------ | --------------------------------------------------------- |
+| ERROR_PEER_CLOSED        | 10000000     | 连接时对端关闭                                            |
+| ERROR_FAILED_CONNECT     | 10000001     | 连接失败                                                  |
+| ERROR_FAILED_GET_REPLY   | 10000002     | RPC 调用未收到对端回包数据                                |
+| ERROR_FAILED_DESERIALIZE | 10000003     | 反序列化失败，这种情况一般是 TinyPb 里面的 pb_data 有问题 |
+| ERROR_FAILED_SERIALIZE   | 10000004     | 序列化失败                                                |
+| ERROR_FAILED_ENCODE      | 10000005     | 编码失败                                                  |
+| ERROR_FAILED_DECODE      | 10000006     | 解码失败                                                  |
+| ERROR_RPC_CALL_TIMEOUT   | 10000007     | rpc 调用超时                                              |
+| ERROR_SERVICE_NOT_FOUND  | 10000008     | service 不存在                                            |
+| ERROR_METHOD_NOT_FOUND   | 10000009     | method 不存在 method                                      |
+| ERROR_PARSE_SERVICE_NAME | 10000010     | service name 解析失败                                     |
+| ERROR_RPC_CHANNEL_INIT   | 10000011     | rpc channel 初始化失败                                    |
+| ERROR_RPC_PEER_ADDR      | 10000012     | rpc 调用时候对端地址异常                                  |

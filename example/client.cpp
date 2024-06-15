@@ -1,3 +1,9 @@
+/**
+ * @file client.cpp
+ * @brief rpc client 示例代码
+ * 
+ */
+
 #include "rpc_channel.h"
 #include "rpc_controller.h"
 #include "rpc_closure.h"
@@ -9,14 +15,15 @@ int main(int argc, char** argv)
 {
     if (argc != 2)
     {
-        std::cout << "启动项参数异常,请检查" << std::endl;
-        return 1;
+        std::cout << "启动项参数异常,请检查: ./client initConfigFile.conf"
+                  << std::endl;
+        return -1;
     }
     //初始化框架
     RpcApplication::GetInstance().init(argv[1]);
 
     //演示调用远程发布的rpc方法Login
-    fixbug::user_Stub stub( new RpcChannel());
+    fixbug::user_Stub stub(new RpcChannel());
 
     // rpc参数
     fixbug::LoginRequest request;

@@ -1,6 +1,7 @@
+#include <muduo/base/Logging.h>
 #include "consul.h"
-#include "muduo/base/Logging.h"
 #include "random_number.h"
+
 namespace tinyrpc {
 ConsulClient::ConsulClient()
 {
@@ -44,8 +45,7 @@ std::unique_ptr<muduo::net::InetAddress> ConsulClient::DiscoverService(
 {
     //根据服务名进行服务发现,并全部进行服务健康检测,随机将一个健康服务节点地址返回
     std::unique_ptr<muduo::net::InetAddress> addressPtr;
-    ppconsul::health::Health health(
-        *consulPtr_);
+    ppconsul::health::Health health(*consulPtr_);
     auto services = health.service(name);
     std::vector<muduo::net::InetAddress> serviceAddresses;
 
@@ -64,7 +64,7 @@ std::unique_ptr<muduo::net::InetAddress> ConsulClient::DiscoverService(
     return addressPtr;
 }
 
-void ConsulClient::ServicePass(std::string serviceId) 
+void ConsulClient::ServicePass(std::string serviceId)
 {
     ppconsul::agent::Agent consulAgent(*consulPtr_);
     consulAgent.servicePass(serviceId);

@@ -10,8 +10,8 @@ void RpcController::Reset()
     isFailed_ = false;
     isCancled_ = false;
     isFinished_ = false;
-    //localAddr_ = nullptr;
-    //peerAddr_ = nullptr;
+    // localAddr_ = nullptr;
+    // peerAddr_ = nullptr;
     timeout_ = 1000; // ms
 }
 

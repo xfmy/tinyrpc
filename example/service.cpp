@@ -1,9 +1,18 @@
+/**
+ * @file service.cpp
+ * @brief rpc server示例代码
+ *
+ */
+#include <string>
+#include <muduo/base/Logging.h>
+
 #include "rpc_dispatcher.h"
 #include "rpc_application.h"
 #include "protobuf.pb.h"
-#include "muduo/base/Logging.h"
-#include "string"
+
 using namespace tinyrpc;
+
+//继承基类,实现Login虚方法
 class UserService : public fixbug::user
 {
 public:
@@ -19,6 +28,12 @@ public:
                        fixbug::LoginResponse* response,
                        google::protobuf::Closure* done) override
     {
+        /*
+            或取请求参数
+            调用本地对应的方法
+            通过请求参数获取本地对应的信息
+            封装响应消息，通过回到用返回给rpcClient端
+        */
         std::string name = requst->name();
         std::string password = requst->pwd();
         int res = Login(name, password);
@@ -35,13 +50,18 @@ int main(int argc, char** argv)
 {
     if (argc != 2)
     {
-        std::cout << "启动项参数异常,请检查" << std::endl;
-        return 1;
+        std::cout << "启动项参数异常,请检查: ./server initConfigFile.conf"
+                  << std::endl;
+        return -1;
     }
+    // 通过配置文件初始化框架
     RpcApplication::GetInstance().init(argv[1]);
+
+    // 注册rpc服务
     RpcDispatcher provider;
     std::shared_ptr<UserService> userService = std::make_shared<UserService>();
     provider.registerService(userService);
+    // 启动rpc
     provider.run();
     return 0;
 }

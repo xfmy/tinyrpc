@@ -1,3 +1,8 @@
+/**
+ * @file consul.h
+ * @brief consul服务注册,发现,取消注册,心跳,健康检查
+ * 
+ */
 #pragma once
 #include <string>
 #include <memory>
@@ -57,6 +62,7 @@ private:
     bool CheckHealth(ppconsul::health::NodeServiceChecks service);
 
 private:
+    /// @brief ppconsul操作指针
     std::shared_ptr<ppconsul::Consul> consulPtr_;
 };
 } // namespace tinyrpc

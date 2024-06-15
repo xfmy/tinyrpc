@@ -51,8 +51,6 @@ private:
                          Timestamp);
     // 链接回调
     void connectCallbcak(const TcpConnectionPtr&);
-    // void SetTinyPBProtocol(std::shared_ptr<tinyrpc::TinyPBProtocol>);
-
 private:
     /// @brief 本机地址
     muduo::net::InetAddress LocalAddr_;
@@ -69,6 +67,8 @@ private:
 
     //管理服务端响应的数据包集合
     std::map<std::string, std::shared_ptr<tinyrpc::TinyPBProtocol>> tingPBMap_;
+
+    // 线程安全
     std::mutex mtx_;
     std::condition_variable cv_;
 };
