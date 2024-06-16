@@ -1,0 +1,14 @@
+<map id="src/consul/consul.h" name="src/consul/consul.h">
+<area shape="rect" id="node1" title="consul服务注册,发现,取消注册,心跳,健康检查" alt="" coords="297,5,442,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="374,229,432,256"/>
+<area shape="rect" id="node3" title=" " alt="" coords="23,80,100,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="124,80,279,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="303,80,436,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="461,80,598,107"/>
+<area shape="rect" id="node7" title=" " alt="" coords="622,80,808,107"/>
+<area shape="rect" id="node8" href="$rpc__application_8h.html" title=" " alt="" coords="832,80,966,107"/>
+<area shape="rect" id="node9" title=" " alt="" coords="575,155,748,181"/>
+<area shape="rect" id="node10" href="$rpc__init__config_8h.html" title="通过配置文件初始化rpc框架" alt="" coords="772,155,900,181"/>
+<area shape="rect" id="node12" title=" " alt="" coords="924,155,999,181"/>
+<area shape="rect" id="node11" title=" " alt="" coords="811,229,862,256"/>
+</map>

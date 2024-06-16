@@ -1,0 +1,87 @@
+\hypertarget{classtinyrpc_1_1TcpClient}{}\doxysection{tinyrpc\+::Tcp\+Client Class Reference}
+\label{classtinyrpc_1_1TcpClient}\index{tinyrpc::TcpClient@{tinyrpc::TcpClient}}
+
+
+{\ttfamily \#include $<$tcp\+\_\+client.\+h$>$}
+
+
+
+Collaboration diagram for tinyrpc\+::Tcp\+Client\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{classtinyrpc_1_1TcpClient__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtinyrpc_1_1TcpClient_a1df0d9d35b26bf27d993bd14cd0f85b9}{Tcp\+Client}} (muduo\+::net\+::\+Inet\+Address peer\+\_\+addr)
+\item 
+\mbox{\hyperlink{classtinyrpc_1_1TcpClient_a564a9512c8d0ab3eb739dfcd8ecc1de0}{$\sim$\+Tcp\+Client}} ()
+\item 
+void \mbox{\hyperlink{classtinyrpc_1_1TcpClient_affe91f787884c6fb2df9d4564a17dd85}{request}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtinyrpc_1_1TinyPBProtocol}{tinyrpc\+::\+Tiny\+PBProtocol}} $>$ req\+\_\+protocol)
+\item 
+void \mbox{\hyperlink{classtinyrpc_1_1TcpClient_a5173f0c59ad0552c76e58e552f953c37}{Add\+Timer\+Event}} (double delay, Timer\+Callback cb)
+\item 
+bool \mbox{\hyperlink{classtinyrpc_1_1TcpClient_a177456a27f34e0e2e61612e8c3534b9c}{connected}} ()
+\item 
+std\+::string \mbox{\hyperlink{classtinyrpc_1_1TcpClient_af487d1977196f03eb5edc90c7a280b4a}{Get\+Peer\+Addr\+String}} ()
+\item 
+bool \mbox{\hyperlink{classtinyrpc_1_1TcpClient_a1e9e61df0922fb3095cdfe7d8d166463}{Get\+Tiny\+PBProtocol}} (\mbox{\hyperlink{classtinyrpc_1_1RpcController}{Rpc\+Controller}} $\ast$, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtinyrpc_1_1TinyPBProtocol}{tinyrpc\+::\+Tiny\+PBProtocol}} $>$ \&)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtinyrpc_1_1TcpClient_a1df0d9d35b26bf27d993bd14cd0f85b9}\label{classtinyrpc_1_1TcpClient_a1df0d9d35b26bf27d993bd14cd0f85b9}} 
+\index{tinyrpc::TcpClient@{tinyrpc::TcpClient}!TcpClient@{TcpClient}}
+\index{TcpClient@{TcpClient}!tinyrpc::TcpClient@{tinyrpc::TcpClient}}
+\doxysubsubsection{\texorpdfstring{TcpClient()}{TcpClient()}}
+{\footnotesize\ttfamily tinyrpc\+::\+Tcp\+Client\+::\+Tcp\+Client (\begin{DoxyParamCaption}\item[{muduo\+::net\+::\+Inet\+Address}]{peer\+\_\+addr }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classtinyrpc_1_1TcpClient_a564a9512c8d0ab3eb739dfcd8ecc1de0}\label{classtinyrpc_1_1TcpClient_a564a9512c8d0ab3eb739dfcd8ecc1de0}} 
+\index{tinyrpc::TcpClient@{tinyrpc::TcpClient}!````~TcpClient@{$\sim$TcpClient}}
+\index{````~TcpClient@{$\sim$TcpClient}!tinyrpc::TcpClient@{tinyrpc::TcpClient}}
+\doxysubsubsection{\texorpdfstring{$\sim$TcpClient()}{~TcpClient()}}
+{\footnotesize\ttfamily tinyrpc\+::\+Tcp\+Client\+::$\sim$\+Tcp\+Client (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtinyrpc_1_1TcpClient_a5173f0c59ad0552c76e58e552f953c37}\label{classtinyrpc_1_1TcpClient_a5173f0c59ad0552c76e58e552f953c37}} 
+\index{tinyrpc::TcpClient@{tinyrpc::TcpClient}!AddTimerEvent@{AddTimerEvent}}
+\index{AddTimerEvent@{AddTimerEvent}!tinyrpc::TcpClient@{tinyrpc::TcpClient}}
+\doxysubsubsection{\texorpdfstring{AddTimerEvent()}{AddTimerEvent()}}
+{\footnotesize\ttfamily void tinyrpc\+::\+Tcp\+Client\+::\+Add\+Timer\+Event (\begin{DoxyParamCaption}\item[{double}]{delay,  }\item[{Timer\+Callback}]{cb }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classtinyrpc_1_1TcpClient_a177456a27f34e0e2e61612e8c3534b9c}\label{classtinyrpc_1_1TcpClient_a177456a27f34e0e2e61612e8c3534b9c}} 
+\index{tinyrpc::TcpClient@{tinyrpc::TcpClient}!connected@{connected}}
+\index{connected@{connected}!tinyrpc::TcpClient@{tinyrpc::TcpClient}}
+\doxysubsubsection{\texorpdfstring{connected()}{connected()}}
+{\footnotesize\ttfamily bool tinyrpc\+::\+Tcp\+Client\+::connected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classtinyrpc_1_1TcpClient_af487d1977196f03eb5edc90c7a280b4a}\label{classtinyrpc_1_1TcpClient_af487d1977196f03eb5edc90c7a280b4a}} 
+\index{tinyrpc::TcpClient@{tinyrpc::TcpClient}!GetPeerAddrString@{GetPeerAddrString}}
+\index{GetPeerAddrString@{GetPeerAddrString}!tinyrpc::TcpClient@{tinyrpc::TcpClient}}
+\doxysubsubsection{\texorpdfstring{GetPeerAddrString()}{GetPeerAddrString()}}
+{\footnotesize\ttfamily std\+::string tinyrpc\+::\+Tcp\+Client\+::\+Get\+Peer\+Addr\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classtinyrpc_1_1TcpClient_a1e9e61df0922fb3095cdfe7d8d166463}\label{classtinyrpc_1_1TcpClient_a1e9e61df0922fb3095cdfe7d8d166463}} 
+\index{tinyrpc::TcpClient@{tinyrpc::TcpClient}!GetTinyPBProtocol@{GetTinyPBProtocol}}
+\index{GetTinyPBProtocol@{GetTinyPBProtocol}!tinyrpc::TcpClient@{tinyrpc::TcpClient}}
+\doxysubsubsection{\texorpdfstring{GetTinyPBProtocol()}{GetTinyPBProtocol()}}
+{\footnotesize\ttfamily bool tinyrpc\+::\+Tcp\+Client\+::\+Get\+Tiny\+PBProtocol (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtinyrpc_1_1RpcController}{Rpc\+Controller}} $\ast$}]{controller,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtinyrpc_1_1TinyPBProtocol}{tinyrpc\+::\+Tiny\+PBProtocol}} $>$ \&}]{ptr }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classtinyrpc_1_1TcpClient_affe91f787884c6fb2df9d4564a17dd85}\label{classtinyrpc_1_1TcpClient_affe91f787884c6fb2df9d4564a17dd85}} 
+\index{tinyrpc::TcpClient@{tinyrpc::TcpClient}!request@{request}}
+\index{request@{request}!tinyrpc::TcpClient@{tinyrpc::TcpClient}}
+\doxysubsubsection{\texorpdfstring{request()}{request()}}
+{\footnotesize\ttfamily void tinyrpc\+::\+Tcp\+Client\+::request (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtinyrpc_1_1TinyPBProtocol}{tinyrpc\+::\+Tiny\+PBProtocol}} $>$}]{req\+\_\+protocol }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/net/\mbox{\hyperlink{tcp__client_8h}{tcp\+\_\+client.\+h}}\item 
+src/net/\mbox{\hyperlink{tcp__client_8cpp}{tcp\+\_\+client.\+cpp}}\end{DoxyCompactItemize}

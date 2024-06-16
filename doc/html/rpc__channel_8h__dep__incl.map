@@ -1,0 +1,5 @@
+<map id="include/rpc_channel.h" name="include/rpc_channel.h">
+<area shape="rect" id="node1" title="channel类继承Google::protobuf::RpcChannel. 通过重写基类的CallMethod方法实现客户端的序列化以及网络发送" alt="" coords="84,5,247,32"/>
+<area shape="rect" id="node2" href="$client_8cpp.html" title="rpc client 示例代码" alt="" coords="5,80,152,107"/>
+<area shape="rect" id="node3" href="$rpc__channel_8cpp.html" title=" " alt="" coords="177,80,327,107"/>
+</map>

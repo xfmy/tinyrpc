@@ -1,0 +1,347 @@
+\hypertarget{md_README_autotoc_md1}{}\doxysection{项目说明}\label{md_README_autotoc_md1}
+该项目是在 Linux 环境下基于 muduo、\+Protobuf 和 Consul 实现的一个轻量级 分布式网络通信\+RPC 框架。可以把单体架构系统的本地方法调用，重构成基于 TCP 网络通信的 RPC 远程方法调用，实现统一台机器不同进程或者不同机器之间的服务调用。\hypertarget{md_README_autotoc_md2}{}\doxysection{项目特点}\label{md_README_autotoc_md2}
+
+\begin{DoxyEnumerate}
+\item 基于 muduo 网络库实现高并发网络通信模块，作为 RPC 同步调用的基础。
+\item 在通讯协议上，采用protobuf实现数据的序列化和反序列化。
+\item 设计基于\+Tcp传输的二进制协议{\ttfamily tinypb},解决粘包问题,且能够高效传输服务名、方法名以及参数。并且通过设置消息包id字段防止串包并方便日志追踪,并在不侵入业务代码的情况下可以设置错误码以及错误消息
+\item 基于 Consul 分布式协调服务中间件提供服务注册和服务发现功能。
+\item 通过{\ttfamily Rpc\+Controller}实现客户端的超时机制。
+\item 使用线程池做业务处理
+\end{DoxyEnumerate}\hypertarget{md_README_autotoc_md3}{}\doxysection{项目环境配置}\label{md_README_autotoc_md3}
+
+\begin{DoxyEnumerate}
+\item 安装{\ttfamily muduo}网络库
+\item 安装序列化{\ttfamily protobuf}
+\item 安装配置文件库{\ttfamily libconfig}
+\item 安装格式化库{\ttfamily libfmt}
+\item 安装consul库{\ttfamily ppconsul}以及依赖库{\ttfamily json11},{\ttfamily curl}
+\item 安装{\ttfamily cmake}以及{\ttfamily gcc}
+\item 安装服务注册与发现中间件{\ttfamily consul}
+\end{DoxyEnumerate}\hypertarget{md_README_autotoc_md4}{}\doxysection{开发环境}\label{md_README_autotoc_md4}
+
+\begin{DoxyItemize}
+\item ubuntu 22.\+04
+\item vscode远程
+\item CMake构建项目集成编译环境
+\item Gdb调试
+\item Git版本管理
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md5}{}\doxysection{项目代码工程目录}\label{md_README_autotoc_md5}
+
+\begin{DoxyItemize}
+\item bin：可执行文件
+\item build：项目编译文件
+\item conf\+: 配置文件目录
+\item doc\+: 文档目录
+\item lib：项目库文件
+\item src：源文件
+\item test：测试代码
+\item example：框架代码使用范例
+\item CMake\+Lists.\+txt：顶层的cmake文件
+\item README.\+md：项目自述文件
+\item build.\+sh：一键编译脚本
+\item .clang-\/format\+: clang格式化文件
+\item .gitignore\+: git过滤文件
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md6}{}\doxysection{构建项目}\label{md_README_autotoc_md6}
+运行脚本，其会自动编译项目
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sh autobuild.sh }
+
+\end{DoxyCode}
+
+
+最后会在{\ttfamily lib}目录下生成{\ttfamily libtinyrpc.\+a}rpc静态库文件,以及在{\ttfamily bin}目录下生成client,service示例程序\hypertarget{md_README_autotoc_md7}{}\doxysection{使用示例}\label{md_README_autotoc_md7}
+\hypertarget{md_README_autotoc_md8}{}\doxysubsubsection{1.\+启动consul}\label{md_README_autotoc_md8}
+将consul以及服务端的ip,port信息改写入配置文件conf/init\+Config\+File.conf
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{config = \{}
+\DoxyCodeLine{    \#服务端配置信息}
+\DoxyCodeLine{    servicePublicIp = "{}127.0.0.1"{};}
+\DoxyCodeLine{    servicePort = "{}9001"{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \#consul配置信息}
+\DoxyCodeLine{    consulIp = "{}127.0.0.1"{};}
+\DoxyCodeLine{    consulPort = "{}8500"{};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md9}{}\doxysubsubsection{2.\+运行示例程序}\label{md_README_autotoc_md9}
+进入bin目录之下
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#启动服务端}
+\DoxyCodeLine{./service ../conf/initConfigFile.conf}
+\DoxyCodeLine{\#启动客户端}
+\DoxyCodeLine{./client ../conf/initConfigFile.conf}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md10}{}\doxysubsection{如何使用}\label{md_README_autotoc_md10}
+首先编写{\ttfamily protobuf}相关代码,如下示例
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{syntax = "{}proto3"{};//声明了protobuf的版本}
+\DoxyCodeLine{}
+\DoxyCodeLine{package  fixbug;//声明代码所在位置,对于c++来说是namespace}
+\DoxyCodeLine{}
+\DoxyCodeLine{option cc\_generic\_services = true;}
+\DoxyCodeLine{}
+\DoxyCodeLine{//定义登录请求基本类型 name pwd}
+\DoxyCodeLine{message LoginRequest}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    string name = 1;//数字表示第几个参数}
+\DoxyCodeLine{    string pwd = 2;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{message ResultCode}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    int32 errCode = 1;}
+\DoxyCodeLine{    string errMsg = 2;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{message LoginResponse}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    ResultCode result = 1;}
+\DoxyCodeLine{    bool sucess  = 2;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{service user}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    rpc Login(LoginRequest) returns(LoginResponse);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+执行命令 protoc protobuf.\+proto --cpp\+\_\+out=OUT\+\_\+\+DIR 将会在\+OUT\+\_\+\+DIR目录下生成定义的test.\+proto文件的cpp代码
+
+\hypertarget{md_README_autotoc_md11}{}\doxysubsubsection{服务端示例}\label{md_README_autotoc_md11}
+首先你需要创建个类继承自利用protobuf生成的h文件，然后定义本地对应函数的实现
+
+最后重写基类中的虚函数
+
+在虚函数中主要做几件事情
+
+
+\begin{DoxyEnumerate}
+\item 或取请求参数
+\item 调用本地对应的方法
+\item 通过请求参数获取本地对应的信息
+\item 封装响应消息，通过回到用返回给rpc\+Client端
+\end{DoxyEnumerate}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{class }\mbox{\hyperlink{classUserService}{UserService}} : \textcolor{keyword}{public} \mbox{\hyperlink{classfixbug_1_1user}{fixbug::user}}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\textcolor{keyword}{public}:}
+\DoxyCodeLine{    \textcolor{keywordtype}{bool} \mbox{\hyperlink{classUserService_a0e52624bd7528a7bd4fee67142e959e0}{Login}}(std::string name, std::string password)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        LOG\_INFO << \textcolor{stringliteral}{"{}user name is "{}} + name;}
+\DoxyCodeLine{        LOG\_INFO << \textcolor{stringliteral}{"{}user password is "{}} + password;}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classUserService_a0e52624bd7528a7bd4fee67142e959e0}{Login}}(google::protobuf::RpcController* controller,}
+\DoxyCodeLine{                       \textcolor{keyword}{const} \mbox{\hyperlink{classfixbug_1_1LoginRequest}{fixbug::LoginRequest}}* requst,}
+\DoxyCodeLine{                       \mbox{\hyperlink{classfixbug_1_1LoginResponse}{fixbug::LoginResponse}}* response,}
+\DoxyCodeLine{                       google::protobuf::Closure* done)\textcolor{keyword}{ override}}
+\DoxyCodeLine{\textcolor{keyword}{    }\{}
+\DoxyCodeLine{        std::string name = requst-\/>\mbox{\hyperlink{classfixbug_1_1LoginRequest_a0d558c1b1df3e7492f4e343af4320393}{name}}();}
+\DoxyCodeLine{        std::string password = requst-\/>\mbox{\hyperlink{classfixbug_1_1LoginRequest_a1c9c83442517745ffab51092b1b135d1}{pwd}}();}
+\DoxyCodeLine{        \textcolor{keywordtype}{int} res = \mbox{\hyperlink{classUserService_a0e52624bd7528a7bd4fee67142e959e0}{Login}}(name, password);}
+\DoxyCodeLine{        \mbox{\hyperlink{classfixbug_1_1ResultCode}{fixbug::ResultCode}}* resCode = response-\/>\mbox{\hyperlink{classfixbug_1_1LoginResponse_a07b0923d5c2197a7f001da71ff623479}{mutable\_result}}();}
+\DoxyCodeLine{        resCode-\/>\mbox{\hyperlink{classfixbug_1_1ResultCode_a03343ad6038b30cf355475e2407fbb9f}{set\_errcode}}(0);}
+\DoxyCodeLine{        resCode-\/>\mbox{\hyperlink{classfixbug_1_1ResultCode_af1a81281c9b840fa638c3293ab80cd97}{set\_errmsg}}(\textcolor{stringliteral}{"{}一切正常 very good"{}});}
+\DoxyCodeLine{        response-\/>\mbox{\hyperlink{classfixbug_1_1LoginResponse_a4796a84ce39057b18563bcc9af415031}{set\_sucess}}(res);}
+\DoxyCodeLine{        \textcolor{comment}{//Closure是一个抽象类，}}
+\DoxyCodeLine{        done-\/>Run();}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+然后通过框架启动一个rpc服务
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{RpcApplication::GetInstance().init(argv[1]);}
+\DoxyCodeLine{RpcDispatcher provider;}
+\DoxyCodeLine{std::shared\_ptr<UserService> userService = std::make\_shared<UserService>();}
+\DoxyCodeLine{\textcolor{comment}{//将你需要的服务可以注册到框架上}}
+\DoxyCodeLine{provider.registerService(userService);}
+\DoxyCodeLine{provider.run();}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md12}{}\doxysubsubsection{调用者示例}\label{md_README_autotoc_md12}
+proto文件会自动生成服务端需要的类，也生成了客户端需要的类
+
+调用者需要先调用框架的init方法接受参数，看需要调用哪个rpc服务
+
+然后创建对应\+Rpc方法提供的stub类的类对象传入框架提供的channel方法，
+
+闯将请求和响应对象，将请求时需要的参数通过protobuf提供的set方法写入到对象中
+
+然后调用stub类对象的相应的方法，响应会通过respons参数传回来
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int} \mbox{\hyperlink{CMakeCCompilerId_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}}(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char}** argv)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (argc != 2)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}启动项参数异常,请检查"{}} << std::endl;}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{comment}{//初始化框架}}
+\DoxyCodeLine{    RpcApplication::GetInstance().init(argv[1]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{comment}{//演示调用远程发布的rpc方法Login}}
+\DoxyCodeLine{    \mbox{\hyperlink{classfixbug_1_1user__Stub}{fixbug::user\_Stub}} stub( \textcolor{keyword}{new} RpcChannel());}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{comment}{// rpc参数}}
+\DoxyCodeLine{    \mbox{\hyperlink{classfixbug_1_1LoginRequest}{fixbug::LoginRequest}} request;}
+\DoxyCodeLine{    request.\mbox{\hyperlink{classfixbug_1_1LoginRequest_a0a65fd0f0f681e44cd89d56c2291c60b}{set\_name}}(\textcolor{stringliteral}{"{}zhang san"{}});}
+\DoxyCodeLine{    request.\mbox{\hyperlink{classfixbug_1_1LoginRequest_a6ccac5510dc467b7594ee5c6bd8a161a}{set\_pwd}}(\textcolor{stringliteral}{"{}123456"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{comment}{// rpc的响应}}
+\DoxyCodeLine{    \mbox{\hyperlink{classfixbug_1_1LoginResponse}{fixbug::LoginResponse}} response;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{comment}{//发起rpc方法的调用}}
+\DoxyCodeLine{    RpcController control;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    stub.Login(\&control, \&request, \&response, \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{comment}{//一次rpc调用完成，读调用的结果}}
+\DoxyCodeLine{    \textcolor{comment}{//不要直接访问response}}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (control.Failed())}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        std::cout << control.ErrorText() << std::endl;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordflow}{else}}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (0 == response.\mbox{\hyperlink{classfixbug_1_1LoginResponse_a2c3d83ae00b75e40d9a1f575a9b28541}{result}}().\mbox{\hyperlink{classfixbug_1_1ResultCode_a63c91a9fc995acbfce70aa770c912fa8}{errcode}}())}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{            std::cout << \textcolor{stringliteral}{"{}rpc call success:"{}} << response.\mbox{\hyperlink{classfixbug_1_1LoginResponse_a9979d136bf2b2072aa393886b1d2811e}{sucess}}()}
+\DoxyCodeLine{                      << response.\mbox{\hyperlink{classfixbug_1_1LoginResponse_a2c3d83ae00b75e40d9a1f575a9b28541}{result}}().\mbox{\hyperlink{classfixbug_1_1ResultCode_a63c91a9fc995acbfce70aa770c912fa8}{errcode}}()}
+\DoxyCodeLine{                      << response.\mbox{\hyperlink{classfixbug_1_1LoginResponse_a2c3d83ae00b75e40d9a1f575a9b28541}{result}}().\mbox{\hyperlink{classfixbug_1_1ResultCode_ae9ab6d3f23ba9f2de4892149c40a7257}{errmsg}}() << std::endl;}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        \textcolor{keywordflow}{else}}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{            std::cout << \textcolor{stringliteral}{"{}rpc call error:"{}} << response.\mbox{\hyperlink{classfixbug_1_1LoginResponse_a2c3d83ae00b75e40d9a1f575a9b28541}{result}}().\mbox{\hyperlink{classfixbug_1_1ResultCode_ae9ab6d3f23ba9f2de4892149c40a7257}{errmsg}}()}
+\DoxyCodeLine{                      << std::endl;}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+调用一次打印日志
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#service}
+\DoxyCodeLine{root@VM-\/16-\/3-\/ubuntu:\string~/projects/mprpc/bin\# ./service ../conf/initConfigFile.conf}
+\DoxyCodeLine{20250331 14:44:06.634708 388175 INFO  work loop thread start -\/ tcp\_server.cpp:97}
+\DoxyCodeLine{20250331 14:44:10.840627 388170 INFO  TcpServer::newConnection [networkServer] -\/ new connection [networkServer-\/0.0.0.0:9001\#1] from 127.0.0.1:58676 -\/ TcpServer.cc:80}
+\DoxyCodeLine{20250331 14:44:10.840823 388175 INFO  127.0.0.1:58676客户发起来了连接 -\/ tcp\_server.cpp:85}
+\DoxyCodeLine{20250331 14:44:10.841466 388175 INFO  接收到一个的包 data size:70 -\/ tcp\_server.cpp:57}
+\DoxyCodeLine{20250331 14:44:10.841654 388175 ERROR parse sericve\_name[user] and method\_name[Login] from full name [fixbug.user.Login] -\/ rpc\_dispatcher.cpp:235}
+\DoxyCodeLine{20250331 14:44:10.841715 388175 INFO  79217084| get rpc requestname: "{}zhang san"{} pwd: "{}123456"{} -\/ rpc\_dispatcher.cpp:139}
+\DoxyCodeLine{20250331 14:44:10.841817 388175 INFO  user name is zhang san -\/ service.cpp:12}
+\DoxyCodeLine{20250331 14:44:10.841855 388175 INFO  user password is 123456 -\/ service.cpp:13}
+\DoxyCodeLine{20250331 14:44:10.841891 388175 INFO  79217084| dispatch success, requesut-\/>name: "{}zhang san"{} pwd: "{}123456"{}, response-\/>result \{ errMsg: "{}\(\backslash\)344\(\backslash\)270\(\backslash\)200\(\backslash\)345\(\backslash\)210\(\backslash\)207\(\backslash\)346\(\backslash\)255\(\backslash\)243\(\backslash\)345\(\backslash\)270\(\backslash\)270 very good"{} \} sucess: true -\/ rpc\_dispatcher.cpp:163}
+\DoxyCodeLine{20250331 14:44:10.843297 388175 INFO  127.0.0.1:58676客户断开了连接 -\/ tcp\_server.cpp:89}
+\DoxyCodeLine{20250331 14:44:10.843378 388170 INFO  TcpServer::removeConnectionInLoop [networkServer] -\/ connection networkServer-\/0.0.0.0:9001\#1 -\/ TcpServer.cc:109}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#client}
+\DoxyCodeLine{root@VM-\/16-\/3-\/ubuntu:\string~/projects/mprpc/bin\# ./client ../conf/initConfigFile.conf}
+\DoxyCodeLine{20240502 06:44:10.830904Z 388210 INFO  RpcChannel -\/ rpc\_channel.cpp:36}
+\DoxyCodeLine{20240502 06:44:10.840230Z 388210 INFO  TcpClient::TcpClient[tcp\_client] -\/ connector 0x5606CDC8D750 -\/ TcpClient.cc:69}
+\DoxyCodeLine{20240502 06:44:10.840472Z 388210 INFO  TcpClient::connect[tcp\_client] -\/ connecting to 127.0.0.1:9001 -\/ TcpClient.cc:107}
+\DoxyCodeLine{20240502 06:44:10.840969Z 388210 INFO  79217084| call method name-\/>fixbug.user.Login -\/ rpc\_channel.cpp:97}
+\DoxyCodeLine{20240502 06:44:10.841118Z 388210 INFO  79217084 | connect success, peer addr[127.0.0.1:9001] -\/ rpc\_channel.cpp:127}
+\DoxyCodeLine{20240502 06:44:10.841167Z 388210 INFO  79217084 | send rpc request success. call method name[fixbug.user.Login], peer addr[127.0.0.1:9001] -\/ rpc\_channel.cpp:132}
+\DoxyCodeLine{20240502 06:44:10.842024Z 388211 INFO  接收到一个的包 data size:79 -\/ tcp\_client.cpp:33}
+\DoxyCodeLine{20240502 06:44:10.842091Z 388210 INFO  79217084 | success get rpc response, call method name[fixbug.user.Login], peer addr[127.0.0.1:9001] -\/ rpc\_channel.cpp:166}
+\DoxyCodeLine{20240502 06:44:10.842132Z 388210 INFO  79217084 | call rpc success, call method name[fixbug.user.Login], peer addr[127.0.0.1:9001] -\/ rpc\_channel.cpp:194}
+\DoxyCodeLine{rpc call success:10一切正常 very good}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md13}{}\doxysection{项目解析}\label{md_README_autotoc_md13}
+\hypertarget{md_README_autotoc_md14}{}\doxysubsection{Tiny\+PB协议}\label{md_README_autotoc_md14}
+Tiny\+PB 是 Tiny\+RPC 框架自定义的一种轻量化协议类型，它是基于 google 的 protobuf 而定制的，读者可以按需自行对协议格式进行扩充。
+
+\hypertarget{md_README_autotoc_md15}{}\doxysubsubsection{Tiny\+PB 协议报文格式分解}\label{md_README_autotoc_md15}
+\begin{quote}
+{\bfseries{Tiny\+Pb}} 协议里面所有的 int 类型的字段在编码时都会先转为$\ast$$\ast$网络字节序$\ast$$\ast$！ \end{quote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{class }TinyPBProtocol}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\textcolor{keyword}{public}:}
+\DoxyCodeLine{    \textcolor{keyword}{static} \textcolor{keywordtype}{char}     PB\_START;}
+\DoxyCodeLine{    \textcolor{keyword}{static} \textcolor{keywordtype}{char}     PB\_END;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{public}:}
+\DoxyCodeLine{    int32\_t         packageLen\_\{0\};}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    int32\_t         msgIdLen\_\{0\};}
+\DoxyCodeLine{    std::string     msgId\_;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    int32\_t         methodNameLen\_\{0\};}
+\DoxyCodeLine{    std::string     methodName\_;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    int32\_t         errorCode\_\{0\};}
+\DoxyCodeLine{    int32\_t         errorInfoLen\_\{0\};}
+\DoxyCodeLine{    std::string     errorInfo\_;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    std::string     pbData\_;}
+\DoxyCodeLine{    int32\_t         checksum\_\{0\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordtype}{bool}            parseSuccess\_\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md16}{}\doxysubsection{时序图}\label{md_README_autotoc_md16}
+\hypertarget{md_README_autotoc_md17}{}\doxysubsection{错误码释义文档}\label{md_README_autotoc_md17}
+err\+\_\+code 详细说明如下表：
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{错误码}}   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{错误代码}}   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{错误码描述}}    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{错误码}}   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{错误代码}}   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{错误码描述}}    }\\\cline{1-3}
+\endhead
+ERROR\+\_\+\+PEER\+\_\+\+CLOSED   &10000000   &连接时对端关闭    \\\cline{1-3}
+ERROR\+\_\+\+FAILED\+\_\+\+CONNECT   &10000001   &连接失败    \\\cline{1-3}
+ERROR\+\_\+\+FAILED\+\_\+\+GET\+\_\+\+REPLY   &10000002   &RPC 调用未收到对端回包数据    \\\cline{1-3}
+ERROR\+\_\+\+FAILED\+\_\+\+DESERIALIZE   &10000003   &反序列化失败，这种情况一般是 Tiny\+Pb 里面的 pb\+\_\+data 有问题    \\\cline{1-3}
+ERROR\+\_\+\+FAILED\+\_\+\+SERIALIZE   &10000004   &序列化失败    \\\cline{1-3}
+ERROR\+\_\+\+FAILED\+\_\+\+ENCODE   &10000005   &编码失败    \\\cline{1-3}
+ERROR\+\_\+\+FAILED\+\_\+\+DECODE   &10000006   &解码失败    \\\cline{1-3}
+ERROR\+\_\+\+RPC\+\_\+\+CALL\+\_\+\+TIMEOUT   &10000007   &rpc 调用超时    \\\cline{1-3}
+ERROR\+\_\+\+SERVICE\+\_\+\+NOT\+\_\+\+FOUND   &10000008   &service 不存在    \\\cline{1-3}
+ERROR\+\_\+\+METHOD\+\_\+\+NOT\+\_\+\+FOUND   &10000009   &method 不存在 method    \\\cline{1-3}
+ERROR\+\_\+\+PARSE\+\_\+\+SERVICE\+\_\+\+NAME   &10000010   &service name 解析失败    \\\cline{1-3}
+ERROR\+\_\+\+RPC\+\_\+\+CHANNEL\+\_\+\+INIT   &10000011   &rpc channel 初始化失败    \\\cline{1-3}
+ERROR\+\_\+\+RPC\+\_\+\+PEER\+\_\+\+ADDR   &10000012   &rpc 调用时候对端地址异常   \\\cline{1-3}
+\end{longtabu}

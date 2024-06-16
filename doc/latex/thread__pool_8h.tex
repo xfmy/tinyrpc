@@ -1,0 +1,129 @@
+\hypertarget{thread__pool_8h}{}\doxysection{src/base/thread\+\_\+pool.h File Reference}
+\label{thread__pool_8h}\index{src/base/thread\_pool.h@{src/base/thread\_pool.h}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+{\ttfamily \#include $<$queue$>$}\newline
+{\ttfamily \#include $<$mutex$>$}\newline
+{\ttfamily \#include $<$atomic$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$condition\+\_\+variable$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$future$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+Include dependency graph for thread\+\_\+pool.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{thread__pool_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{thread__pool_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classCThread}{CThread}}
+\begin{DoxyCompactList}\small\item\em 线程简单包装类~\newline
+封装了线程的启动函数,以及线程id \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classCThreadPool}{CThread\+Pool}}
+\begin{DoxyCompactList}\small\item\em 纯cpp11手写线程池，（互斥锁，条件变量，原子变量，手动实现cpp17 any及cpp20 信号量） \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{thread__pool_8h_ae82ba535d0d603e355b17942b051550c}{CPool\+Mode}} \{ \mbox{\hyperlink{thread__pool_8h_ae82ba535d0d603e355b17942b051550ca6f8dae8d28fd5e53effc703ca5812f4d}{MODE\+\_\+\+FIXED}}
+, \mbox{\hyperlink{thread__pool_8h_ae82ba535d0d603e355b17942b051550ca9b44b31a565cbb6bed0ebeee32990d58}{MODE\+\_\+\+CACHED}}
+ \}
+\begin{DoxyCompactList}\small\item\em 线程池模式~\newline
+两种线程池模式,一种是固定数量,一种动态增减 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const size\+\_\+t \mbox{\hyperlink{thread__pool_8h_a334fa67abb73adbff0b41c8d58f36765}{INIT\+\_\+\+THREAD\+\_\+\+COUNT}}
+\begin{DoxyCompactList}\small\item\em 默认初始化线程池线程数量 \end{DoxyCompactList}\item 
+constexpr size\+\_\+t \mbox{\hyperlink{thread__pool_8h_ae5296d71e07f87c40d8e6c48eb9b73fc}{THRESHOLD}} = 1024$\ast$1024
+\begin{DoxyCompactList}\small\item\em 默认任务最大阈值 \end{DoxyCompactList}\item 
+constexpr size\+\_\+t \mbox{\hyperlink{thread__pool_8h_a177905eef7eaaecbcf66e523f18b2ef9}{THREAD\+\_\+\+SIZE\+\_\+\+THRESH\+\_\+\+HOLD}} = 100
+\begin{DoxyCompactList}\small\item\em 默认线程池线程最大阈值 \end{DoxyCompactList}\item 
+constexpr size\+\_\+t \mbox{\hyperlink{thread__pool_8h_adc6c0a523d692120a7fc3b9d99e96a41}{THREAD\+\_\+\+MAX\+\_\+\+IDLE\+\_\+\+TIME}} = 60
+\begin{DoxyCompactList}\small\item\em 默认线程最大空闲时间s \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{thread__pool_8h_ae82ba535d0d603e355b17942b051550c}\label{thread__pool_8h_ae82ba535d0d603e355b17942b051550c}} 
+\index{thread\_pool.h@{thread\_pool.h}!CPoolMode@{CPoolMode}}
+\index{CPoolMode@{CPoolMode}!thread\_pool.h@{thread\_pool.h}}
+\doxysubsubsection{\texorpdfstring{CPoolMode}{CPoolMode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{thread__pool_8h_ae82ba535d0d603e355b17942b051550c}{CPool\+Mode}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+线程池模式~\newline
+两种线程池模式,一种是固定数量,一种动态增减 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MODE\_FIXED@{MODE\_FIXED}!thread\_pool.h@{thread\_pool.h}}\index{thread\_pool.h@{thread\_pool.h}!MODE\_FIXED@{MODE\_FIXED}}}\mbox{\Hypertarget{thread__pool_8h_ae82ba535d0d603e355b17942b051550ca6f8dae8d28fd5e53effc703ca5812f4d}\label{thread__pool_8h_ae82ba535d0d603e355b17942b051550ca6f8dae8d28fd5e53effc703ca5812f4d}} 
+MODE\+\_\+\+FIXED&固定数量 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MODE\_CACHED@{MODE\_CACHED}!thread\_pool.h@{thread\_pool.h}}\index{thread\_pool.h@{thread\_pool.h}!MODE\_CACHED@{MODE\_CACHED}}}\mbox{\Hypertarget{thread__pool_8h_ae82ba535d0d603e355b17942b051550ca9b44b31a565cbb6bed0ebeee32990d58}\label{thread__pool_8h_ae82ba535d0d603e355b17942b051550ca9b44b31a565cbb6bed0ebeee32990d58}} 
+MODE\+\_\+\+CACHED&动态数量 \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{thread__pool_8h_a334fa67abb73adbff0b41c8d58f36765}\label{thread__pool_8h_a334fa67abb73adbff0b41c8d58f36765}} 
+\index{thread\_pool.h@{thread\_pool.h}!INIT\_THREAD\_COUNT@{INIT\_THREAD\_COUNT}}
+\index{INIT\_THREAD\_COUNT@{INIT\_THREAD\_COUNT}!thread\_pool.h@{thread\_pool.h}}
+\doxysubsubsection{\texorpdfstring{INIT\_THREAD\_COUNT}{INIT\_THREAD\_COUNT}}
+{\footnotesize\ttfamily const size\+\_\+t INIT\+\_\+\+THREAD\+\_\+\+COUNT}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{    std::thread::hardware\_concurrency() * 2}
+
+\end{DoxyCode}
+
+
+默认初始化线程池线程数量 
+
+\mbox{\Hypertarget{thread__pool_8h_adc6c0a523d692120a7fc3b9d99e96a41}\label{thread__pool_8h_adc6c0a523d692120a7fc3b9d99e96a41}} 
+\index{thread\_pool.h@{thread\_pool.h}!THREAD\_MAX\_IDLE\_TIME@{THREAD\_MAX\_IDLE\_TIME}}
+\index{THREAD\_MAX\_IDLE\_TIME@{THREAD\_MAX\_IDLE\_TIME}!thread\_pool.h@{thread\_pool.h}}
+\doxysubsubsection{\texorpdfstring{THREAD\_MAX\_IDLE\_TIME}{THREAD\_MAX\_IDLE\_TIME}}
+{\footnotesize\ttfamily constexpr size\+\_\+t THREAD\+\_\+\+MAX\+\_\+\+IDLE\+\_\+\+TIME = 60\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+默认线程最大空闲时间s 
+
+\mbox{\Hypertarget{thread__pool_8h_a177905eef7eaaecbcf66e523f18b2ef9}\label{thread__pool_8h_a177905eef7eaaecbcf66e523f18b2ef9}} 
+\index{thread\_pool.h@{thread\_pool.h}!THREAD\_SIZE\_THRESH\_HOLD@{THREAD\_SIZE\_THRESH\_HOLD}}
+\index{THREAD\_SIZE\_THRESH\_HOLD@{THREAD\_SIZE\_THRESH\_HOLD}!thread\_pool.h@{thread\_pool.h}}
+\doxysubsubsection{\texorpdfstring{THREAD\_SIZE\_THRESH\_HOLD}{THREAD\_SIZE\_THRESH\_HOLD}}
+{\footnotesize\ttfamily constexpr size\+\_\+t THREAD\+\_\+\+SIZE\+\_\+\+THRESH\+\_\+\+HOLD = 100\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+默认线程池线程最大阈值 
+
+\mbox{\Hypertarget{thread__pool_8h_ae5296d71e07f87c40d8e6c48eb9b73fc}\label{thread__pool_8h_ae5296d71e07f87c40d8e6c48eb9b73fc}} 
+\index{thread\_pool.h@{thread\_pool.h}!THRESHOLD@{THRESHOLD}}
+\index{THRESHOLD@{THRESHOLD}!thread\_pool.h@{thread\_pool.h}}
+\doxysubsubsection{\texorpdfstring{THRESHOLD}{THRESHOLD}}
+{\footnotesize\ttfamily constexpr size\+\_\+t THRESHOLD = 1024$\ast$1024\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+默认任务最大阈值 
+

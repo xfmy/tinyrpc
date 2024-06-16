@@ -1,0 +1,84 @@
+\hypertarget{classCThread}{}\doxysection{CThread Class Reference}
+\label{classCThread}\index{CThread@{CThread}}
+
+
+线程简单包装类~\newline
+封装了线程的启动函数,以及线程id  
+
+
+
+
+{\ttfamily \#include $<$thread\+\_\+pool.\+h$>$}
+
+
+
+Collaboration diagram for CThread\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=164pt]{classCThread__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCThread_aafe9980d423836446d3a10de8e3934fc}{CThread}} (CALLBACK\+\_\+\+FUNC parameter)
+\item 
+\mbox{\hyperlink{classCThread_a85a583b2edf56a6448e71e3a9ad301d2}{$\sim$\+CThread}} ()
+\item 
+void \mbox{\hyperlink{classCThread_ab0e4ab268cf08a31424b4fca27f37991}{Start}} ()
+\begin{DoxyCompactList}\small\item\em 启动线程 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCThread_a3056478082f35daf43b587b48a6e84b2}{Getid}} () const
+\begin{DoxyCompactList}\small\item\em 获取线程编号 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+线程简单包装类~\newline
+封装了线程的启动函数,以及线程id 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCThread_aafe9980d423836446d3a10de8e3934fc}\label{classCThread_aafe9980d423836446d3a10de8e3934fc}} 
+\index{CThread@{CThread}!CThread@{CThread}}
+\index{CThread@{CThread}!CThread@{CThread}}
+\doxysubsubsection{\texorpdfstring{CThread()}{CThread()}}
+{\footnotesize\ttfamily CThread\+::\+CThread (\begin{DoxyParamCaption}\item[{CALLBACK\+\_\+\+FUNC}]{parameter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classCThread_a85a583b2edf56a6448e71e3a9ad301d2}\label{classCThread_a85a583b2edf56a6448e71e3a9ad301d2}} 
+\index{CThread@{CThread}!````~CThread@{$\sim$CThread}}
+\index{````~CThread@{$\sim$CThread}!CThread@{CThread}}
+\doxysubsubsection{\texorpdfstring{$\sim$CThread()}{~CThread()}}
+{\footnotesize\ttfamily CThread\+::$\sim$\+CThread (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCThread_a3056478082f35daf43b587b48a6e84b2}\label{classCThread_a3056478082f35daf43b587b48a6e84b2}} 
+\index{CThread@{CThread}!Getid@{Getid}}
+\index{Getid@{Getid}!CThread@{CThread}}
+\doxysubsubsection{\texorpdfstring{Getid()}{Getid()}}
+{\footnotesize\ttfamily int CThread\+::\+Getid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+获取线程编号 
+
+\begin{DoxyReturn}{Returns}
+线程编程 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCThread_ab0e4ab268cf08a31424b4fca27f37991}\label{classCThread_ab0e4ab268cf08a31424b4fca27f37991}} 
+\index{CThread@{CThread}!Start@{Start}}
+\index{Start@{Start}!CThread@{CThread}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void CThread\+::\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+启动线程 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/base/\mbox{\hyperlink{thread__pool_8h}{thread\+\_\+pool.\+h}}\item 
+src/base/\mbox{\hyperlink{thread__pool_8cpp}{thread\+\_\+pool.\+cpp}}\end{DoxyCompactItemize}

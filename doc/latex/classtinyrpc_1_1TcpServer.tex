@@ -1,0 +1,132 @@
+\hypertarget{classtinyrpc_1_1TcpServer}{}\doxysection{tinyrpc\+::Tcp\+Server Class Reference}
+\label{classtinyrpc_1_1TcpServer}\index{tinyrpc::TcpServer@{tinyrpc::TcpServer}}
+
+
+tinyrpc的网络模块  
+
+
+
+
+{\ttfamily \#include $<$tcp\+\_\+server.\+h$>$}
+
+
+
+Inheritance diagram for tinyrpc\+::Tcp\+Server\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{classtinyrpc_1_1TcpServer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for tinyrpc\+::Tcp\+Server\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{classtinyrpc_1_1TcpServer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtinyrpc_1_1TcpServer_a82470f79e3afffa6508dd0961514fc77}{Tcp\+Server}} (uint16\+\_\+t port)
+\item 
+\mbox{\hyperlink{classtinyrpc_1_1TcpServer_a174cfbfbd57603ada33a5ad262e6a726}{$\sim$\+Tcp\+Server}} ()
+\item 
+void \mbox{\hyperlink{classtinyrpc_1_1TcpServer_a28c90b1675fba88f12341d7368b4c840}{start}} ()
+\begin{DoxyCompactList}\small\item\em 启动网络模块 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtinyrpc_1_1TcpServer_a374b23115b8ce681cf41d2d3287572c8}{set\+Write\+Complete\+Callback}} (const Write\+Complete\+Callback cb)
+\begin{DoxyCompactList}\small\item\em 设置数据包包发送完毕的回调函数 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtinyrpc_1_1TcpServer_a7b950a7f2a33c3aeab301b4f17144f6a}{set\+Connect\+Callback}} (const Connection\+Callback cb)
+\begin{DoxyCompactList}\small\item\em 设置客户端连接回调 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtinyrpc_1_1TcpServer_af86b58e35dea8e98f9df8222eee97754}{set\+Dispatch\+Callback}} (const \mbox{\hyperlink{namespacetinyrpc_a38158aa3dd2e823775f636f6ee8bc27c}{Dispatch\+Callback}} \&cb)
+\begin{DoxyCompactList}\small\item\em 设置接收到一个完整的包之后调用的业务处理函数 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtinyrpc_1_1TcpServer_a78deec3a851911b4372b4994fae2e096}{Add\+Timer\+Event}} (double delay, Timer\+Callback cb)
+\begin{DoxyCompactList}\small\item\em 添加定时器 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+tinyrpc的网络模块 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtinyrpc_1_1TcpServer_a82470f79e3afffa6508dd0961514fc77}\label{classtinyrpc_1_1TcpServer_a82470f79e3afffa6508dd0961514fc77}} 
+\index{tinyrpc::TcpServer@{tinyrpc::TcpServer}!TcpServer@{TcpServer}}
+\index{TcpServer@{TcpServer}!tinyrpc::TcpServer@{tinyrpc::TcpServer}}
+\doxysubsubsection{\texorpdfstring{TcpServer()}{TcpServer()}}
+{\footnotesize\ttfamily tinyrpc\+::\+Tcp\+Server\+::\+Tcp\+Server (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{port }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classtinyrpc_1_1TcpServer_a174cfbfbd57603ada33a5ad262e6a726}\label{classtinyrpc_1_1TcpServer_a174cfbfbd57603ada33a5ad262e6a726}} 
+\index{tinyrpc::TcpServer@{tinyrpc::TcpServer}!````~TcpServer@{$\sim$TcpServer}}
+\index{````~TcpServer@{$\sim$TcpServer}!tinyrpc::TcpServer@{tinyrpc::TcpServer}}
+\doxysubsubsection{\texorpdfstring{$\sim$TcpServer()}{~TcpServer()}}
+{\footnotesize\ttfamily tinyrpc\+::\+Tcp\+Server\+::$\sim$\+Tcp\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtinyrpc_1_1TcpServer_a78deec3a851911b4372b4994fae2e096}\label{classtinyrpc_1_1TcpServer_a78deec3a851911b4372b4994fae2e096}} 
+\index{tinyrpc::TcpServer@{tinyrpc::TcpServer}!AddTimerEvent@{AddTimerEvent}}
+\index{AddTimerEvent@{AddTimerEvent}!tinyrpc::TcpServer@{tinyrpc::TcpServer}}
+\doxysubsubsection{\texorpdfstring{AddTimerEvent()}{AddTimerEvent()}}
+{\footnotesize\ttfamily void tinyrpc\+::\+Tcp\+Server\+::\+Add\+Timer\+Event (\begin{DoxyParamCaption}\item[{double}]{delay,  }\item[{Timer\+Callback}]{cb }\end{DoxyParamCaption})}
+
+
+
+添加定时器 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delay} & 时间 \\
+\hline
+{\em cb} & 事件回调 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtinyrpc_1_1TcpServer_a7b950a7f2a33c3aeab301b4f17144f6a}\label{classtinyrpc_1_1TcpServer_a7b950a7f2a33c3aeab301b4f17144f6a}} 
+\index{tinyrpc::TcpServer@{tinyrpc::TcpServer}!setConnectCallback@{setConnectCallback}}
+\index{setConnectCallback@{setConnectCallback}!tinyrpc::TcpServer@{tinyrpc::TcpServer}}
+\doxysubsubsection{\texorpdfstring{setConnectCallback()}{setConnectCallback()}}
+{\footnotesize\ttfamily void tinyrpc\+::\+Tcp\+Server\+::set\+Connect\+Callback (\begin{DoxyParamCaption}\item[{const Connection\+Callback}]{cb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+设置客户端连接回调 
+
+\mbox{\Hypertarget{classtinyrpc_1_1TcpServer_af86b58e35dea8e98f9df8222eee97754}\label{classtinyrpc_1_1TcpServer_af86b58e35dea8e98f9df8222eee97754}} 
+\index{tinyrpc::TcpServer@{tinyrpc::TcpServer}!setDispatchCallback@{setDispatchCallback}}
+\index{setDispatchCallback@{setDispatchCallback}!tinyrpc::TcpServer@{tinyrpc::TcpServer}}
+\doxysubsubsection{\texorpdfstring{setDispatchCallback()}{setDispatchCallback()}}
+{\footnotesize\ttfamily void tinyrpc\+::\+Tcp\+Server\+::set\+Dispatch\+Callback (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacetinyrpc_a38158aa3dd2e823775f636f6ee8bc27c}{Dispatch\+Callback}} \&}]{cb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+设置接收到一个完整的包之后调用的业务处理函数 
+
+\mbox{\Hypertarget{classtinyrpc_1_1TcpServer_a374b23115b8ce681cf41d2d3287572c8}\label{classtinyrpc_1_1TcpServer_a374b23115b8ce681cf41d2d3287572c8}} 
+\index{tinyrpc::TcpServer@{tinyrpc::TcpServer}!setWriteCompleteCallback@{setWriteCompleteCallback}}
+\index{setWriteCompleteCallback@{setWriteCompleteCallback}!tinyrpc::TcpServer@{tinyrpc::TcpServer}}
+\doxysubsubsection{\texorpdfstring{setWriteCompleteCallback()}{setWriteCompleteCallback()}}
+{\footnotesize\ttfamily void tinyrpc\+::\+Tcp\+Server\+::set\+Write\+Complete\+Callback (\begin{DoxyParamCaption}\item[{const Write\+Complete\+Callback}]{cb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+设置数据包包发送完毕的回调函数 
+
+\mbox{\Hypertarget{classtinyrpc_1_1TcpServer_a28c90b1675fba88f12341d7368b4c840}\label{classtinyrpc_1_1TcpServer_a28c90b1675fba88f12341d7368b4c840}} 
+\index{tinyrpc::TcpServer@{tinyrpc::TcpServer}!start@{start}}
+\index{start@{start}!tinyrpc::TcpServer@{tinyrpc::TcpServer}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void tinyrpc\+::\+Tcp\+Server\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+启动网络模块 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/net/\mbox{\hyperlink{tcp__server_8h}{tcp\+\_\+server.\+h}}\item 
+src/net/\mbox{\hyperlink{tcp__server_8cpp}{tcp\+\_\+server.\+cpp}}\end{DoxyCompactItemize}

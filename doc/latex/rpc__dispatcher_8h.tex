@@ -1,0 +1,54 @@
+\hypertarget{rpc__dispatcher_8h}{}\doxysection{include/rpc\+\_\+dispatcher.h File Reference}
+\label{rpc__dispatcher_8h}\index{include/rpc\_dispatcher.h@{include/rpc\_dispatcher.h}}
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$muduo/net/\+Tcp\+Connection.\+h$>$}\newline
+{\ttfamily \#include $<$muduo/base/\+Timestamp.\+h$>$}\newline
+{\ttfamily \#include $<$google/protobuf/service.\+h$>$}\newline
+Include dependency graph for rpc\+\_\+dispatcher.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rpc__dispatcher_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{rpc__dispatcher_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtinyrpc_1_1RpcDispatcher}{tinyrpc\+::\+Rpc\+Dispatcher}}
+\begin{DoxyCompactList}\small\item\em 框架提供的专门发布rpc服务与服务分发的网络对象模块 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacetinyrpc}{tinyrpc}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{rpc__dispatcher_8h_a60a4140e7d66a45368eec5aedd11cd51}{service\+Ptr}} = std\+::shared\+\_\+ptr$<$ google\+::protobuf\+::\+Service $>$
+\item 
+using \mbox{\hyperlink{rpc__dispatcher_8h_a641104039404f04f1db2ec381756e15d}{message\+Ptr}} = std\+::shared\+\_\+ptr$<$ google\+::protobuf\+::\+Message $>$
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{rpc__dispatcher_8h_a641104039404f04f1db2ec381756e15d}\label{rpc__dispatcher_8h_a641104039404f04f1db2ec381756e15d}} 
+\index{rpc\_dispatcher.h@{rpc\_dispatcher.h}!messagePtr@{messagePtr}}
+\index{messagePtr@{messagePtr}!rpc\_dispatcher.h@{rpc\_dispatcher.h}}
+\doxysubsubsection{\texorpdfstring{messagePtr}{messagePtr}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{rpc__dispatcher_8h_a641104039404f04f1db2ec381756e15d}{message\+Ptr}} =  std\+::shared\+\_\+ptr$<$google\+::protobuf\+::\+Message$>$}
+
+\mbox{\Hypertarget{rpc__dispatcher_8h_a60a4140e7d66a45368eec5aedd11cd51}\label{rpc__dispatcher_8h_a60a4140e7d66a45368eec5aedd11cd51}} 
+\index{rpc\_dispatcher.h@{rpc\_dispatcher.h}!servicePtr@{servicePtr}}
+\index{servicePtr@{servicePtr}!rpc\_dispatcher.h@{rpc\_dispatcher.h}}
+\doxysubsubsection{\texorpdfstring{servicePtr}{servicePtr}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{rpc__dispatcher_8h_a60a4140e7d66a45368eec5aedd11cd51}{service\+Ptr}} =  std\+::shared\+\_\+ptr$<$google\+::protobuf\+::\+Service$>$}
+

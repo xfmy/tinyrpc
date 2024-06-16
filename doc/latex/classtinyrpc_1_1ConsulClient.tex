@@ -1,0 +1,116 @@
+\hypertarget{classtinyrpc_1_1ConsulClient}{}\doxysection{tinyrpc\+::Consul\+Client Class Reference}
+\label{classtinyrpc_1_1ConsulClient}\index{tinyrpc::ConsulClient@{tinyrpc::ConsulClient}}
+
+
+{\ttfamily \#include $<$consul.\+h$>$}
+
+
+
+Collaboration diagram for tinyrpc\+::Consul\+Client\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{classtinyrpc_1_1ConsulClient__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtinyrpc_1_1ConsulClient_abf434d1c89e89f15aba7c193b037ccc2}{Consul\+Client}} ()
+\item 
+void \mbox{\hyperlink{classtinyrpc_1_1ConsulClient_afd41d5a702c9daacf4f5ce675df5d991}{Register\+Service}} (const std\+::string \&name, const std\+::string \&id, const std\+::string \&address, uint16\+\_\+t port)
+\begin{DoxyCompactList}\small\item\em 注册consul服务 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtinyrpc_1_1ConsulClient_a6aa2f2026f712e64e6996a8bc2a22664}{Deregister\+Service}} (const std\+::string \&id)
+\begin{DoxyCompactList}\small\item\em 取消注册 \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ muduo\+::net\+::\+Inet\+Address $>$ \mbox{\hyperlink{classtinyrpc_1_1ConsulClient_a01a7a74d709f9d484521df0f3fa85112}{Discover\+Service}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em 服务发现 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtinyrpc_1_1ConsulClient_af3a7b69b936a496e0a893de028ab573f}{Service\+Pass}} (std\+::string service\+Id)
+\begin{DoxyCompactList}\small\item\em consul服务心跳 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtinyrpc_1_1ConsulClient_abf434d1c89e89f15aba7c193b037ccc2}\label{classtinyrpc_1_1ConsulClient_abf434d1c89e89f15aba7c193b037ccc2}} 
+\index{tinyrpc::ConsulClient@{tinyrpc::ConsulClient}!ConsulClient@{ConsulClient}}
+\index{ConsulClient@{ConsulClient}!tinyrpc::ConsulClient@{tinyrpc::ConsulClient}}
+\doxysubsubsection{\texorpdfstring{ConsulClient()}{ConsulClient()}}
+{\footnotesize\ttfamily tinyrpc\+::\+Consul\+Client\+::\+Consul\+Client (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtinyrpc_1_1ConsulClient_a6aa2f2026f712e64e6996a8bc2a22664}\label{classtinyrpc_1_1ConsulClient_a6aa2f2026f712e64e6996a8bc2a22664}} 
+\index{tinyrpc::ConsulClient@{tinyrpc::ConsulClient}!DeregisterService@{DeregisterService}}
+\index{DeregisterService@{DeregisterService}!tinyrpc::ConsulClient@{tinyrpc::ConsulClient}}
+\doxysubsubsection{\texorpdfstring{DeregisterService()}{DeregisterService()}}
+{\footnotesize\ttfamily void tinyrpc\+::\+Consul\+Client\+::\+Deregister\+Service (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{id }\end{DoxyParamCaption})}
+
+
+
+取消注册 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtinyrpc_1_1ConsulClient_a01a7a74d709f9d484521df0f3fa85112}\label{classtinyrpc_1_1ConsulClient_a01a7a74d709f9d484521df0f3fa85112}} 
+\index{tinyrpc::ConsulClient@{tinyrpc::ConsulClient}!DiscoverService@{DiscoverService}}
+\index{DiscoverService@{DiscoverService}!tinyrpc::ConsulClient@{tinyrpc::ConsulClient}}
+\doxysubsubsection{\texorpdfstring{DiscoverService()}{DiscoverService()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ muduo\+::net\+::\+Inet\+Address $>$ tinyrpc\+::\+Consul\+Client\+::\+Discover\+Service (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+
+
+服务发现 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & 服务名 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+返回服务发现地址信息 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtinyrpc_1_1ConsulClient_afd41d5a702c9daacf4f5ce675df5d991}\label{classtinyrpc_1_1ConsulClient_afd41d5a702c9daacf4f5ce675df5d991}} 
+\index{tinyrpc::ConsulClient@{tinyrpc::ConsulClient}!RegisterService@{RegisterService}}
+\index{RegisterService@{RegisterService}!tinyrpc::ConsulClient@{tinyrpc::ConsulClient}}
+\doxysubsubsection{\texorpdfstring{RegisterService()}{RegisterService()}}
+{\footnotesize\ttfamily void tinyrpc\+::\+Consul\+Client\+::\+Register\+Service (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::string \&}]{id,  }\item[{const std\+::string \&}]{address,  }\item[{uint16\+\_\+t}]{port }\end{DoxyParamCaption})}
+
+
+
+注册consul服务 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em id} & \\
+\hline
+{\em address} & \\
+\hline
+{\em port} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtinyrpc_1_1ConsulClient_af3a7b69b936a496e0a893de028ab573f}\label{classtinyrpc_1_1ConsulClient_af3a7b69b936a496e0a893de028ab573f}} 
+\index{tinyrpc::ConsulClient@{tinyrpc::ConsulClient}!ServicePass@{ServicePass}}
+\index{ServicePass@{ServicePass}!tinyrpc::ConsulClient@{tinyrpc::ConsulClient}}
+\doxysubsubsection{\texorpdfstring{ServicePass()}{ServicePass()}}
+{\footnotesize\ttfamily void tinyrpc\+::\+Consul\+Client\+::\+Service\+Pass (\begin{DoxyParamCaption}\item[{std\+::string}]{service\+Id }\end{DoxyParamCaption})}
+
+
+
+consul服务心跳 
+
+
+\begin{DoxyParams}{Parameters}
+{\em service\+Id} & 服务id \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/consul/\mbox{\hyperlink{consul_8h}{consul.\+h}}\item 
+src/consul/\mbox{\hyperlink{consul_8cpp}{consul.\+cpp}}\end{DoxyCompactItemize}

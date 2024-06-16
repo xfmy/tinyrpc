@@ -1,0 +1,96 @@
+\hypertarget{classtinyrpc_1_1RpcApplication}{}\doxysection{tinyrpc\+::Rpc\+Application Class Reference}
+\label{classtinyrpc_1_1RpcApplication}\index{tinyrpc::RpcApplication@{tinyrpc::RpcApplication}}
+
+
+tinyrpc框架的基础类,负责框架的初始化操作  
+
+
+
+
+{\ttfamily \#include $<$rpc\+\_\+application.\+h$>$}
+
+
+
+Inheritance diagram for tinyrpc\+::Rpc\+Application\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{classtinyrpc_1_1RpcApplication__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for tinyrpc\+::Rpc\+Application\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{classtinyrpc_1_1RpcApplication__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classtinyrpc_1_1RpcApplication_a49252ccbf89b6e5ad10b379297ad44ab}{init}} (std\+::string path)
+\begin{DoxyCompactList}\small\item\em 初始化配置项 \end{DoxyCompactList}\item 
+std\+::optional$<$ std\+::string $>$ \mbox{\hyperlink{classtinyrpc_1_1RpcApplication_a05677d8bebf545c404ab1a9d0e1d17c5}{at\+Config\+Item}} (std\+::string field) const
+\begin{DoxyCompactList}\small\item\em 获取相应的配置值 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classtinyrpc_1_1RpcApplication}{Rpc\+Application}} \& \mbox{\hyperlink{classtinyrpc_1_1RpcApplication_a04b2f2e2442cbca41e9698346af33d7b}{Get\+Instance}} (void)
+\begin{DoxyCompactList}\small\item\em 单例模式,获取单例对象 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+tinyrpc框架的基础类,负责框架的初始化操作 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtinyrpc_1_1RpcApplication_a05677d8bebf545c404ab1a9d0e1d17c5}\label{classtinyrpc_1_1RpcApplication_a05677d8bebf545c404ab1a9d0e1d17c5}} 
+\index{tinyrpc::RpcApplication@{tinyrpc::RpcApplication}!atConfigItem@{atConfigItem}}
+\index{atConfigItem@{atConfigItem}!tinyrpc::RpcApplication@{tinyrpc::RpcApplication}}
+\doxysubsubsection{\texorpdfstring{atConfigItem()}{atConfigItem()}}
+{\footnotesize\ttfamily std\+::optional$<$ std\+::string $>$ tinyrpc\+::\+Rpc\+Application\+::at\+Config\+Item (\begin{DoxyParamCaption}\item[{std\+::string}]{field }\end{DoxyParamCaption}) const}
+
+
+
+获取相应的配置值 
+
+
+\begin{DoxyParams}{Parameters}
+{\em field} & key \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+如果key存在,返回std\+::option包装的string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtinyrpc_1_1RpcApplication_a04b2f2e2442cbca41e9698346af33d7b}\label{classtinyrpc_1_1RpcApplication_a04b2f2e2442cbca41e9698346af33d7b}} 
+\index{tinyrpc::RpcApplication@{tinyrpc::RpcApplication}!GetInstance@{GetInstance}}
+\index{GetInstance@{GetInstance}!tinyrpc::RpcApplication@{tinyrpc::RpcApplication}}
+\doxysubsubsection{\texorpdfstring{GetInstance()}{GetInstance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classtinyrpc_1_1RpcApplication}{Rpc\+Application}}\& tinyrpc\+::\+Rpc\+Application\+::\+Get\+Instance (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+单例模式,获取单例对象 
+
+\begin{DoxyReturn}{Returns}
+返回单例对象 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtinyrpc_1_1RpcApplication_a49252ccbf89b6e5ad10b379297ad44ab}\label{classtinyrpc_1_1RpcApplication_a49252ccbf89b6e5ad10b379297ad44ab}} 
+\index{tinyrpc::RpcApplication@{tinyrpc::RpcApplication}!init@{init}}
+\index{init@{init}!tinyrpc::RpcApplication@{tinyrpc::RpcApplication}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void tinyrpc\+::\+Rpc\+Application\+::init (\begin{DoxyParamCaption}\item[{std\+::string}]{path }\end{DoxyParamCaption})}
+
+
+
+初始化配置项 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{rpc__application_8h}{rpc\+\_\+application.\+h}}\item 
+src/\mbox{\hyperlink{rpc__application_8cpp}{rpc\+\_\+application.\+cpp}}\end{DoxyCompactItemize}

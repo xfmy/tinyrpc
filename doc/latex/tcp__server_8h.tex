@@ -1,0 +1,50 @@
+\hypertarget{tcp__server_8h}{}\doxysection{src/net/tcp\+\_\+server.h File Reference}
+\label{tcp__server_8h}\index{src/net/tcp\_server.h@{src/net/tcp\_server.h}}
+{\ttfamily \#include $<$muduo/net/\+Tcp\+Server.\+h$>$}\newline
+{\ttfamily \#include $<$muduo/net/\+Event\+Loop.\+h$>$}\newline
+{\ttfamily \#include $<$muduo/net/\+Inet\+Address.\+h$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$string\+\_\+view$>$}\newline
+{\ttfamily \#include \char`\"{}thread\+\_\+pool.\+h\char`\"{}}\newline
+Include dependency graph for tcp\+\_\+server.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tcp__server_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{tcp__server_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtinyrpc_1_1TcpServer}{tinyrpc\+::\+Tcp\+Server}}
+\begin{DoxyCompactList}\small\item\em tinyrpc的网络模块 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacetinyrpc}{tinyrpc}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::function$<$ void(Event\+Loop $\ast$)$>$ \mbox{\hyperlink{tcp__server_8h_ab51c52cfd4d857c44cc4d6fd2007f18e}{Thread\+Init\+Callback}}
+\item 
+using \mbox{\hyperlink{namespacetinyrpc_a38158aa3dd2e823775f636f6ee8bc27c}{tinyrpc\+::\+Dispatch\+Callback}} = std\+::function$<$ void(std\+::shared\+\_\+ptr$<$ Tiny\+PBProtocol $>$ reqest, std\+::shared\+\_\+ptr$<$ Tiny\+PBProtocol $>$ response, const muduo\+::net\+::\+Tcp\+Connection\+Ptr \&ptr)$>$
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{tcp__server_8h_ab51c52cfd4d857c44cc4d6fd2007f18e}\label{tcp__server_8h_ab51c52cfd4d857c44cc4d6fd2007f18e}} 
+\index{tcp\_server.h@{tcp\_server.h}!ThreadInitCallback@{ThreadInitCallback}}
+\index{ThreadInitCallback@{ThreadInitCallback}!tcp\_server.h@{tcp\_server.h}}
+\doxysubsubsection{\texorpdfstring{ThreadInitCallback}{ThreadInitCallback}}
+{\footnotesize\ttfamily typedef std\+::function$<$void(Event\+Loop $\ast$)$>$ \mbox{\hyperlink{tcp__server_8h_ab51c52cfd4d857c44cc4d6fd2007f18e}{Thread\+Init\+Callback}}}
+

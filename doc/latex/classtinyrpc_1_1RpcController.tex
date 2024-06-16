@@ -1,0 +1,225 @@
+\hypertarget{classtinyrpc_1_1RpcController}{}\doxysection{tinyrpc\+::Rpc\+Controller Class Reference}
+\label{classtinyrpc_1_1RpcController}\index{tinyrpc::RpcController@{tinyrpc::RpcController}}
+
+
+protobuf rpc控制类  
+
+
+
+
+{\ttfamily \#include $<$rpc\+\_\+controller.\+h$>$}
+
+
+
+Inheritance diagram for tinyrpc\+::Rpc\+Controller\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{classtinyrpc_1_1RpcController__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for tinyrpc\+::Rpc\+Controller\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{classtinyrpc_1_1RpcController__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtinyrpc_1_1RpcController_aa463f3fed1d2755af66ee126c5836795}{Rpc\+Controller}} ()=default
+\item 
+\mbox{\hyperlink{classtinyrpc_1_1RpcController_a9f39f72b33f65ddf5c41e237e327f9b5}{$\sim$\+Rpc\+Controller}} ()=default
+\item 
+void \mbox{\hyperlink{classtinyrpc_1_1RpcController_a46260170bca17f0e331f8328e84954e5}{Reset}} () override
+\item 
+bool \mbox{\hyperlink{classtinyrpc_1_1RpcController_a0aa63f0c34e8f12d84bd189c23fa1e41}{Failed}} () const override
+\item 
+std\+::string \mbox{\hyperlink{classtinyrpc_1_1RpcController_a61d4022ecde3487630d5eb09af3a7123}{Error\+Text}} () const override
+\item 
+void \mbox{\hyperlink{classtinyrpc_1_1RpcController_a8c3a0afcdaafdb6a2add1fb30f129b3a}{Start\+Cancel}} () override
+\item 
+void \mbox{\hyperlink{classtinyrpc_1_1RpcController_a5c223da7877d5c2bed023e937dc051b2}{Set\+Failed}} (const std\+::string \&reason) override
+\item 
+bool \mbox{\hyperlink{classtinyrpc_1_1RpcController_a827c2f92a0eedb669c329c227f9c964b}{Is\+Canceled}} () const override
+\item 
+void \mbox{\hyperlink{classtinyrpc_1_1RpcController_ab5f92a43d134dc72f7e92ad08d292c4f}{Notify\+On\+Cancel}} (google\+::protobuf\+::\+Closure $\ast$callback) override
+\item 
+void \mbox{\hyperlink{classtinyrpc_1_1RpcController_a5e4fabfa3d793f96c6b342e7aad6235f}{Set\+Error}} (int32\+\_\+t error\+\_\+code, const std\+::string error\+\_\+info)
+\item 
+int32\+\_\+t \mbox{\hyperlink{classtinyrpc_1_1RpcController_a89088eae8c9040e05a4de075c99a0f8c}{Get\+Error\+Code}} ()
+\item 
+std\+::string \mbox{\hyperlink{classtinyrpc_1_1RpcController_a4f1ee93adc53e801a5a88fa5a349e412}{Get\+Error\+Info}} ()
+\item 
+void \mbox{\hyperlink{classtinyrpc_1_1RpcController_a04efaabebaeb2df7e411444f6112f780}{Set\+Msg\+Id}} (const std\+::string \&msg\+\_\+id)
+\item 
+std\+::string \mbox{\hyperlink{classtinyrpc_1_1RpcController_ac7fb8492a1cbfccbaeffa4244f09878d}{Get\+Msg\+Id}} ()
+\item 
+void \mbox{\hyperlink{classtinyrpc_1_1RpcController_ac822056f2b3a9d979225a5441bba2d17}{Set\+Local\+Addr}} (muduo\+::net\+::\+Inet\+Address addr)
+\item 
+void \mbox{\hyperlink{classtinyrpc_1_1RpcController_af2c5ac80d9b2b1d65d30d21ba4ee3878}{Set\+Peer\+Addr}} (muduo\+::net\+::\+Inet\+Address addr)
+\item 
+muduo\+::net\+::\+Inet\+Address \mbox{\hyperlink{classtinyrpc_1_1RpcController_a1185d3a7dca8254a63269916a72bc161}{Get\+Local\+Addr}} ()
+\item 
+muduo\+::net\+::\+Inet\+Address \mbox{\hyperlink{classtinyrpc_1_1RpcController_add3ee930538cc7e6e92f8a271a8a6180}{Get\+Peer\+Addr}} ()
+\item 
+void \mbox{\hyperlink{classtinyrpc_1_1RpcController_a19833c6c777d97c0eefa6a2816e77dbb}{Set\+Timeout}} (int timeout)
+\item 
+int \mbox{\hyperlink{classtinyrpc_1_1RpcController_a2fa4a801a358811f5978808d5bdcbe23}{Get\+Timeout}} ()
+\item 
+bool \mbox{\hyperlink{classtinyrpc_1_1RpcController_ad6c3febe54a4368aace1799a0c63a3d0}{Finished}} ()
+\item 
+void \mbox{\hyperlink{classtinyrpc_1_1RpcController_a369df420d9eb104a6f7d379270d287ae}{Set\+Finished}} (bool value)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+protobuf rpc控制类 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtinyrpc_1_1RpcController_aa463f3fed1d2755af66ee126c5836795}\label{classtinyrpc_1_1RpcController_aa463f3fed1d2755af66ee126c5836795}} 
+\index{tinyrpc::RpcController@{tinyrpc::RpcController}!RpcController@{RpcController}}
+\index{RpcController@{RpcController}!tinyrpc::RpcController@{tinyrpc::RpcController}}
+\doxysubsubsection{\texorpdfstring{RpcController()}{RpcController()}}
+{\footnotesize\ttfamily tinyrpc\+::\+Rpc\+Controller\+::\+Rpc\+Controller (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{classtinyrpc_1_1RpcController_a9f39f72b33f65ddf5c41e237e327f9b5}\label{classtinyrpc_1_1RpcController_a9f39f72b33f65ddf5c41e237e327f9b5}} 
+\index{tinyrpc::RpcController@{tinyrpc::RpcController}!````~RpcController@{$\sim$RpcController}}
+\index{````~RpcController@{$\sim$RpcController}!tinyrpc::RpcController@{tinyrpc::RpcController}}
+\doxysubsubsection{\texorpdfstring{$\sim$RpcController()}{~RpcController()}}
+{\footnotesize\ttfamily tinyrpc\+::\+Rpc\+Controller\+::$\sim$\+Rpc\+Controller (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtinyrpc_1_1RpcController_a61d4022ecde3487630d5eb09af3a7123}\label{classtinyrpc_1_1RpcController_a61d4022ecde3487630d5eb09af3a7123}} 
+\index{tinyrpc::RpcController@{tinyrpc::RpcController}!ErrorText@{ErrorText}}
+\index{ErrorText@{ErrorText}!tinyrpc::RpcController@{tinyrpc::RpcController}}
+\doxysubsubsection{\texorpdfstring{ErrorText()}{ErrorText()}}
+{\footnotesize\ttfamily std\+::string tinyrpc\+::\+Rpc\+Controller\+::\+Error\+Text (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{classtinyrpc_1_1RpcController_a0aa63f0c34e8f12d84bd189c23fa1e41}\label{classtinyrpc_1_1RpcController_a0aa63f0c34e8f12d84bd189c23fa1e41}} 
+\index{tinyrpc::RpcController@{tinyrpc::RpcController}!Failed@{Failed}}
+\index{Failed@{Failed}!tinyrpc::RpcController@{tinyrpc::RpcController}}
+\doxysubsubsection{\texorpdfstring{Failed()}{Failed()}}
+{\footnotesize\ttfamily bool tinyrpc\+::\+Rpc\+Controller\+::\+Failed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{classtinyrpc_1_1RpcController_ad6c3febe54a4368aace1799a0c63a3d0}\label{classtinyrpc_1_1RpcController_ad6c3febe54a4368aace1799a0c63a3d0}} 
+\index{tinyrpc::RpcController@{tinyrpc::RpcController}!Finished@{Finished}}
+\index{Finished@{Finished}!tinyrpc::RpcController@{tinyrpc::RpcController}}
+\doxysubsubsection{\texorpdfstring{Finished()}{Finished()}}
+{\footnotesize\ttfamily bool tinyrpc\+::\+Rpc\+Controller\+::\+Finished (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classtinyrpc_1_1RpcController_a89088eae8c9040e05a4de075c99a0f8c}\label{classtinyrpc_1_1RpcController_a89088eae8c9040e05a4de075c99a0f8c}} 
+\index{tinyrpc::RpcController@{tinyrpc::RpcController}!GetErrorCode@{GetErrorCode}}
+\index{GetErrorCode@{GetErrorCode}!tinyrpc::RpcController@{tinyrpc::RpcController}}
+\doxysubsubsection{\texorpdfstring{GetErrorCode()}{GetErrorCode()}}
+{\footnotesize\ttfamily int32\+\_\+t tinyrpc\+::\+Rpc\+Controller\+::\+Get\+Error\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classtinyrpc_1_1RpcController_a4f1ee93adc53e801a5a88fa5a349e412}\label{classtinyrpc_1_1RpcController_a4f1ee93adc53e801a5a88fa5a349e412}} 
+\index{tinyrpc::RpcController@{tinyrpc::RpcController}!GetErrorInfo@{GetErrorInfo}}
+\index{GetErrorInfo@{GetErrorInfo}!tinyrpc::RpcController@{tinyrpc::RpcController}}
+\doxysubsubsection{\texorpdfstring{GetErrorInfo()}{GetErrorInfo()}}
+{\footnotesize\ttfamily std\+::string tinyrpc\+::\+Rpc\+Controller\+::\+Get\+Error\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classtinyrpc_1_1RpcController_a1185d3a7dca8254a63269916a72bc161}\label{classtinyrpc_1_1RpcController_a1185d3a7dca8254a63269916a72bc161}} 
+\index{tinyrpc::RpcController@{tinyrpc::RpcController}!GetLocalAddr@{GetLocalAddr}}
+\index{GetLocalAddr@{GetLocalAddr}!tinyrpc::RpcController@{tinyrpc::RpcController}}
+\doxysubsubsection{\texorpdfstring{GetLocalAddr()}{GetLocalAddr()}}
+{\footnotesize\ttfamily muduo\+::net\+::\+Inet\+Address tinyrpc\+::\+Rpc\+Controller\+::\+Get\+Local\+Addr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classtinyrpc_1_1RpcController_ac7fb8492a1cbfccbaeffa4244f09878d}\label{classtinyrpc_1_1RpcController_ac7fb8492a1cbfccbaeffa4244f09878d}} 
+\index{tinyrpc::RpcController@{tinyrpc::RpcController}!GetMsgId@{GetMsgId}}
+\index{GetMsgId@{GetMsgId}!tinyrpc::RpcController@{tinyrpc::RpcController}}
+\doxysubsubsection{\texorpdfstring{GetMsgId()}{GetMsgId()}}
+{\footnotesize\ttfamily std\+::string tinyrpc\+::\+Rpc\+Controller\+::\+Get\+Msg\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classtinyrpc_1_1RpcController_add3ee930538cc7e6e92f8a271a8a6180}\label{classtinyrpc_1_1RpcController_add3ee930538cc7e6e92f8a271a8a6180}} 
+\index{tinyrpc::RpcController@{tinyrpc::RpcController}!GetPeerAddr@{GetPeerAddr}}
+\index{GetPeerAddr@{GetPeerAddr}!tinyrpc::RpcController@{tinyrpc::RpcController}}
+\doxysubsubsection{\texorpdfstring{GetPeerAddr()}{GetPeerAddr()}}
+{\footnotesize\ttfamily muduo\+::net\+::\+Inet\+Address tinyrpc\+::\+Rpc\+Controller\+::\+Get\+Peer\+Addr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classtinyrpc_1_1RpcController_a2fa4a801a358811f5978808d5bdcbe23}\label{classtinyrpc_1_1RpcController_a2fa4a801a358811f5978808d5bdcbe23}} 
+\index{tinyrpc::RpcController@{tinyrpc::RpcController}!GetTimeout@{GetTimeout}}
+\index{GetTimeout@{GetTimeout}!tinyrpc::RpcController@{tinyrpc::RpcController}}
+\doxysubsubsection{\texorpdfstring{GetTimeout()}{GetTimeout()}}
+{\footnotesize\ttfamily int tinyrpc\+::\+Rpc\+Controller\+::\+Get\+Timeout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classtinyrpc_1_1RpcController_a827c2f92a0eedb669c329c227f9c964b}\label{classtinyrpc_1_1RpcController_a827c2f92a0eedb669c329c227f9c964b}} 
+\index{tinyrpc::RpcController@{tinyrpc::RpcController}!IsCanceled@{IsCanceled}}
+\index{IsCanceled@{IsCanceled}!tinyrpc::RpcController@{tinyrpc::RpcController}}
+\doxysubsubsection{\texorpdfstring{IsCanceled()}{IsCanceled()}}
+{\footnotesize\ttfamily bool tinyrpc\+::\+Rpc\+Controller\+::\+Is\+Canceled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{classtinyrpc_1_1RpcController_ab5f92a43d134dc72f7e92ad08d292c4f}\label{classtinyrpc_1_1RpcController_ab5f92a43d134dc72f7e92ad08d292c4f}} 
+\index{tinyrpc::RpcController@{tinyrpc::RpcController}!NotifyOnCancel@{NotifyOnCancel}}
+\index{NotifyOnCancel@{NotifyOnCancel}!tinyrpc::RpcController@{tinyrpc::RpcController}}
+\doxysubsubsection{\texorpdfstring{NotifyOnCancel()}{NotifyOnCancel()}}
+{\footnotesize\ttfamily void tinyrpc\+::\+Rpc\+Controller\+::\+Notify\+On\+Cancel (\begin{DoxyParamCaption}\item[{google\+::protobuf\+::\+Closure $\ast$}]{callback }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{classtinyrpc_1_1RpcController_a46260170bca17f0e331f8328e84954e5}\label{classtinyrpc_1_1RpcController_a46260170bca17f0e331f8328e84954e5}} 
+\index{tinyrpc::RpcController@{tinyrpc::RpcController}!Reset@{Reset}}
+\index{Reset@{Reset}!tinyrpc::RpcController@{tinyrpc::RpcController}}
+\doxysubsubsection{\texorpdfstring{Reset()}{Reset()}}
+{\footnotesize\ttfamily void tinyrpc\+::\+Rpc\+Controller\+::\+Reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{classtinyrpc_1_1RpcController_a5e4fabfa3d793f96c6b342e7aad6235f}\label{classtinyrpc_1_1RpcController_a5e4fabfa3d793f96c6b342e7aad6235f}} 
+\index{tinyrpc::RpcController@{tinyrpc::RpcController}!SetError@{SetError}}
+\index{SetError@{SetError}!tinyrpc::RpcController@{tinyrpc::RpcController}}
+\doxysubsubsection{\texorpdfstring{SetError()}{SetError()}}
+{\footnotesize\ttfamily void tinyrpc\+::\+Rpc\+Controller\+::\+Set\+Error (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{error\+\_\+code,  }\item[{const std\+::string}]{error\+\_\+info }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classtinyrpc_1_1RpcController_a5c223da7877d5c2bed023e937dc051b2}\label{classtinyrpc_1_1RpcController_a5c223da7877d5c2bed023e937dc051b2}} 
+\index{tinyrpc::RpcController@{tinyrpc::RpcController}!SetFailed@{SetFailed}}
+\index{SetFailed@{SetFailed}!tinyrpc::RpcController@{tinyrpc::RpcController}}
+\doxysubsubsection{\texorpdfstring{SetFailed()}{SetFailed()}}
+{\footnotesize\ttfamily void tinyrpc\+::\+Rpc\+Controller\+::\+Set\+Failed (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{reason }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{classtinyrpc_1_1RpcController_a369df420d9eb104a6f7d379270d287ae}\label{classtinyrpc_1_1RpcController_a369df420d9eb104a6f7d379270d287ae}} 
+\index{tinyrpc::RpcController@{tinyrpc::RpcController}!SetFinished@{SetFinished}}
+\index{SetFinished@{SetFinished}!tinyrpc::RpcController@{tinyrpc::RpcController}}
+\doxysubsubsection{\texorpdfstring{SetFinished()}{SetFinished()}}
+{\footnotesize\ttfamily void tinyrpc\+::\+Rpc\+Controller\+::\+Set\+Finished (\begin{DoxyParamCaption}\item[{bool}]{value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classtinyrpc_1_1RpcController_ac822056f2b3a9d979225a5441bba2d17}\label{classtinyrpc_1_1RpcController_ac822056f2b3a9d979225a5441bba2d17}} 
+\index{tinyrpc::RpcController@{tinyrpc::RpcController}!SetLocalAddr@{SetLocalAddr}}
+\index{SetLocalAddr@{SetLocalAddr}!tinyrpc::RpcController@{tinyrpc::RpcController}}
+\doxysubsubsection{\texorpdfstring{SetLocalAddr()}{SetLocalAddr()}}
+{\footnotesize\ttfamily void tinyrpc\+::\+Rpc\+Controller\+::\+Set\+Local\+Addr (\begin{DoxyParamCaption}\item[{muduo\+::net\+::\+Inet\+Address}]{addr }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classtinyrpc_1_1RpcController_a04efaabebaeb2df7e411444f6112f780}\label{classtinyrpc_1_1RpcController_a04efaabebaeb2df7e411444f6112f780}} 
+\index{tinyrpc::RpcController@{tinyrpc::RpcController}!SetMsgId@{SetMsgId}}
+\index{SetMsgId@{SetMsgId}!tinyrpc::RpcController@{tinyrpc::RpcController}}
+\doxysubsubsection{\texorpdfstring{SetMsgId()}{SetMsgId()}}
+{\footnotesize\ttfamily void tinyrpc\+::\+Rpc\+Controller\+::\+Set\+Msg\+Id (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{msg\+\_\+id }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classtinyrpc_1_1RpcController_af2c5ac80d9b2b1d65d30d21ba4ee3878}\label{classtinyrpc_1_1RpcController_af2c5ac80d9b2b1d65d30d21ba4ee3878}} 
+\index{tinyrpc::RpcController@{tinyrpc::RpcController}!SetPeerAddr@{SetPeerAddr}}
+\index{SetPeerAddr@{SetPeerAddr}!tinyrpc::RpcController@{tinyrpc::RpcController}}
+\doxysubsubsection{\texorpdfstring{SetPeerAddr()}{SetPeerAddr()}}
+{\footnotesize\ttfamily void tinyrpc\+::\+Rpc\+Controller\+::\+Set\+Peer\+Addr (\begin{DoxyParamCaption}\item[{muduo\+::net\+::\+Inet\+Address}]{addr }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classtinyrpc_1_1RpcController_a19833c6c777d97c0eefa6a2816e77dbb}\label{classtinyrpc_1_1RpcController_a19833c6c777d97c0eefa6a2816e77dbb}} 
+\index{tinyrpc::RpcController@{tinyrpc::RpcController}!SetTimeout@{SetTimeout}}
+\index{SetTimeout@{SetTimeout}!tinyrpc::RpcController@{tinyrpc::RpcController}}
+\doxysubsubsection{\texorpdfstring{SetTimeout()}{SetTimeout()}}
+{\footnotesize\ttfamily void tinyrpc\+::\+Rpc\+Controller\+::\+Set\+Timeout (\begin{DoxyParamCaption}\item[{int}]{timeout }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classtinyrpc_1_1RpcController_a8c3a0afcdaafdb6a2add1fb30f129b3a}\label{classtinyrpc_1_1RpcController_a8c3a0afcdaafdb6a2add1fb30f129b3a}} 
+\index{tinyrpc::RpcController@{tinyrpc::RpcController}!StartCancel@{StartCancel}}
+\index{StartCancel@{StartCancel}!tinyrpc::RpcController@{tinyrpc::RpcController}}
+\doxysubsubsection{\texorpdfstring{StartCancel()}{StartCancel()}}
+{\footnotesize\ttfamily void tinyrpc\+::\+Rpc\+Controller\+::\+Start\+Cancel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{rpc__controller_8h}{rpc\+\_\+controller.\+h}}\item 
+src/\mbox{\hyperlink{rpc__controller_8cpp}{rpc\+\_\+controller.\+cpp}}\end{DoxyCompactItemize}

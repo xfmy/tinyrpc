@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['tablestruct_5ftinyrpcheader_5f2eproto_0',['TableStruct_tinyrpcHeader_2eproto',['../struct_table_struct__tinyrpc_header__2eproto.html',1,'']]],
-  ['tablestruct_5fprotobuf_5f2eproto_1',['TableStruct_protobuf_2eproto',['../struct_table_struct__protobuf__2eproto.html',1,'']]]
+  ['user_324',['user',['../classfixbug_1_1user.html',1,'fixbug']]],
+  ['user_5fstub_325',['user_Stub',['../classfixbug_1_1user__Stub.html',1,'fixbug']]],
+  ['userservice_326',['UserService',['../classUserService.html',1,'']]]
 ];

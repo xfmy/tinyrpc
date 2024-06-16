@@ -1,0 +1,136 @@
+\hypertarget{classtinyrpc_1_1RpcChannel}{}\doxysection{tinyrpc\+::Rpc\+Channel Class Reference}
+\label{classtinyrpc_1_1RpcChannel}\index{tinyrpc::RpcChannel@{tinyrpc::RpcChannel}}
+
+
+由rpc调用端使用的通道类  
+
+
+
+
+{\ttfamily \#include $<$rpc\+\_\+channel.\+h$>$}
+
+
+
+Inheritance diagram for tinyrpc\+::Rpc\+Channel\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtinyrpc_1_1RpcChannel__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for tinyrpc\+::Rpc\+Channel\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtinyrpc_1_1RpcChannel__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classtinyrpc_1_1RpcChannel_af3352fe2bb30cbbefc6d9c8ebbd17ded}{Rpc\+Channel\+Ptr}} = std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtinyrpc_1_1RpcChannel}{Rpc\+Channel}} $>$
+\item 
+using \mbox{\hyperlink{classtinyrpc_1_1RpcChannel_afa5863de034587c89496cee375340faf}{Controller\+Ptr}} = std\+::shared\+\_\+ptr$<$ google\+::protobuf\+::\+Rpc\+Controller $>$
+\item 
+using \mbox{\hyperlink{classtinyrpc_1_1RpcChannel_a663d79b6821497abe0609ba5478a31b2}{Message\+Ptr}} = std\+::shared\+\_\+ptr$<$ google\+::protobuf\+::\+Message $>$
+\item 
+using \mbox{\hyperlink{classtinyrpc_1_1RpcChannel_a5148e0d92cad59a5c215bf1063408762}{Closure\+Ptr}} = std\+::shared\+\_\+ptr$<$ google\+::protobuf\+::\+Closure $>$
+\item 
+using \mbox{\hyperlink{classtinyrpc_1_1RpcChannel_ad2ad1c8cd7c7781e776e2dcdd4249626}{Tcp\+Client\+Ptr}} = std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtinyrpc_1_1TcpClient}{tinyrpc\+::\+Tcp\+Client}} $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtinyrpc_1_1RpcChannel_ac324071a33ad7f2a8787a6c30f68e166}{Rpc\+Channel}} ()
+\item 
+\mbox{\hyperlink{classtinyrpc_1_1RpcChannel_af8237fd42cb2e0afcdfe95be5b292d94}{$\sim$\+Rpc\+Channel}} ()
+\item 
+void \mbox{\hyperlink{classtinyrpc_1_1RpcChannel_aaa4a080ce0929a8f3b27313c7c6f3401}{Call\+Method}} (const google\+::protobuf\+::\+Method\+Descriptor $\ast$method, google\+::protobuf\+::\+Rpc\+Controller $\ast$controller, const google\+::protobuf\+::\+Message $\ast$request, google\+::protobuf\+::\+Message $\ast$response, google\+::protobuf\+::\+Closure $\ast$done)
+\begin{DoxyCompactList}\small\item\em 虚函数,编写rpc远程调用时具体逻辑处理 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+由rpc调用端使用的通道类 
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classtinyrpc_1_1RpcChannel_a5148e0d92cad59a5c215bf1063408762}\label{classtinyrpc_1_1RpcChannel_a5148e0d92cad59a5c215bf1063408762}} 
+\index{tinyrpc::RpcChannel@{tinyrpc::RpcChannel}!ClosurePtr@{ClosurePtr}}
+\index{ClosurePtr@{ClosurePtr}!tinyrpc::RpcChannel@{tinyrpc::RpcChannel}}
+\doxysubsubsection{\texorpdfstring{ClosurePtr}{ClosurePtr}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classtinyrpc_1_1RpcChannel_a5148e0d92cad59a5c215bf1063408762}{tinyrpc\+::\+Rpc\+Channel\+::\+Closure\+Ptr}} =  std\+::shared\+\_\+ptr$<$google\+::protobuf\+::\+Closure$>$}
+
+\mbox{\Hypertarget{classtinyrpc_1_1RpcChannel_afa5863de034587c89496cee375340faf}\label{classtinyrpc_1_1RpcChannel_afa5863de034587c89496cee375340faf}} 
+\index{tinyrpc::RpcChannel@{tinyrpc::RpcChannel}!ControllerPtr@{ControllerPtr}}
+\index{ControllerPtr@{ControllerPtr}!tinyrpc::RpcChannel@{tinyrpc::RpcChannel}}
+\doxysubsubsection{\texorpdfstring{ControllerPtr}{ControllerPtr}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classtinyrpc_1_1RpcChannel_afa5863de034587c89496cee375340faf}{tinyrpc\+::\+Rpc\+Channel\+::\+Controller\+Ptr}} =  std\+::shared\+\_\+ptr$<$google\+::protobuf\+::\+Rpc\+Controller$>$}
+
+\mbox{\Hypertarget{classtinyrpc_1_1RpcChannel_a663d79b6821497abe0609ba5478a31b2}\label{classtinyrpc_1_1RpcChannel_a663d79b6821497abe0609ba5478a31b2}} 
+\index{tinyrpc::RpcChannel@{tinyrpc::RpcChannel}!MessagePtr@{MessagePtr}}
+\index{MessagePtr@{MessagePtr}!tinyrpc::RpcChannel@{tinyrpc::RpcChannel}}
+\doxysubsubsection{\texorpdfstring{MessagePtr}{MessagePtr}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classtinyrpc_1_1RpcChannel_a663d79b6821497abe0609ba5478a31b2}{tinyrpc\+::\+Rpc\+Channel\+::\+Message\+Ptr}} =  std\+::shared\+\_\+ptr$<$google\+::protobuf\+::\+Message$>$}
+
+\mbox{\Hypertarget{classtinyrpc_1_1RpcChannel_af3352fe2bb30cbbefc6d9c8ebbd17ded}\label{classtinyrpc_1_1RpcChannel_af3352fe2bb30cbbefc6d9c8ebbd17ded}} 
+\index{tinyrpc::RpcChannel@{tinyrpc::RpcChannel}!RpcChannelPtr@{RpcChannelPtr}}
+\index{RpcChannelPtr@{RpcChannelPtr}!tinyrpc::RpcChannel@{tinyrpc::RpcChannel}}
+\doxysubsubsection{\texorpdfstring{RpcChannelPtr}{RpcChannelPtr}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classtinyrpc_1_1RpcChannel_af3352fe2bb30cbbefc6d9c8ebbd17ded}{tinyrpc\+::\+Rpc\+Channel\+::\+Rpc\+Channel\+Ptr}} =  std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classtinyrpc_1_1RpcChannel}{Rpc\+Channel}}$>$}
+
+\mbox{\Hypertarget{classtinyrpc_1_1RpcChannel_ad2ad1c8cd7c7781e776e2dcdd4249626}\label{classtinyrpc_1_1RpcChannel_ad2ad1c8cd7c7781e776e2dcdd4249626}} 
+\index{tinyrpc::RpcChannel@{tinyrpc::RpcChannel}!TcpClientPtr@{TcpClientPtr}}
+\index{TcpClientPtr@{TcpClientPtr}!tinyrpc::RpcChannel@{tinyrpc::RpcChannel}}
+\doxysubsubsection{\texorpdfstring{TcpClientPtr}{TcpClientPtr}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classtinyrpc_1_1RpcChannel_ad2ad1c8cd7c7781e776e2dcdd4249626}{tinyrpc\+::\+Rpc\+Channel\+::\+Tcp\+Client\+Ptr}} =  std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classtinyrpc_1_1TcpClient}{tinyrpc\+::\+Tcp\+Client}}$>$}
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtinyrpc_1_1RpcChannel_ac324071a33ad7f2a8787a6c30f68e166}\label{classtinyrpc_1_1RpcChannel_ac324071a33ad7f2a8787a6c30f68e166}} 
+\index{tinyrpc::RpcChannel@{tinyrpc::RpcChannel}!RpcChannel@{RpcChannel}}
+\index{RpcChannel@{RpcChannel}!tinyrpc::RpcChannel@{tinyrpc::RpcChannel}}
+\doxysubsubsection{\texorpdfstring{RpcChannel()}{RpcChannel()}}
+{\footnotesize\ttfamily tinyrpc\+::\+Rpc\+Channel\+::\+Rpc\+Channel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classtinyrpc_1_1RpcChannel_af8237fd42cb2e0afcdfe95be5b292d94}\label{classtinyrpc_1_1RpcChannel_af8237fd42cb2e0afcdfe95be5b292d94}} 
+\index{tinyrpc::RpcChannel@{tinyrpc::RpcChannel}!````~RpcChannel@{$\sim$RpcChannel}}
+\index{````~RpcChannel@{$\sim$RpcChannel}!tinyrpc::RpcChannel@{tinyrpc::RpcChannel}}
+\doxysubsubsection{\texorpdfstring{$\sim$RpcChannel()}{~RpcChannel()}}
+{\footnotesize\ttfamily tinyrpc\+::\+Rpc\+Channel\+::$\sim$\+Rpc\+Channel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtinyrpc_1_1RpcChannel_aaa4a080ce0929a8f3b27313c7c6f3401}\label{classtinyrpc_1_1RpcChannel_aaa4a080ce0929a8f3b27313c7c6f3401}} 
+\index{tinyrpc::RpcChannel@{tinyrpc::RpcChannel}!CallMethod@{CallMethod}}
+\index{CallMethod@{CallMethod}!tinyrpc::RpcChannel@{tinyrpc::RpcChannel}}
+\doxysubsubsection{\texorpdfstring{CallMethod()}{CallMethod()}}
+{\footnotesize\ttfamily void tinyrpc\+::\+Rpc\+Channel\+::\+Call\+Method (\begin{DoxyParamCaption}\item[{const google\+::protobuf\+::\+Method\+Descriptor $\ast$}]{method,  }\item[{google\+::protobuf\+::\+Rpc\+Controller $\ast$}]{controller,  }\item[{const google\+::protobuf\+::\+Message $\ast$}]{request,  }\item[{google\+::protobuf\+::\+Message $\ast$}]{response,  }\item[{google\+::protobuf\+::\+Closure $\ast$}]{done }\end{DoxyParamCaption})}
+
+
+
+虚函数,编写rpc远程调用时具体逻辑处理 
+
+
+\begin{DoxyParams}{Parameters}
+{\em method} & rpc请求的方法描述 \\
+\hline
+{\em controller} & 控制类 \\
+\hline
+{\em request} & 请求消息类 \\
+\hline
+{\em response} & 响应消息类 \\
+\hline
+{\em done} & 具体执行调用方法 \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{rpc__channel_8h}{rpc\+\_\+channel.\+h}}\item 
+src/\mbox{\hyperlink{rpc__channel_8cpp}{rpc\+\_\+channel.\+cpp}}\end{DoxyCompactItemize}

@@ -1,43 +1,129 @@
-\doxysection{fixbug\+::user Class Reference}
-\hypertarget{classfixbug_1_1user}{}\label{classfixbug_1_1user}\index{fixbug::user@{fixbug::user}}
-Inheritance diagram for fixbug\+::user\+:\begin{figure}[H]
+\hypertarget{classfixbug_1_1user}{}\doxysection{fixbug\+::user Class Reference}
+\label{classfixbug_1_1user}\index{fixbug::user@{fixbug::user}}
+
+
+{\ttfamily \#include $<$protobuf.\+pb.\+h$>$}
+
+
+
+Inheritance diagram for fixbug\+::user\+:
+\nopagebreak
+\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=3.000000cm]{classfixbug_1_1user}
+\includegraphics[width=274pt]{classfixbug_1_1user__inherit__graph}
 \end{center}
 \end{figure}
-\doxysubsubsection*{Public Types}
+
+
+Collaboration diagram for fixbug\+::user\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{classfixbug_1_1user__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classfixbug_1_1user_ab3de683f809cc5105c596d765c87e230}\label{classfixbug_1_1user_ab3de683f809cc5105c596d765c87e230} 
-typedef \mbox{\hyperlink{classfixbug_1_1user___stub}{user\+\_\+\+Stub}} {\bfseries Stub}
+typedef \mbox{\hyperlink{classfixbug_1_1user__Stub}{user\+\_\+\+Stub}} \mbox{\hyperlink{classfixbug_1_1user_ab3de683f809cc5105c596d765c87e230}{Stub}}
 \end{DoxyCompactItemize}
-\doxysubsubsection*{Public Member Functions}
+\doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classfixbug_1_1user_aafd0aa873d0011bb1b84fbf48605aa9b}\label{classfixbug_1_1user_aafd0aa873d0011bb1b84fbf48605aa9b} 
-virtual void {\bfseries Login} (\+::\+PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Rpc\+Controller \texorpdfstring{$\ast$}{*}controller, const \mbox{\hyperlink{classfixbug_1_1_login_request}{\+::fixbug\+::\+Login\+Request}} \texorpdfstring{$\ast$}{*}request, \mbox{\hyperlink{classfixbug_1_1_login_response}{\+::fixbug\+::\+Login\+Response}} \texorpdfstring{$\ast$}{*}response, \+::google\+::protobuf\+::\+Closure \texorpdfstring{$\ast$}{*}done)
+virtual \mbox{\hyperlink{classfixbug_1_1user_a24215bac1cb6cc1dda297057fad71dfc}{$\sim$user}} ()
 \item 
-\Hypertarget{classfixbug_1_1user_a9d34537ac186b715930da9bf7e3044d1}\label{classfixbug_1_1user_a9d34537ac186b715930da9bf7e3044d1} 
-const \+::\+PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Service\+Descriptor \texorpdfstring{$\ast$}{*} {\bfseries Get\+Descriptor} ()
+virtual void \mbox{\hyperlink{classfixbug_1_1user_a8d64294f45eaefec0501430494d39325}{Login}} (\+::PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Rpc\+Controller $\ast$controller, const \+::\mbox{\hyperlink{classfixbug_1_1LoginRequest}{fixbug\+::\+Login\+Request}} $\ast$request, \+::\mbox{\hyperlink{classfixbug_1_1LoginResponse}{fixbug\+::\+Login\+Response}} $\ast$response, \+::google\+::protobuf\+::\+Closure $\ast$done)
 \item 
-\Hypertarget{classfixbug_1_1user_a4517626adee6b14893dbb1cbf0734447}\label{classfixbug_1_1user_a4517626adee6b14893dbb1cbf0734447} 
-void {\bfseries Call\+Method} (const \+::\+PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Method\+Descriptor \texorpdfstring{$\ast$}{*}method, \+::\+PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Rpc\+Controller \texorpdfstring{$\ast$}{*}controller, const \+::\+PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Message \texorpdfstring{$\ast$}{*}request, \+::\+PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Message \texorpdfstring{$\ast$}{*}response, \+::google\+::protobuf\+::\+Closure \texorpdfstring{$\ast$}{*}done)
+const \+::PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Service\+Descriptor $\ast$ \mbox{\hyperlink{classfixbug_1_1user_a9d34537ac186b715930da9bf7e3044d1}{Get\+Descriptor}} ()
 \item 
-\Hypertarget{classfixbug_1_1user_a4daec6c5057790c0bc32555790348741}\label{classfixbug_1_1user_a4daec6c5057790c0bc32555790348741} 
-const \+::\+PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Message \& {\bfseries Get\+Request\+Prototype} (const \+::\+PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Method\+Descriptor \texorpdfstring{$\ast$}{*}method) const
+void \mbox{\hyperlink{classfixbug_1_1user_a4517626adee6b14893dbb1cbf0734447}{Call\+Method}} (const \+::PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Method\+Descriptor $\ast$method, \+::PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Rpc\+Controller $\ast$controller, const \+::PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Message $\ast$request, \+::PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Message $\ast$response, \+::google\+::protobuf\+::\+Closure $\ast$done)
 \item 
-\Hypertarget{classfixbug_1_1user_a31b47c2905092da49663f2829bcd3675}\label{classfixbug_1_1user_a31b47c2905092da49663f2829bcd3675} 
-const \+::\+PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Message \& {\bfseries Get\+Response\+Prototype} (const \+::\+PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Method\+Descriptor \texorpdfstring{$\ast$}{*}method) const
+const \+::PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Message \& \mbox{\hyperlink{classfixbug_1_1user_a4daec6c5057790c0bc32555790348741}{Get\+Request\+Prototype}} (const \+::PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Method\+Descriptor $\ast$method) const
+\item 
+const \+::PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Message \& \mbox{\hyperlink{classfixbug_1_1user_a31b47c2905092da49663f2829bcd3675}{Get\+Response\+Prototype}} (const \+::PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Method\+Descriptor $\ast$method) const
 \end{DoxyCompactItemize}
-\doxysubsubsection*{Static Public Member Functions}
+\doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classfixbug_1_1user_ae47672ca1cc49ffcdadc33b58ec97974}\label{classfixbug_1_1user_ae47672ca1cc49ffcdadc33b58ec97974} 
-static const \+::\+PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Service\+Descriptor \texorpdfstring{$\ast$}{*} {\bfseries descriptor} ()
+static const \+::PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Service\+Descriptor $\ast$ \mbox{\hyperlink{classfixbug_1_1user_a8b15d8f8fb301d789a84769e9a66365c}{descriptor}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classfixbug_1_1user_a6e3c5625ef227f9dfbd4a1c98b8bd872}{user}} ()
 \end{DoxyCompactItemize}
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classfixbug_1_1user_ab3de683f809cc5105c596d765c87e230}\label{classfixbug_1_1user_ab3de683f809cc5105c596d765c87e230}} 
+\index{fixbug::user@{fixbug::user}!Stub@{Stub}}
+\index{Stub@{Stub}!fixbug::user@{fixbug::user}}
+\doxysubsubsection{\texorpdfstring{Stub}{Stub}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{classfixbug_1_1user__Stub}{user\+\_\+\+Stub}} \mbox{\hyperlink{classfixbug_1_1user_ab3de683f809cc5105c596d765c87e230}{fixbug\+::user\+::\+Stub}}}
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classfixbug_1_1user_a6e3c5625ef227f9dfbd4a1c98b8bd872}\label{classfixbug_1_1user_a6e3c5625ef227f9dfbd4a1c98b8bd872}} 
+\index{fixbug::user@{fixbug::user}!user@{user}}
+\index{user@{user}!fixbug::user@{fixbug::user}}
+\doxysubsubsection{\texorpdfstring{user()}{user()}}
+{\footnotesize\ttfamily fixbug\+::user\+::user (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classfixbug_1_1user_a24215bac1cb6cc1dda297057fad71dfc}\label{classfixbug_1_1user_a24215bac1cb6cc1dda297057fad71dfc}} 
+\index{fixbug::user@{fixbug::user}!````~user@{$\sim$user}}
+\index{````~user@{$\sim$user}!fixbug::user@{fixbug::user}}
+\doxysubsubsection{\texorpdfstring{$\sim$user()}{~user()}}
+{\footnotesize\ttfamily fixbug\+::user\+::$\sim$user (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classfixbug_1_1user_a4517626adee6b14893dbb1cbf0734447}\label{classfixbug_1_1user_a4517626adee6b14893dbb1cbf0734447}} 
+\index{fixbug::user@{fixbug::user}!CallMethod@{CallMethod}}
+\index{CallMethod@{CallMethod}!fixbug::user@{fixbug::user}}
+\doxysubsubsection{\texorpdfstring{CallMethod()}{CallMethod()}}
+{\footnotesize\ttfamily void fixbug\+::user\+::\+Call\+Method (\begin{DoxyParamCaption}\item[{const \+::PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Method\+Descriptor $\ast$}]{method,  }\item[{\+::PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Rpc\+Controller $\ast$}]{controller,  }\item[{const \+::PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Message $\ast$}]{request,  }\item[{\+::PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Message $\ast$}]{response,  }\item[{\+::google\+::protobuf\+::\+Closure $\ast$}]{done }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classfixbug_1_1user_a8b15d8f8fb301d789a84769e9a66365c}\label{classfixbug_1_1user_a8b15d8f8fb301d789a84769e9a66365c}} 
+\index{fixbug::user@{fixbug::user}!descriptor@{descriptor}}
+\index{descriptor@{descriptor}!fixbug::user@{fixbug::user}}
+\doxysubsubsection{\texorpdfstring{descriptor()}{descriptor()}}
+{\footnotesize\ttfamily const \+::PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Service\+Descriptor $\ast$ fixbug\+::user\+::descriptor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classfixbug_1_1user_a9d34537ac186b715930da9bf7e3044d1}\label{classfixbug_1_1user_a9d34537ac186b715930da9bf7e3044d1}} 
+\index{fixbug::user@{fixbug::user}!GetDescriptor@{GetDescriptor}}
+\index{GetDescriptor@{GetDescriptor}!fixbug::user@{fixbug::user}}
+\doxysubsubsection{\texorpdfstring{GetDescriptor()}{GetDescriptor()}}
+{\footnotesize\ttfamily const \+::PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Service\+Descriptor $\ast$ fixbug\+::user\+::\+Get\+Descriptor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classfixbug_1_1user_a4daec6c5057790c0bc32555790348741}\label{classfixbug_1_1user_a4daec6c5057790c0bc32555790348741}} 
+\index{fixbug::user@{fixbug::user}!GetRequestPrototype@{GetRequestPrototype}}
+\index{GetRequestPrototype@{GetRequestPrototype}!fixbug::user@{fixbug::user}}
+\doxysubsubsection{\texorpdfstring{GetRequestPrototype()}{GetRequestPrototype()}}
+{\footnotesize\ttfamily const \+::PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Message \& fixbug\+::user\+::\+Get\+Request\+Prototype (\begin{DoxyParamCaption}\item[{const \+::PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Method\+Descriptor $\ast$}]{method }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classfixbug_1_1user_a31b47c2905092da49663f2829bcd3675}\label{classfixbug_1_1user_a31b47c2905092da49663f2829bcd3675}} 
+\index{fixbug::user@{fixbug::user}!GetResponsePrototype@{GetResponsePrototype}}
+\index{GetResponsePrototype@{GetResponsePrototype}!fixbug::user@{fixbug::user}}
+\doxysubsubsection{\texorpdfstring{GetResponsePrototype()}{GetResponsePrototype()}}
+{\footnotesize\ttfamily const \+::PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Message \& fixbug\+::user\+::\+Get\+Response\+Prototype (\begin{DoxyParamCaption}\item[{const \+::PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Method\+Descriptor $\ast$}]{method }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classfixbug_1_1user_a8d64294f45eaefec0501430494d39325}\label{classfixbug_1_1user_a8d64294f45eaefec0501430494d39325}} 
+\index{fixbug::user@{fixbug::user}!Login@{Login}}
+\index{Login@{Login}!fixbug::user@{fixbug::user}}
+\doxysubsubsection{\texorpdfstring{Login()}{Login()}}
+{\footnotesize\ttfamily void fixbug\+::user\+::\+Login (\begin{DoxyParamCaption}\item[{\+::PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+ID\+::\+Rpc\+Controller $\ast$}]{controller,  }\item[{const \+::\mbox{\hyperlink{classfixbug_1_1LoginRequest}{fixbug\+::\+Login\+Request}} $\ast$}]{request,  }\item[{\+::\mbox{\hyperlink{classfixbug_1_1LoginResponse}{fixbug\+::\+Login\+Response}} $\ast$}]{response,  }\item[{\+::google\+::protobuf\+::\+Closure $\ast$}]{done }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classfixbug_1_1user__Stub_a135c22730440d174b42a074c15fe2862}{fixbug\+::user\+\_\+\+Stub}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/protobuf.\+pb.\+h\end{DoxyCompactItemize}
+example/\mbox{\hyperlink{protobuf_8pb_8h}{protobuf.\+pb.\+h}}\item 
+example/\mbox{\hyperlink{protobuf_8pb_8cc}{protobuf.\+pb.\+cc}}\end{DoxyCompactItemize}

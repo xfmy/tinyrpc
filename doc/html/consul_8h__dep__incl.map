@@ -1,0 +1,6 @@
+<map id="src/consul/consul.h" name="src/consul/consul.h">
+<area shape="rect" id="node1" title="consul服务注册,发现,取消注册,心跳,健康检查" alt="" coords="193,5,338,32"/>
+<area shape="rect" id="node2" href="$consul_8cpp.html" title=" " alt="" coords="5,80,165,107"/>
+<area shape="rect" id="node3" href="$rpc__channel_8cpp.html" title=" " alt="" coords="190,80,341,107"/>
+<area shape="rect" id="node4" href="$rpc__dispatcher_8cpp.html" title=" " alt="" coords="365,80,531,107"/>
+</map>

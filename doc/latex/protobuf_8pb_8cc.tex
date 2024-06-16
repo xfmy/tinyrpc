@@ -1,0 +1,152 @@
+\hypertarget{protobuf_8pb_8cc}{}\doxysection{example/protobuf.pb.\+cc File Reference}
+\label{protobuf_8pb_8cc}\index{example/protobuf.pb.cc@{example/protobuf.pb.cc}}
+{\ttfamily \#include \char`\"{}protobuf.\+pb.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$google/protobuf/io/coded\+\_\+stream.\+h$>$}\newline
+{\ttfamily \#include $<$google/protobuf/extension\+\_\+set.\+h$>$}\newline
+{\ttfamily \#include $<$google/protobuf/wire\+\_\+format\+\_\+lite.\+h$>$}\newline
+{\ttfamily \#include $<$google/protobuf/descriptor.\+h$>$}\newline
+{\ttfamily \#include $<$google/protobuf/generated\+\_\+message\+\_\+reflection.\+h$>$}\newline
+{\ttfamily \#include $<$google/protobuf/reflection\+\_\+ops.\+h$>$}\newline
+{\ttfamily \#include $<$google/protobuf/wire\+\_\+format.\+h$>$}\newline
+{\ttfamily \#include $<$google/protobuf/port\+\_\+def.\+inc$>$}\newline
+{\ttfamily \#include $<$google/protobuf/port\+\_\+undef.\+inc$>$}\newline
+Include dependency graph for protobuf.\+pb.\+cc\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{protobuf_8pb_8cc__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structfixbug_1_1LoginRequestDefaultTypeInternal}{fixbug\+::\+Login\+Request\+Default\+Type\+Internal}}
+\item 
+struct \mbox{\hyperlink{structfixbug_1_1ResultCodeDefaultTypeInternal}{fixbug\+::\+Result\+Code\+Default\+Type\+Internal}}
+\item 
+struct \mbox{\hyperlink{structfixbug_1_1LoginResponseDefaultTypeInternal}{fixbug\+::\+Login\+Response\+Default\+Type\+Internal}}
+\item 
+class \mbox{\hyperlink{classfixbug_1_1LoginRequest_1_1__Internal}{fixbug\+::\+Login\+Request\+::\+\_\+\+Internal}}
+\item 
+class \mbox{\hyperlink{classfixbug_1_1ResultCode_1_1__Internal}{fixbug\+::\+Result\+Code\+::\+\_\+\+Internal}}
+\item 
+class \mbox{\hyperlink{classfixbug_1_1LoginResponse_1_1__Internal}{fixbug\+::\+Login\+Response\+::\+\_\+\+Internal}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacefixbug}{fixbug}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{protobuf_8pb_8cc_a1a656da48cf3d2824247c83ad8d92f10}{CHK\+\_\+}}(x)~if (PROTOBUF\+\_\+\+PREDICT\+\_\+\+FALSE(!(x))) goto failure
+\item 
+\#define \mbox{\hyperlink{protobuf_8pb_8cc_a1a656da48cf3d2824247c83ad8d92f10}{CHK\+\_\+}}(x)~if (PROTOBUF\+\_\+\+PREDICT\+\_\+\+FALSE(!(x))) goto failure
+\item 
+\#define \mbox{\hyperlink{protobuf_8pb_8cc_a1a656da48cf3d2824247c83ad8d92f10}{CHK\+\_\+}}(x)~if (PROTOBUF\+\_\+\+PREDICT\+\_\+\+FALSE(!(x))) goto failure
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+const uint32\+\_\+t \mbox{\hyperlink{structTableStruct__protobuf__2eproto_ac0290aa2b1e4a0cbf3444f6fbabb3d1f}{Table\+Struct\+\_\+protobuf\+\_\+2eproto\+::offsets}}\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{protobuf_8pb_8cc_a9b5670fcfb480cc8ae3bc34ba0d54a9a}{PROTOBUF\+\_\+\+SECTION\+\_\+\+VARIABLE}} (protodesc\+\_\+cold)
+\item 
+PROTOBUF\+\_\+\+ATTRIBUTE\+\_\+\+WEAKconst \+::\+\_\+pbi\+::\+Descriptor\+Table $\ast$ \mbox{\hyperlink{protobuf_8pb_8cc_a9c6fee121bc8803eaad7822da68f7457}{descriptor\+\_\+table\+\_\+protobuf\+\_\+2eproto\+\_\+getter}} ()
+\item 
+template$<$$>$ PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+OPEN PROTOBUF\+\_\+\+NOINLINE \+::\mbox{\hyperlink{classfixbug_1_1LoginRequest}{fixbug\+::\+Login\+Request}} $\ast$ \mbox{\hyperlink{protobuf_8pb_8cc_ae4a3bb0f020b06caec7cd2aa372451fa}{Arena\+::\+Create\+Maybe\+Message$<$ \+::fixbug\+::\+Login\+Request $>$}} (Arena $\ast$arena)
+\item 
+template$<$$>$ PROTOBUF\+\_\+\+NOINLINE \+::\mbox{\hyperlink{classfixbug_1_1ResultCode}{fixbug\+::\+Result\+Code}} $\ast$ \mbox{\hyperlink{protobuf_8pb_8cc_a99da27fd03bec5683a2db1c0ac55b056}{Arena\+::\+Create\+Maybe\+Message$<$ \+::fixbug\+::\+Result\+Code $>$}} (Arena $\ast$arena)
+\item 
+template$<$$>$ PROTOBUF\+\_\+\+NOINLINE \+::\mbox{\hyperlink{classfixbug_1_1LoginResponse}{fixbug\+::\+Login\+Response}} $\ast$ \mbox{\hyperlink{protobuf_8pb_8cc_ae330876d4fde7839ced7290450619ab0}{Arena\+::\+Create\+Maybe\+Message$<$ \+::fixbug\+::\+Login\+Response $>$}} (Arena $\ast$arena)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+PROTOBUF\+\_\+\+ATTRIBUTE\+\_\+\+NO\+\_\+\+DESTROY PROTOBUF\+\_\+\+CONSTINIT PROTOBUF\+\_\+\+ATTRIBUTE\+\_\+\+INIT\+\_\+\+PRIORITY1 Login\+Request\+Default\+Type\+Internal \mbox{\hyperlink{namespacefixbug_ae79a8b212b1ca56b06c7cf52e327b58d}{fixbug\+::\+\_\+\+Login\+Request\+\_\+default\+\_\+instance\+\_\+}}
+\item 
+PROTOBUF\+\_\+\+ATTRIBUTE\+\_\+\+NO\+\_\+\+DESTROY PROTOBUF\+\_\+\+CONSTINIT PROTOBUF\+\_\+\+ATTRIBUTE\+\_\+\+INIT\+\_\+\+PRIORITY1 Result\+Code\+Default\+Type\+Internal \mbox{\hyperlink{namespacefixbug_ad751d3bbdf834edbd9aa22b88237f75c}{fixbug\+::\+\_\+\+Result\+Code\+\_\+default\+\_\+instance\+\_\+}}
+\item 
+PROTOBUF\+\_\+\+ATTRIBUTE\+\_\+\+NO\+\_\+\+DESTROY PROTOBUF\+\_\+\+CONSTINIT PROTOBUF\+\_\+\+ATTRIBUTE\+\_\+\+INIT\+\_\+\+PRIORITY1 Login\+Response\+Default\+Type\+Internal \mbox{\hyperlink{namespacefixbug_a4cce1ca6b91386eda54444a7b910eb35}{fixbug\+::\+\_\+\+Login\+Response\+\_\+default\+\_\+instance\+\_\+}}
+\item 
+const \+::\+\_\+pbi\+::\+Descriptor\+Table \mbox{\hyperlink{protobuf_8pb_8cc_ae7875ada4fb43d9e53f6791a5efe7474}{descriptor\+\_\+table\+\_\+protobuf\+\_\+2eproto}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{protobuf_8pb_8cc_a1a656da48cf3d2824247c83ad8d92f10}\label{protobuf_8pb_8cc_a1a656da48cf3d2824247c83ad8d92f10}} 
+\index{protobuf.pb.cc@{protobuf.pb.cc}!CHK\_@{CHK\_}}
+\index{CHK\_@{CHK\_}!protobuf.pb.cc@{protobuf.pb.cc}}
+\doxysubsubsection{\texorpdfstring{CHK\_}{CHK\_}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \#define CHK\+\_\+(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~if (PROTOBUF\+\_\+\+PREDICT\+\_\+\+FALSE(!(x))) goto failure}
+
+\mbox{\Hypertarget{protobuf_8pb_8cc_a1a656da48cf3d2824247c83ad8d92f10}\label{protobuf_8pb_8cc_a1a656da48cf3d2824247c83ad8d92f10}} 
+\index{protobuf.pb.cc@{protobuf.pb.cc}!CHK\_@{CHK\_}}
+\index{CHK\_@{CHK\_}!protobuf.pb.cc@{protobuf.pb.cc}}
+\doxysubsubsection{\texorpdfstring{CHK\_}{CHK\_}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \#define CHK\+\_\+(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~if (PROTOBUF\+\_\+\+PREDICT\+\_\+\+FALSE(!(x))) goto failure}
+
+\mbox{\Hypertarget{protobuf_8pb_8cc_a1a656da48cf3d2824247c83ad8d92f10}\label{protobuf_8pb_8cc_a1a656da48cf3d2824247c83ad8d92f10}} 
+\index{protobuf.pb.cc@{protobuf.pb.cc}!CHK\_@{CHK\_}}
+\index{CHK\_@{CHK\_}!protobuf.pb.cc@{protobuf.pb.cc}}
+\doxysubsubsection{\texorpdfstring{CHK\_}{CHK\_}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \#define CHK\+\_\+(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~if (PROTOBUF\+\_\+\+PREDICT\+\_\+\+FALSE(!(x))) goto failure}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{protobuf_8pb_8cc_ae4a3bb0f020b06caec7cd2aa372451fa}\label{protobuf_8pb_8cc_ae4a3bb0f020b06caec7cd2aa372451fa}} 
+\index{protobuf.pb.cc@{protobuf.pb.cc}!Arena::CreateMaybeMessage$<$ ::fixbug::LoginRequest $>$@{Arena::CreateMaybeMessage$<$ ::fixbug::LoginRequest $>$}}
+\index{Arena::CreateMaybeMessage$<$ ::fixbug::LoginRequest $>$@{Arena::CreateMaybeMessage$<$ ::fixbug::LoginRequest $>$}!protobuf.pb.cc@{protobuf.pb.cc}}
+\doxysubsubsection{\texorpdfstring{Arena::CreateMaybeMessage$<$ ::fixbug::LoginRequest $>$()}{Arena::CreateMaybeMessage< ::fixbug::LoginRequest >()}}
+{\footnotesize\ttfamily template$<$$>$ \\
+PROTOBUF\+\_\+\+NAMESPACE\+\_\+\+OPEN PROTOBUF\+\_\+\+NOINLINE \+::\mbox{\hyperlink{classfixbug_1_1LoginRequest}{fixbug\+::\+Login\+Request}}$\ast$ Arena\+::\+Create\+Maybe\+Message$<$ \+::\mbox{\hyperlink{classfixbug_1_1LoginRequest}{fixbug\+::\+Login\+Request}} $>$ (\begin{DoxyParamCaption}\item[{Arena $\ast$}]{arena }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{protobuf_8pb_8cc_ae330876d4fde7839ced7290450619ab0}\label{protobuf_8pb_8cc_ae330876d4fde7839ced7290450619ab0}} 
+\index{protobuf.pb.cc@{protobuf.pb.cc}!Arena::CreateMaybeMessage$<$ ::fixbug::LoginResponse $>$@{Arena::CreateMaybeMessage$<$ ::fixbug::LoginResponse $>$}}
+\index{Arena::CreateMaybeMessage$<$ ::fixbug::LoginResponse $>$@{Arena::CreateMaybeMessage$<$ ::fixbug::LoginResponse $>$}!protobuf.pb.cc@{protobuf.pb.cc}}
+\doxysubsubsection{\texorpdfstring{Arena::CreateMaybeMessage$<$ ::fixbug::LoginResponse $>$()}{Arena::CreateMaybeMessage< ::fixbug::LoginResponse >()}}
+{\footnotesize\ttfamily template$<$$>$ \\
+PROTOBUF\+\_\+\+NOINLINE \+::\mbox{\hyperlink{classfixbug_1_1LoginResponse}{fixbug\+::\+Login\+Response}}$\ast$ Arena\+::\+Create\+Maybe\+Message$<$ \+::\mbox{\hyperlink{classfixbug_1_1LoginResponse}{fixbug\+::\+Login\+Response}} $>$ (\begin{DoxyParamCaption}\item[{Arena $\ast$}]{arena }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{protobuf_8pb_8cc_a99da27fd03bec5683a2db1c0ac55b056}\label{protobuf_8pb_8cc_a99da27fd03bec5683a2db1c0ac55b056}} 
+\index{protobuf.pb.cc@{protobuf.pb.cc}!Arena::CreateMaybeMessage$<$ ::fixbug::ResultCode $>$@{Arena::CreateMaybeMessage$<$ ::fixbug::ResultCode $>$}}
+\index{Arena::CreateMaybeMessage$<$ ::fixbug::ResultCode $>$@{Arena::CreateMaybeMessage$<$ ::fixbug::ResultCode $>$}!protobuf.pb.cc@{protobuf.pb.cc}}
+\doxysubsubsection{\texorpdfstring{Arena::CreateMaybeMessage$<$ ::fixbug::ResultCode $>$()}{Arena::CreateMaybeMessage< ::fixbug::ResultCode >()}}
+{\footnotesize\ttfamily template$<$$>$ \\
+PROTOBUF\+\_\+\+NOINLINE \+::\mbox{\hyperlink{classfixbug_1_1ResultCode}{fixbug\+::\+Result\+Code}}$\ast$ Arena\+::\+Create\+Maybe\+Message$<$ \+::\mbox{\hyperlink{classfixbug_1_1ResultCode}{fixbug\+::\+Result\+Code}} $>$ (\begin{DoxyParamCaption}\item[{Arena $\ast$}]{arena }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{protobuf_8pb_8cc_a9c6fee121bc8803eaad7822da68f7457}\label{protobuf_8pb_8cc_a9c6fee121bc8803eaad7822da68f7457}} 
+\index{protobuf.pb.cc@{protobuf.pb.cc}!descriptor\_table\_protobuf\_2eproto\_getter@{descriptor\_table\_protobuf\_2eproto\_getter}}
+\index{descriptor\_table\_protobuf\_2eproto\_getter@{descriptor\_table\_protobuf\_2eproto\_getter}!protobuf.pb.cc@{protobuf.pb.cc}}
+\doxysubsubsection{\texorpdfstring{descriptor\_table\_protobuf\_2eproto\_getter()}{descriptor\_table\_protobuf\_2eproto\_getter()}}
+{\footnotesize\ttfamily PROTOBUF\+\_\+\+ATTRIBUTE\+\_\+\+WEAKconst \+::\+\_\+pbi\+::\+Descriptor\+Table$\ast$ descriptor\+\_\+table\+\_\+protobuf\+\_\+2eproto\+\_\+getter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{protobuf_8pb_8cc_a9b5670fcfb480cc8ae3bc34ba0d54a9a}\label{protobuf_8pb_8cc_a9b5670fcfb480cc8ae3bc34ba0d54a9a}} 
+\index{protobuf.pb.cc@{protobuf.pb.cc}!PROTOBUF\_SECTION\_VARIABLE@{PROTOBUF\_SECTION\_VARIABLE}}
+\index{PROTOBUF\_SECTION\_VARIABLE@{PROTOBUF\_SECTION\_VARIABLE}!protobuf.pb.cc@{protobuf.pb.cc}}
+\doxysubsubsection{\texorpdfstring{PROTOBUF\_SECTION\_VARIABLE()}{PROTOBUF\_SECTION\_VARIABLE()}}
+{\footnotesize\ttfamily const uint32\+\_\+t \mbox{\hyperlink{structTableStruct__protobuf__2eproto_ac0290aa2b1e4a0cbf3444f6fbabb3d1f}{Table\+Struct\+\_\+protobuf\+\_\+2eproto\+::offsets}} \mbox{[}$\,$\mbox{]} PROTOBUF\+\_\+\+SECTION\+\_\+\+VARIABLE (\begin{DoxyParamCaption}\item[{protodesc\+\_\+cold}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{protobuf_8pb_8cc_ae7875ada4fb43d9e53f6791a5efe7474}\label{protobuf_8pb_8cc_ae7875ada4fb43d9e53f6791a5efe7474}} 
+\index{protobuf.pb.cc@{protobuf.pb.cc}!descriptor\_table\_protobuf\_2eproto@{descriptor\_table\_protobuf\_2eproto}}
+\index{descriptor\_table\_protobuf\_2eproto@{descriptor\_table\_protobuf\_2eproto}!protobuf.pb.cc@{protobuf.pb.cc}}
+\doxysubsubsection{\texorpdfstring{descriptor\_table\_protobuf\_2eproto}{descriptor\_table\_protobuf\_2eproto}}
+{\footnotesize\ttfamily static PROTOBUF\+\_\+\+ATTRIBUTE\+\_\+\+INIT\+\_\+\+PRIORITY2\+::\+\_\+pbi\+::\+Add\+Descriptors\+Runner dynamic\+\_\+init\+\_\+dummy\+\_\+protobuf\+\_\+2eproto \& descriptor\+\_\+table\+\_\+protobuf\+\_\+2eproto}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \textcolor{keyword}{false}, \textcolor{keyword}{false}, 258, descriptor\_table\_protodef\_protobuf\_2eproto,}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}protobuf.proto"{}},}
+\DoxyCodeLine{    \&descriptor\_table\_protobuf\_2eproto\_once, \textcolor{keyword}{nullptr}, 0, 3,}
+\DoxyCodeLine{    schemas, file\_default\_instances, \mbox{\hyperlink{structTableStruct__protobuf__2eproto_ac0290aa2b1e4a0cbf3444f6fbabb3d1f}{TableStruct\_protobuf\_2eproto::offsets}},}
+\DoxyCodeLine{    file\_level\_metadata\_protobuf\_2eproto, file\_level\_enum\_descriptors\_protobuf\_2eproto,}
+\DoxyCodeLine{    file\_level\_service\_descriptors\_protobuf\_2eproto,}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

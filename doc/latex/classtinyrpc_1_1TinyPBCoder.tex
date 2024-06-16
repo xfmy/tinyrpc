@@ -1,0 +1,91 @@
+\hypertarget{classtinyrpc_1_1TinyPBCoder}{}\doxysection{tinyrpc\+::Tiny\+PBCoder Class Reference}
+\label{classtinyrpc_1_1TinyPBCoder}\index{tinyrpc::TinyPBCoder@{tinyrpc::TinyPBCoder}}
+
+
+{\ttfamily \#include $<$tiny\+PB\+\_\+coder.\+h$>$}
+
+
+
+Collaboration diagram for tinyrpc\+::Tiny\+PBCoder\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{classtinyrpc_1_1TinyPBCoder__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtinyrpc_1_1TinyPBCoder_a8159ecad273f58d373f08a41f8f68c64}{Tiny\+PBCoder}} ()=default
+\item 
+\mbox{\hyperlink{classtinyrpc_1_1TinyPBCoder_a9e4991c250eb3115a259d5f8a2055c09}{$\sim$\+Tiny\+PBCoder}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classtinyrpc_1_1TinyPBCoder_ac6fc7d8a2b81eedd582123806e2104f3}{encode}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtinyrpc_1_1TinyPBProtocol}{Tiny\+PBProtocol}} $>$ message, std\+::string \&target)
+\begin{DoxyCompactList}\small\item\em 对源数据进行编码,将数据转化为二进制字节码以供网络传输 \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classtinyrpc_1_1TinyPBCoder_afa61e7817937fbe41b5b1061d9d14b16}{decode}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtinyrpc_1_1TinyPBProtocol}{Tiny\+PBProtocol}} $>$ message, std\+::string\+\_\+view view)
+\begin{DoxyCompactList}\small\item\em 解码,在字节流中解析出完整的报文,再将报文转换成\+Tiny\+PB对象 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtinyrpc_1_1TinyPBCoder_a8159ecad273f58d373f08a41f8f68c64}\label{classtinyrpc_1_1TinyPBCoder_a8159ecad273f58d373f08a41f8f68c64}} 
+\index{tinyrpc::TinyPBCoder@{tinyrpc::TinyPBCoder}!TinyPBCoder@{TinyPBCoder}}
+\index{TinyPBCoder@{TinyPBCoder}!tinyrpc::TinyPBCoder@{tinyrpc::TinyPBCoder}}
+\doxysubsubsection{\texorpdfstring{TinyPBCoder()}{TinyPBCoder()}}
+{\footnotesize\ttfamily tinyrpc\+::\+Tiny\+PBCoder\+::\+Tiny\+PBCoder (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{classtinyrpc_1_1TinyPBCoder_a9e4991c250eb3115a259d5f8a2055c09}\label{classtinyrpc_1_1TinyPBCoder_a9e4991c250eb3115a259d5f8a2055c09}} 
+\index{tinyrpc::TinyPBCoder@{tinyrpc::TinyPBCoder}!````~TinyPBCoder@{$\sim$TinyPBCoder}}
+\index{````~TinyPBCoder@{$\sim$TinyPBCoder}!tinyrpc::TinyPBCoder@{tinyrpc::TinyPBCoder}}
+\doxysubsubsection{\texorpdfstring{$\sim$TinyPBCoder()}{~TinyPBCoder()}}
+{\footnotesize\ttfamily tinyrpc\+::\+Tiny\+PBCoder\+::$\sim$\+Tiny\+PBCoder (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtinyrpc_1_1TinyPBCoder_afa61e7817937fbe41b5b1061d9d14b16}\label{classtinyrpc_1_1TinyPBCoder_afa61e7817937fbe41b5b1061d9d14b16}} 
+\index{tinyrpc::TinyPBCoder@{tinyrpc::TinyPBCoder}!decode@{decode}}
+\index{decode@{decode}!tinyrpc::TinyPBCoder@{tinyrpc::TinyPBCoder}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}}
+{\footnotesize\ttfamily int tinyrpc\+::\+Tiny\+PBCoder\+::decode (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtinyrpc_1_1TinyPBProtocol}{Tiny\+PBProtocol}} $>$}]{message,  }\item[{std\+::string\+\_\+view}]{view }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+解码,在字节流中解析出完整的报文,再将报文转换成\+Tiny\+PB对象 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Tiny\+PB对象,存放被解析后的数据 \\
+\hline
+{\em view} & 字节数据流 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 若解析出完整报文则返回包尾下标,否则返回-\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtinyrpc_1_1TinyPBCoder_ac6fc7d8a2b81eedd582123806e2104f3}\label{classtinyrpc_1_1TinyPBCoder_ac6fc7d8a2b81eedd582123806e2104f3}} 
+\index{tinyrpc::TinyPBCoder@{tinyrpc::TinyPBCoder}!encode@{encode}}
+\index{encode@{encode}!tinyrpc::TinyPBCoder@{tinyrpc::TinyPBCoder}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}}
+{\footnotesize\ttfamily void tinyrpc\+::\+Tiny\+PBCoder\+::encode (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtinyrpc_1_1TinyPBProtocol}{Tiny\+PBProtocol}} $>$}]{message,  }\item[{std\+::string \&}]{target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+对源数据进行编码,将数据转化为二进制字节码以供网络传输 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & 源数据 \\
+\hline
+{\em target} & 目标,将message元数据编码后存储于其中 \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/tinypb/\mbox{\hyperlink{tinyPB__coder_8h}{tiny\+PB\+\_\+coder.\+h}}\item 
+src/tinypb/\mbox{\hyperlink{tinyPB__coder_8cpp}{tiny\+PB\+\_\+coder.\+cpp}}\end{DoxyCompactItemize}

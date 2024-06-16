@@ -1,0 +1,64 @@
+\hypertarget{namespacetinyrpc}{}\doxysection{tinyrpc Namespace Reference}
+\label{namespacetinyrpc}\index{tinyrpc@{tinyrpc}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtinyrpc_1_1tinyrpcExcept}{tinyrpc\+Except}}
+\item 
+class \mbox{\hyperlink{classtinyrpc_1_1RpcApplication}{Rpc\+Application}}
+\begin{DoxyCompactList}\small\item\em tinyrpc框架的基础类,负责框架的初始化操作 \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtinyrpc_1_1RpcChannel}{Rpc\+Channel}}
+\begin{DoxyCompactList}\small\item\em 由rpc调用端使用的通道类 \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtinyrpc_1_1RpcClosure}{Rpc\+Closure}}
+\item 
+class \mbox{\hyperlink{classtinyrpc_1_1RpcController}{Rpc\+Controller}}
+\begin{DoxyCompactList}\small\item\em protobuf rpc控制类 \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtinyrpc_1_1RpcDispatcher}{Rpc\+Dispatcher}}
+\begin{DoxyCompactList}\small\item\em 框架提供的专门发布rpc服务与服务分发的网络对象模块 \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtinyrpc_1_1RpcInitConfig}{Rpc\+Init\+Config}}
+\begin{DoxyCompactList}\small\item\em 配置文件解析类 \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtinyrpc_1_1ConsulClient}{Consul\+Client}}
+\item 
+class \mbox{\hyperlink{classtinyrpc_1_1TcpClient}{Tcp\+Client}}
+\item 
+class \mbox{\hyperlink{classtinyrpc_1_1TcpServer}{Tcp\+Server}}
+\begin{DoxyCompactList}\small\item\em tinyrpc的网络模块 \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtinyrpc_1_1TinyPBCoder}{Tiny\+PBCoder}}
+\item 
+class \mbox{\hyperlink{classtinyrpc_1_1TinyPBProtocol}{Tiny\+PBProtocol}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacetinyrpc_a38158aa3dd2e823775f636f6ee8bc27c}{Dispatch\+Callback}} = std\+::function$<$ void(std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtinyrpc_1_1TinyPBProtocol}{Tiny\+PBProtocol}} $>$ reqest, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtinyrpc_1_1TinyPBProtocol}{Tiny\+PBProtocol}} $>$ response, const muduo\+::net\+::\+Tcp\+Connection\+Ptr \&ptr)$>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{namespacetinyrpc_a0333a28c0af53a7b91337b4079f5ec97}{Get\+Random\+Number\+String}} ()
+\begin{DoxyCompactList}\small\item\em 获取随机数字符串对象 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{namespacetinyrpc_a38158aa3dd2e823775f636f6ee8bc27c}\label{namespacetinyrpc_a38158aa3dd2e823775f636f6ee8bc27c}} 
+\index{tinyrpc@{tinyrpc}!DispatchCallback@{DispatchCallback}}
+\index{DispatchCallback@{DispatchCallback}!tinyrpc@{tinyrpc}}
+\doxysubsubsection{\texorpdfstring{DispatchCallback}{DispatchCallback}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespacetinyrpc_a38158aa3dd2e823775f636f6ee8bc27c}{tinyrpc\+::\+Dispatch\+Callback}} = typedef std\+::function$<$void(std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classtinyrpc_1_1TinyPBProtocol}{Tiny\+PBProtocol}}$>$ reqest, std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classtinyrpc_1_1TinyPBProtocol}{Tiny\+PBProtocol}}$>$ response, const muduo\+::net\+::\+Tcp\+Connection\+Ptr \&ptr)$>$}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacetinyrpc_a0333a28c0af53a7b91337b4079f5ec97}\label{namespacetinyrpc_a0333a28c0af53a7b91337b4079f5ec97}} 
+\index{tinyrpc@{tinyrpc}!GetRandomNumberString@{GetRandomNumberString}}
+\index{GetRandomNumberString@{GetRandomNumberString}!tinyrpc@{tinyrpc}}
+\doxysubsubsection{\texorpdfstring{GetRandomNumberString()}{GetRandomNumberString()}}
+{\footnotesize\ttfamily std\+::string tinyrpc\+::\+Get\+Random\+Number\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+获取随机数字符串对象 
+
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}

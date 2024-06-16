@@ -1,18 +1,31 @@
 \doxysection{Class List}
 Here are the classes, structs, unions and interfaces with brief descriptions\+:\begin{DoxyCompactList}
-\item\contentsline{section}{\mbox{\hyperlink{classexcept}{except}} }{\pageref{classexcept}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classfixbug_1_1_login_request}{fixbug\+::\+Login\+Request}} }{\pageref{classfixbug_1_1_login_request}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classfixbug_1_1_login_response}{fixbug\+::\+Login\+Response}} }{\pageref{classfixbug_1_1_login_response}}{}
-\item\contentsline{section}{\mbox{\hyperlink{class_tinyrpc_application}{tinyrpc\+Application}} \\*tinyrpc框架的基础类,负责框架的初始化操作 }{\pageref{class_tinyrpc_application}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classpackage}{package}} }{\pageref{classpackage}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classfixbug_1_1_result_code}{fixbug\+::\+Result\+Code}} }{\pageref{classfixbug_1_1_result_code}}{}
-\item\contentsline{section}{\mbox{\hyperlink{class_rpc_channel}{Rpc\+Channel}} \\*由rpc调用端使用的通道类 }{\pageref{class_rpc_channel}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classtinyrpc_header_1_1rpc_header}{tinyrpc\+Header\+::rpc\+Header}} }{\pageref{classtinyrpc_header_1_1rpc_header}}{}
-\item\contentsline{section}{\mbox{\hyperlink{class_rpc_init_config}{Rpc\+Init\+Config}} \\*配置文件解析类 }{\pageref{class_rpc_init_config}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classrpc_network}{rpc\+Network}} \\*tinyrpc的网络模块 }{\pageref{classrpc_network}}{}
-\item\contentsline{section}{\mbox{\hyperlink{class_rpc_provider}{Rpc\+Provider}} \\*框架提供的专门发布rpc服务的网络对象类 }{\pageref{class_rpc_provider}}{}
-\item\contentsline{section}{\mbox{\hyperlink{struct_table_struct__tinyrpc_header__2eproto}{Table\+Struct\+\_\+tinyrpc\+Header\+\_\+2eproto}} }{\pageref{struct_table_struct__tinyrpc_header__2eproto}}{}
-\item\contentsline{section}{\mbox{\hyperlink{struct_table_struct__protobuf__2eproto}{Table\+Struct\+\_\+protobuf\+\_\+2eproto}} }{\pageref{struct_table_struct__protobuf__2eproto}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classfixbug_1_1LoginRequest_1_1__Internal}{fixbug\+::\+Login\+Request\+::\+\_\+\+Internal}} }{\pageref{classfixbug_1_1LoginRequest_1_1__Internal}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classfixbug_1_1LoginResponse_1_1__Internal}{fixbug\+::\+Login\+Response\+::\+\_\+\+Internal}} }{\pageref{classfixbug_1_1LoginResponse_1_1__Internal}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classfixbug_1_1ResultCode_1_1__Internal}{fixbug\+::\+Result\+Code\+::\+\_\+\+Internal}} }{\pageref{classfixbug_1_1ResultCode_1_1__Internal}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classtinyrpc_1_1ConsulClient}{tinyrpc\+::\+Consul\+Client}} }{\pageref{classtinyrpc_1_1ConsulClient}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classCThread}{CThread}} \\*线程简单包装类~\newline
+封装了线程的启动函数,以及线程id }{\pageref{classCThread}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classCThreadPool}{CThread\+Pool}} \\*纯cpp11手写线程池，（互斥锁，条件变量，原子变量，手动实现cpp17 any及cpp20 信号量） }{\pageref{classCThreadPool}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classfixbug_1_1LoginRequest}{fixbug\+::\+Login\+Request}} }{\pageref{classfixbug_1_1LoginRequest}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structfixbug_1_1LoginRequestDefaultTypeInternal}{fixbug\+::\+Login\+Request\+Default\+Type\+Internal}} }{\pageref{structfixbug_1_1LoginRequestDefaultTypeInternal}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classfixbug_1_1LoginResponse}{fixbug\+::\+Login\+Response}} }{\pageref{classfixbug_1_1LoginResponse}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structfixbug_1_1LoginResponseDefaultTypeInternal}{fixbug\+::\+Login\+Response\+Default\+Type\+Internal}} }{\pageref{structfixbug_1_1LoginResponseDefaultTypeInternal}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classfixbug_1_1ResultCode}{fixbug\+::\+Result\+Code}} }{\pageref{classfixbug_1_1ResultCode}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structfixbug_1_1ResultCodeDefaultTypeInternal}{fixbug\+::\+Result\+Code\+Default\+Type\+Internal}} }{\pageref{structfixbug_1_1ResultCodeDefaultTypeInternal}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classtinyrpc_1_1RpcApplication}{tinyrpc\+::\+Rpc\+Application}} \\*Tinyrpc框架的基础类,负责框架的初始化操作 }{\pageref{classtinyrpc_1_1RpcApplication}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classtinyrpc_1_1RpcChannel}{tinyrpc\+::\+Rpc\+Channel}} \\*由rpc调用端使用的通道类 }{\pageref{classtinyrpc_1_1RpcChannel}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classtinyrpc_1_1RpcClosure}{tinyrpc\+::\+Rpc\+Closure}} }{\pageref{classtinyrpc_1_1RpcClosure}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classtinyrpc_1_1RpcController}{tinyrpc\+::\+Rpc\+Controller}} \\*Protobuf rpc控制类 }{\pageref{classtinyrpc_1_1RpcController}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classtinyrpc_1_1RpcDispatcher}{tinyrpc\+::\+Rpc\+Dispatcher}} \\*框架提供的专门发布rpc服务与服务分发的网络对象模块 }{\pageref{classtinyrpc_1_1RpcDispatcher}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classtinyrpc_1_1RpcInitConfig}{tinyrpc\+::\+Rpc\+Init\+Config}} \\*配置文件解析类 }{\pageref{classtinyrpc_1_1RpcInitConfig}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structTableStruct__protobuf__2eproto}{Table\+Struct\+\_\+protobuf\+\_\+2eproto}} }{\pageref{structTableStruct__protobuf__2eproto}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classtinyrpc_1_1TcpClient}{tinyrpc\+::\+Tcp\+Client}} }{\pageref{classtinyrpc_1_1TcpClient}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classtinyrpc_1_1TcpServer}{tinyrpc\+::\+Tcp\+Server}} \\*Tinyrpc的网络模块 }{\pageref{classtinyrpc_1_1TcpServer}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classtinyrpc_1_1TinyPBCoder}{tinyrpc\+::\+Tiny\+PBCoder}} }{\pageref{classtinyrpc_1_1TinyPBCoder}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classtinyrpc_1_1TinyPBProtocol}{tinyrpc\+::\+Tiny\+PBProtocol}} }{\pageref{classtinyrpc_1_1TinyPBProtocol}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classtinyrpc_1_1tinyrpcExcept}{tinyrpc\+::tinyrpc\+Except}} }{\pageref{classtinyrpc_1_1tinyrpcExcept}}{}
 \item\contentsline{section}{\mbox{\hyperlink{classfixbug_1_1user}{fixbug\+::user}} }{\pageref{classfixbug_1_1user}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classfixbug_1_1user___stub}{fixbug\+::user\+\_\+\+Stub}} }{\pageref{classfixbug_1_1user___stub}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classfixbug_1_1user__Stub}{fixbug\+::user\+\_\+\+Stub}} }{\pageref{classfixbug_1_1user__Stub}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classUserService}{User\+Service}} }{\pageref{classUserService}}{}
 \end{DoxyCompactList}

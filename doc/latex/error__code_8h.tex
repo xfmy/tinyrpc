@@ -1,0 +1,196 @@
+\hypertarget{error__code_8h}{}\doxysection{include/error\+\_\+code.h File Reference}
+\label{error__code_8h}\index{include/error\_code.h@{include/error\_code.h}}
+
+
+\+: 对rpc相关错误码的定义  
+
+
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{error__code_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{error__code_8h_ac41258160a486b72428b500268822894}{SYS\+\_\+\+ERROR\+\_\+\+PREFIX}}(xx)~1000\#\#xx
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{error__code_8h_acd2be39565189613f135692e2794b763}{ERROR\+\_\+\+PEER\+\_\+\+CLOSED}} = \mbox{\hyperlink{error__code_8h_ac41258160a486b72428b500268822894}{SYS\+\_\+\+ERROR\+\_\+\+PREFIX}}(0000)
+\begin{DoxyCompactList}\small\item\em 连接时对端关闭 \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{error__code_8h_afece96d5ea6434d25aa05e713067da90}{ERROR\+\_\+\+FAILED\+\_\+\+CONNECT}} = \mbox{\hyperlink{error__code_8h_ac41258160a486b72428b500268822894}{SYS\+\_\+\+ERROR\+\_\+\+PREFIX}}(0001)
+\begin{DoxyCompactList}\small\item\em 连接失败 \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{error__code_8h_a5746d52ab9f6a0f0ebb4a0f943d81dae}{ERROR\+\_\+\+FAILED\+\_\+\+GET\+\_\+\+REPLY}} = \mbox{\hyperlink{error__code_8h_ac41258160a486b72428b500268822894}{SYS\+\_\+\+ERROR\+\_\+\+PREFIX}}(0002)
+\begin{DoxyCompactList}\small\item\em RPC 调用未收到对端回包数据 \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{error__code_8h_a29d0f39781253bbc8629d1b555d109e1}{ERROR\+\_\+\+FAILED\+\_\+\+DESERIALIZE}} = \mbox{\hyperlink{error__code_8h_ac41258160a486b72428b500268822894}{SYS\+\_\+\+ERROR\+\_\+\+PREFIX}}(0003)
+\begin{DoxyCompactList}\small\item\em 反序列化失败 \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{error__code_8h_a94a94dcc40757cec57182fe25b32819a}{ERROR\+\_\+\+FAILED\+\_\+\+SERIALIZE}} = \mbox{\hyperlink{error__code_8h_ac41258160a486b72428b500268822894}{SYS\+\_\+\+ERROR\+\_\+\+PREFIX}}(0004)
+\begin{DoxyCompactList}\small\item\em 序列化失败 \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{error__code_8h_a47a2701982b048534cc18de8d3dd9c8a}{ERROR\+\_\+\+FAILED\+\_\+\+ENCODE}} = \mbox{\hyperlink{error__code_8h_ac41258160a486b72428b500268822894}{SYS\+\_\+\+ERROR\+\_\+\+PREFIX}}(0005)
+\begin{DoxyCompactList}\small\item\em 编码失败 \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{error__code_8h_aeb5c7429dadd064f6aa9f9417afde882}{ERROR\+\_\+\+FAILED\+\_\+\+DECODE}} = \mbox{\hyperlink{error__code_8h_ac41258160a486b72428b500268822894}{SYS\+\_\+\+ERROR\+\_\+\+PREFIX}}(0006)
+\begin{DoxyCompactList}\small\item\em 解码失败 \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{error__code_8h_a9d8cb3f162169a9db9e0635d0cb8b84c}{ERROR\+\_\+\+RPC\+\_\+\+CALL\+\_\+\+TIMEOUT}} = \mbox{\hyperlink{error__code_8h_ac41258160a486b72428b500268822894}{SYS\+\_\+\+ERROR\+\_\+\+PREFIX}}(0007)
+\begin{DoxyCompactList}\small\item\em rpc 调用超时 \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{error__code_8h_a8450388cac4e7d2ba31fc28524f8e387}{ERROR\+\_\+\+SERVICE\+\_\+\+NOT\+\_\+\+FOUND}} = \mbox{\hyperlink{error__code_8h_ac41258160a486b72428b500268822894}{SYS\+\_\+\+ERROR\+\_\+\+PREFIX}}(0008)
+\begin{DoxyCompactList}\small\item\em service 不存在 \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{error__code_8h_a0247d7dc808f4bf6e9d2c22e4321a88e}{ERROR\+\_\+\+METHOD\+\_\+\+NOT\+\_\+\+FOUND}} = \mbox{\hyperlink{error__code_8h_ac41258160a486b72428b500268822894}{SYS\+\_\+\+ERROR\+\_\+\+PREFIX}}(0009)
+\begin{DoxyCompactList}\small\item\em method 不存在 method \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{error__code_8h_abae8ee0441082bf8577f2cc49334b62d}{ERROR\+\_\+\+PARSE\+\_\+\+SERVICE\+\_\+\+NAME}} = \mbox{\hyperlink{error__code_8h_ac41258160a486b72428b500268822894}{SYS\+\_\+\+ERROR\+\_\+\+PREFIX}}(0010)
+\begin{DoxyCompactList}\small\item\em service name 解析失败 \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{error__code_8h_a748fc23793e33c1611ef3edf1f26e10d}{ERROR\+\_\+\+RPC\+\_\+\+CHANNEL\+\_\+\+INIT}} = \mbox{\hyperlink{error__code_8h_ac41258160a486b72428b500268822894}{SYS\+\_\+\+ERROR\+\_\+\+PREFIX}}(0011)
+\begin{DoxyCompactList}\small\item\em rpc channel 初始化失败 \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{error__code_8h_a8faffb14b23a87e66a49fa46b19f8c83}{ERROR\+\_\+\+RPC\+\_\+\+PEER\+\_\+\+ADDR}} = \mbox{\hyperlink{error__code_8h_ac41258160a486b72428b500268822894}{SYS\+\_\+\+ERROR\+\_\+\+PREFIX}}(0012)
+\begin{DoxyCompactList}\small\item\em rpc 调用时候对端地址异常 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: 对rpc相关错误码的定义 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{error__code_8h_ac41258160a486b72428b500268822894}\label{error__code_8h_ac41258160a486b72428b500268822894}} 
+\index{error\_code.h@{error\_code.h}!SYS\_ERROR\_PREFIX@{SYS\_ERROR\_PREFIX}}
+\index{SYS\_ERROR\_PREFIX@{SYS\_ERROR\_PREFIX}!error\_code.h@{error\_code.h}}
+\doxysubsubsection{\texorpdfstring{SYS\_ERROR\_PREFIX}{SYS\_ERROR\_PREFIX}}
+{\footnotesize\ttfamily \#define SYS\+\_\+\+ERROR\+\_\+\+PREFIX(\begin{DoxyParamCaption}\item[{}]{xx }\end{DoxyParamCaption})~1000\#\#xx}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{error__code_8h_afece96d5ea6434d25aa05e713067da90}\label{error__code_8h_afece96d5ea6434d25aa05e713067da90}} 
+\index{error\_code.h@{error\_code.h}!ERROR\_FAILED\_CONNECT@{ERROR\_FAILED\_CONNECT}}
+\index{ERROR\_FAILED\_CONNECT@{ERROR\_FAILED\_CONNECT}!error\_code.h@{error\_code.h}}
+\doxysubsubsection{\texorpdfstring{ERROR\_FAILED\_CONNECT}{ERROR\_FAILED\_CONNECT}}
+{\footnotesize\ttfamily const int ERROR\+\_\+\+FAILED\+\_\+\+CONNECT = \mbox{\hyperlink{error__code_8h_ac41258160a486b72428b500268822894}{SYS\+\_\+\+ERROR\+\_\+\+PREFIX}}(0001)}
+
+
+
+连接失败 
+
+\mbox{\Hypertarget{error__code_8h_aeb5c7429dadd064f6aa9f9417afde882}\label{error__code_8h_aeb5c7429dadd064f6aa9f9417afde882}} 
+\index{error\_code.h@{error\_code.h}!ERROR\_FAILED\_DECODE@{ERROR\_FAILED\_DECODE}}
+\index{ERROR\_FAILED\_DECODE@{ERROR\_FAILED\_DECODE}!error\_code.h@{error\_code.h}}
+\doxysubsubsection{\texorpdfstring{ERROR\_FAILED\_DECODE}{ERROR\_FAILED\_DECODE}}
+{\footnotesize\ttfamily const int ERROR\+\_\+\+FAILED\+\_\+\+DECODE = \mbox{\hyperlink{error__code_8h_ac41258160a486b72428b500268822894}{SYS\+\_\+\+ERROR\+\_\+\+PREFIX}}(0006)}
+
+
+
+解码失败 
+
+\mbox{\Hypertarget{error__code_8h_a29d0f39781253bbc8629d1b555d109e1}\label{error__code_8h_a29d0f39781253bbc8629d1b555d109e1}} 
+\index{error\_code.h@{error\_code.h}!ERROR\_FAILED\_DESERIALIZE@{ERROR\_FAILED\_DESERIALIZE}}
+\index{ERROR\_FAILED\_DESERIALIZE@{ERROR\_FAILED\_DESERIALIZE}!error\_code.h@{error\_code.h}}
+\doxysubsubsection{\texorpdfstring{ERROR\_FAILED\_DESERIALIZE}{ERROR\_FAILED\_DESERIALIZE}}
+{\footnotesize\ttfamily const int ERROR\+\_\+\+FAILED\+\_\+\+DESERIALIZE = \mbox{\hyperlink{error__code_8h_ac41258160a486b72428b500268822894}{SYS\+\_\+\+ERROR\+\_\+\+PREFIX}}(0003)}
+
+
+
+反序列化失败 
+
+\mbox{\Hypertarget{error__code_8h_a47a2701982b048534cc18de8d3dd9c8a}\label{error__code_8h_a47a2701982b048534cc18de8d3dd9c8a}} 
+\index{error\_code.h@{error\_code.h}!ERROR\_FAILED\_ENCODE@{ERROR\_FAILED\_ENCODE}}
+\index{ERROR\_FAILED\_ENCODE@{ERROR\_FAILED\_ENCODE}!error\_code.h@{error\_code.h}}
+\doxysubsubsection{\texorpdfstring{ERROR\_FAILED\_ENCODE}{ERROR\_FAILED\_ENCODE}}
+{\footnotesize\ttfamily const int ERROR\+\_\+\+FAILED\+\_\+\+ENCODE = \mbox{\hyperlink{error__code_8h_ac41258160a486b72428b500268822894}{SYS\+\_\+\+ERROR\+\_\+\+PREFIX}}(0005)}
+
+
+
+编码失败 
+
+\mbox{\Hypertarget{error__code_8h_a5746d52ab9f6a0f0ebb4a0f943d81dae}\label{error__code_8h_a5746d52ab9f6a0f0ebb4a0f943d81dae}} 
+\index{error\_code.h@{error\_code.h}!ERROR\_FAILED\_GET\_REPLY@{ERROR\_FAILED\_GET\_REPLY}}
+\index{ERROR\_FAILED\_GET\_REPLY@{ERROR\_FAILED\_GET\_REPLY}!error\_code.h@{error\_code.h}}
+\doxysubsubsection{\texorpdfstring{ERROR\_FAILED\_GET\_REPLY}{ERROR\_FAILED\_GET\_REPLY}}
+{\footnotesize\ttfamily const int ERROR\+\_\+\+FAILED\+\_\+\+GET\+\_\+\+REPLY = \mbox{\hyperlink{error__code_8h_ac41258160a486b72428b500268822894}{SYS\+\_\+\+ERROR\+\_\+\+PREFIX}}(0002)}
+
+
+
+RPC 调用未收到对端回包数据 
+
+\mbox{\Hypertarget{error__code_8h_a94a94dcc40757cec57182fe25b32819a}\label{error__code_8h_a94a94dcc40757cec57182fe25b32819a}} 
+\index{error\_code.h@{error\_code.h}!ERROR\_FAILED\_SERIALIZE@{ERROR\_FAILED\_SERIALIZE}}
+\index{ERROR\_FAILED\_SERIALIZE@{ERROR\_FAILED\_SERIALIZE}!error\_code.h@{error\_code.h}}
+\doxysubsubsection{\texorpdfstring{ERROR\_FAILED\_SERIALIZE}{ERROR\_FAILED\_SERIALIZE}}
+{\footnotesize\ttfamily const int ERROR\+\_\+\+FAILED\+\_\+\+SERIALIZE = \mbox{\hyperlink{error__code_8h_ac41258160a486b72428b500268822894}{SYS\+\_\+\+ERROR\+\_\+\+PREFIX}}(0004)}
+
+
+
+序列化失败 
+
+\mbox{\Hypertarget{error__code_8h_a0247d7dc808f4bf6e9d2c22e4321a88e}\label{error__code_8h_a0247d7dc808f4bf6e9d2c22e4321a88e}} 
+\index{error\_code.h@{error\_code.h}!ERROR\_METHOD\_NOT\_FOUND@{ERROR\_METHOD\_NOT\_FOUND}}
+\index{ERROR\_METHOD\_NOT\_FOUND@{ERROR\_METHOD\_NOT\_FOUND}!error\_code.h@{error\_code.h}}
+\doxysubsubsection{\texorpdfstring{ERROR\_METHOD\_NOT\_FOUND}{ERROR\_METHOD\_NOT\_FOUND}}
+{\footnotesize\ttfamily const int ERROR\+\_\+\+METHOD\+\_\+\+NOT\+\_\+\+FOUND = \mbox{\hyperlink{error__code_8h_ac41258160a486b72428b500268822894}{SYS\+\_\+\+ERROR\+\_\+\+PREFIX}}(0009)}
+
+
+
+method 不存在 method 
+
+\mbox{\Hypertarget{error__code_8h_abae8ee0441082bf8577f2cc49334b62d}\label{error__code_8h_abae8ee0441082bf8577f2cc49334b62d}} 
+\index{error\_code.h@{error\_code.h}!ERROR\_PARSE\_SERVICE\_NAME@{ERROR\_PARSE\_SERVICE\_NAME}}
+\index{ERROR\_PARSE\_SERVICE\_NAME@{ERROR\_PARSE\_SERVICE\_NAME}!error\_code.h@{error\_code.h}}
+\doxysubsubsection{\texorpdfstring{ERROR\_PARSE\_SERVICE\_NAME}{ERROR\_PARSE\_SERVICE\_NAME}}
+{\footnotesize\ttfamily const int ERROR\+\_\+\+PARSE\+\_\+\+SERVICE\+\_\+\+NAME = \mbox{\hyperlink{error__code_8h_ac41258160a486b72428b500268822894}{SYS\+\_\+\+ERROR\+\_\+\+PREFIX}}(0010)}
+
+
+
+service name 解析失败 
+
+\mbox{\Hypertarget{error__code_8h_acd2be39565189613f135692e2794b763}\label{error__code_8h_acd2be39565189613f135692e2794b763}} 
+\index{error\_code.h@{error\_code.h}!ERROR\_PEER\_CLOSED@{ERROR\_PEER\_CLOSED}}
+\index{ERROR\_PEER\_CLOSED@{ERROR\_PEER\_CLOSED}!error\_code.h@{error\_code.h}}
+\doxysubsubsection{\texorpdfstring{ERROR\_PEER\_CLOSED}{ERROR\_PEER\_CLOSED}}
+{\footnotesize\ttfamily const int ERROR\+\_\+\+PEER\+\_\+\+CLOSED = \mbox{\hyperlink{error__code_8h_ac41258160a486b72428b500268822894}{SYS\+\_\+\+ERROR\+\_\+\+PREFIX}}(0000)}
+
+
+
+连接时对端关闭 
+
+\mbox{\Hypertarget{error__code_8h_a9d8cb3f162169a9db9e0635d0cb8b84c}\label{error__code_8h_a9d8cb3f162169a9db9e0635d0cb8b84c}} 
+\index{error\_code.h@{error\_code.h}!ERROR\_RPC\_CALL\_TIMEOUT@{ERROR\_RPC\_CALL\_TIMEOUT}}
+\index{ERROR\_RPC\_CALL\_TIMEOUT@{ERROR\_RPC\_CALL\_TIMEOUT}!error\_code.h@{error\_code.h}}
+\doxysubsubsection{\texorpdfstring{ERROR\_RPC\_CALL\_TIMEOUT}{ERROR\_RPC\_CALL\_TIMEOUT}}
+{\footnotesize\ttfamily const int ERROR\+\_\+\+RPC\+\_\+\+CALL\+\_\+\+TIMEOUT = \mbox{\hyperlink{error__code_8h_ac41258160a486b72428b500268822894}{SYS\+\_\+\+ERROR\+\_\+\+PREFIX}}(0007)}
+
+
+
+rpc 调用超时 
+
+\mbox{\Hypertarget{error__code_8h_a748fc23793e33c1611ef3edf1f26e10d}\label{error__code_8h_a748fc23793e33c1611ef3edf1f26e10d}} 
+\index{error\_code.h@{error\_code.h}!ERROR\_RPC\_CHANNEL\_INIT@{ERROR\_RPC\_CHANNEL\_INIT}}
+\index{ERROR\_RPC\_CHANNEL\_INIT@{ERROR\_RPC\_CHANNEL\_INIT}!error\_code.h@{error\_code.h}}
+\doxysubsubsection{\texorpdfstring{ERROR\_RPC\_CHANNEL\_INIT}{ERROR\_RPC\_CHANNEL\_INIT}}
+{\footnotesize\ttfamily const int ERROR\+\_\+\+RPC\+\_\+\+CHANNEL\+\_\+\+INIT = \mbox{\hyperlink{error__code_8h_ac41258160a486b72428b500268822894}{SYS\+\_\+\+ERROR\+\_\+\+PREFIX}}(0011)}
+
+
+
+rpc channel 初始化失败 
+
+\mbox{\Hypertarget{error__code_8h_a8faffb14b23a87e66a49fa46b19f8c83}\label{error__code_8h_a8faffb14b23a87e66a49fa46b19f8c83}} 
+\index{error\_code.h@{error\_code.h}!ERROR\_RPC\_PEER\_ADDR@{ERROR\_RPC\_PEER\_ADDR}}
+\index{ERROR\_RPC\_PEER\_ADDR@{ERROR\_RPC\_PEER\_ADDR}!error\_code.h@{error\_code.h}}
+\doxysubsubsection{\texorpdfstring{ERROR\_RPC\_PEER\_ADDR}{ERROR\_RPC\_PEER\_ADDR}}
+{\footnotesize\ttfamily const int ERROR\+\_\+\+RPC\+\_\+\+PEER\+\_\+\+ADDR = \mbox{\hyperlink{error__code_8h_ac41258160a486b72428b500268822894}{SYS\+\_\+\+ERROR\+\_\+\+PREFIX}}(0012)}
+
+
+
+rpc 调用时候对端地址异常 
+
+\mbox{\Hypertarget{error__code_8h_a8450388cac4e7d2ba31fc28524f8e387}\label{error__code_8h_a8450388cac4e7d2ba31fc28524f8e387}} 
+\index{error\_code.h@{error\_code.h}!ERROR\_SERVICE\_NOT\_FOUND@{ERROR\_SERVICE\_NOT\_FOUND}}
+\index{ERROR\_SERVICE\_NOT\_FOUND@{ERROR\_SERVICE\_NOT\_FOUND}!error\_code.h@{error\_code.h}}
+\doxysubsubsection{\texorpdfstring{ERROR\_SERVICE\_NOT\_FOUND}{ERROR\_SERVICE\_NOT\_FOUND}}
+{\footnotesize\ttfamily const int ERROR\+\_\+\+SERVICE\+\_\+\+NOT\+\_\+\+FOUND = \mbox{\hyperlink{error__code_8h_ac41258160a486b72428b500268822894}{SYS\+\_\+\+ERROR\+\_\+\+PREFIX}}(0008)}
+
+
+
+service 不存在 
+

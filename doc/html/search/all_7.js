@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['notifyservice_0',['NotifyService',['../class_rpc_provider.html#afd8bfea1ca06f4910152c50866d83871',1,'RpcProvider']]]
+  ['failed_87',['Failed',['../classtinyrpc_1_1RpcController.html#a0aa63f0c34e8f12d84bd189c23fa1e41',1,'tinyrpc::RpcController']]],
+  ['finished_88',['Finished',['../classtinyrpc_1_1RpcController.html#ad6c3febe54a4368aace1799a0c63a3d0',1,'tinyrpc::RpcController']]],
+  ['fixbug_89',['fixbug',['../namespacefixbug.html',1,'']]]
 ];

@@ -1,0 +1,89 @@
+\hypertarget{classtinyrpc_1_1tinyrpcExcept}{}\doxysection{tinyrpc\+::tinyrpc\+Except Class Reference}
+\label{classtinyrpc_1_1tinyrpcExcept}\index{tinyrpc::tinyrpcExcept@{tinyrpc::tinyrpcExcept}}
+
+
+{\ttfamily \#include $<$except.\+hpp$>$}
+
+
+
+Inheritance diagram for tinyrpc\+::tinyrpc\+Except\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=203pt]{classtinyrpc_1_1tinyrpcExcept__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for tinyrpc\+::tinyrpc\+Except\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=203pt]{classtinyrpc_1_1tinyrpcExcept__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtinyrpc_1_1tinyrpcExcept_aa013e4e3dea21a84ccc6e3b41c945eb3}{tinyrpc\+Except}} (const std\+::string error\+Msg, int32\+\_\+t error\+Code=0, std\+::source\+\_\+location source\+Info=std\+::source\+\_\+location\+::current())
+\begin{DoxyCompactList}\small\item\em 通过std\+::source\+\_\+location\+::current()可以获取异常抛出点的位置信息 \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classtinyrpc_1_1tinyrpcExcept_a5465eac90d8140f42217953e2797a0ef}{what}} ()
+\begin{DoxyCompactList}\small\item\em 获取异常信息 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classtinyrpc_1_1tinyrpcExcept_ac050bf38f1496f32444dca049f6e7d62}{Get\+Error\+Code}} ()
+\begin{DoxyCompactList}\small\item\em 获取错误码 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtinyrpc_1_1tinyrpcExcept_aa013e4e3dea21a84ccc6e3b41c945eb3}\label{classtinyrpc_1_1tinyrpcExcept_aa013e4e3dea21a84ccc6e3b41c945eb3}} 
+\index{tinyrpc::tinyrpcExcept@{tinyrpc::tinyrpcExcept}!tinyrpcExcept@{tinyrpcExcept}}
+\index{tinyrpcExcept@{tinyrpcExcept}!tinyrpc::tinyrpcExcept@{tinyrpc::tinyrpcExcept}}
+\doxysubsubsection{\texorpdfstring{tinyrpcExcept()}{tinyrpcExcept()}}
+{\footnotesize\ttfamily tinyrpc\+::tinyrpc\+Except\+::tinyrpc\+Except (\begin{DoxyParamCaption}\item[{const std\+::string}]{error\+Msg,  }\item[{int32\+\_\+t}]{error\+Code = {\ttfamily 0},  }\item[{std\+::source\+\_\+location}]{source\+Info = {\ttfamily std\+:\+:source\+\_\+location\+:\+:current()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+通过std\+::source\+\_\+location\+::current()可以获取异常抛出点的位置信息 
+
+
+\begin{DoxyParams}{Parameters}
+{\em error\+Msg} & 用户自定义错误消息 \\
+\hline
+{\em source\+Info} & 记录抛出点的地址信息 \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtinyrpc_1_1tinyrpcExcept_ac050bf38f1496f32444dca049f6e7d62}\label{classtinyrpc_1_1tinyrpcExcept_ac050bf38f1496f32444dca049f6e7d62}} 
+\index{tinyrpc::tinyrpcExcept@{tinyrpc::tinyrpcExcept}!GetErrorCode@{GetErrorCode}}
+\index{GetErrorCode@{GetErrorCode}!tinyrpc::tinyrpcExcept@{tinyrpc::tinyrpcExcept}}
+\doxysubsubsection{\texorpdfstring{GetErrorCode()}{GetErrorCode()}}
+{\footnotesize\ttfamily int tinyrpc\+::tinyrpc\+Except\+::\+Get\+Error\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+获取错误码 
+
+\begin{DoxyReturn}{Returns}
+返回错误码 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtinyrpc_1_1tinyrpcExcept_a5465eac90d8140f42217953e2797a0ef}\label{classtinyrpc_1_1tinyrpcExcept_a5465eac90d8140f42217953e2797a0ef}} 
+\index{tinyrpc::tinyrpcExcept@{tinyrpc::tinyrpcExcept}!what@{what}}
+\index{what@{what}!tinyrpc::tinyrpcExcept@{tinyrpc::tinyrpcExcept}}
+\doxysubsubsection{\texorpdfstring{what()}{what()}}
+{\footnotesize\ttfamily std\+::string tinyrpc\+::tinyrpc\+Except\+::what (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+获取异常信息 
+
+\begin{DoxyReturn}{Returns}
+返回异常信息字符串 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{except_8hpp}{except.\+hpp}}\end{DoxyCompactItemize}

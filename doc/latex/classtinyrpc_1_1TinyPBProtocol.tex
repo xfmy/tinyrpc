@@ -1,0 +1,209 @@
+\hypertarget{classtinyrpc_1_1TinyPBProtocol}{}\doxysection{tinyrpc\+::Tiny\+PBProtocol Class Reference}
+\label{classtinyrpc_1_1TinyPBProtocol}\index{tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}}
+
+
+{\ttfamily \#include $<$tiny\+PB\+\_\+protocol.\+h$>$}
+
+
+
+Collaboration diagram for tinyrpc\+::Tiny\+PBProtocol\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{classtinyrpc_1_1TinyPBProtocol__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtinyrpc_1_1TinyPBProtocol_a4bb0ea996de6e23039f9d910dcfbc8c4}{Tiny\+PBProtocol}} ()=default
+\item 
+\mbox{\hyperlink{classtinyrpc_1_1TinyPBProtocol_aa1a54b2eeb8a1f94c97b70ce2e65be26}{$\sim$\+Tiny\+PBProtocol}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \mbox{\hyperlink{classtinyrpc_1_1TinyPBProtocol_a0a23f3a8732c99540aaff602a91d6f7d}{package\+Len\+\_\+}} \{0\}
+\begin{DoxyCompactList}\small\item\em 整包长度 \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{classtinyrpc_1_1TinyPBProtocol_ad98c842cc4e0d695b5c68364d4f440ae}{msg\+Id\+Len\+\_\+}} \{0\}
+\begin{DoxyCompactList}\small\item\em rpc消息唯一标识id长度 \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classtinyrpc_1_1TinyPBProtocol_a89d4c627a275555a1065da2ad2beee78}{msg\+Id\+\_\+}}
+\begin{DoxyCompactList}\small\item\em rpc消息唯一标识 \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{classtinyrpc_1_1TinyPBProtocol_abd1d26f2e30a3b9fe3923525dabbc827}{method\+Name\+Len\+\_\+}} \{0\}
+\begin{DoxyCompactList}\small\item\em rpc方法名长度 \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classtinyrpc_1_1TinyPBProtocol_ae75326c6939efb6167fe428e120b4042}{method\+Name\+\_\+}}
+\begin{DoxyCompactList}\small\item\em rpc方法名 \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{classtinyrpc_1_1TinyPBProtocol_afccc494d6acb6d0c11dd5f5fbc1e2d49}{error\+Code\+\_\+}} \{0\}
+\begin{DoxyCompactList}\small\item\em 错误码 \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{classtinyrpc_1_1TinyPBProtocol_a930ce29a0df86f3f9bf72bc2cb8c0d62}{error\+Info\+Len\+\_\+}} \{0\}
+\begin{DoxyCompactList}\small\item\em 错误信息长度 \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classtinyrpc_1_1TinyPBProtocol_ac48ee0132e6f0cfa9ad759e717316b46}{error\+Info\+\_\+}}
+\begin{DoxyCompactList}\small\item\em 错误信息 \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classtinyrpc_1_1TinyPBProtocol_a3ec82e00dcb50ae400b39e4c3f24e1e3}{pb\+Data\+\_\+}}
+\begin{DoxyCompactList}\small\item\em 实际rpc请求数据 \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{classtinyrpc_1_1TinyPBProtocol_ac7e563606232aa3f9aa27b3c9c4ca148}{checksum\+\_\+}} \{0\}
+\begin{DoxyCompactList}\small\item\em 校验码 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classtinyrpc_1_1TinyPBProtocol_a7681287c8092329fcc5b5e07d429833c}{parse\+Success\+\_\+}} \{false\}
+\begin{DoxyCompactList}\small\item\em 判断是否已经被解析成功 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static char \mbox{\hyperlink{classtinyrpc_1_1TinyPBProtocol_acba6ce3834ef6f272cf7d97b22b1372e}{PB\+\_\+\+START}} = 0x\+FE
+\begin{DoxyCompactList}\small\item\em 包头标识,固定为0x\+FE \end{DoxyCompactList}\item 
+static char \mbox{\hyperlink{classtinyrpc_1_1TinyPBProtocol_abbee0bed8e05139cdca99c656b56f26d}{PB\+\_\+\+END}} = 0x\+FF
+\begin{DoxyCompactList}\small\item\em 包尾标识,固定为0x\+FF \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtinyrpc_1_1TinyPBProtocol_a4bb0ea996de6e23039f9d910dcfbc8c4}\label{classtinyrpc_1_1TinyPBProtocol_a4bb0ea996de6e23039f9d910dcfbc8c4}} 
+\index{tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}!TinyPBProtocol@{TinyPBProtocol}}
+\index{TinyPBProtocol@{TinyPBProtocol}!tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}}
+\doxysubsubsection{\texorpdfstring{TinyPBProtocol()}{TinyPBProtocol()}}
+{\footnotesize\ttfamily tinyrpc\+::\+Tiny\+PBProtocol\+::\+Tiny\+PBProtocol (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{classtinyrpc_1_1TinyPBProtocol_aa1a54b2eeb8a1f94c97b70ce2e65be26}\label{classtinyrpc_1_1TinyPBProtocol_aa1a54b2eeb8a1f94c97b70ce2e65be26}} 
+\index{tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}!````~TinyPBProtocol@{$\sim$TinyPBProtocol}}
+\index{````~TinyPBProtocol@{$\sim$TinyPBProtocol}!tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}}
+\doxysubsubsection{\texorpdfstring{$\sim$TinyPBProtocol()}{~TinyPBProtocol()}}
+{\footnotesize\ttfamily tinyrpc\+::\+Tiny\+PBProtocol\+::$\sim$\+Tiny\+PBProtocol (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classtinyrpc_1_1TinyPBProtocol_ac7e563606232aa3f9aa27b3c9c4ca148}\label{classtinyrpc_1_1TinyPBProtocol_ac7e563606232aa3f9aa27b3c9c4ca148}} 
+\index{tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}!checksum\_@{checksum\_}}
+\index{checksum\_@{checksum\_}!tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}}
+\doxysubsubsection{\texorpdfstring{checksum\_}{checksum\_}}
+{\footnotesize\ttfamily int32\+\_\+t tinyrpc\+::\+Tiny\+PBProtocol\+::checksum\+\_\+ \{0\}}
+
+
+
+校验码 
+
+\mbox{\Hypertarget{classtinyrpc_1_1TinyPBProtocol_afccc494d6acb6d0c11dd5f5fbc1e2d49}\label{classtinyrpc_1_1TinyPBProtocol_afccc494d6acb6d0c11dd5f5fbc1e2d49}} 
+\index{tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}!errorCode\_@{errorCode\_}}
+\index{errorCode\_@{errorCode\_}!tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}}
+\doxysubsubsection{\texorpdfstring{errorCode\_}{errorCode\_}}
+{\footnotesize\ttfamily int32\+\_\+t tinyrpc\+::\+Tiny\+PBProtocol\+::error\+Code\+\_\+ \{0\}}
+
+
+
+错误码 
+
+\mbox{\Hypertarget{classtinyrpc_1_1TinyPBProtocol_ac48ee0132e6f0cfa9ad759e717316b46}\label{classtinyrpc_1_1TinyPBProtocol_ac48ee0132e6f0cfa9ad759e717316b46}} 
+\index{tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}!errorInfo\_@{errorInfo\_}}
+\index{errorInfo\_@{errorInfo\_}!tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}}
+\doxysubsubsection{\texorpdfstring{errorInfo\_}{errorInfo\_}}
+{\footnotesize\ttfamily std\+::string tinyrpc\+::\+Tiny\+PBProtocol\+::error\+Info\+\_\+}
+
+
+
+错误信息 
+
+\mbox{\Hypertarget{classtinyrpc_1_1TinyPBProtocol_a930ce29a0df86f3f9bf72bc2cb8c0d62}\label{classtinyrpc_1_1TinyPBProtocol_a930ce29a0df86f3f9bf72bc2cb8c0d62}} 
+\index{tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}!errorInfoLen\_@{errorInfoLen\_}}
+\index{errorInfoLen\_@{errorInfoLen\_}!tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}}
+\doxysubsubsection{\texorpdfstring{errorInfoLen\_}{errorInfoLen\_}}
+{\footnotesize\ttfamily int32\+\_\+t tinyrpc\+::\+Tiny\+PBProtocol\+::error\+Info\+Len\+\_\+ \{0\}}
+
+
+
+错误信息长度 
+
+\mbox{\Hypertarget{classtinyrpc_1_1TinyPBProtocol_ae75326c6939efb6167fe428e120b4042}\label{classtinyrpc_1_1TinyPBProtocol_ae75326c6939efb6167fe428e120b4042}} 
+\index{tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}!methodName\_@{methodName\_}}
+\index{methodName\_@{methodName\_}!tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}}
+\doxysubsubsection{\texorpdfstring{methodName\_}{methodName\_}}
+{\footnotesize\ttfamily std\+::string tinyrpc\+::\+Tiny\+PBProtocol\+::method\+Name\+\_\+}
+
+
+
+rpc方法名 
+
+\mbox{\Hypertarget{classtinyrpc_1_1TinyPBProtocol_abd1d26f2e30a3b9fe3923525dabbc827}\label{classtinyrpc_1_1TinyPBProtocol_abd1d26f2e30a3b9fe3923525dabbc827}} 
+\index{tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}!methodNameLen\_@{methodNameLen\_}}
+\index{methodNameLen\_@{methodNameLen\_}!tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}}
+\doxysubsubsection{\texorpdfstring{methodNameLen\_}{methodNameLen\_}}
+{\footnotesize\ttfamily int32\+\_\+t tinyrpc\+::\+Tiny\+PBProtocol\+::method\+Name\+Len\+\_\+ \{0\}}
+
+
+
+rpc方法名长度 
+
+\mbox{\Hypertarget{classtinyrpc_1_1TinyPBProtocol_a89d4c627a275555a1065da2ad2beee78}\label{classtinyrpc_1_1TinyPBProtocol_a89d4c627a275555a1065da2ad2beee78}} 
+\index{tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}!msgId\_@{msgId\_}}
+\index{msgId\_@{msgId\_}!tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}}
+\doxysubsubsection{\texorpdfstring{msgId\_}{msgId\_}}
+{\footnotesize\ttfamily std\+::string tinyrpc\+::\+Tiny\+PBProtocol\+::msg\+Id\+\_\+}
+
+
+
+rpc消息唯一标识 
+
+\mbox{\Hypertarget{classtinyrpc_1_1TinyPBProtocol_ad98c842cc4e0d695b5c68364d4f440ae}\label{classtinyrpc_1_1TinyPBProtocol_ad98c842cc4e0d695b5c68364d4f440ae}} 
+\index{tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}!msgIdLen\_@{msgIdLen\_}}
+\index{msgIdLen\_@{msgIdLen\_}!tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}}
+\doxysubsubsection{\texorpdfstring{msgIdLen\_}{msgIdLen\_}}
+{\footnotesize\ttfamily int32\+\_\+t tinyrpc\+::\+Tiny\+PBProtocol\+::msg\+Id\+Len\+\_\+ \{0\}}
+
+
+
+rpc消息唯一标识id长度 
+
+\mbox{\Hypertarget{classtinyrpc_1_1TinyPBProtocol_a0a23f3a8732c99540aaff602a91d6f7d}\label{classtinyrpc_1_1TinyPBProtocol_a0a23f3a8732c99540aaff602a91d6f7d}} 
+\index{tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}!packageLen\_@{packageLen\_}}
+\index{packageLen\_@{packageLen\_}!tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}}
+\doxysubsubsection{\texorpdfstring{packageLen\_}{packageLen\_}}
+{\footnotesize\ttfamily int32\+\_\+t tinyrpc\+::\+Tiny\+PBProtocol\+::package\+Len\+\_\+ \{0\}}
+
+
+
+整包长度 
+
+\mbox{\Hypertarget{classtinyrpc_1_1TinyPBProtocol_a7681287c8092329fcc5b5e07d429833c}\label{classtinyrpc_1_1TinyPBProtocol_a7681287c8092329fcc5b5e07d429833c}} 
+\index{tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}!parseSuccess\_@{parseSuccess\_}}
+\index{parseSuccess\_@{parseSuccess\_}!tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}}
+\doxysubsubsection{\texorpdfstring{parseSuccess\_}{parseSuccess\_}}
+{\footnotesize\ttfamily bool tinyrpc\+::\+Tiny\+PBProtocol\+::parse\+Success\+\_\+ \{false\}}
+
+
+
+判断是否已经被解析成功 
+
+\mbox{\Hypertarget{classtinyrpc_1_1TinyPBProtocol_abbee0bed8e05139cdca99c656b56f26d}\label{classtinyrpc_1_1TinyPBProtocol_abbee0bed8e05139cdca99c656b56f26d}} 
+\index{tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}!PB\_END@{PB\_END}}
+\index{PB\_END@{PB\_END}!tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}}
+\doxysubsubsection{\texorpdfstring{PB\_END}{PB\_END}}
+{\footnotesize\ttfamily char tinyrpc\+::\+Tiny\+PBProtocol\+::\+PB\+\_\+\+END = 0x\+FF\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+包尾标识,固定为0x\+FF 
+
+\mbox{\Hypertarget{classtinyrpc_1_1TinyPBProtocol_acba6ce3834ef6f272cf7d97b22b1372e}\label{classtinyrpc_1_1TinyPBProtocol_acba6ce3834ef6f272cf7d97b22b1372e}} 
+\index{tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}!PB\_START@{PB\_START}}
+\index{PB\_START@{PB\_START}!tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}}
+\doxysubsubsection{\texorpdfstring{PB\_START}{PB\_START}}
+{\footnotesize\ttfamily char tinyrpc\+::\+Tiny\+PBProtocol\+::\+PB\+\_\+\+START = 0x\+FE\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+包头标识,固定为0x\+FE 
+
+\mbox{\Hypertarget{classtinyrpc_1_1TinyPBProtocol_a3ec82e00dcb50ae400b39e4c3f24e1e3}\label{classtinyrpc_1_1TinyPBProtocol_a3ec82e00dcb50ae400b39e4c3f24e1e3}} 
+\index{tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}!pbData\_@{pbData\_}}
+\index{pbData\_@{pbData\_}!tinyrpc::TinyPBProtocol@{tinyrpc::TinyPBProtocol}}
+\doxysubsubsection{\texorpdfstring{pbData\_}{pbData\_}}
+{\footnotesize\ttfamily std\+::string tinyrpc\+::\+Tiny\+PBProtocol\+::pb\+Data\+\_\+}
+
+
+
+实际rpc请求数据 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/tinypb/\mbox{\hyperlink{tinyPB__protocol_8h}{tiny\+PB\+\_\+protocol.\+h}}\item 
+src/tinypb/\mbox{\hyperlink{tinyPB__protocol_8cpp}{tiny\+PB\+\_\+protocol.\+cpp}}\end{DoxyCompactItemize}

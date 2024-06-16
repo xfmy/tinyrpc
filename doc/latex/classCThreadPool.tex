@@ -1,0 +1,163 @@
+\hypertarget{classCThreadPool}{}\doxysection{CThread\+Pool Class Reference}
+\label{classCThreadPool}\index{CThreadPool@{CThreadPool}}
+
+
+纯cpp11手写线程池，（互斥锁，条件变量，原子变量，手动实现cpp17 any及cpp20 信号量）  
+
+
+
+
+{\ttfamily \#include $<$thread\+\_\+pool.\+h$>$}
+
+
+
+Collaboration diagram for CThread\+Pool\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=241pt]{classCThreadPool__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classCThreadPool_a99e6fc8eab3ba2d6c0d018f33e7251bc}{Set\+Mode}} (\mbox{\hyperlink{thread__pool_8h_ae82ba535d0d603e355b17942b051550c}{CPool\+Mode}} parameter)
+\begin{DoxyCompactList}\small\item\em 设置线程池模式 \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Func , typename... Args$>$ }\\auto \mbox{\hyperlink{classCThreadPool_ae13d087eb4a574e0de57e76b02590989}{Add\+Task}} (Func \&\&func, Args \&\&... args) -\/$>$ std\+::future$<$ decltype(func(args...))$>$
+\begin{DoxyCompactList}\small\item\em 线程池添加任务模板函数 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCThreadPool_acd56220d60c65044eec97c86398a578e}{Start}} (int count=\mbox{\hyperlink{thread__pool_8h_a334fa67abb73adbff0b41c8d58f36765}{INIT\+\_\+\+THREAD\+\_\+\+COUNT}})
+\begin{DoxyCompactList}\small\item\em 启动线程池 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCThreadPool_a7761122293f52232f13da649bbe892a5}{Set\+Task\+Que\+Max\+Threshold}} (int threshhold)
+\begin{DoxyCompactList}\small\item\em 设置任务上限阙值 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCThreadPool_a7c191ed9d4869f84bfb37c3401b47388}{Set\+Thread\+Size\+Thresh\+Hold}} (size\+\_\+t threshhold)
+\begin{DoxyCompactList}\small\item\em 设置线程上限阙值 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCThreadPool_abdab417f212176a49e0f9902064dfc07}{Call\+Thread\+Function}} (int)
+\begin{DoxyCompactList}\small\item\em 线程执行函数 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCThreadPool_ad782c35d603373734182289680d146c6}{CThread\+Pool}} ()
+\item 
+\mbox{\hyperlink{classCThreadPool_acb6a395b0928bd2472801b0d9ac8b3c0}{$\sim$\+CThread\+Pool}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+纯cpp11手写线程池，（互斥锁，条件变量，原子变量，手动实现cpp17 any及cpp20 信号量） 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCThreadPool_ad782c35d603373734182289680d146c6}\label{classCThreadPool_ad782c35d603373734182289680d146c6}} 
+\index{CThreadPool@{CThreadPool}!CThreadPool@{CThreadPool}}
+\index{CThreadPool@{CThreadPool}!CThreadPool@{CThreadPool}}
+\doxysubsubsection{\texorpdfstring{CThreadPool()}{CThreadPool()}}
+{\footnotesize\ttfamily CThread\+Pool\+::\+CThread\+Pool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCThreadPool_acb6a395b0928bd2472801b0d9ac8b3c0}\label{classCThreadPool_acb6a395b0928bd2472801b0d9ac8b3c0}} 
+\index{CThreadPool@{CThreadPool}!````~CThreadPool@{$\sim$CThreadPool}}
+\index{````~CThreadPool@{$\sim$CThreadPool}!CThreadPool@{CThreadPool}}
+\doxysubsubsection{\texorpdfstring{$\sim$CThreadPool()}{~CThreadPool()}}
+{\footnotesize\ttfamily CThread\+Pool\+::$\sim$\+CThread\+Pool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCThreadPool_ae13d087eb4a574e0de57e76b02590989}\label{classCThreadPool_ae13d087eb4a574e0de57e76b02590989}} 
+\index{CThreadPool@{CThreadPool}!AddTask@{AddTask}}
+\index{AddTask@{AddTask}!CThreadPool@{CThreadPool}}
+\doxysubsubsection{\texorpdfstring{AddTask()}{AddTask()}}
+{\footnotesize\ttfamily template$<$typename Func , typename... Args$>$ \\
+auto CThread\+Pool\+::\+Add\+Task (\begin{DoxyParamCaption}\item[{Func \&\&}]{func,  }\item[{Args \&\&...}]{args }\end{DoxyParamCaption}) -\/$>$ std\+::future$<$decltype(func(args...))$>$     \hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+线程池添加任务模板函数 
+
+
+\begin{DoxyParams}{Parameters}
+{\em func} & 函数对象 \\
+\hline
+{\em args} & 函数参数(不定量) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+返回一个future,其内包装了函数的返回值 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCThreadPool_abdab417f212176a49e0f9902064dfc07}\label{classCThreadPool_abdab417f212176a49e0f9902064dfc07}} 
+\index{CThreadPool@{CThreadPool}!CallThreadFunction@{CallThreadFunction}}
+\index{CallThreadFunction@{CallThreadFunction}!CThreadPool@{CThreadPool}}
+\doxysubsubsection{\texorpdfstring{CallThreadFunction()}{CallThreadFunction()}}
+{\footnotesize\ttfamily void CThread\+Pool\+::\+Call\+Thread\+Function (\begin{DoxyParamCaption}\item[{int}]{thread\+Id }\end{DoxyParamCaption})}
+
+
+
+线程执行函数 
+
+
+\begin{DoxyParams}{Parameters}
+{\em 线程编号} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCThreadPool_a99e6fc8eab3ba2d6c0d018f33e7251bc}\label{classCThreadPool_a99e6fc8eab3ba2d6c0d018f33e7251bc}} 
+\index{CThreadPool@{CThreadPool}!SetMode@{SetMode}}
+\index{SetMode@{SetMode}!CThreadPool@{CThreadPool}}
+\doxysubsubsection{\texorpdfstring{SetMode()}{SetMode()}}
+{\footnotesize\ttfamily void CThread\+Pool\+::\+Set\+Mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{thread__pool_8h_ae82ba535d0d603e355b17942b051550c}{CPool\+Mode}}}]{parameter }\end{DoxyParamCaption})}
+
+
+
+设置线程池模式 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parameter} & CPool\+Mode枚举类型 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCThreadPool_a7761122293f52232f13da649bbe892a5}\label{classCThreadPool_a7761122293f52232f13da649bbe892a5}} 
+\index{CThreadPool@{CThreadPool}!SetTaskQueMaxThreshold@{SetTaskQueMaxThreshold}}
+\index{SetTaskQueMaxThreshold@{SetTaskQueMaxThreshold}!CThreadPool@{CThreadPool}}
+\doxysubsubsection{\texorpdfstring{SetTaskQueMaxThreshold()}{SetTaskQueMaxThreshold()}}
+{\footnotesize\ttfamily void CThread\+Pool\+::\+Set\+Task\+Que\+Max\+Threshold (\begin{DoxyParamCaption}\item[{int}]{threshhold }\end{DoxyParamCaption})}
+
+
+
+设置任务上限阙值 
+
+
+\begin{DoxyParams}{Parameters}
+{\em threshhold} & 阙值数值 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCThreadPool_a7c191ed9d4869f84bfb37c3401b47388}\label{classCThreadPool_a7c191ed9d4869f84bfb37c3401b47388}} 
+\index{CThreadPool@{CThreadPool}!SetThreadSizeThreshHold@{SetThreadSizeThreshHold}}
+\index{SetThreadSizeThreshHold@{SetThreadSizeThreshHold}!CThreadPool@{CThreadPool}}
+\doxysubsubsection{\texorpdfstring{SetThreadSizeThreshHold()}{SetThreadSizeThreshHold()}}
+{\footnotesize\ttfamily void CThread\+Pool\+::\+Set\+Thread\+Size\+Thresh\+Hold (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{threshhold }\end{DoxyParamCaption})}
+
+
+
+设置线程上限阙值 
+
+
+\begin{DoxyParams}{Parameters}
+{\em threshhold} & 阙值数值 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCThreadPool_acd56220d60c65044eec97c86398a578e}\label{classCThreadPool_acd56220d60c65044eec97c86398a578e}} 
+\index{CThreadPool@{CThreadPool}!Start@{Start}}
+\index{Start@{Start}!CThreadPool@{CThreadPool}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void CThread\+Pool\+::\+Start (\begin{DoxyParamCaption}\item[{int}]{count = {\ttfamily \mbox{\hyperlink{thread__pool_8h_a334fa67abb73adbff0b41c8d58f36765}{INIT\+\_\+\+THREAD\+\_\+\+COUNT}}} }\end{DoxyParamCaption})}
+
+
+
+启动线程池 
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & 初始线程数量,默认为cpu核心数量 \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/base/\mbox{\hyperlink{thread__pool_8h}{thread\+\_\+pool.\+h}}\item 
+src/base/\mbox{\hyperlink{thread__pool_8cpp}{thread\+\_\+pool.\+cpp}}\end{DoxyCompactItemize}

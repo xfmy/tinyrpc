@@ -1,6 +1,26 @@
 var searchData=
 [
-  ['tinyrpcapplication_0',['tinyrpcApplication',['../class_tinyrpc_application.html',1,'']]],
-  ['tinyrpcapplication_2eh_1',['tinyrpcApplication.h',['../tinyrpc_application_8h.html',1,'']]],
-  ['tinyrpcnetwork_2eh_2',['tinyrpcNetwork.h',['../tinyrpc_network_8h.html',1,'']]]
+  ['encode_64',['encode',['../classtinyrpc_1_1TinyPBCoder.html#ac6fc7d8a2b81eedd582123806e2104f3',1,'tinyrpc::TinyPBCoder']]],
+  ['errcode_65',['errcode',['../classfixbug_1_1ResultCode.html#a63c91a9fc995acbfce70aa770c912fa8',1,'fixbug::ResultCode']]],
+  ['errmsg_66',['errmsg',['../classfixbug_1_1ResultCode.html#ae9ab6d3f23ba9f2de4892149c40a7257',1,'fixbug::ResultCode']]],
+  ['error_5fcode_2eh_67',['error_code.h',['../error__code_8h.html',1,'']]],
+  ['error_5ffailed_5fconnect_68',['ERROR_FAILED_CONNECT',['../error__code_8h.html#afece96d5ea6434d25aa05e713067da90',1,'error_code.h']]],
+  ['error_5ffailed_5fdecode_69',['ERROR_FAILED_DECODE',['../error__code_8h.html#aeb5c7429dadd064f6aa9f9417afde882',1,'error_code.h']]],
+  ['error_5ffailed_5fdeserialize_70',['ERROR_FAILED_DESERIALIZE',['../error__code_8h.html#a29d0f39781253bbc8629d1b555d109e1',1,'error_code.h']]],
+  ['error_5ffailed_5fencode_71',['ERROR_FAILED_ENCODE',['../error__code_8h.html#a47a2701982b048534cc18de8d3dd9c8a',1,'error_code.h']]],
+  ['error_5ffailed_5fget_5freply_72',['ERROR_FAILED_GET_REPLY',['../error__code_8h.html#a5746d52ab9f6a0f0ebb4a0f943d81dae',1,'error_code.h']]],
+  ['error_5ffailed_5fserialize_73',['ERROR_FAILED_SERIALIZE',['../error__code_8h.html#a94a94dcc40757cec57182fe25b32819a',1,'error_code.h']]],
+  ['error_5fmethod_5fnot_5ffound_74',['ERROR_METHOD_NOT_FOUND',['../error__code_8h.html#a0247d7dc808f4bf6e9d2c22e4321a88e',1,'error_code.h']]],
+  ['error_5fparse_5fservice_5fname_75',['ERROR_PARSE_SERVICE_NAME',['../error__code_8h.html#abae8ee0441082bf8577f2cc49334b62d',1,'error_code.h']]],
+  ['error_5fpeer_5fclosed_76',['ERROR_PEER_CLOSED',['../error__code_8h.html#acd2be39565189613f135692e2794b763',1,'error_code.h']]],
+  ['error_5frpc_5fcall_5ftimeout_77',['ERROR_RPC_CALL_TIMEOUT',['../error__code_8h.html#a9d8cb3f162169a9db9e0635d0cb8b84c',1,'error_code.h']]],
+  ['error_5frpc_5fchannel_5finit_78',['ERROR_RPC_CHANNEL_INIT',['../error__code_8h.html#a748fc23793e33c1611ef3edf1f26e10d',1,'error_code.h']]],
+  ['error_5frpc_5fpeer_5faddr_79',['ERROR_RPC_PEER_ADDR',['../error__code_8h.html#a8faffb14b23a87e66a49fa46b19f8c83',1,'error_code.h']]],
+  ['error_5fservice_5fnot_5ffound_80',['ERROR_SERVICE_NOT_FOUND',['../error__code_8h.html#a8450388cac4e7d2ba31fc28524f8e387',1,'error_code.h']]],
+  ['errorcode_5f_81',['errorCode_',['../classtinyrpc_1_1TinyPBProtocol.html#afccc494d6acb6d0c11dd5f5fbc1e2d49',1,'tinyrpc::TinyPBProtocol']]],
+  ['errorinfo_5f_82',['errorInfo_',['../classtinyrpc_1_1TinyPBProtocol.html#ac48ee0132e6f0cfa9ad759e717316b46',1,'tinyrpc::TinyPBProtocol']]],
+  ['errorinfolen_5f_83',['errorInfoLen_',['../classtinyrpc_1_1TinyPBProtocol.html#a930ce29a0df86f3f9bf72bc2cb8c0d62',1,'tinyrpc::TinyPBProtocol']]],
+  ['errortext_84',['ErrorText',['../classtinyrpc_1_1RpcController.html#a61d4022ecde3487630d5eb09af3a7123',1,'tinyrpc::RpcController']]],
+  ['except_2ehpp_85',['except.hpp',['../except_8hpp.html',1,'']]],
+  ['execute_86',['execute',['../classtinyrpc_1_1RpcInitConfig.html#acbdfdc6628557159d634eb27558ca1b1',1,'tinyrpc::RpcInitConfig']]]
 ];
