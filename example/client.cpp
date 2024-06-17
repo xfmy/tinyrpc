@@ -1,7 +1,7 @@
 /**
  * @file client.cpp
  * @brief rpc client 示例代码
- * 
+ *
  */
 
 #include "rpc_channel.h"
@@ -15,16 +15,17 @@ int main(int argc, char** argv)
 {
     if (argc != 2)
     {
-        std::cout << "启动项参数异常,请检查: ./client initConfigFile.conf"
+        std::cout << "启动项参数异常,请检查:./client initConfigFile.conf"
                   << std::endl;
-        return -1;
+        return 1;
     }
     //初始化框架
     RpcApplication::GetInstance().init(argv[1]);
 
-    //演示调用远程发布的rpc方法Login
+    //在客户端创建服务调用类对象stub
     fixbug::user_Stub stub(new RpcChannel());
 
+    // 创建RPC调用的请求对象和响应对象；
     // rpc参数
     fixbug::LoginRequest request;
     request.set_name("zhang san");

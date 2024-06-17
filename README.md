@@ -95,6 +95,7 @@ syntax = "proto3";//声明了protobuf的版本
 
 package  fixbug;//声明代码所在位置,对于c++来说是namespace
 
+// 生成service服务类的描述，默认不生成
 option cc_generic_services = true;
 
 //定义登录请求基本类型 name pwd
@@ -104,18 +105,21 @@ message LoginRequest
 	string pwd = 2;
 }
 
+//状态
 message ResultCode
 {
 	int32 errCode = 1;
 	string errMsg = 2;
 }
 
+// 响应
 message LoginResponse
 {
 	ResultCode result = 1;
 	bool sucess  = 2;
 }
 
+// 定义rpc接口
 service user
 {
     rpc Login(LoginRequest) returns(LoginResponse);
@@ -155,14 +159,19 @@ public:
                        fixbug::LoginResponse* response,
                        google::protobuf::Closure* done) override
     {
+        // 框架给业务上报了请求参数LoginRequest，应用获取相应数据做本地业务
         std::string name = requst->name();
         std::string password = requst->pwd();
+        
+         // 做本地业务
         int res = Login(name, password);
+        
+        // 把响应写入，包括错误码、错误消息、返回值
         fixbug::ResultCode* resCode = response->mutable_result();
         resCode->set_errcode(0);
         resCode->set_errmsg("一切正常 very good");
         response->set_sucess(res);
-        //Closure是一个抽象类，
+        // 执行回调操作, 执行响应对象数据的序列化和网络发送（都是由框架来完成的）
         done->Run();
     }
 };
@@ -176,6 +185,7 @@ RpcDispatcher provider;
 std::shared_ptr<UserService> userService = std::make_shared<UserService>();
 //将你需要的服务可以注册到框架上
 provider.registerService(userService);
+// 启动服务
 provider.run();
 ```
 
@@ -202,9 +212,10 @@ int main(int argc, char** argv)
     //初始化框架
     RpcApplication::GetInstance().init(argv[1]);
 
-    //演示调用远程发布的rpc方法Login
+    //在客户端创建服务调用类对象stub
     fixbug::user_Stub stub( new RpcChannel());
 
+    // 创建RPC调用的请求对象和响应对象；
     // rpc参数
     fixbug::LoginRequest request;
     request.set_name("zhang san");
@@ -332,7 +343,7 @@ public:
 };
 ```
 
-### 时序图
+### RPC时序图
 
 ![solo-fetchupload-6893165705734529521-7932f433](https://s2.loli.net/2024/06/06/5YZd8x4gyL3K7tC.jpg)
 

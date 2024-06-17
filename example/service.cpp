@@ -28,20 +28,20 @@ public:
                        fixbug::LoginResponse* response,
                        google::protobuf::Closure* done) override
     {
-        /*
-            或取请求参数
-            调用本地对应的方法
-            通过请求参数获取本地对应的信息
-            封装响应消息，通过回到用返回给rpcClient端
-        */
+        // 框架给业务上报了请求参数LoginRequest，应用获取相应数据做本地业务
         std::string name = requst->name();
         std::string password = requst->pwd();
+
+        // 做本地业务
         int res = Login(name, password);
+
+        // 把响应写入，包括错误码、错误消息、返回值
         fixbug::ResultCode* resCode = response->mutable_result();
         resCode->set_errcode(0);
         resCode->set_errmsg("一切正常 very good");
         response->set_sucess(res);
-        // Closure是一个抽象类，
+        // 执行回调操作,
+        // 执行响应对象数据的序列化和网络发送（都是由框架来完成的）
         done->Run();
     }
 };
